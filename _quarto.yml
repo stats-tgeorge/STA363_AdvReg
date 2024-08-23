@@ -9,7 +9,7 @@ project:
   
 website:
   title: "{{< var course.title >}}"
-  site-url: https://sta362-sb8-24.github.io/STA362StatLearning/
+  site-url: https://stats-tgeorge.github.io/STA363_AdvReg/
       
   sidebar:
     background: "#BBBCBC"
@@ -27,13 +27,13 @@ website:
         text: "Moodle"
         menu:
           - text: Announcements
-            url: https://moodle.cornellcollege.edu/mod/forum/view.php?id=262697
+            url: https://moodle.cornellcollege.edu/mod/forum/view.php?id=296372
           - text: Gradebook
-            url: https://moodle.cornellcollege.edu/grade/report/grader/index.php?id=7669
+            url: https://moodle.cornellcollege.edu/grade/report/grader/index.php?id=7908
           - text: Homepage
-            url: https://moodle.cornellcollege.edu/course/view.php?id=7669
+            url: https://moodle.cornellcollege.edu/course/view.php?id=7908
       - icon: calendar
-        href: https://calendar.google.com/calendar/u/0?cid=Y19hMDllY2RmYTIyMjMyMTY1YWQwNTE0YjI0Y2FmNjMyMWM1N2YwY2M3MjExNmQ2MjAxMzQxZDdlMTFmZTZiZTUwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20
+        href: https://calendar.google.com/calendar/u/0?cid=Y19hMTllMWE2M2IwOGFiNDkzYmQxNmJmNWU3MThhZmM1OWYxODIyN2EwZDhmOGQzZGMyOGRjMzE5YjQ1NmJlYjFiQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20
         text: Course Calendar
 
     style: "docked"
@@ -46,8 +46,8 @@ website:
             text: Schedule & Assignments
           - href: course-links.qmd
             text: Useful links
-          - href: project.qmd
-            text: Project
+          # - href: project.qmd
+          #   text: Project
       #     - href: project/1-working-collaboratively.qmd
       #       text: Working Together Lab
             

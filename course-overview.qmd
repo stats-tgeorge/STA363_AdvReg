@@ -4,4 +4,4 @@ title: "{{< var course.title >}}"
 
 ### Course Description
 
-This course will introduce students to relatively new and powerful statistical techniques used to analyze data. The course will begin with a review of linear regression and an introduction to computer-based variable and model selection methods. Other topics will include classification methods, resampling methods for model-building, non-linear models, and tree-based methods. The computer software program R will be used throughout.
+Following a second regression course, this class will begin with a review of multiple linear regression, but now using R. New topics will include probability distributions, likelihoods, differentiating binary vs binomial logistic regression,  and poisson regression including its variants. The class of generalized linear models will then be presented which unifies all past modeling approaches. All methods are presented using realistic case studies. Conducting and communicating the modeling process including exploratory data analysis, model exploration and selection, and inferences are all emphasized. 

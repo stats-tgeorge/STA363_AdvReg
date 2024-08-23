@@ -63,6 +63,6 @@ d %>%
                     glue::glue("<a href = {x}>{fontawesome::fa('vials')}</a>"))
              }) %>%
   cols_width(Topic ~ px(300)) |>
-  fmt_date(Date, date_style = 9) %>%
+  fmt_date(Date, date_style = 10) %>%
   sub_missing(columns = Date, missing_text = "")
 ```
