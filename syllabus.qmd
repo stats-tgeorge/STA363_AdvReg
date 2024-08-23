@@ -1,0 +1,193 @@
+---
+title: "{{< var course.title >}}"
+subtitle: "Fall 2024 Block 1"
+format:
+  html: default
+---
+
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+library(dplyr)
+library(tibble)
+library(pander)
+```
+
+:::: {.columns}
+
+::: {.column width="33%"}
+
+### Instructor
+
+Instructor [{{< var instructor.name >}}]({{< var instructor.url >}})
+
+`r fontawesome::fa('university')` &nbsp; {{< var college.name >}}, {{< var instructor.office >}}
+
+{{< fa solid envelope >}} &nbsp; <a href="mailto:tgeorge@cornellcollege.edu"> tgeorge\@cornellcollege.edu </a>
+
+
+
+
+:::
+
+::: {.column width="33%"}
+
+### Class Meetings
+
+August 28th - September 18th
+
+`r fontawesome::fa("clock")` &nbsp; {{< var course.time >}}
+
+`r fontawesome::fa("location-dot")` &nbsp; West 201
+
+`r fontawesome::fa("calendar-alt")` &nbsp; [Course Calendar]({{< var course.coursecal >}})
+
+
+:::
+
+::: {.column width="33%"}
+
+### Office Hours
+
+`r fontawesome::fa("calendar")` &nbsp; {{< var instructor.officehrs >}}
+
+`r fontawesome::fa("location-dot")` &nbsp; {{< var instructor.office >}}
+
+`r fontawesome::fa("calendar-check")` &nbsp; [Optional Appointment]({{< var instructor.appointment_url >}})
+
+:::
+
+:::
+
+I am available far beyond these times listed. Please email me and we can set up a time to chat about class material or whatever you prefer! I will generally announce changes to office hours in class but I still suggest checking the [Course Calendar]({{< var course.coursecal >}}) to verify availability. 
+
+### You Are A Priority
+
+My goal this block is to help you learn the material. I want to first and foremost recognize that you are an individual and thus are unique and may learn uniquely. Additionally, your health and wellbeing are priority one. Learning cannot happen effectively if you don’t meet your other personal needs. That all being said, I have structured the class in a way that I, from experience teaching and learning myself, think will be most beneficial for the majority of students. I promise you that I will do my best to create an inclusive and engaging learning environment. I ask that you keep an open line of communication between us for when you may need help and/or flexibility. You and your learning are why I am here.
+
+### Course Description
+
+Following a second regression course, this class will begin with a review of multiple linear regression, but now using R. New topics will include probability distributions, likelihoods, differentiating binary vs binomial logistic regression,  and poisson regression including its variants. The class of generalized linear models will then be presented which unifies all past modeling approaches. All methods are presented using realistic case studies. Conducting and communicating the modeling process including exploratory data analysis, model exploration and selection, and inferences are all emphasized. Prerequisite(s): STA 202 and DSC 223.  Alternate years.
+
+### Learning Objectives
+
+This course supports the Educational Priorities and Outcomes of Cornell College with emphases on knowledge, communication, and reasoning. Specifically, the learning objectives of this course are:
+- Learn statistical distributions, likelihoods functions, and types of models including poisson regression, quasi-logistic regression, multilevel models, and polynomial regression. 
+- Ability to communicate statistical ideas clearly and accurately (communication). 
+- Understand the class of generalized linear models and the models contained (knowledge, reasoning). 
+- Ability to ascertain which type of analysis is appropriate for a particular data set and question (reasoning). 
+
+
+
+### Prerequisite
+
+To be successful in this class, you should have completed STA 201, STA 202, and DSC 223. 
+
+### Open Access Books – Free!
+
+All of materials for this class are free. 
+
+{{< var course.text >}}
+
+{{< var course.text2 >}}
+
+### Course Site and Moodle
+
+Our course will run from a combination of [Moodle]({{< var course.moodle >}}) and the course website at [{{< var course.url >}}]({{< var course.url >}}).
+
+### Software – No need to install
+
+We will use a combination of technologies in this course including R, and RStudio (server).  Luckily for you I have put lots of effort into setting all of this on a machine we have on campus that we will all access with a web browser! You don’t need to install any – in fact for a while I prefer you don’t. More on this in class. If you are an off campus student, please let me know right away, as you may need to checkout a laptop (free) from IT to work on homework from home. 
+
+You can access the RStudio Server at: {{< var college.rstudio >}}
+
+**If you have any technical problems you should contact IT as soon as possible**. [Submit a Work Order](https://www.cornellcollege.edu/information-technology/index.shtml)!
+
+### Group Work
+
+In this class, I would like you to work in groups for a variety of reasons. A large part of this class is communicating analysis. At the beginning of the block, groups will be formed. You should expect to work with this group every day. When we work in groups in class we may decide on roles, specifically who is controlling the one screen will rotate). Group members will rotate roles between tasks to help make sure everybody is sharing work. You won’t be working in a group for everything; any quizzes, and exams may be individual. 
+
+### Evaluations and grades
+
+```{r assignments-grades, include=FALSE}
+assignments <- tibble::tribble(
+  ~Points,  ~Assignment,
+  200 , "Homework",
+  100 ,   "Participation",
+  300      ,  "Mini Projects",
+  400      ,  "Exams, two 200pts exams",
+)
+
+grading <- tibble::tribble(
+  ~Grade, ~Range,  ~Grade1, ~Range1,
+  "A",  "93-100%",  "C",  "73-76%",
+  "A-", "90–92%",    "C-", "70-72%",
+  "B+", "87–89%",   "D+", "67-69%",
+  "B",  "83-86%",  "D", "63-66%",
+  "B-",  "80-82%",   "D-", "60-62%",
+  "C+",  "77-79%",   "F",  "<60%"
+  
+)
+```
+
+#### Grade Category Descriptions
+
+##### Homework:
+
+Homeworks will be graded for correctness. I will evaluate between a subset of the questions, to all of the questions included in a homework to evaluate. The goal is the practice the application of the method and then be able to interpret the result. 
+
+##### Participation
+
+This will be measured by attending class, and working on labs and class examples. With class work, you will save your script files in a folder that I can view on the RStudio server. 
+
+##### Mini-Project
+
+This class includes a variety of related techniques where generally only 1 of them is the correct technique for particular research questions. For this reason, we will do mini "projects" at the end of each major new approach. This will finding data, cleaning the data, and then applying the technique. 
+
+##### Exams
+
+There will be in class exams on {{< var course.exam_dates >}}. There will be two components. Component 1 will be on these dates and you will get a choice of oral or written. Component 2 will be take-home, open-book and notes. 
+
+
+<div class="centered-table">
+
+```{r show-assignments-table, echo=FALSE, results="asis"}
+assignments_total <- tibble(Assignment = "Total",
+                            Points = sum(assignments$Points))
+
+bind_rows(assignments, assignments_total) %>% 
+  select(Assignment, Points) %>% 
+  pandoc.table(justify = "lc", missing = "—")
+```
+</div>
+
+<div class="centered-table">
+
+```{r show-grades-table, echo=FALSE, results="asis"}
+grading %>%
+  pandoc.table(justify = "lclc", 
+               col.names = c("Grade", "Range", "Grade", "Range"))
+```
+
+<div>
+
+### Use of AI
+
+I expect you to generate your own work in this class. When you submit any kind of work (including projects, exams, homeworks), you are asserting that you have generated and written the text, and **code**, unless you indicate otherwise by the use of quotation marks and proper attribution for the source. Submitting content as your own that has been generated by someone other than you, or was created or assisted by a computer application or tool, including artificial intelligence (AI) tools such as ChatGPT is cheating and constitutes a violation of our Academic Honesty policy. You may use simple word processing tools to update spelling and grammar in your assignments, but unless given permission otherwise, you may not use AI tools to draft your work, even if you edit, revise, or paraphrase it. There may be opportunities for you to use AI tools in this class. Where they exist, I will clearly specify when and in what capacity it is permissible for you to use these tools.
+
+
+### DISABILITIES AND ACCOMODATIONS POLICY
+
+Cornell College makes reasonable accommodations for persons with disabilities. Students should notify the Office of Academic Support and Advising and their course instructor of any disability related accommodations within the first three days of the term for which the accommodations are required, due to the fast pace of the block format. For more [information on the documentation required to establish the need for accommodations and the process of requesting the accommodations.](http://www.cornellcollege.edu/academic-support-and-advising/disabilities/index.shtml)
+
+### ACADEMIC HONESTY POLICY
+
+Cornell College expects all members of the Cornell community to act with academic integrity. An important aspect of academic integrity is respecting the work of others. A student is expected to explicitly acknowledge ideas, claims, observations, or data of others, unless generally known. When a piece of work is submitted for credit, a student is asserting that the submission is her or his work unless there is a citation of a specific source. If there is no appropriate acknowledgment of sources, whether intended or not, this may constitute a violation of the College's requirement for honesty in academic work and may be treated as a case of academic dishonesty. The procedures regarding how the College deals with cases of academic dishonesty appear in The Catalog, under the heading “Academic Honesty."
+
+### Illness Policy
+
+If you are experiencing COVID-19 symptoms, do not attend class. Perform a home test or contact Director of Student Health Services Lynn O’Brien at **student_health@cornellcollege.edu** immediately to arrange a COVID-19 test at the Health Center.
+If you need to isolate due to COVID-19, or if you become unable to attend class for any other health reason, contact me as soon as possible to determine if you are able to continue in the class. A Withdrawal for Health Reasons may be required.
+
+### Mandatory Reporter Reminder
+
+It is my goal that you feel supported and able to share information related to your life experiences during classroom discussions, in your written work, and in any one-on-one meetings with me. You should also know that all Cornell College faculty and staff are mandatory reporters. This means that I will keep information you share with me private to the greatest extent possible. However, I am required to share information regarding sexual assault, abuse, criminal behavior, or about a student who may be a danger to themselves or to others. If you wish to speak to someone confidentially who is not a mandatory reporter, you can [schedule an appointment with one of the counselors](https://www.cornellcollege.edu/counseling/appointment/index.shtml) in the Ebersole Health and Wellbeing Center or contact the College Chaplain, Rev. Melea White, at **mwhite@cornelllcollege.edu**.
+

@@ -1,0 +1,768 @@
+---
+title: "Review of multiple linear regression"
+author: "Prof. Maria Tackett"
+date: "01.10.22"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta310-slides.css"
+    logo: sta310-sticker.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+```{r setup, include = F}
+knitr::opts_chunk$set(warning = FALSE, 
+                      message = FALSE, 
+                      fig.width = 8,
+                      fig.asp = 0.618, 
+                      fig.retina = 3, 
+                      dpt = 300, 
+                      out.width = "90%",
+                      fig.align = "center")
+
+ggplot2::theme_set(ggplot2::theme_bw(base_size = 16))
+
+colors <- tibble::tibble(green = "#B5BA72")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidymodels)
+library(GGally)
+library(xaringanExtra)
+library(knitr)
+library(patchwork)
+library(viridis)
+library(ggfortify)
+```
+
+```{r xaringan-panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+class: middle, center
+
+##[Click for PDF of slides](02-mlr-review-pt1.pdf)
+
+---
+
+## Announcements
+
+- Labs start Thursday
+  - [Install R and configure GitHub](https://github.com/sta310-sp22/computing/blob/main/README.md)  
+  
+- Office hours this week: 
+  - Thu 2 - 3pm & Fri 1 - 2pm online (links in Sakai)
+  - Full office hours schedule starts Tue, Jan 19
+
+- Fill out [All About You Survey](https://duke.qualtrics.com/jfe/form/SV_1X1ryORVK6JJwkm)
+
+---
+
+class: middle
+
+## Questions from last time?
+
+
+---
+
+class: middle, inverse
+
+## Linear least squares regression (LLSR) vs. 
+## Generalized linear models (GLM) vs.
+## Multilevel models
+
+---
+
+## Assumptions for linear regression
+
+--
+
+**L**inearity: Linear relationship between mean response and predictor variable(s) 
+
+--
+
+**I**ndependence: Residuals are independent. There is no connection between how far any two points lie above or below regression line.
+
+--
+
+**N**ormality: Response follows a normal distribution at each level of the predictor (or combination of predictors)
+
+--
+
+**E**qual variance: Variability (variance or standard deviation) of the response is equal for all levels of the predictor (or combination of predictors)
+
+**Use residual plots to check that the conditions hold before using the model for statistical inference.**
+
+---
+
+## Assumptions for linear regression
+
+.pull-left[
+```{r echo = F, out.width = "100%"}
+##   Code modified from https://stackoverflow.com/questions/31794876/ggplot2-how-to-curve-small-gaussian-densities-on-a-regression-line?rq=1
+
+## Modified based on BYSH: https://bookdown.org/roback/bookdown-bysh/ch-MLRreview.html#ordinary-least-squares-ols-assumptions
+
+set.seed(0)
+dat <- data.frame(x=(x=runif(10000, 0, 50)),
+                  y=rnorm(10000, 10*x, 100))
+
+## breaks: where you want to compute densities
+breaks <- seq(0, max(dat$x), len=5)
+dat$section <- cut(dat$x, breaks)
+
+## Get the residuals
+dat$res <- residuals(lm(y ~ x, data=dat))
+
+## Compute densities for each section, and flip the axes, and add means of sections
+## Note: the densities need to be scaled in relation to the section size (2000 here)
+dens <- do.call(rbind, lapply(split(dat, dat$section), function(x) {
+    d <- density(x$res, n=50)
+    res <- data.frame(x=max(x$x)- d$y*2000, y=d$x+mean(x$y))
+    res <- res[order(res$y), ]
+    ## Get some data for normal lines as well
+    xs <- seq(min(x$res), max(x$res), len=50)
+    res <- rbind(res, data.frame(y=xs + mean(x$y),
+                                 x=max(x$x) - 2000*dnorm(xs, 0, sd(x$res))))
+    res$type <- rep(c("empirical", "normal"), each=50)
+    res
+}))
+dens$section <- rep(levels(dat$section), each=100)
+
+dens <- dens %>%
+  filter(type == "normal")
+
+## Plot both empirical and theoretical
+ggplot(dat, aes(x, y)) +
+  geom_point(alpha = 0.05, size = 0.2) +
+  geom_smooth(method="lm", fill=NA, se = FALSE, color = "steelblue") +
+  geom_path(data=dens, aes(x, y, group=interaction(section)), color = "red", lwd=1.1) +
+geom_vline(xintercept=breaks, lty=2, color = "grey") +
+  labs(x = "x", 
+       y = "y") +
+  theme_classic() + 
+  annotate("text", x = 10, y = 600, label = latex2exp::TeX("$\\mu_{Y|X} = \\beta_0 + \\beta_1X$"), color = "steelblue", size = 8) +
+  annotate("text", x = 20, y = 400, label = latex2exp::TeX("$\\sigma^2$"), color = "red", size = 8) +
+  theme(axis.title = element_text(size = 16),
+        axis.ticks = element_blank(), 
+        axis.text.x = element_blank(), 
+       axis.text.y = element_blank()
+      )
+  
+```
+
+.small[Modified from Figure 1.1. in BMLR]
+]
+
+.pull-right[
+.midi[**L**inearity: Linear relationship between mean of the response $Y$ and the predictor $X$]
+
+.midi[**I**ndependence: No connection between how any two points lie above or below the regression line]
+
+.midi[**N**ormality: Response, $Y$, follows a normal distribution at each level of the predictor, $X$ (indicated by red curves)]
+
+.midi[**E**qual variance: Variance (or standard deviation) of the response, $Y$, is equal for all levels of the predictor, $X$]
+]
+]
+
+---
+
+## Are the assumptions violated?
+
+[Click here](https://forms.gle/N3PftSk2tEJRTxCE6) for poll. 
+
+```{r echo = F}
+library(countdown)
+countdown(minutes = 4, seconds = 0,
+          margin = "5%")
+```
+
+---
+
+## Beyond linear regression 
+
+- When we use linear least squares regression to draw conclusions, we do so under the assumption that L.I.N.E. are all met. 
+
+- **Generalized linear models** require different assumptions and can accommodate violations in L.I.N.E.
+  - Relationship between response and predictor(s) can be nonlinear
+  - Response variable can be non-normal 
+  - Variance in response can differ at each level of predictor(s) 
+
+**But the independence assumption must hold!**
+
+- **Multilevel models** will be used for data with correlated observations
+
+
+---
+
+class: middle, inverse
+
+## Review of multiple linear regression 
+
+---
+
+## Data: Kentucky Derby Winners
+
+.midi[
+Today's data is from the Kentucky Derby, an annual 1.25-mile horse race held at the Churchill Downs race track in Louisville, KY. The data is in the file [derbyplus.csv](data/derbyplus.csv) and contains information for races 1896 - 2017. 
+]
+
+.pull-left[
+
+.midi[**Response variable**]
+
+- .midi[`speed`: Average speed of the winner in feet per second (ft/s)]
+
+.midi[**Additional variable**]
+.midi[- `winner`: Winning horse]
+]
+
+.pull-right[
+.midi[**Predictor variables**]
+- .midi[`year`: Year of the race]
+- .midi[`condition`: Condition of the track (good, fast, slow)]
+- .midi[`starters`: Number of horses who raced]
+]
+
+---
+
+## Data
+
+```{r}
+derby <- read_csv("data/derbyplus.csv")
+```
+
+```{r}
+derby %>%
+  head(5) %>% kable()
+```
+
+---
+
+![](img/data-analysis-life-cycle.png)
+
+---
+
+## Exploratory data analysis (EDA)
+
+- Once you're ready for the statistical analysis (explore), the first step should always be **exploratory data analysis**.
+
+- The EDA will help you 
+  - begin to understand the variables and observations
+  - identify outliers or potential data entry errors
+  - begin to see relationships between variables
+  - identify the appropriate model and identify a strategy
+
+- The EDA is exploratory; formal modeling and statistical inference should be used to draw conclusions.
+
+---
+
+## Plots for univariate EDA
+
+.panelset.sideways[
+.panel[.panel-name[Plot]
+```{r univar-eda-plot, echo = F}
+p1 <- ggplot(data = derby, aes(x = speed)) + 
+  geom_histogram(fill = colors$green, color = "black") + 
+  labs(x = "Winning speed (ft/s)", y = "Count")
+
+p2 <- ggplot(data = derby, aes(x = starters)) + 
+  geom_histogram(fill = colors$green, color = "black") + 
+  labs(x = "Starters", y = "Count")
+
+p3 <- ggplot(data = derby, aes(x = condition)) +
+   geom_bar(fill = colors$green, color = "black", aes(x = ))
+
+p1 + (p2 / p3) + 
+  plot_annotation(title = "Univariate data analysis")
+```
+]
+.panel[.panel-name[Code]
+
+.small[
+```{r univar-eda, eval = F}
+p1 <- ggplot(data = derby, aes(x = speed)) + 
+  geom_histogram(fill = colors$green, color = "black") + 
+  labs(x = "Winning speed (ft/s)", y = "Count")
+
+p2 <- ggplot(data = derby, aes(x = starters)) + 
+  geom_histogram(fill = colors$green, color = "black") + 
+  labs(x = "Starters", y = "Count")
+
+p3 <- ggplot(data = derby, aes(x = condition)) +
+   geom_bar(fill = colors$green, color = "black", aes(x = ))
+
+p1 + (p2 / p3) + 
+  plot_annotation(title = "Univariate data analysis")
+```
+]
+]
+]
+
+---
+
+## Plots for bivariate EDA 
+
+.panelset.sideways[
+.panel[.panel-name[Plot]
+
+```{r bivar-eda-plot, echo = F}
+p4 <- ggplot(data = derby, aes(x = starters, y = speed)) + 
+  geom_point() + 
+  labs(x = "Starters", y = "Speed (ft / s)")
+
+p5 <- ggplot(data = derby, aes(x = year, y = speed)) + 
+  geom_point() + 
+  labs(x = "Year", y = "Speed (ft / s)")
+
+p6 <- ggplot(data = derby, aes(x = condition, y = speed)) + 
+  geom_boxplot(fill = colors$green, color = "black") + 
+  labs(x = "Conditions", y = "Speed (ft / s)")
+
+(p4 + p5) / p6 +
+  plot_annotation(title = "Bivariate data analysis")
+```
+]
+.panel[.panel-name[Code]
+
+.small[
+```{r bivar-eda, eval = F}
+p4 <- ggplot(data = derby, aes(x = starters, y = speed)) + 
+  geom_point() + 
+  labs(x = "Starters", y = "Speed (ft / s)")
+
+p5 <- ggplot(data = derby, aes(x = year, y = speed)) + 
+  geom_point() + 
+  labs(x = "Year", y = "Speed (ft / s)")
+
+p6 <- ggplot(data = derby, aes(x = condition, y = speed)) + 
+  geom_boxplot(fill = colors$green, color = "black") + 
+  labs(x = "Conditions", y = "Speed (ft / s)")
+
+(p4 + p5) + p6 +
+  plot_annotation(title = "Bivariate data analysis")
+```
+]
+]
+]
+
+---
+
+## Scatterplot matrix
+
+.midi[
+A **scatterplot matrix** helps quickly visualize relationships between many variable pairs. They are particularly useful to identify potentially correlated predictors.
+]
+
+.panelset.sideways[
+
+.panel[.panel-name[Plot]
+```{r scatterplot-matrix-plot, echo = F, fig.width = 10}
+#library(GGally)
+ggpairs(data = derby, 
+        columns = c("condition", "year", "starters", "speed"))
+```
+]
+
+.panel[.panel-name[Code]
+.small[
+```{r scatterplot-matrix, eval = F}
+#library(GGally)
+ggpairs(data = derby, 
+        columns = c("condition", "year", "starters", "speed"))
+```
+]
+]
+]
+
+---
+
+## Plots for multivariate EDA
+
+Plot the relationship between the response and a predictor based on levels of another predictor to assess potential interactions. 
+
+.panelset.sideways[
+
+.panel[.panel-name[Plot]
+```{r multivar-eda-plot, echo = F}
+library(viridis)
+ggplot(data = derby, aes(x = year, y = speed, color = condition, 
+                         shape = condition, linetype = condition)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE, aes(linetype = condition)) + 
+  labs(x = "Year", y = "Speed (ft/s)", color = "Condition",
+       title = "Speed vs. year", 
+       subtitle = "by track condition") +
+  guides(lty = FALSE, shape = FALSE) +
+  scale_color_viridis_d(end = 0.9)
+```
+]
+
+.panel[.panel-name[Code]
+.small[
+```{r multivar-eda, eval = F}
+#library(viridis)
+ggplot(data = derby, aes(x = year, y = speed, color = condition, 
+                         shape = condition, linetype = condition)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE, aes(linetype = condition)) + 
+  labs(x = "Year", y = "Speed (ft/s)", color = "Condition",
+       title = "Speed vs. year", 
+       subtitle = "by track condition") +
+  guides(lty = FALSE, shape = FALSE) +
+  scale_color_viridis_d(end = 0.9)
+```
+]
+]
+]
+
+---
+
+## Model 1: Main effects model 
+
+.panelset.sideways[
+.panel[.panel-name[Output]
+```{r echo = F}
+model1 <- lm(speed ~ starters + year + condition, data = derby)
+tidy(model1) %>% kable(digits = 3)
+```
+
+]
+
+.panel[.panel-name[Code]
+.small[
+```{r model1-code, eval = F}
+# Fit and display model
+model1 <- lm(speed ~ starters + year + condition, data = derby)
+tidy(model1) %>% 
+  kable(digits = 3)
+```
+]
+]
+]
+
+
+
+---
+
+## Interpretation
+
+$$\widehat{speed} = 8.197 - 0.005 ~ starters + 0.023 ~ year - 0.443 ~ good - 1.543 ~ slow$$
+
+
+```{r echo = F}
+model1 <- lm(speed ~ starters + year + condition, data = derby)
+tidy(model1) %>% 
+  kable(digits = 3)
+```
+
+--
+
+.question[
+1. Write out the interpretations for `starters` and `conditiongood`. 
+2. Does the intercept have a meaningful interpretation? 
+]
+
+---
+
+## Centering 
+
+**Centering**: Subtract a constant from each observation of a given variable
+
+- Do this to make interpretation of model parameters more meaningful (particularly intercept)
+
+- In STA 210, we used **mean-centering** where we subtracted the mean from each observation of given variable
+
+- How does centering change the model? 
+
+---
+
+## Centering `year`
+
+.midi[
+```{r}
+derby <- derby %>%
+  mutate(yearnew = year - 1896) #1896 = starting year
+```
+]
+
+```{r echo = F}
+model1Cent <- lm(speed ~ starters + yearnew + condition, data = derby)
+tidy(model1Cent) %>% kable(digits = 3)
+```
+
+$$\widehat{speed} = 52.175 - 0.005 ~ starters + 0.023 ~ yearnew - 0.443 ~ good - 1.543 ~ slow$$
+
+---
+
+## Model 1: Check model assumptions
+
+.panelset.sideways[
+.panel[.panel-name[Plots]
+```{r, out.width = "80%"}
+#library(ggfortify)
+autoplot(model1Cent)
+```
+]
+
+.panel[.panel-name[Poll]
+[Click here](https://forms.gle/iHfWR1igqpsM7Gr48) for poll.
+]
+]
+
+---
+
+class: middle, inverse
+
+## Model 2
+
+---
+
+## Add quadratic effect for year?
+
+.panelset.sideways[
+.panel[.panel-name[Plot]
+```{r year-quad-plot, echo = F}
+ggplot(data = derby, aes(x = yearnew, y = speed)) + 
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") + 
+  geom_smooth(se = FALSE, color = "red", linetype = 2) + 
+  labs(x = "Years since 1896", y = "Speed (ft/s)", 
+       title = "Speed vs. Years since 1896")
+```
+]
+
+.panel[.panel-name[Code]
+.small[
+```{r year-quad, eval = F}
+ggplot(data = derby, aes(x = yearnew, y = speed)) + 
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") + 
+  geom_smooth(se = FALSE, color = "red", linetype = 2) + 
+  labs(x = "Years since 1896", y = "Speed (ft/s)", 
+       title = "Speed vs. Years since 1896")
+```
+]
+]
+]
+
+
+---
+
+## Model 2: Add $yearnew^2$
+
+.panelset.sideways[
+.panel[.panel-name[Output]
+```{r echo = F}
+model2 <- lm(speed ~ starters + yearnew + I(yearnew^2) + condition, 
+             data = derby)
+tidy(model2) %>% kable(digits = 4)
+```
+]
+
+.panel[.panel-name[Code]
+.small[
+```{r model2-code, eval = F}
+model2 <- lm(speed ~ starters + yearnew + I(yearnew^2) + condition, 
+             data = derby)
+tidy(model2) %>% kable(digits = 4)
+```
+]
+]
+]
+
+---
+
+## Interpreting quadratic effects
+
+$$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 ~ x_1  + \hat{\beta}_2 ~ x_2 + \hat{\beta}_3 ~ x_2^2$$
+
+**General interpretation**: When $x_2$ increases from a to b, $y$ is expected to change by $\hat{\beta}_2(b - a) + \hat{\beta}_3(b^2 - a^2)$, holding $x_1$ constant.
+
+<br> 
+
+--
+
+
+
+.question[
+
+$$\begin{aligned}\widehat{speed} = &51.413 - 0.025 ~ starters + 0.070 ~ yearnew \\
+& - 0.0004 ~ yearnew^2 - 0.477 ~ good - 1.393 ~ slow\end{aligned}$$
+
+Interpret the effect of year for the 5 most recent years (2013 - 2017).
+]
+
+<!-- Ended here in lecture-->
+
+---
+
+## Model 2: Check model assumptions
+
+```{r, echo = F, out.width = "70%"}
+autoplot(model2)
+```
+
+---
+
+class: middle, inverse
+
+## Model 3
+---
+
+## Include interaction term?
+
+Recall from the EDA...
+
+```{r echo = F, out.width = "70%"}
+library(viridis)
+ggplot(data = derby, aes(x = year, y = speed, color = condition, 
+                         shape = condition, linetype = condition)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE, aes(linetype = condition)) + 
+  labs(x = "Year", y = "Speed (ft/s)", color = "Condition",
+       title = "Speed vs. year", 
+       subtitle = "by track condition") +
+  guides(lty = FALSE, shape = FALSE) +
+  scale_color_viridis_d(end = 0.9)
+```
+
+---
+
+## Model 3: Add interaction term
+
+$$\begin{aligned}\widehat{speed} = & 52.387 - 0.003 ~ starters + 0.020 ~ yearnew - 1.070 ~ good - 2.183 ~ slow \\ &+0.012 ~ yearnew \times good + 0.012 ~ yearnew \times slow \end{aligned}$$
+
+.panelset.sideways[
+.panel[.panel-name[Output]
+```{r echo = F ,out.width = "70%"}
+model3 <- lm(speed ~ starters + yearnew + condition +
+               yearnew * condition, 
+             data = derby)
+tidy(model3) %>% kable(digits = 3)
+```
+]
+
+.panel[.panel-name[Code]
+```{r model3-code, eval = F}
+model3 <- lm(speed ~ starters + yearnew + condition +
+               yearnew * condition, 
+             data = derby)
+tidy(model3) %>% kable(digits = 4)
+```
+]
+.panel[.panel-name[Assumptions]
+```{r, echo = F}
+autoplot(model3)
+```
+]
+]
+
+
+
+
+---
+
+## Interpreting interaction effects
+
+```{r echo = F}
+tidy(model3) %>%
+  kable(digits = 3)
+```
+
+
+[Click here](https://forms.gle/BrufiFdhQAi4WBWeA) for poll
+
+
+```{r echo = F}
+library(countdown)
+countdown(minutes = 4, seconds = 0,
+          margin = "5%")
+```
+
+---
+
+## Which model would you choose?
+
+.panelset.sideways[
+.panel[.panel-name[Output]
+
+.midi[**Model 1: Main effects**]
+
+```{r echo = F}
+glance(model1Cent) %>%
+  select(r.squared, adj.r.squared, AIC, BIC) %>%
+  kable(digits = 3)
+```
+
+.midi[**Model 2: Main effects + $year^2$**]
+
+```{r echo = F}
+glance(model2) %>%
+  select(r.squared, adj.r.squared, AIC, BIC) %>%
+  kable(digits = 3)
+```
+
+.midi[**Model 3: Main effects + interaction]**
+
+```{r echo = F}
+glance(model3) %>%
+  select(r.squared, adj.r.squared, AIC, BIC) %>%
+  kable(digits = 3)
+```
+]
+
+.panel[.panel-name[Code]
+
+```{r eval = FALSE}
+# Model 1
+glance(model1Cent) %>%
+  select(r.squared, adj.r.squared, AIC, BIC) %>%
+  kable(digits = 3)
+
+# Model2
+glance(model2) %>%
+  select(r.squared, adj.r.squared, AIC, BIC) %>%
+  kable(digits = 3)
+
+# Model 3
+glance(model3) %>%
+  select(r.squared, adj.r.squared, AIC, BIC) %>%
+  kable(digits = 3)
+```
+]
+]
+
+---
+
+## Characteristics of a "good" final model
+
+- Model can be used to answer primary research questions
+- Predictor variables control for important covariates
+- Potential interactions have been investigated
+- Variables are centered, as needed, for more meaningful interpretations 
+- unnecessary terms are removed 
+- Assumptions are met and influential points have been addressed
+- model tells a "persuasive story parsimoniously"
+
+<br>
+
+.small[List from Section 1.6.7 of [BMLR](https://bookdown.org/roback/bookdown-BeyondMLR/)]
+
+---
+
+## Acknowledgements
+
+These slides are based on content in [BMLR: Chapter 1 - Review of Multiple Linear Regression](https://bookdown.org/roback/bookdown-BeyondMLR/ch-MLRreview.html)
+
+
+
+
