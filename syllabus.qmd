@@ -62,7 +62,7 @@ I am available far beyond these times listed. Please email me and we can set up 
 
 ### You Are A Priority
 
-My goal this block is to help you learn the material. I want to first and foremost recognize that you are an individual and thus are unique and may learn uniquely. Additionally, your health and wellbeing are priority one. Learning cannot happen effectively if you don’t meet your other personal needs. That all being said, I have structured the class in a way that I, from experience teaching and learning myself, think will be most beneficial for the majority of students. I promise you that I will do my best to create an inclusive and engaging learning environment. I ask that you keep an open line of communication between us for when you may need help and/or flexibility. You and your learning are why I am here.
+My goal for this block is to help you learn the material. I want to first and foremost recognize that you are an individual and thus are unique and may learn uniquely. Additionally, your health and well-being are priority one. Learning cannot happen effectively if you don’t meet your other personal needs. That all being said, I have structured the class in a way that I, from experience teaching and learning myself, think will be most beneficial for the majority of students. I promise you that I will do my best to create an inclusive and engaging learning environment. I ask that you keep an open line of communication between us for when you may need help and/or flexibility. You and your learning are why I am here.
 
 ### Course Description
 
@@ -71,7 +71,7 @@ Following a second regression course, this class will begin with a review of mul
 ### Learning Objectives
 
 This course supports the Educational Priorities and Outcomes of Cornell College with emphases on knowledge, communication, and reasoning. Specifically, the learning objectives of this course are:
-- Learn statistical distributions, likelihoods functions, and types of models including poisson regression, quasi-logistic regression, multilevel models, and polynomial regression. 
+- Learn statistical distributions, likelihood functions, and types of models including poisson regression, quasi-logistic regression, multilevel models, and polynomial regression. 
 - Ability to communicate statistical ideas clearly and accurately (communication). 
 - Understand the class of generalized linear models and the models contained (knowledge, reasoning). 
 - Ability to ascertain which type of analysis is appropriate for a particular data set and question (reasoning). 
@@ -84,7 +84,7 @@ To be successful in this class, you should have completed STA 201, STA 202, and 
 
 ### Open Access Books – Free!
 
-All of materials for this class are free. 
+All of the materials for this class are free. 
 
 {{< var course.text >}}
 
@@ -96,9 +96,9 @@ Our course will run from a combination of [Moodle]({{< var course.moodle >}}) an
 
 ### Software – No need to install
 
-We will use a combination of technologies in this course including R, and RStudio (server).  Luckily for you I have put lots of effort into setting all of this on a machine we have on campus that we will all access with a web browser! You don’t need to install any – in fact for a while I prefer you don’t. More on this in class. If you are an off campus student, please let me know right away, as you may need to checkout a laptop (free) from IT to work on homework from home. 
+We will use a combination of technologies in this course including R, and RStudio (server). I have set up an RStudio server on a machine we have on campus that we will all access with a web browser. You don’t need to install any software (in fact for a while I prefer you don’t). More on this in class. If you are an off campus student, please let me know right away, as you may need to checkout a laptop (free) from IT to work on homework from home. 
 
-You can access the RStudio Server at: {{< var college.rstudio >}}
+You can access the RStudio Server at: <{{< var college.rstudio >}}>.
 
 **If you have any technical problems you should contact IT as soon as possible**. [Submit a Work Order](https://www.cornellcollege.edu/information-technology/index.shtml)!
 
@@ -133,20 +133,20 @@ grading <- tibble::tribble(
 
 ##### Homework:
 
-Homeworks will be graded for correctness. I will generally evaluate a random subset of the assigned questions. The goal is the practice the application of the method and then be able to interpret the result. 
+Homework will be graded for correctness. I will generally evaluate a random subset of the assigned questions. The goal is the practice the application of the method and then be able to interpret the result. 
 
 ##### Participation
 
-This will be measure this by your class attendance, and your work on labs and class examples. With class work, please save your script files in the folder that I can view on the RStudio server. I will look at these files to see if you are following along. 
+I will measure this by your class attendance, and your work on labs and class examples. With class work, please save your script files in the folder that I can view on the RStudio server. I will look at these files to see if you are following along. 
 
 
 ##### Labs and Mini-Projects
 
-This class includes a variety of related techniques where generally only 1 of them is the correct technique for particular research question. For this reason, we will do labs following a single method and mini "projects" at the end of each major new method or collection of methods. With labs, the data will be provided. With mini-projects, you will likely need to find, and clean data, and then apply the new technique. 
+This class includes a variety of related techniques generally only 1 of them is the correct technique for the particular research question. For this reason, we will do labs following a single method and mini "projects" at the end of each major new method or collection of methods. With labs, the data will be provided. With mini-projects, you will likely need to find, and clean data, and then apply the new technique. 
 
 ##### Exams
 
-You will have two exams this block, {{< var course.exam_dates >}}. Each will have two components. Component 1 will be on these dates and you will get a choice of oral or written format. Component 2 will be a take-home, open-book, open note, exam. You will be 12 hours or more to complete this component. 
+You will have two exams this block, {{< var course.exam_dates >}}. Each will have two components. Component 1 will be on these dates and you will get a choice of oral or written format. Component 2 will be a take-home, open-book, open-note, exam. You will have 12 hours or more to complete this component. 
 
 
 <div class="centered-table">
@@ -171,10 +171,19 @@ grading %>%
 
 <div>
 
-### Use of AI
+## AI Policy
 
-I expect you to generate your own work in this class. When you submit any kind of work (including projects, exams, homeworks), you are asserting that you have generated and written the text, and **code**, unless you indicate otherwise by the use of quotation marks and proper attribution for the source. Submitting content as your own that has been generated by someone other than you, or was created or assisted by a computer application or tool, including artificial intelligence (AI) tools such as ChatGPT is cheating and constitutes a violation of our Academic Honesty policy. You may use simple word processing tools to update spelling and grammar in your assignments, but unless given permission otherwise, you may not use AI tools to draft your work, even if you edit, revise, or paraphrase it. There may be opportunities for you to use AI tools in this class. Where they exist, I will clearly specify when and in what capacity it is permissible for you to use these tools.
+The beta release of Dall-E-Mini in July 2022 and ChatGPT in November 2022 are among many tools using artificial intelligence. There is a good possibility that using tools like these are going to become an important skill for careers in the not distant future (<https://www.theguardian.com/commentisfree/2023/jan/07/chatgpt-bot-excel-ai-chatbot-tech>). 
 
+In the meantime though, it's going to take a while for society to figure out when using these tools is/isn't acceptable. 
+
+Work created by AI tools may not be considered original work and, instead, considered automated plagiarism. It is derived from previously created texts from other sources that the models were trained on, yet doesn't cite sources.
+AI models have built-in biases (ie, they are trained on limited underlying sources; they reproduce, rather than challenge, errors in the sources)
+AI tools have limitations (ie, they lack critical thinking to evaluate and reflect on criteria; they lack abductive reasoning to make judgments with incomplete information at hand; they make up or use inaccurate information and may “hallucinate” sources that do not exist)
+
+In this course, all informal writing should be written without the use of AI. The purpose of informal writing is to help you think through your ideas, connect with your lived experiences, and to figure out your thoughts and opinions. Using AI here subverts that process.
+
+**A final note: Other courses may have different AI policies, and it is important to be aware of the policy in each class.**
 
 ### DISABILITIES AND ACCOMODATIONS POLICY
 
@@ -191,5 +200,4 @@ If you need to isolate due to COVID-19, or if you become unable to attend class 
 
 ### Mandatory Reporter Reminder
 
-It is my goal that you feel supported and able to share information related to your life experiences during classroom discussions, in your written work, and in any one-on-one meetings with me. You should also know that all Cornell College faculty and staff are mandatory reporters. This means that I will keep information you share with me private to the greatest extent possible. However, I am required to share information regarding sexual assault, abuse, criminal behavior, or about a student who may be a danger to themselves or to others. If you wish to speak to someone confidentially who is not a mandatory reporter, you can [schedule an appointment with one of the counselors](https://www.cornellcollege.edu/counseling/appointment/index.shtml) in the Ebersole Health and Wellbeing Center or contact the College Chaplain, Rev. Melea White, at **mwhite@cornelllcollege.edu**.
-
+It is my goal that you feel supported and able to share information related to your life experiences during classroom discussions, in your written work, and in any one-on-one meetings with me. You should also know that all Cornell College faculty and staff are mandatory reporters. This means that I will keep information you share with me private to the greatest extent possible. However, I am required to share information regarding sexual assault, abuse, criminal behavior, or about a student who may be a danger to themselves or to others. If you wish to speak to someone confidentially who is not a mandatory reporter, you can schedule an appointment with one of the counselors in the Ebersole Health and Wellbeing Center or contact the College Chaplain, Rev. Melea White, at **mwhite@cornelllcollege.edu**. 

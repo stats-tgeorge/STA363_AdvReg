@@ -87,8 +87,8 @@ website:
 format:
   html:
     theme:
-      - united
-      - www/style.scss
+      light: united
+      dark: darkly
     toc: true
     highlight-style: monokai
 
