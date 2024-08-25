@@ -1,0 +1,89 @@
+---
+title: 'Stat 363: Intro to Poisson Regression'
+subtitle: 'Case Study: Elephants'
+output:
+  pdf_document:
+    fig_height: 3
+    fig_width: 4.5
+  word_document: default
+  html_document: default
+editor_options: 
+  chunk_output_type: console
+---
+  
+```{r, setup, include=FALSE}
+library(dplyr)
+library(maxLik)   # will have to install first
+library(ggplot2)
+library(gridExtra) 
+setwd("C:/Users/Ann Cannon/Dropbox/College Computer/courses/sta 363/R directory/data")
+emating.data <- read.csv("elephant.csv")
+```
+
+
+### Elephant Mating 
+
+```{r}
+head(emating.data)
+names(emating.data) <- c("age", "matings")
+
+# Obtain numerical and graphical summaries
+summary(emating.data)
+hist.age <- ggplot(data = emating.data, aes(x = age)) + 
+  geom_histogram(bins = 8)
+hist.mate <- ggplot(data = emating.data, aes(x = matings)) + 
+  geom_histogram(bins = 8)
+grid.arrange(hist.age, hist.mate, ncol=1)
+
+# Why not just use linear regression?
+reg1 <- lm(matings ~ age, data=emating.data)
+summary(reg1)
+ggplot(data = emating.data, aes(x = age, y = matings)) + 
+  geom_point() + geom_smooth(method="lm") 
+plot(reg1)
+
+# Try plotting with loess instead of line
+ggplot(data = emating.data, aes(x = age, y = matings)) + 
+  geom_point() + geom_smooth(method="loess") 
+
+# Okay, can't we just log transform our response?
+# reg2 <- lm(log(matings) ~ age, data=emating.data)   # blows up
+reg2 <- lm(log(matings+0.5) ~ age, data=emating.data)
+summary(reg2)
+ggplot(data = emating.data, aes(x = age, y = log(matings + 0.5))) + 
+  geom_point() + geom_smooth(method="lm") 
+plot(reg2)
+
+# compare log(mean) to mean(log)
+log(mean(emating.data$matings+0.5))
+mean(log(emating.data$matings+0.5))
+
+# Fitting a Poisson Regression Model
+fit1 <- glm(matings ~ age, family=poisson, data=emating.data)
+summary(fit1)
+exp(coef(fit1))
+exp(confint(fit1))
+
+# Generate normal-based CIs by hand
+fit1coef <- summary(fit1)$coefficients[,1]
+fit1se <- summary(fit1)$coefficients[,2]
+lb <- fit1coef - qnorm(.975)*fit1se
+ub <- fit1coef + qnorm(.975)*fit1se
+cbind(lb, ub)
+cbind(exp(lb),exp(ub))
+
+# Drop in deviance test for age
+fit0 <- glm(matings ~ 1, family=poisson, data=emating.data )
+summary(fit0)
+anova(fit0, fit1, test="Chisq")
+
+# Adding a quadratic term for age
+emating.data <- mutate(emating.data, age2=age*age)
+fit2 <- glm(matings ~ age + age2, family=poisson, data=emating.data)
+summary(fit2)
+anova(fit1, fit2, test="Chisq")
+
+# Assessing the goodness of fit of the model with age as a covariate
+gof <- 1-pchisq(fit1$deviance, fit1$df.residual)
+gof 
+```

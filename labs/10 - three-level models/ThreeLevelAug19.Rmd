@@ -1,0 +1,370 @@
+---
+title: 'Ch10: Multilevel Data with more than Two Levels'
+output:
+  pdf_document:
+    fig_height: 3
+    fig_width: 4.5
+  word_document: default
+  html_document: default
+editor_options: 
+  chunk_output_type: console
+---
+  
+```{r, setup, include=FALSE}
+# Be sure to install these packages if necessary
+library(splines)
+library(gridExtra)
+library(GGally)
+library(mice)
+library(nlme)
+library(lme4)
+# library(lmeresampler)
+library(mnormt)
+library(boot)
+library(HLMdiag)
+library(tidyverse)
+
+#great base theme for ggplots
+theme.1 <- theme(axis.title.x = element_text(size = 14),
+  axis.title.y = element_text(size = 14),
+  plot.title=element_text(hjust=.9,face="italic",size=12))
+
+# seedwd <- read.csv(file=file.choose())  # seeds.csv
+seedwd <- read_csv("seeds.csv")
+```
+
+```{r}
+seedwd[135:146,2:11]   # illustrate wide data
+
+# Investigate patterns of missingness
+md.pattern(seedwd)
+
+# Remove plants that did not germinate
+seedwd <- seedwd %>%
+  mutate(nope = is.na(hgt13)+is.na(hgt18)+is.na(hgt23)+is.na(hgt28)) %>%
+  filter(nope < 4)
+
+# Create data frame in LONG form (one obs per plant measurement time)
+seedlg <- seedwd %>%
+  gather(key = time, value = hgt, hgt13:hgt28) %>%
+  mutate(time = as.integer(str_sub(time, -2)),
+         time13 = time - 13 ) 
+
+seedlg %>% filter(plant %in% c(236:242)) %>%
+  arrange(plant, time13) %>%
+  select(2:10)
+
+# Variables in seedlg:
+# pot = Pot plant was grown in (1-72)
+# plant = Unique plant identification number
+# species = L for leadplant and C for coneflower
+# soil = STP for reconstructed prairie, REM for remnant prairie, and
+#   CULT for cultivated land
+# sterile = Y for yes and N for no
+# germin = Y if plant germinated, N if not.  Should be Y for all obsservations
+#   in seedlg (true except for plant 281 - probably an error)
+# time = number of days after planting when height measured
+# time13 = centered time, so that first day of measurement is Day 0
+# hgt = height of plant (in mm).
+
+# create indicator variables for later analyses
+seedlg <- seedlg %>%
+  mutate(cult=ifelse(soil=="CULT",1,0),
+         rem=ifelse(soil=="REM",1,0),
+         stp=ifelse(soil=="STP",1,0),
+         lead=ifelse(species=="L",1,0),
+         cone=ifelse(species=="C",1,0),
+         strl=ifelse(sterile=="Y",1,0),
+         nostrl=ifelse(sterile=="N",1,0) )
+
+# create separate data sets of leadplants and coneflowers
+conedata <- seedlg %>%
+  filter(cone==1)
+leaddata <- seedlg %>%
+  filter(lead==1)
+
+## Exploratory data analysis ##
+
+# Rough look at Level Three covariates
+seedlg %>% count(species)
+seedlg %>% count(soil)
+seedlg %>% count(sterile)
+
+# From here on, do everything separately for leadplants and coneflowers #
+
+# Add average across all time points for each plant for EDA plots
+meanplant <- seedlg %>% group_by(plant) %>%
+  summarise(meanplant = mean(hgt, na.rm = TRUE))
+seedwd <- seedwd %>%
+  left_join(meanplant, by = "plant")
+conewd <- seedwd %>%
+  filter(species=="C")
+leadwd <- seedwd %>%
+  filter(species=="L")
+
+# One obs per plant - assume plants relatively independent within pots
+cone.soil <- ggplot(conedata,aes(x=soil,y=hgt)) + 
+  geom_boxplot() + 
+  theme.1 + 
+  labs(x="Soil type",y="Plant Height (mm)",title="Coneflowers (a)")
+cone.sterile <- ggplot(conedata,aes(x=sterile,y=hgt)) + 
+  geom_boxplot() + 
+  theme.1 + 
+  labs(x="Sterilized",y="Plant Height (mm)",title="Coneflowers (b)")
+lead.soil <- ggplot(leaddata,aes(x=soil,y=hgt)) + 
+  geom_boxplot() + 
+  theme.1 + 
+  labs(x="Soil type",y="Plant Height (mm)",title="Leadplants (a)")
+lead.sterile <- ggplot(leaddata,aes(x=sterile,y=hgt)) + 
+  geom_boxplot() + 
+  theme.1 + 
+  labs(x="Sterilized",y="Plant Height (mm)",title="Leadplants (b)")
+boxplots.byspecies <- grid.arrange(cone.soil, cone.sterile, lead.soil, lead.sterile,
+                                   ncol=2)
+
+# Plot time trend for 25 randomly selected leadplants - linear fit
+randplant = as.vector(sample(leadwd$plant,size=25))
+seedrdl <- seedlg %>%
+  filter(plant %in% randplant)
+ggplot(seedrdl, aes(x=time, y=hgt)) + 
+  facet_wrap(~plant,ncol=5) + 
+  geom_point() + 
+  geom_smooth(method="lm") + 
+  theme.1 +
+  theme(strip.text.x=element_blank()) + 
+  labs(x="Time",y="Plant height (mm)")
+
+# spaghetti plot by pot - add loess smoothing curve for overall trend
+oldw <- getOption("warn")
+options(warn = -1)
+ggplot(leaddata, aes(x=time, y=hgt)) + 
+  geom_line(aes(group=plant), color="dark grey") + 
+  theme.1 + 
+  facet_wrap(~pot, ncol=7) + 
+  geom_smooth(se=FALSE, color="black") + 
+  labs(x="Days since seeds planted",y="Plant height (mm)")
+options(warn = oldw)
+
+# spaghetti plot by species - all plants (This plot used earlier now)
+#   add loess smoothing curve for overall trend
+# To get rid of warnings, run as Rmd with warning=FALSE in global options
+#   or chunk options
+seedlg <- seedlg %>%
+  mutate(speciesname = ifelse(species=="C","Coneflowers","Leadplants") )
+options(warn = -1)
+ggplot(seedlg,aes(x=time,y=hgt)) + 
+  geom_line(aes(group=plant),color="dark grey") + 
+  facet_wrap(~speciesname,ncol=2) + 
+  geom_smooth(se=FALSE,color="black") + 
+  theme.1 + 
+  labs(x="Days since seeds planted",y="Plant height (mm)")
+options(warn = oldw)
+
+# spaghetti plot by soil type with loess overall trend
+leaddata <- leaddata %>%
+  mutate(soilname = recode(soil, STP="Reconstructed", CULT="Cultivated",
+                                    REM="Remnant") )
+options(warn = -1)
+ggplot(leaddata,aes(x=time,y=hgt)) + 
+  geom_line(aes(group=plant),color="dark grey") + 
+  facet_wrap(~soilname,ncol=3) + 
+  geom_smooth(se=FALSE,color="black") + 
+  theme.1 + 
+  labs(x="Days since seeds planted",y="Plant height (mm)") 
+options(warn = oldw)
+
+# spaghetti plot by sterilization with loess overall trend
+leaddata <- leaddata %>%
+  mutate(sterilename = recode(sterile, Y="Sterilized", N="Not Sterilized") )
+options(warn = -1)
+ggplot(leaddata,aes(x=time,y=hgt)) + 
+  geom_line(aes(group=plant),color="dark grey") + 
+  facet_wrap(~sterilename,ncol=2) + 
+  geom_smooth(se=FALSE,color="black") + 
+  theme.1 + 
+  labs(x="Days since seeds planted",y="Plant height (mm)") 
+options(warn = oldw)
+
+# Summary stats for linear models by plant - use centered time
+hgt.list=lmList(hgt~time13 | plant, data=leaddata, na.action=na.exclude)
+# coef(hgt.list)
+int = as.matrix(coef(hgt.list))[,1]
+summary(int)   # summary statistics for 107 intercepts
+rate = as.matrix(coef(hgt.list))[,2]
+summary(rate)
+rsq <- by(leaddata, leaddata$plant, function(data)
+  summary(lm(hgt ~ time13, data = data,na.action=na.exclude))$r.squared)
+summary(rsq)
+sum(rsq[!is.na(rsq)]>=.8)/length(rsq[!is.na(rsq)])
+
+int.rate.rsq <- as.data.frame(cbind(int,rate,rsq))
+int.hist <- ggplot(int.rate.rsq,aes(x=int)) + 
+  geom_histogram(binwidth=0.5,color="black",fill="white") + 
+  theme.1 + labs(x="Intercepts",y="Frequency",title="(a)")
+rate.hist <- ggplot(int.rate.rsq,aes(x=rate)) + 
+  geom_histogram(binwidth=0.05,color="black",fill="white") + 
+  theme.1 + labs(x="Slopes",y="Frequency",title="(b)")
+rsq.hist <- ggplot(int.rate.rsq,aes(x=rsq)) + 
+  geom_histogram(binwidth=0.1,color="black",fill="white") +
+  theme.1 + labs(x="R squared values",y="Frequency",title="(c)")
+intrate.lpbyplant <- grid.arrange(int.hist,rate.hist,rsq.hist,ncol=2)
+
+#    Descriptive statistics of the estimates obtained by fitting the 
+#      linear model by plant.
+mean(int)
+sd(int)
+mean(rate, na.rm=T)
+sd(rate, na.rm=T)
+cor(int, rate, use="complete.obs")   
+
+# Summary stats for linear models by pot
+hgt2.list=lmList(hgt~time13 | pot, data=leaddata, na.action=na.exclude)
+# coef(hgt2.list)
+int2 = as.matrix(coef(hgt2.list))[,1]
+summary(int2)   # summary statistics for 32 intercepts
+rate2 = as.matrix(coef(hgt2.list))[,2]
+summary(rate2)
+rsq2 <- by(leaddata, leaddata$pot, function(data)
+  summary(lm(hgt ~ time13, data = data,na.action=na.exclude))$r.squared)
+summary(rsq2)
+
+int.rate.rsq2 <- as.data.frame(cbind(int2,rate2,rsq2))
+int2.hist <- ggplot(int.rate.rsq2,aes(x=int2)) + 
+  geom_histogram(binwidth=0.5,color="black",fill="white") + 
+  theme.1 + labs(x="Intercepts",y="Frequency",title="(a)")
+rate2.hist <- ggplot(int.rate.rsq2,aes(x=rate2)) + 
+  geom_histogram(binwidth=0.05,color="black",fill="white") + 
+  theme.1 + labs(x="Slopes",y="Frequency",title="(b)")
+rsq2.hist <- ggplot(int.rate.rsq2,aes(x=rsq2)) + 
+  geom_histogram(binwidth=0.2,color="black",fill="white") + 
+  theme.1 + labs(x="R squared values",y="Frequency",title="(c)")
+intrate.lpbypot <- grid.arrange(int2.hist,rate2.hist,rsq2.hist,ncol=2)
+
+#    Descriptive statistics of the estimates obtained by fitting the 
+#      linear model by pot.
+mean(int2)
+sd(int2)
+mean(rate2, na.rm=T)
+sd(rate2, na.rm=T)
+cor(int2, rate2, use="complete.obs")   
+
+# Try to compare variability between plants and between pots
+#   Plus ANOVA-type boxplot of within pot vs within plant variability
+
+seedwdplus <- seedwd %>%
+  filter(species=="L") %>%
+  mutate(int = int, rate = rate)
+bypot <- seedwdplus %>%
+  group_by(pot) %>%
+  summarise(sd_int = unname(sd(int)),
+            mean_int = unname(mean(int)),
+            sd_rate = unname(sd(rate)),
+            mean_rate = unname(mean(rate)) )
+
+mean(bypot$sd_int,na.rm=T)   # intercept variability between plants = .489
+mean(bypot$sd_rate,na.rm=T)   # rate variability between plants = .039
+sd(bypot$mean_int,na.rm=T)   # intercept variability between pots = .478
+sd(bypot$mean_rate,na.rm=T)   # rate variability between pots = .051
+
+# Boxplots to compare ints and rates by factor levels
+hgt.listc=lmList(hgt~time13 | plant, data=conedata, na.action=na.exclude)
+intc = as.matrix(coef(hgt.listc))[,1]
+ratec = as.matrix(coef(hgt.listc))[,2]
+allfits <- tibble(int = c(int, intc),
+                  rate = c(rate, ratec),
+                  species = c(rep("Leadplants", 107), rep("Coneflowers", 176)) )
+
+int.byspecies <- ggplot(allfits,aes(x=species,y=int)) + 
+  geom_boxplot(aes(group=species)) + 
+  theme.1 +
+  labs(x="Species",y="Intercepts",title="(a)") 
+rate.byspecies <- ggplot(allfits, aes(x=species,y=rate)) + 
+  geom_boxplot(aes(group=species)) + 
+  theme.1 + 
+  labs(x="Species",y="Slopes",title="(b)") 
+intrate.byspecies <- grid.arrange(int.byspecies,rate.byspecies,ncol=2)
+
+seedwdplus <- seedwdplus %>%
+  mutate(soilname = recode(soil, STP="Reconstructed", CULT="Cultivated",
+                           REM="Remnant") )
+int.bysoil <- ggplot(seedwdplus,aes(x=soilname,y=int)) + 
+  geom_boxplot() + 
+  theme.1 +
+  labs(x="Soil type",y="Intercepts",title="(a)")
+rate.bysoil <- ggplot(seedwdplus,aes(x=soilname,y=rate)) + 
+  geom_boxplot() + 
+  theme.1 +
+  labs(x="Soil type",y="Slopes",title="(b)")
+intrate.bysoil <- grid.arrange(int.bysoil,rate.bysoil,ncol=2)
+
+seedwdplus <- seedwdplus %>%
+  mutate(sterilename = recode(sterile, Y="Sterilized", N="Not Sterilized") )
+int.bysterile <- ggplot(seedwdplus,aes(x=sterilename,y=int)) + 
+  geom_boxplot() + 
+  theme.1 +
+  labs(x="Sterile",y="Intercepts",title="(a)")
+rate.bysterile <- ggplot(seedwdplus,aes(x=sterilename,y=rate)) + 
+  geom_boxplot() + 
+  theme.1 + 
+  labs(x="Sterile",y="Slopes",title="(b)")
+intrate.bysterile <- grid.arrange(int.bysterile,rate.bysterile,ncol=2)
+
+
+# Examine correlation structure
+seed.nona <- leaddata %>%
+  filter(!is.na(hgt))
+hgt.lm = lm(hgt~time13, data=seed.nona)
+seed.nona <- seed.nona %>%
+  mutate(lmres = resid(hgt.lm))
+hgtw <- seed.nona %>%
+  select(plant, time13, lmres) %>%
+  spread(key = time13, value = lmres, sep = "") 
+hgtw.1 <- na.omit(hgtw)
+ggpairs(hgtw.1[,2:5], lower=list(continuous="smooth"),
+  upper=list(), diag=list(continuous="bar", discrete="bar"),
+  axisLabels="show") 
+
+
+############################################################################
+
+### Model fitting - leadplants ###
+
+# Model A - unconditional means
+modelal = lmer(hgt ~ 1 + (1|plant) + (1|pot), REML=T, data=leaddata)
+summary(modelal)
+
+# Equivalent A
+modelal.slash = lmer(hgt ~ 1 + (1|pot/plant), REML=T, data=leaddata)
+summary(modelal.slash)
+
+# Model B - unconditional growth
+modelbl = lmer(hgt ~ time13 + (time13|plant) + (time13|pot), 
+  REML=T, data=leaddata)
+summary(modelbl)
+
+# Equivalent B
+modelbl.slash = lmer(hgt ~ time13 + (time13|pot/plant), REML=T, data=leaddata)
+summary(modelbl.slash)
+
+# Model C - add covariates at pot level
+modelcl = lmer(hgt ~ time13 + strl + cult + rem + time13:strl + time13:cult +
+  time13:rem + (time13|plant) + (time13|pot), REML=T, data=leaddata)
+summary(modelcl)   # get corr=-1 at pot level
+
+anova(modelbl,modelcl)    # go with Model C (although that had corr=-1)
+                          # remember that anova() assumes REML=F
+
+# Try Model C without correlation between L2 errors
+modelcl.noL2corr = lmer(hgt ~ time13 + strl + cult + rem + time13:strl + 
+  time13:cult + time13:rem + (time13|plant) + (1|pot) + (0+time13|pot), 
+  REML=T, data=leaddata)
+summary(modelcl.noL2corr)
+
+# Try Model C without time at pot level
+modelcl0 = lmer(hgt ~ time13 + strl + cult + rem + time13:strl + time13:cult +
+  time13:rem + (time13|plant) + (1|pot), REML=T, data=leaddata)
+summary(modelcl0)
+
+anova(modelcl0,modelcl)   # go with Model C.0 (fewer varcomps)
+
+```
