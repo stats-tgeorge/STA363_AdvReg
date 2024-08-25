@@ -18,6 +18,7 @@ course:
   number: "STA 363"
   semester: "Fall 2024 Block 1"
   time: "M-F,9am-11am and 1pm-3pm"
+  dates: "August 26th to September 18th"
   exam_dates: "September 6th and 18th"
   location: "West 201"
   github: "https://github.com/stats-tgeorge/STA363_AdvReg"
@@ -33,7 +34,8 @@ course:
 college:
   name: Cornell College
   url: "www.cornellcollege.edu"
-  rstudio: "http://turing.cornellcollege.edu:8787/auth-sign-in?appUri=%2F"
+  rstudio: "http://turing.cornellcollege.edu:8787/"
+  support: "https://stats-tgeorge.github.io/personal_website/course-support.html"
 
 citation:
   websource_1: Dr. Lucy D’Agostino McGowan
