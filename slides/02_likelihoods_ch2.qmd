@@ -1,0 +1,393 @@
+---
+title: "Beyond Least Squares: Using Likelihoods"
+subtitle: "BMLR Chapter 2"
+format: 
+  revealjs:
+    output-file: "02_likelihoods_ch2.html"
+    slide-number: true
+  html:
+    output-file: "02_likelihoods_ch2_o.html"
+logo: "../img/favicon.png"
+---
+
+## Setup
+
+```{r echo=T, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidymodels)
+library(GGally)
+library(knitr)
+library(patchwork)
+library(viridis)
+library(ggfortify)
+```
+
+## Learning goals 
+
+- Describe the concept of a likelihood
+
+- Construct the likelihood for a simple model
+
+- Define the Maximum Likelihood Estimate (MLE) and use it to answer an analysis question
+
+- Identify three ways to calculate or approximate the MLE and apply these methods to find the MLE for a simple model
+
+- Use likelihoods to compare models (next week)
+
+
+
+## What is the likelihood? {.smaller}
+
+A **likelihood** is a function that tells us how likely we are to observe our data for a given parameter value (or values). 
+
+- Unlike Ordinary Least Squares (OLS), they do not require the responses be independent, identically distributed, and normal (iidN)
+
+- They are **not** the same as probability functions
+
+. . .
+
+  - **Probability function:** Fixed parameter value(s) + input possible outcomes $\Rightarrow$ probability of seeing the different outcomes given the parameter value(s)
+  
+
+  
+  - **Likelihood:** Fixed data + input possible parameter values $\Rightarrow$ probability of seeing the fixed data for each parameter value
+
+
+
+## Fouls in college basketball games {.smaller}
+
+The data set [`04-refs.csv`](data/04-refs.csv) includes 30 randomly selected NCAA men's basketball games played in the 2009 - 2010 season.
+
+We will focus on the variables `foul1`, `foul2`, and `foul3`, which indicate which team had a foul called them for the 1st, 2nd, and 3rd fouls, respectively. 
+  - `H`: Foul was called on the home team 
+  - `V`: Foul was called on the visiting team
+  
+
+
+We are focusing on the first three fouls for this analysis, but this could easily be extended to include all fouls in a game. 
+
+::: footer
+[The dataset was derived from `basektball0910.csv` used in [BMLR Section 11.2](https://bookdown.org/roback/bookdown-BeyondMLR/ch-GLMM.html#cs:refs)
+:::
+
+
+## Fouls in college basketball games
+
+```{r}
+refs <- read_csv("data/04-refs.csv")
+refs %>% slice(1:5) %>% kable()
+```
+
+We will treat the games as independent in this analysis.
+
+
+
+## Different likelihood models {.smaller}
+
+**Model 1 (Unconditional Model)**: What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent? 
+
+
+**Model 2 (Conditional Model)**: 
+  - Is there a tendency for the referees to call more fouls on the visiting team or home team? 
+  - Is there a tendency for referees to call a foul on the team that already has more fouls? 
+ 
+
+
+Ultimately we want to decide which model is better.
+
+
+
+## Exploratory data analysis {.smaller}
+
+:::: {.columns}
+::: {.column}
+
+```{r}
+refs %>%
+count(foul1, foul2, foul3) %>% kable()
+```
+
+:::
+
+:::{.column}
+There are 
+- 46 total fouls on the home team
+- 44 total fouls on the visiting team 
+
+:::
+::::
+
+
+## Model 1: Unconditional model {.smaller}
+
+### What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent? 
+
+
+## Likelihood
+
+Let $p_H$ be the probability the referees call a foul on the home team. 
+
+**The likelihood for a single observation** 
+
+$$Lik(p_H) = p_H^{y_i}(1 - p_H)^{n_i - y_i}$$
+
+Where $y_i$ is the number of fouls called on the home team. 
+
+(In this example, we know $n_i = 3$ for all observations.)
+
+. . .
+
+**Example**
+
+For a single game where the first three fouls are $H, H, V$, then
+
+$$Lik(p_H) = p_H^{2}(1 - p_H)^{3 - 2} = p_H^{2}(1 - p_H)$$
+
+
+
+## Model 1: Likelihood contribution {.smaller}
+
+
+| Foul1 | Foul2 | Foul3 | n | Likelihood Contribution |
+|-------|-------|-------|---|:-----------------------:|
+| H     | H     | H     | 3 |       $p_H^3$           |
+| H     | H     | V     | 2 |        $p_H^2(1 - p_H)$ |
+| H     | V     | H     | 3 |        $p_H^2(1 - p_H)$ |
+| H     | V     | V     | 7 |       A                 |
+| V     | H     | H     | 7 |        B                |
+| V     | H     | V     | 1 |       $p_H(1 - p_H)^2$  |
+| V     | V     | H     | 5 |         $p_H(1 - p_H)^2$|
+| V     | V     | V     | 2 |         $(1 - p_H)^3$   |
+
+. . .
+
+Fill in **A** and **B**.
+
+
+## Model 1: Likelihood function
+
+Because the observations (the games) are independent, the **likelihood** is
+
+$$Lik(p_H) = \prod_{i=1}^{n}p_H^{y_i}(1 - p_H)^{3 - y_i}$$
+
+
+We will use this function to find the **maximum likelihood estimate (MLE)**. The MLE is the value between 0 and 1 where we are most likely to see the observed data.
+
+
+
+## Visualizing the likelihood
+
+:::{.panel-tabset}
+
+### Plot
+
+```{r echo = F,fig.height=3.5}
+p <- seq(0,1, length.out = 100) #sequence of 100 values between 0 and 100
+lik <- p^46 *(1 -p)^44
+
+x <- tibble(p = p, lik = lik)
+ggplot(data = x, aes(x = p, y = lik)) + 
+  geom_point() + 
+  geom_line() +
+  labs(y = "Likelihood",
+       title = "Likelihood of p_H")
+```
+
+### Code 
+
+```{r eval = F}
+p <- seq(0,1, length.out = 100) #sequence of 100 values between 0 and 100
+lik <- p^46 *(1 -p)^44
+
+x <- tibble(p = p, lik = lik)
+ggplot(data = x, aes(x = p, y = lik)) + 
+  geom_point() + 
+  geom_line() +
+  labs(y = "Likelihood",
+       title = "Likelihood of p_H")
+```
+
+:::
+
+
+## Q: What is your best guess for the MLE, $\hat{p}_H$?
+
+A. 0.489
+
+B. 0.500
+
+C. 0.511
+
+D. 0.556
+
+## Finding the maximum likelihood estimate 
+
+There are three primary ways to find the MLE 
+
+. . .
+
+`r emo::ji("white_check_mark")` Approximate using a graph
+
+`r emo::ji("white_check_mark")` Numerical approximation 
+
+`r emo::ji("white_check_mark")` Using calculus
+
+
+
+## Approximate MLE from a graph 
+
+```{r echo = F, out.width = "80%"}
+p <- seq(0,1, length.out = 100) #sequence of 100 values between 0 and 100
+lik <- p^46 *(1 -p)^44
+
+x1 <- tibble(p = p, lik = lik)
+
+lik_plot <- ggplot(data = x1, aes(x = p, y = lik)) + 
+  geom_point() + 
+  geom_line() + 
+  geom_vline(xintercept = 46/90, color = "red") + 
+    labs(y = "Likelihood", 
+       title = "Likelihood of p_H")
+
+lik_plot
+```
+
+
+
+## Find the MLE using numerical approximation
+
+Specify a finite set of possible values the for $p_H$ and calculate the likelihood for each value
+
+
+
+```{r}
+# write an R function for the likelihood
+ref_lik <- function(ph) {
+  ph^46 *(1 - ph)^44
+}
+```
+
+
+
+```{r}
+# use the optimize function to find the MLE
+optimize(ref_lik, interval = c(0,1), maximum = TRUE)
+```
+
+
+
+## Find MLE using calculus {.smaller}
+
+- Find the MLE by taking the first derivative of the likelihood function. 
+
+- This can be tricky because of the Product Rule, so we can maximize the **log(Likelihood)** instead. The same value maximizes the likelihood and log(Likelihood)
+
+
+. . .
+
+```{r echo = F, out.width = "60%"}
+loglik_plot <- ggplot(data = x1, aes(x = p, y = log(lik))) + 
+  geom_point() + 
+  geom_line() + 
+  geom_vline(xintercept = 46/90, color = "red") + 
+    labs(y = "log(Likelihood)", 
+       title = "log(Likelihood) of p_H")
+
+lik_plot + loglik_plot
+```
+
+. . .
+
+Since calculus is not a pre-req, we will forgo this quest. 
+
+## Model 2: Conditional model 
+
+- Is there a tendency for the referees to call more fouls on the visiting team or home team? 
+
+- Is there a tendency for referees to call a foul on the team that already has more fouls?
+
+
+
+## Model 2: Likelihood contributions {.smaller}
+
+- Now let's assume fouls are **not** independent within each game. We will specify this dependence using conditional probabilities. 
+  - **Conditional probability**: $P(A|B) =$ Probability of $A$ given $B$ has occurred
+
+
+. . .
+
+Define new parameters:
+
+- $p_{H|N}$: Probability referees call foul on home team given there are equal numbers of fouls on the home and visiting teams 
+
+
+
+- $p_{H|H Bias}$: Probability referees call foul on home team given there are more prior fouls on the home team
+
+
+
+- $p_{H|V Bias}$: Probability referees call foul on home team given there are more prior fouls on the visiting team 
+
+
+
+## Model 2: Likelihood contributions {.smaller}
+
+| Foul1 | Foul2 | Foul3 | n | Likelihood Contribution |
+|-------|-------|-------|---|:-----------------------:|
+| H     | H     | H     | 3 |       $p_H^3$           |
+| H     | H     | V     | 2 |        $p_H^2(1 - p_H)$ |
+| H     | V     | H     | 3 |        $p_H^2(1 - p_H)$ |
+| H     | V     | V     | 7 |       A                 |
+| V     | H     | H     | 7 |        B                |
+| V     | H     | V     | 1 |        $p_H(1 - p_H)^2$ |
+| V     | V     | H     | 5 |         $p_H(1 - p_H)^2$|
+| V     | V     | V     | 2 |         $(1 - p_H)^3$   |
+
+Fill in **A** and **B**
+
+
+
+## Likelihood function 
+
+$$\begin{aligned}Lik(p_{H| N}, p_{H|H Bias}, p_{H |V Bias}) &= [(p_{H| N})^{25}(1 - p_{H|N})^{23}(p_{H| H Bias})^8 \\ &(1 - p_{H| H Bias})^{12}(p_{H| V Bias})^{13}(1-p_{H|V Bias})^9]\end{aligned}$$      
+
+**(Note: The exponents sum to 90, the total number of fouls in the data)**
+
+. . .
+
+
+
+$$\begin{aligned}\log (Lik(p_{H| N}, p_{H|H Bias}, p_{H |V Bias})) &= 25 \log(p_{H| N}) + 23 \log(1 - p_{H|N}) \\ & + 8 \log(p_{H| H Bias}) + 12 \log(1 - p_{H| H Bias})\\ &+ 13 \log(p_{H| V Bias}) + 9 \log(1-p_{H|V Bias})\end{aligned}$$   
+
+## Q: If fouls within a game are independent, how would you expect $\hat{p}_H$, $\hat{p}_{H\vert H Bias}$ and $\hat{p}_{H\vert V Bias}$ to compare? 
+
+a. $\hat{p}_H$ is greater than $\hat{p}_{H\vert H Bias}$ and $\hat{p}_{H \vert V Bias}$
+
+b. $\hat{p}_{H\vert H Bias}$ is greater than $\hat{p}_H$ and $\hat{p}_{H \vert V Bias}$
+
+c. $\hat{p}_{H\vert V Bias}$ is greater than $\hat{p}_H$ and $\hat{p}_{H \vert V Bias}$
+
+d. They are all approximately equal.
+
+
+
+
+## Q: If there is a tendency for referees to call a foul on the team that already has more fouls, how would you expect $\hat{p}_H$ and  $\hat{p}_{H\vert H Bias}$ to compare? 
+
+a. $\hat{p}_H$ is greater than  $\hat{p}_{H\vert H Bias}$ 
+
+b. $\hat{p}_{H\vert H Bias}$ is greater than $\hat{p}_H$
+
+c. They are approximately equal.
+
+
+## Acknowledgements
+
+These slides are based on content in [BMLR: Chapter 1 - Review of Multiple Linear Regression](https://bookdown.org/roback/bookdown-BeyondMLR/ch-MLRreview.html)
+
+Initial versions of the slides are by Dr. Maria Tackett, Duke University
+
+
+
+
+
