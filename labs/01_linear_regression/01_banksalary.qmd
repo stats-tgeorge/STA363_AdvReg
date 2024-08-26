@@ -20,6 +20,16 @@ Since this our first lab, I suggest you get setup for files in the following way
 
 **Example: Sex discrimination in bank salaries.** In the 1970’s, Harris Trust was sued for sex discrimination in the salaries it paid its employees. One approach to addressing this issue was to examine the starting salaries of all skilled, entry-level clerical workers between 1965 and 1975. The data is saved under banksalary.csv, and relevant R code can be found in the STA363_inst_files folder on the home directory of the RStudio Server. *banksalary.qmd*.
 
+Data from skilled entry-level clerical workers at bank being sued for sex discrimination in 1970s (from Statistical Sleuth, Ch 12):
+
+- `bsal` = beginning salary (annual salary at time of hire)
+- `sal77` = annual salary in 1977
+- `sex` = MALE or FEMALE
+- `senior` = months since hired
+- `age` = age in months
+- `educ` = years of education
+- `exper` = months of prior work experience
+
 *First, we will speculate on what we expect to find and then we will perform an analysis using the data.*
 
 - Read the data in and use a`view()` to see the data, but do not do anything else with the data on the computer until question 6.

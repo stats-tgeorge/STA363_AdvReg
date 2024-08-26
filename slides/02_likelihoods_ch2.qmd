@@ -10,11 +10,20 @@ format:
 logo: "../img/favicon.png"
 ---
 
+```{r echo = F}
+lik1 <- function(ph) {
+ ph^46 * (1 - ph)^44
+}
+
+lik2 <- function(phn, phh, phv) {
+  phn^25 * (1 - phn)^23 * phh^8 * (1 - phh)^12 * phv^13 * (1 - phv)^9
+}
+```
+
 ## Setup
 
 ```{r echo=T, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(tidymodels)
 library(GGally)
 library(knitr)
 library(patchwork)
@@ -34,7 +43,7 @@ library(ggfortify)
 
 - Use likelihoods to compare models (next week)
 
-
+# Likelihood
 
 ## What is the likelihood? {.smaller}
 
@@ -43,8 +52,6 @@ A **likelihood** is a function that tells us how likely we are to observe our da
 - Unlike Ordinary Least Squares (OLS), they do not require the responses be independent, identically distributed, and normal (iidN)
 
 - They are **not** the same as probability functions
-
-. . .
 
   - **Probability function:** Fixed parameter value(s) + input possible outcomes $\Rightarrow$ probability of seeing the different outcomes given the parameter value(s)
   
@@ -59,6 +66,7 @@ A **likelihood** is a function that tells us how likely we are to observe our da
 The data set [`04-refs.csv`](data/04-refs.csv) includes 30 randomly selected NCAA men's basketball games played in the 2009 - 2010 season.
 
 We will focus on the variables `foul1`, `foul2`, and `foul3`, which indicate which team had a foul called them for the 1st, 2nd, and 3rd fouls, respectively. 
+
   - `H`: Foul was called on the home team 
   - `V`: Foul was called on the visiting team
   
@@ -86,6 +94,7 @@ We will treat the games as independent in this analysis.
 
 **Model 1 (Unconditional Model)**: What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent? 
 
+<br> 
 
 **Model 2 (Conditional Model)**: 
   - Is there a tendency for the referees to call more fouls on the visiting team or home team? 
@@ -118,12 +127,12 @@ There are
 ::::
 
 
-## Model 1: Unconditional model {.smaller}
+## Model 1: Unconditional model
 
-### What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent? 
+*What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?*
 
 
-## Likelihood
+## Likelihood {.smaller}
 
 Let $p_H$ be the probability the referees call a foul on the home team. 
 
@@ -228,7 +237,11 @@ There are three primary ways to find the MLE
 
 `r emo::ji("white_check_mark")` Approximate using a graph
 
+. . .
+
 `r emo::ji("white_check_mark")` Numerical approximation 
+
+. . .
 
 `r emo::ji("white_check_mark")` Using calculus
 
@@ -380,6 +393,367 @@ b. $\hat{p}_{H\vert H Bias}$ is greater than $\hat{p}_H$
 
 c. They are approximately equal.
 
+
+
+
+## Likelihoods {.smaller}
+
+**Model 1 (Unconditional Model)**
+
+- $p_H$: probability of a foul being called on the home team
+
+. . .
+
+**Model 2 (Conditional Model)**
+
+- $p_{H|N}$: Probability referees call foul on home team given there are equal numbers of fouls on the home and visiting teams
+- $p_{H|H Bias}$: Probability referees call foul on home team given there are more prior fouls on the home team
+- $p_{H|V Bias}$: Probability referees call foul on home team given there are more prior fouls on the visiting team
+    
+
+
+
+## Likelihoods
+
+**Model 1 (Unconditional Model)**
+
+$$Lik(p_H) = p_H^{46}(1 - p_H)^{44}$$
+
+. . .
+
+
+**Model 2 (Conditional Model)**
+
+$$\begin{aligned}Lik(p_{H| N}, p_{H|H Bias}, p_{H |V Bias}) &= [(p_{H| N})^{25}(1 - p_{H|N})^{23}(p_{H| H Bias})^8 \\ &(1 - p_{H| H Bias})^{12}(p_{H| V Bias})^{13}(1-p_{H|V Bias})^9]\end{aligned}$$     
+
+
+
+
+## Maximum likelihood estimates {.smaller}
+
+The **maximum likelihood estimate (MLE)** is the value between 0 and 1 where we are most likely to see the observed data.
+
+. . .
+
+::::{.columns}
+
+:::{.column}
+
+**Model 1 (Unconditional Model)**
+
+- $\hat{p}_H = 46/90 = 0.511$
+
+
+**Model 2 (Conditional Model)**
+
+- $\hat{p}_{H|N} = 25 / 48 = 0.521$
+- $\hat{p}_{H|H Bias} = 8 /20 = 0.4$
+- $\hat{p}_{H|V Bias} = 13/ 22 = 0.591$
+
+:::
+
+:::{.column}
+
+- What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent? 
+- Is there a tendency for the referees to call more fouls on the visiting team or home team? 
+- Is there a tendency for referees to call a foul on the team that already has more fouls? 
+
+:::
+::::
+
+
+## Finding the MLEs for model 2 {.smaller}
+
+
+The likelihood is 
+
+
+$$\begin{aligned}Lik(p_{H| N}, p_{H|H Bias}, p_{H |V Bias}) &= [(p_{H| N})^{25}(1 - p_{H|N})^{23}(p_{H| H Bias})^8 \\ &(1 - p_{H| H Bias})^{12}(p_{H| V Bias})^{13}(1-p_{H|V Bias})^9]\end{aligned}$$  
+
+. . .
+
+The log-likelihood is 
+
+$$\begin{aligned}\log (Lik(p_{H| N}, p_{H|H Bias}, p_{H |V Bias})) &= 25 \log(p_{H| N}) + 23 \log(1 - p_{H|N}) \\ & + 8 \log(p_{H| H Bias}) + 12 \log(1 - p_{H| H Bias})\\ &+ 13 \log(p_{H| V Bias}) + 9 \log(1-p_{H|V Bias})\end{aligned}$$   
+
+. . .
+
+We would like to find the MLEs for $p_{H| N}, p_{H|H Bias}, \text{ and }p_{H |V Bias}$.
+
+
+## Finding MLEs using graphs {.smaller}
+
+- We need to find the MLEs for three parameters, therefore we would need to visualize a 4-dimensional object to find the MLEs from a graph. Given the difficulty of this task and the lack of precision in the estimates from this approach, we should rely on other approaches to find the MLEs in this instance.
+
+. . .
+
+- We also can't use calculus... that leaves only 1 approach.... optimization via  grid search or *optim* in R
+
+## Finding the MLEs using R (1/3) {.smaller}
+
+We can write a function and do a grid search to find the values that maximize the log-likelihood.
+
+. . .
+
+```{r}
+maxloglik<- function(nvals){
+  #nvals specifies the number of values
+  phn <- seq(0, 1, length = nvals)
+  phh <- seq(0, 1, length = nvals)
+  phv <- seq(0, 1, length = nvals)
+  
+  loglik <- expand.grid(phn, phh, phv) 
+  colnames(loglik) <- c("phn", "phh", "phv")
+  
+  loglik <- loglik %>%
+    mutate(loglik  = log(phn^25 * (1 - phn)^23 * phh^8 * (1 - phh)^12 * 
+                           phv^13 * (1 - phv)^9))
+  
+  loglik %>%
+    arrange(desc(loglik)) %>%
+    slice(1)
+}
+```
+
+```{r}
+maxloglik(100)
+```
+
+## Finding the MLEs using R (2/3) {.smaller}
+
+- Depending on the number of parameters, it may be hard to conduct a granular enough search to find the exact values of the MLEs. 
+- Therefore, one could use the function above to conduct a crude search to find starting values for R's `optim` function. 
+- The function `optim` differs from `optimize` in that it can optimize over multiple parameter values (The `optimize` function can only optimize over a single parameter value).
+
+. . .
+
+```{r}
+# Function to calculate log-likelihood that will be used in the optim function
+loglik <- function(params){
+  phn <- params[1]
+  phh <- params[2]
+  phv <- params[3]
+
+  log(phn^25 * (1 - phn)^23 * phh^8 * (1 - phh)^12 * 
+                           phv^13 * (1 - phv)^9)
+}
+```
+
+## Finding the MLEs using R (3/3) {.smaller}
+
+```{r}
+# use manual search to get starting values 
+start_vals <- maxloglik(50) %>% select(-loglik)
+```
+
+```{r}
+# Use optim function in R to find the values to maximize the log-likelihood
+#set fnscale = -1 to maximize (the default is minimize)
+optim(par = start_vals, fn = loglik, control=list(fnscale=-1))
+```
+
+# Model Comparisons
+
+## Model comparisons 
+
+- Nested models 
+
+- Non-nested models
+
+## Nested Models (1/2) {.smaller}
+
+**Nested models**: Models such that the parameters of the reduced model are a subset of the parameters for a larger model 
+
+Example: 
+
+$$\begin{aligned}&\text{Model A: }y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon\\
+&\text{Model B: }y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_4 + \epsilon\end{aligned}$$
+
+. . .
+
+Model A is nested in Model B. We could use likelihoods to test whether it is useful to add $x_3$ and $x_4$ to the model. 
+
+. . .
+
+$$\begin{aligned}&H_0: \beta_3 = \beta_4 = 0 \\ 
+&H_a: \text{ at least one }\beta_j \text{ is not equal to 0}\end{aligned}$$
+
+
+
+## Nested models (2/2) {.smaller}
+
+**Another way to think about nested models**: Parameters in larger model can be equated to get the simpler model or if some parameters can be set to constants 
+
+Example: 
+
+$$\begin{aligned}&\text{Model 1: }p_H \\
+&\text{Model 2: }p_{H| N}, p_{H| H Bias}, p_{H| V Bias}\end{aligned}$$
+
+. . .
+
+Model 1 is nested in Model 2. The parameters $p_{H| N}$, $p_{H|H Bias}$, and $p_{H |V Bias}$ can be set equal to $p_H$ to get Model 1. 
+
+. . .
+
+$$\begin{aligned}&H_0: p_{H| N} = p_{H| H Bias} = p_{H| V Bias} = p_H \\
+&H_a: \text{At least one of }p_{H| N}, p_{H| H Bias}, p_{H| V Bias} \text{ differs from the others}\end{aligned}$$
+
+
+
+## Steps to compare models {.smaller} 
+
+`r emo::ji("one")`  Find the MLEs for each model. 
+
+`r emo::ji("two")`  Plug the MLEs into the log-likelihood function for each model to get the maximum value of the log-likelihood for each model. 
+
+`r emo::ji("three")`  Find the difference in the maximum log-likelihoods
+
+`r emo::ji("four")`  Use the Likelihood Ratio Test to determine if the difference is statistically significant 
+
+
+
+## Steps 1 - 2 {.smaller}
+
+Find the MLEs for each model and plug them into the log-likelihood functions. 
+
+::::{.columns}
+
+:::{.column}
+
+**Model 1:**
+
+- $\hat{p}_H = 46/90 = 0.511$
+
+. . .
+
+```{r}
+loglik1 <- function(ph){
+ log(ph^46 * (1 - ph)^44)
+}
+loglik1(46/90)
+```
+
+:::
+
+:::{.column}
+**Model 2**
+
+- $\hat{p}_{H|N} = 25 / 48 = 0.521$
+- $\hat{p}_{H|H Bias} = 8 /20 = 0.4$
+- $\hat{p}_{H|V Bias} = 13/ 22 = 0.591$
+
+. . .
+
+```{r}
+loglik2 <- function(phn, phh, phv) {
+  log(phn^25 * (1 - phn)^23 * phh^8 * 
+        (1 - phh)^12 * phv^13 * (1 - phv)^9)
+}
+loglik2(25/48, 8/20, 13/22)
+```
+
+:::
+::::
+
+
+## Step 3
+
+Find the difference in the log-likelihoods
+
+```{r}
+(diff <- loglik2(25/48, 8/20, 13/22) - loglik1(46/90))
+```
+
+
+<br>
+
+
+. . .
+
+
+**Is the difference in the maximum log-likelihoods statistically significant?** 
+
+
+
+## Likelihood Ratio Test {.smaller}
+
+**Test statistic**
+
+$$\begin{aligned} LRT &= 2[\max\{\log(Lik(\text{larger model}))\} - \max\{\log(Lik(\text{reduced model}))\}]\\[10pt]
+&= 2\log\Bigg(\frac{\max\{(Lik(\text{larger model})\}}{\max\{(Lik(\text{reduced model})\}}\Bigg)\end{aligned}$$
+
+<br> 
+
+. . .
+
+LRT follows a $\chi^2$ distribution where the degrees of freedom equal the difference in the number of parameters between the two models
+
+
+
+## Step 4 {.smaller}
+
+```{r}
+(LRT <- 2 * (loglik2(25/48, 8/20, 13/22) - loglik1(46/90)))
+```
+
+. . .
+
+The test statistic follows a $\chi^2$ distribution with 2 degrees of freedom. Therefore, the p-value is $P(\chi^2 > LRT)$. 
+
+```{r}
+pchisq(LRT, 2, lower.tail = FALSE)
+```
+
+. . .
+
+The p-value is very large, so we fail to reject $H_0$. We do not have convincing evidence that the conditional model is an improvement over the unconditional model. Therefore, we can stick with the unconditional model. 
+
+## Comparing non-nested models{.smaller}
+
+::::{.columns}
+:::{.column}
+
+**AIC** = -2(max log-likelihood) + 2p
+
+
+```{r}
+(Model1_AIC <- 2 * loglik1(46/90) + 2 * 1)
+(Model2_AIC <-2 * loglik2(25/48, 8/20, 13/22) + 2 * 3)
+```
+
+:::
+
+:::{.column}
+**BIC** = -2(max log-likelihood) + plog(n)
+
+```{r}
+(Model1_BIC <- 2 * loglik1(46/90) + 1 * log(30))
+(Model2_BIC <-2 * loglik2(25/48, 8/20, 13/22) + 3 * log(30))
+```
+
+**Choose Model 1, the unconditional model, based on AIC and BIC**
+
+:::
+::::
+
+
+
+## Looking ahead{.smaller}
+
+- Likelihoods help us answer the question of how likely we are to observe the data given different parameters
+
+
+- In this example, we did not consider covariates, so in practice the parameters we want to estimate will look more similar to this
+ 
+. . .
+
+$$p_H = \frac{e^{\beta_0 + \beta_1x_1 + \dots + \beta_px_p}}{1 + e^{\beta_0 + \beta_1x_1 + \dots + \beta_px_p}}$$
+
+. . .
+
+- Finding the MLE becomes much more complex and numerical methods may be required.
+  - We will primarily rely on software to find the MLE, but the conceptual ideas will be the same
+  
 
 ## Acknowledgements
 

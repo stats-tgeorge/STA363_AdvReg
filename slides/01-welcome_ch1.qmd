@@ -408,7 +408,6 @@ Today's data is from the Kentucky Derby, an annual 1.25-mile horse race held at 
 
 - `speed`: Average speed of the winner in feet per second (ft/s)]
 
-. . .
 
 **Additional variable**
 
@@ -438,7 +437,7 @@ derby |>
   head(5) |> kable()
 ```
 
-
+## Data Analysis Life Cycle
 
 ![](img/data-analysis-life-cycle.png)
 

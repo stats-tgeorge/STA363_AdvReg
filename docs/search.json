@@ -173,7 +173,7 @@
     "href": "slides/01-welcome_ch1.html#assumptions-for-linear-regression-1",
     "title": "Welcome and Chapter 1",
     "section": "Assumptions for linear regression",
-    "text": "Assumptions for linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinearity: Linear relationship between mean of the response \\(Y\\) and the predictor \\(X\\)\nIndependence: No connection between how any two points lie above or below the regression line\nNormality: Response, \\(Y\\), follows a normal distribution at each level of the predictor, \\(X\\) (indicated by red curves)\nEqual variance: Variance (or standard deviation) of the response, \\(Y\\), is equal for all levels of the predictor, \\(X\\)\n\n\n\n\nModified from Figure 1.1. in BMLR]"
+    "text": "Assumptions for linear regression\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\n\n\n\n\n\n\n\n\n\n\n\n\nLinearity: Linear relationship between mean of the response \\(Y\\) and the predictor \\(X\\)\nIndependence: No connection between how any two points lie above or below the regression line\nNormality: Response, \\(Y\\), follows a normal distribution at each level of the predictor, \\(X\\) (indicated by red curves)\nEqual variance: Variance (or standard deviation) of the response, \\(Y\\), is equal for all levels of the predictor, \\(X\\)\n\n\n\n\nModified from Figure 1.1. in BMLR]"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#questions",
@@ -201,14 +201,21 @@
     "href": "slides/01-welcome_ch1.html#data-kentucky-derby-winners",
     "title": "Welcome and Chapter 1",
     "section": "Data: Kentucky Derby Winners",
-    "text": "Data: Kentucky Derby Winners\nToday’s data is from the Kentucky Derby, an annual 1.25-mile horse race held at the Churchill Downs race track in Louisville, KY. The data is in the file derbyplus.csv and contains information for races 1896 - 2017.\n\n\n\nResponse variable\n\nspeed: Average speed of the winner in feet per second (ft/s)]\n\n. . .\nAdditional variable\n\nwinner: Winning horse\n\n\nPredictor variables\n\nyear: Year of the race\ncondition: Condition of the track (good, fast, slow)\nstarters: Number of horses who raced]"
+    "text": "Data: Kentucky Derby Winners\nToday’s data is from the Kentucky Derby, an annual 1.25-mile horse race held at the Churchill Downs race track in Louisville, KY. The data is in the file derbyplus.csv and contains information for races 1896 - 2017.\n\n\n\nResponse variable\n\nspeed: Average speed of the winner in feet per second (ft/s)]\n\nAdditional variable\n\nwinner: Winning horse\n\n\nPredictor variables\n\nyear: Year of the race\ncondition: Condition of the track (good, fast, slow)\nstarters: Number of horses who raced]"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#data",
     "href": "slides/01-welcome_ch1.html#data",
     "title": "Welcome and Chapter 1",
     "section": "Data",
-    "text": "Data\n\nderby &lt;- read_csv(\"data/derbyplus.csv\")\n\n\nderby |&gt;\n  head(5) |&gt; kable()\n\n\n\n\nyear\nwinner\ncondition\nspeed\nstarters\n\n\n\n\n1896\nBen Brush\ngood\n51.66\n8\n\n\n1897\nTyphoon II\nslow\n49.81\n6\n\n\n1898\nPlaudit\ngood\n51.16\n4\n\n\n1899\nManuel\nfast\n50.00\n5\n\n\n1900\nLieut. Gibson\nfast\n52.28\n7"
+    "text": "Data\n\nderby &lt;- read_csv(\"data/derbyplus.csv\")\n\nRows: 122 Columns: 5\n── Column specification ──────────────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): winner, condition\ndbl (3): year, speed, starters\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nderby |&gt;\n  head(5) |&gt; kable()\n\n\n\n\nyear\nwinner\ncondition\nspeed\nstarters\n\n\n\n\n1896\nBen Brush\ngood\n51.66\n8\n\n\n1897\nTyphoon II\nslow\n49.81\n6\n\n\n1898\nPlaudit\ngood\n51.16\n4\n\n\n1899\nManuel\nfast\n50.00\n5\n\n\n1900\nLieut. Gibson\nfast\n52.28\n7"
+  },
+  {
+    "objectID": "slides/01-welcome_ch1.html#data-analysis-life-cycle",
+    "href": "slides/01-welcome_ch1.html#data-analysis-life-cycle",
+    "title": "Welcome and Chapter 1",
+    "section": "Data Analysis Life Cycle",
+    "text": "Data Analysis Life Cycle"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#exploratory-data-analysis-eda",
@@ -222,7 +229,7 @@
     "href": "slides/01-welcome_ch1.html#plots-for-univariate-eda",
     "title": "Welcome and Chapter 1",
     "section": "Plots for univariate EDA",
-    "text": "Plots for univariate EDA\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\np1 &lt;- ggplot(data = derby, aes(x = speed)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Winning speed (ft/s)\", y = \"Count\")\n\np2 &lt;- ggplot(data = derby, aes(x = starters)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Starters\", y = \"Count\")\n\np3 &lt;- ggplot(data = derby, aes(x = condition)) +\n   geom_bar(fill = \"forestgreen\", color = \"black\", aes(x = ))\n\np1 + (p2 / p3) + \n  plot_annotation(title = \"Univariate data analysis\")"
+    "text": "Plots for univariate EDA\n\nPlotCode\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\np1 &lt;- ggplot(data = derby, aes(x = speed)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Winning speed (ft/s)\", y = \"Count\")\n\np2 &lt;- ggplot(data = derby, aes(x = starters)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Starters\", y = \"Count\")\n\np3 &lt;- ggplot(data = derby, aes(x = condition)) +\n   geom_bar(fill = \"forestgreen\", color = \"black\", aes(x = ))\n\np1 + (p2 / p3) + \n  plot_annotation(title = \"Univariate data analysis\")"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#plots-for-bivariate-eda",
@@ -236,14 +243,14 @@
     "href": "slides/01-welcome_ch1.html#scatterplot-matrix",
     "title": "Welcome and Chapter 1",
     "section": "Scatterplot matrix",
-    "text": "Scatterplot matrix\nA scatterplot matrix helps quickly visualize relationships between many variable pairs. They are particularly useful to identify potentially correlated predictors.\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n#library(GGally)\nggpairs(data = derby, \n        columns = c(\"condition\", \"year\", \"starters\", \"speed\"))"
+    "text": "Scatterplot matrix\nA scatterplot matrix helps quickly visualize relationships between many variable pairs. They are particularly useful to identify potentially correlated predictors.\n\n\nPlotCode\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\n#library(GGally)\nggpairs(data = derby, \n        columns = c(\"condition\", \"year\", \"starters\", \"speed\"))"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#plots-for-multivariate-eda",
     "href": "slides/01-welcome_ch1.html#plots-for-multivariate-eda",
     "title": "Welcome and Chapter 1",
     "section": "Plots for multivariate EDA",
-    "text": "Plots for multivariate EDA\nPlot the relationship between the response and a predictor based on levels of another predictor to assess potential interactions.\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n#library(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
+    "text": "Plots for multivariate EDA\nPlot the relationship between the response and a predictor based on levels of another predictor to assess potential interactions.\n\nPlotCode\n\n\n\n\nWarning: The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use \"none\" instead as of ggplot2\n3.3.4.\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\n#library(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#model-1-main-effects-model",
@@ -285,7 +292,7 @@
     "href": "slides/01-welcome_ch1.html#model-2-add-quadratic-effect-for-year",
     "title": "Welcome and Chapter 1",
     "section": "Model 2: Add quadratic effect for year?",
-    "text": "Model 2: Add quadratic effect for year?\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = derby, aes(x = yearnew, y = speed)) + \n  geom_point(alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\") + \n  geom_smooth(se = FALSE, color = \"red\", linetype = 2) + \n  labs(x = \"Years since 1896\", y = \"Speed (ft/s)\", \n       title = \"Speed vs. Years since 1896\")"
+    "text": "Model 2: Add quadratic effect for year?\n\nPlotCode\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = derby, aes(x = yearnew, y = speed)) + \n  geom_point(alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\") + \n  geom_smooth(se = FALSE, color = \"red\", linetype = 2) + \n  labs(x = \"Years since 1896\", y = \"Speed (ft/s)\", \n       title = \"Speed vs. Years since 1896\")"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#model-2-add-yearnew2",
@@ -320,7 +327,7 @@
     "href": "slides/01-welcome_ch1.html#model-3-include-interaction-term",
     "title": "Welcome and Chapter 1",
     "section": "Model 3: Include interaction term?",
-    "text": "Model 3: Include interaction term?\nRecall from the EDA…\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
+    "text": "Model 3: Include interaction term?\nRecall from the EDA…\n\nPlotCode\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#model-3-add-interaction-term",
@@ -383,7 +390,7 @@
     "href": "slides/01-welcome_ch1.html#inference-for-regression",
     "title": "Welcome and Chapter 1",
     "section": "Inference for regression",
-    "text": "Inference for regression\n\nWhen L.I.N.E. conditions are metWe can\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUse least squares regression to get the estimates \\(\\hat{\\beta}_0\\), \\(\\hat{\\beta}_1\\), and \\(\\hat{\\sigma}^2\\)\n\\(\\hat{\\sigma}\\) is the regression standard error\n\n. . .\n\\[\\hat{\\sigma} = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n - p - 1}} = \\sqrt{\\frac{\\sum_{i=1}^n e_i^2}{n-p-1}}\\]"
+    "text": "Inference for regression\n\nWhen L.I.N.E. conditions are metWe can\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\n\n\n\n\n\n\n\n\n\n\n\n\nUse least squares regression to get the estimates \\(\\hat{\\beta}_0\\), \\(\\hat{\\beta}_1\\), and \\(\\hat{\\sigma}^2\\)\n\\(\\hat{\\sigma}\\) is the regression standard error\n\n. . .\n\\[\\hat{\\sigma} = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n - p - 1}} = \\sqrt{\\frac{\\sum_{i=1}^n e_i^2}{n-p-1}}\\]"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#acknowledgements",
@@ -551,7 +558,7 @@
     "href": "slides/01-welcome_ch1_o.html#assumptions-for-linear-regression-1",
     "title": "Welcome and Chapter 1",
     "section": "Assumptions for linear regression",
-    "text": "Assumptions for linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\nModified from Figure 1.1. in BMLR]\n\n\nLinearity: Linear relationship between mean of the response \\(Y\\) and the predictor \\(X\\)\nIndependence: No connection between how any two points lie above or below the regression line\nNormality: Response, \\(Y\\), follows a normal distribution at each level of the predictor, \\(X\\) (indicated by red curves)\nEqual variance: Variance (or standard deviation) of the response, \\(Y\\), is equal for all levels of the predictor, \\(X\\)"
+    "text": "Assumptions for linear regression\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\n\n\n\n\n\n\n\n\n\n\n\nModified from Figure 1.1. in BMLR]\n\n\nLinearity: Linear relationship between mean of the response \\(Y\\) and the predictor \\(X\\)\nIndependence: No connection between how any two points lie above or below the regression line\nNormality: Response, \\(Y\\), follows a normal distribution at each level of the predictor, \\(X\\) (indicated by red curves)\nEqual variance: Variance (or standard deviation) of the response, \\(Y\\), is equal for all levels of the predictor, \\(X\\)"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#questions",
@@ -579,14 +586,21 @@
     "href": "slides/01-welcome_ch1_o.html#data-kentucky-derby-winners",
     "title": "Welcome and Chapter 1",
     "section": "Data: Kentucky Derby Winners",
-    "text": "Data: Kentucky Derby Winners\nToday’s data is from the Kentucky Derby, an annual 1.25-mile horse race held at the Churchill Downs race track in Louisville, KY. The data is in the file derbyplus.csv and contains information for races 1896 - 2017.\n. . .\n\n\nResponse variable\n\nspeed: Average speed of the winner in feet per second (ft/s)]\n\n. . .\nAdditional variable\n\nwinner: Winning horse\n\n\nPredictor variables\n\nyear: Year of the race\ncondition: Condition of the track (good, fast, slow)\nstarters: Number of horses who raced]"
+    "text": "Data: Kentucky Derby Winners\nToday’s data is from the Kentucky Derby, an annual 1.25-mile horse race held at the Churchill Downs race track in Louisville, KY. The data is in the file derbyplus.csv and contains information for races 1896 - 2017.\n. . .\n\n\nResponse variable\n\nspeed: Average speed of the winner in feet per second (ft/s)]\n\nAdditional variable\n\nwinner: Winning horse\n\n\nPredictor variables\n\nyear: Year of the race\ncondition: Condition of the track (good, fast, slow)\nstarters: Number of horses who raced]"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#data",
     "href": "slides/01-welcome_ch1_o.html#data",
     "title": "Welcome and Chapter 1",
     "section": "Data",
-    "text": "Data\n\nderby &lt;- read_csv(\"data/derbyplus.csv\")\n\n\nderby |&gt;\n  head(5) |&gt; kable()\n\n\n\n\nyear\nwinner\ncondition\nspeed\nstarters\n\n\n\n\n1896\nBen Brush\ngood\n51.66\n8\n\n\n1897\nTyphoon II\nslow\n49.81\n6\n\n\n1898\nPlaudit\ngood\n51.16\n4\n\n\n1899\nManuel\nfast\n50.00\n5\n\n\n1900\nLieut. Gibson\nfast\n52.28\n7"
+    "text": "Data\n\nderby &lt;- read_csv(\"data/derbyplus.csv\")\n\nRows: 122 Columns: 5\n── Column specification ──────────────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): winner, condition\ndbl (3): year, speed, starters\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nderby |&gt;\n  head(5) |&gt; kable()\n\n\n\n\nyear\nwinner\ncondition\nspeed\nstarters\n\n\n\n\n1896\nBen Brush\ngood\n51.66\n8\n\n\n1897\nTyphoon II\nslow\n49.81\n6\n\n\n1898\nPlaudit\ngood\n51.16\n4\n\n\n1899\nManuel\nfast\n50.00\n5\n\n\n1900\nLieut. Gibson\nfast\n52.28\n7"
+  },
+  {
+    "objectID": "slides/01-welcome_ch1_o.html#data-analysis-life-cycle",
+    "href": "slides/01-welcome_ch1_o.html#data-analysis-life-cycle",
+    "title": "Welcome and Chapter 1",
+    "section": "Data Analysis Life Cycle",
+    "text": "Data Analysis Life Cycle"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#exploratory-data-analysis-eda",
@@ -600,7 +614,7 @@
     "href": "slides/01-welcome_ch1_o.html#plots-for-univariate-eda",
     "title": "Welcome and Chapter 1",
     "section": "Plots for univariate EDA",
-    "text": "Plots for univariate EDA\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\np1 &lt;- ggplot(data = derby, aes(x = speed)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Winning speed (ft/s)\", y = \"Count\")\n\np2 &lt;- ggplot(data = derby, aes(x = starters)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Starters\", y = \"Count\")\n\np3 &lt;- ggplot(data = derby, aes(x = condition)) +\n   geom_bar(fill = \"forestgreen\", color = \"black\", aes(x = ))\n\np1 + (p2 / p3) + \n  plot_annotation(title = \"Univariate data analysis\")"
+    "text": "Plots for univariate EDA\n\nPlotCode\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\np1 &lt;- ggplot(data = derby, aes(x = speed)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Winning speed (ft/s)\", y = \"Count\")\n\np2 &lt;- ggplot(data = derby, aes(x = starters)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Starters\", y = \"Count\")\n\np3 &lt;- ggplot(data = derby, aes(x = condition)) +\n   geom_bar(fill = \"forestgreen\", color = \"black\", aes(x = ))\n\np1 + (p2 / p3) + \n  plot_annotation(title = \"Univariate data analysis\")"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#plots-for-bivariate-eda",
@@ -614,14 +628,14 @@
     "href": "slides/01-welcome_ch1_o.html#scatterplot-matrix",
     "title": "Welcome and Chapter 1",
     "section": "Scatterplot matrix",
-    "text": "Scatterplot matrix\nA scatterplot matrix helps quickly visualize relationships between many variable pairs. They are particularly useful to identify potentially correlated predictors.\n. . .\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n#library(GGally)\nggpairs(data = derby, \n        columns = c(\"condition\", \"year\", \"starters\", \"speed\"))"
+    "text": "Scatterplot matrix\nA scatterplot matrix helps quickly visualize relationships between many variable pairs. They are particularly useful to identify potentially correlated predictors.\n. . .\n\nPlotCode\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\n#library(GGally)\nggpairs(data = derby, \n        columns = c(\"condition\", \"year\", \"starters\", \"speed\"))"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#plots-for-multivariate-eda",
     "href": "slides/01-welcome_ch1_o.html#plots-for-multivariate-eda",
     "title": "Welcome and Chapter 1",
     "section": "Plots for multivariate EDA",
-    "text": "Plots for multivariate EDA\nPlot the relationship between the response and a predictor based on levels of another predictor to assess potential interactions.\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n#library(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
+    "text": "Plots for multivariate EDA\nPlot the relationship between the response and a predictor based on levels of another predictor to assess potential interactions.\n\nPlotCode\n\n\n\n\nWarning: The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use \"none\" instead as of ggplot2\n3.3.4.\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\n#library(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#model-1-main-effects-model",
@@ -663,7 +677,7 @@
     "href": "slides/01-welcome_ch1_o.html#model-2-add-quadratic-effect-for-year",
     "title": "Welcome and Chapter 1",
     "section": "Model 2: Add quadratic effect for year?",
-    "text": "Model 2: Add quadratic effect for year?\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = derby, aes(x = yearnew, y = speed)) + \n  geom_point(alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\") + \n  geom_smooth(se = FALSE, color = \"red\", linetype = 2) + \n  labs(x = \"Years since 1896\", y = \"Speed (ft/s)\", \n       title = \"Speed vs. Years since 1896\")"
+    "text": "Model 2: Add quadratic effect for year?\n\nPlotCode\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = derby, aes(x = yearnew, y = speed)) + \n  geom_point(alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\") + \n  geom_smooth(se = FALSE, color = \"red\", linetype = 2) + \n  labs(x = \"Years since 1896\", y = \"Speed (ft/s)\", \n       title = \"Speed vs. Years since 1896\")"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#model-2-add-yearnew2",
@@ -698,7 +712,7 @@
     "href": "slides/01-welcome_ch1_o.html#model-3-include-interaction-term",
     "title": "Welcome and Chapter 1",
     "section": "Model 3: Include interaction term?",
-    "text": "Model 3: Include interaction term?\nRecall from the EDA…\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
+    "text": "Model 3: Include interaction term?\nRecall from the EDA…\n\nPlotCode\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#model-3-add-interaction-term",
@@ -761,7 +775,7 @@
     "href": "slides/01-welcome_ch1_o.html#inference-for-regression",
     "title": "Welcome and Chapter 1",
     "section": "Inference for regression",
-    "text": "Inference for regression\n\nWhen L.I.N.E. conditions are metWe can\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUse least squares regression to get the estimates \\(\\hat{\\beta}_0\\), \\(\\hat{\\beta}_1\\), and \\(\\hat{\\sigma}^2\\)\n\\(\\hat{\\sigma}\\) is the regression standard error\n\n. . .\n\\[\\hat{\\sigma} = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n - p - 1}} = \\sqrt{\\frac{\\sum_{i=1}^n e_i^2}{n-p-1}}\\]"
+    "text": "Inference for regression\n\nWhen L.I.N.E. conditions are metWe can\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\n\n\n\n\n\n\n\n\n\n\n\n\nUse least squares regression to get the estimates \\(\\hat{\\beta}_0\\), \\(\\hat{\\beta}_1\\), and \\(\\hat{\\sigma}^2\\)\n\\(\\hat{\\sigma}\\) is the regression standard error\n\n. . .\n\\[\\hat{\\sigma} = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n - p - 1}} = \\sqrt{\\frac{\\sum_{i=1}^n e_i^2}{n-p-1}}\\]"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#acknowledgements",
@@ -986,21 +1000,21 @@
     "href": "labs/01_linear_regression/01_banksalary.html",
     "title": "Stat 363: Multiple Linear Regression Review",
     "section": "",
-    "text": "Since this our first lab, I suggest you get setup for files in the following way:\n\nLog into the course RStudio Server. http://turing.cornellcollege.edu:8787/ Make sure to close out of any projects on the top right corner.\nClick the “File” tab in the bottom right corner. Then click “Home” across the top of the panel.\nIf ones does not exists already, use the “+📁” button to create a new folder and call it “STA363”\nCopy project folder called “01_linear_regression” located at Home -&gt; STA363_inst_files-&gt; labs. If you check the box next to the folder name, then click the small gear icon you can “copy to” and put a copy of the folder in your newly created folder.\nNow, click File-&gt; Open Project and navigate to the project file in the folder you just copied.\nYou can place your responses in the file 01_banksalary_fillable.qmd."
+    "text": "Since this our first lab, I suggest you get setup for files in the following way:\n\nLog into the course RStudio Server. http://turing.cornellcollege.edu:8787/ Make sure to close out of any projects on the top right corner.\nClick the “File” tab in the bottom right corner. Then click “Home” across the top of the panel.\nIf ones does not exists already, use the “+📂” button to create a new folder and call it “STA363”\nCopy project folder called “01_linear_regression” located at Home -&gt; STA363_inst_files-&gt; labs. If you check the box next to the folder name, then click the small gear icon you can “copy to” and put a copy of the folder in your newly created folder.\nNow, click File-&gt; Open Project and navigate to the project file in the folder you just copied.\nYou can place your responses in the file 01_banksalary_fillable.qmd."
   },
   {
     "objectID": "labs/01_linear_regression/01_banksalary.html#first-lab-setup",
     "href": "labs/01_linear_regression/01_banksalary.html#first-lab-setup",
     "title": "Stat 363: Multiple Linear Regression Review",
     "section": "",
-    "text": "Since this our first lab, I suggest you get setup for files in the following way:\n\nLog into the course RStudio Server. http://turing.cornellcollege.edu:8787/ Make sure to close out of any projects on the top right corner.\nClick the “File” tab in the bottom right corner. Then click “Home” across the top of the panel.\nIf ones does not exists already, use the “+📁” button to create a new folder and call it “STA363”\nCopy project folder called “01_linear_regression” located at Home -&gt; STA363_inst_files-&gt; labs. If you check the box next to the folder name, then click the small gear icon you can “copy to” and put a copy of the folder in your newly created folder.\nNow, click File-&gt; Open Project and navigate to the project file in the folder you just copied.\nYou can place your responses in the file 01_banksalary_fillable.qmd."
+    "text": "Since this our first lab, I suggest you get setup for files in the following way:\n\nLog into the course RStudio Server. http://turing.cornellcollege.edu:8787/ Make sure to close out of any projects on the top right corner.\nClick the “File” tab in the bottom right corner. Then click “Home” across the top of the panel.\nIf ones does not exists already, use the “+📂” button to create a new folder and call it “STA363”\nCopy project folder called “01_linear_regression” located at Home -&gt; STA363_inst_files-&gt; labs. If you check the box next to the folder name, then click the small gear icon you can “copy to” and put a copy of the folder in your newly created folder.\nNow, click File-&gt; Open Project and navigate to the project file in the folder you just copied.\nYou can place your responses in the file 01_banksalary_fillable.qmd."
   },
   {
     "objectID": "labs/01_linear_regression/01_banksalary.html#introduction",
     "href": "labs/01_linear_regression/01_banksalary.html#introduction",
     "title": "Stat 363: Multiple Linear Regression Review",
     "section": "Introduction",
-    "text": "Introduction\nExample: Sex discrimination in bank salaries. In the 1970’s, Harris Trust was sued for sex discrimination in the salaries it paid its employees. One approach to addressing this issue was to examine the starting salaries of all skilled, entry-level clerical workers between 1965 and 1975. The data is saved under banksalary.csv, and relevant R code can be found in the STA363_inst_files folder on the home directory of the RStudio Server. banksalary.qmd.\nFirst, we will speculate on what we expect to find and then we will perform an analysis using the data.\n\nRead the data in and use aview() to see the data, but do not do anything else with the data on the computer until question 6."
+    "text": "Introduction\nExample: Sex discrimination in bank salaries. In the 1970’s, Harris Trust was sued for sex discrimination in the salaries it paid its employees. One approach to addressing this issue was to examine the starting salaries of all skilled, entry-level clerical workers between 1965 and 1975. The data is saved under banksalary.csv, and relevant R code can be found in the STA363_inst_files folder on the home directory of the RStudio Server. banksalary.qmd.\nData from skilled entry-level clerical workers at bank being sued for sex discrimination in 1970s (from Statistical Sleuth, Ch 12):\n\nbsal = beginning salary (annual salary at time of hire)\nsal77 = annual salary in 1977\nsex = MALE or FEMALE\nsenior = months since hired\nage = age in months\neduc = years of education\nexper = months of prior work experience\n\nFirst, we will speculate on what we expect to find and then we will perform an analysis using the data.\n\nRead the data in and use aview() to see the data, but do not do anything else with the data on the computer until question 6."
   },
   {
     "objectID": "labs/01_linear_regression/01_banksalary.html#questions",
@@ -1056,14 +1070,14 @@
     "href": "slides/02_likelihoods_ch2_o.html",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "",
-    "text": "library(tidyverse)\nlibrary(tidymodels)\nlibrary(GGally)\nlibrary(knitr)\nlibrary(patchwork)\nlibrary(viridis)\nlibrary(ggfortify)"
+    "text": "library(tidyverse)\nlibrary(GGally)\nlibrary(knitr)\nlibrary(patchwork)\nlibrary(viridis)\nlibrary(ggfortify)"
   },
   {
     "objectID": "slides/02_likelihoods_ch2_o.html#setup",
     "href": "slides/02_likelihoods_ch2_o.html#setup",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "",
-    "text": "library(tidyverse)\nlibrary(tidymodels)\nlibrary(GGally)\nlibrary(knitr)\nlibrary(patchwork)\nlibrary(viridis)\nlibrary(ggfortify)"
+    "text": "library(tidyverse)\nlibrary(GGally)\nlibrary(knitr)\nlibrary(patchwork)\nlibrary(viridis)\nlibrary(ggfortify)"
   },
   {
     "objectID": "slides/02_likelihoods_ch2_o.html#learning-goals",
@@ -1077,14 +1091,14 @@
     "href": "slides/02_likelihoods_ch2_o.html#what-is-the-likelihood",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "What is the likelihood?",
-    "text": "What is the likelihood?\nA likelihood is a function that tells us how likely we are to observe our data for a given parameter value (or values).\n\nUnlike Ordinary Least Squares (OLS), they do not require the responses be independent, identically distributed, and normal (iidN)\nThey are not the same as probability functions\n\n. . .\n\nProbability function: Fixed parameter value(s) + input possible outcomes \\(\\Rightarrow\\) probability of seeing the different outcomes given the parameter value(s)\nLikelihood: Fixed data + input possible parameter values \\(\\Rightarrow\\) probability of seeing the fixed data for each parameter value"
+    "text": "What is the likelihood?\nA likelihood is a function that tells us how likely we are to observe our data for a given parameter value (or values).\n\nUnlike Ordinary Least Squares (OLS), they do not require the responses be independent, identically distributed, and normal (iidN)\nThey are not the same as probability functions\n\nProbability function: Fixed parameter value(s) + input possible outcomes \\(\\Rightarrow\\) probability of seeing the different outcomes given the parameter value(s)\nLikelihood: Fixed data + input possible parameter values \\(\\Rightarrow\\) probability of seeing the fixed data for each parameter value"
   },
   {
     "objectID": "slides/02_likelihoods_ch2_o.html#fouls-in-college-basketball-games",
     "href": "slides/02_likelihoods_ch2_o.html#fouls-in-college-basketball-games",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Fouls in college basketball games",
-    "text": "Fouls in college basketball games\nThe data set 04-refs.csv includes 30 randomly selected NCAA men’s basketball games played in the 2009 - 2010 season.\nWe will focus on the variables foul1, foul2, and foul3, which indicate which team had a foul called them for the 1st, 2nd, and 3rd fouls, respectively. - H: Foul was called on the home team - V: Foul was called on the visiting team\nWe are focusing on the first three fouls for this analysis, but this could easily be extended to include all fouls in a game.\n\n[The dataset was derived from basektball0910.csv used in BMLR Section 11.2"
+    "text": "Fouls in college basketball games\nThe data set 04-refs.csv includes 30 randomly selected NCAA men’s basketball games played in the 2009 - 2010 season.\nWe will focus on the variables foul1, foul2, and foul3, which indicate which team had a foul called them for the 1st, 2nd, and 3rd fouls, respectively.\n\nH: Foul was called on the home team\nV: Foul was called on the visiting team\n\nWe are focusing on the first three fouls for this analysis, but this could easily be extended to include all fouls in a game.\n\n[The dataset was derived from basektball0910.csv used in BMLR Section 11.2"
   },
   {
     "objectID": "slides/02_likelihoods_ch2_o.html#fouls-in-college-basketball-games-1",
@@ -1098,7 +1112,7 @@
     "href": "slides/02_likelihoods_ch2_o.html#different-likelihood-models",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Different likelihood models",
-    "text": "Different likelihood models\nModel 1 (Unconditional Model): What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?\nModel 2 (Conditional Model): - Is there a tendency for the referees to call more fouls on the visiting team or home team? - Is there a tendency for referees to call a foul on the team that already has more fouls?\nUltimately we want to decide which model is better."
+    "text": "Different likelihood models\nModel 1 (Unconditional Model): What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?\n\nModel 2 (Conditional Model): - Is there a tendency for the referees to call more fouls on the visiting team or home team? - Is there a tendency for referees to call a foul on the team that already has more fouls?\nUltimately we want to decide which model is better."
   },
   {
     "objectID": "slides/02_likelihoods_ch2_o.html#exploratory-data-analysis",
@@ -1112,11 +1126,11 @@
     "href": "slides/02_likelihoods_ch2_o.html#model-1-unconditional-model",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Model 1: Unconditional model",
-    "text": "Model 1: Unconditional model\n\nWhat is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?"
+    "text": "Model 1: Unconditional model\nWhat is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?"
   },
   {
-    "objectID": "slides/02_likelihoods_ch2_o.html#likelihood",
-    "href": "slides/02_likelihoods_ch2_o.html#likelihood",
+    "objectID": "slides/02_likelihoods_ch2_o.html#likelihood-1",
+    "href": "slides/02_likelihoods_ch2_o.html#likelihood-1",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Likelihood",
     "text": "Likelihood\nLet \\(p_H\\) be the probability the referees call a foul on the home team.\nThe likelihood for a single observation\n\\[Lik(p_H) = p_H^{y_i}(1 - p_H)^{n_i - y_i}\\]\nWhere \\(y_i\\) is the number of fouls called on the home team.\n(In this example, we know \\(n_i = 3\\) for all observations.)\n. . .\nExample\nFor a single game where the first three fouls are \\(H, H, V\\), then\n\\[Lik(p_H) = p_H^{2}(1 - p_H)^{3 - 2} = p_H^{2}(1 - p_H)\\]"
@@ -1154,7 +1168,7 @@
     "href": "slides/02_likelihoods_ch2_o.html#finding-the-maximum-likelihood-estimate",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Finding the maximum likelihood estimate",
-    "text": "Finding the maximum likelihood estimate\nThere are three primary ways to find the MLE\n. . .\n✅ Approximate using a graph\n✅ Numerical approximation\n✅ Using calculus"
+    "text": "Finding the maximum likelihood estimate\nThere are three primary ways to find the MLE\n. . .\n✅ Approximate using a graph\n. . .\n✅ Numerical approximation\n. . .\n✅ Using calculus"
   },
   {
     "objectID": "slides/02_likelihoods_ch2_o.html#approximate-mle-from-a-graph",
@@ -1220,6 +1234,132 @@
     "text": "Q: If there is a tendency for referees to call a foul on the team that already has more fouls, how would you expect \\(\\hat{p}_H\\) and \\(\\hat{p}_{H\\vert H Bias}\\) to compare?\n\n\\(\\hat{p}_H\\) is greater than \\(\\hat{p}_{H\\vert H Bias}\\)\n\\(\\hat{p}_{H\\vert H Bias}\\) is greater than \\(\\hat{p}_H\\)\nThey are approximately equal."
   },
   {
+    "objectID": "slides/02_likelihoods_ch2_o.html#likelihoods",
+    "href": "slides/02_likelihoods_ch2_o.html#likelihoods",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Likelihoods",
+    "text": "Likelihoods\nModel 1 (Unconditional Model)\n\n\\(p_H\\): probability of a foul being called on the home team\n\n. . .\nModel 2 (Conditional Model)\n\n\\(p_{H|N}\\): Probability referees call foul on home team given there are equal numbers of fouls on the home and visiting teams\n\\(p_{H|H Bias}\\): Probability referees call foul on home team given there are more prior fouls on the home team\n\\(p_{H|V Bias}\\): Probability referees call foul on home team given there are more prior fouls on the visiting team"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#likelihoods-1",
+    "href": "slides/02_likelihoods_ch2_o.html#likelihoods-1",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Likelihoods",
+    "text": "Likelihoods\nModel 1 (Unconditional Model)\n\\[Lik(p_H) = p_H^{46}(1 - p_H)^{44}\\]\n. . .\nModel 2 (Conditional Model)\n\\[\\begin{aligned}Lik(p_{H| N}, p_{H|H Bias}, p_{H |V Bias}) &= [(p_{H| N})^{25}(1 - p_{H|N})^{23}(p_{H| H Bias})^8 \\\\ &(1 - p_{H| H Bias})^{12}(p_{H| V Bias})^{13}(1-p_{H|V Bias})^9]\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#maximum-likelihood-estimates",
+    "href": "slides/02_likelihoods_ch2_o.html#maximum-likelihood-estimates",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Maximum likelihood estimates",
+    "text": "Maximum likelihood estimates\nThe maximum likelihood estimate (MLE) is the value between 0 and 1 where we are most likely to see the observed data.\n. . .\n\n\nModel 1 (Unconditional Model)\n\n\\(\\hat{p}_H = 46/90 = 0.511\\)\n\nModel 2 (Conditional Model)\n\n\\(\\hat{p}_{H|N} = 25 / 48 = 0.521\\)\n\\(\\hat{p}_{H|H Bias} = 8 /20 = 0.4\\)\n\\(\\hat{p}_{H|V Bias} = 13/ 22 = 0.591\\)\n\n\n\nWhat is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?\nIs there a tendency for the referees to call more fouls on the visiting team or home team?\nIs there a tendency for referees to call a foul on the team that already has more fouls?"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#finding-the-mles-for-model-2",
+    "href": "slides/02_likelihoods_ch2_o.html#finding-the-mles-for-model-2",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Finding the MLEs for model 2",
+    "text": "Finding the MLEs for model 2\nThe likelihood is\n\\[\\begin{aligned}Lik(p_{H| N}, p_{H|H Bias}, p_{H |V Bias}) &= [(p_{H| N})^{25}(1 - p_{H|N})^{23}(p_{H| H Bias})^8 \\\\ &(1 - p_{H| H Bias})^{12}(p_{H| V Bias})^{13}(1-p_{H|V Bias})^9]\\end{aligned}\\]\n. . .\nThe log-likelihood is\n\\[\\begin{aligned}\\log (Lik(p_{H| N}, p_{H|H Bias}, p_{H |V Bias})) &= 25 \\log(p_{H| N}) + 23 \\log(1 - p_{H|N}) \\\\ & + 8 \\log(p_{H| H Bias}) + 12 \\log(1 - p_{H| H Bias})\\\\ &+ 13 \\log(p_{H| V Bias}) + 9 \\log(1-p_{H|V Bias})\\end{aligned}\\]\n. . .\nWe would like to find the MLEs for \\(p_{H| N}, p_{H|H Bias}, \\text{ and }p_{H |V Bias}\\)."
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#finding-mles-using-graphs",
+    "href": "slides/02_likelihoods_ch2_o.html#finding-mles-using-graphs",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Finding MLEs using graphs",
+    "text": "Finding MLEs using graphs\n\nWe need to find the MLEs for three parameters, therefore we would need to visualize a 4-dimensional object to find the MLEs from a graph. Given the difficulty of this task and the lack of precision in the estimates from this approach, we should rely on other approaches to find the MLEs in this instance.\n\n. . .\n\nWe also can’t use calculus… that leaves only 1 approach…. optimization via grid search or optim in R"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#finding-the-mles-using-r-13",
+    "href": "slides/02_likelihoods_ch2_o.html#finding-the-mles-using-r-13",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Finding the MLEs using R (1/3)",
+    "text": "Finding the MLEs using R (1/3)\nWe can write a function and do a grid search to find the values that maximize the log-likelihood.\n. . .\n\nmaxloglik&lt;- function(nvals){\n  #nvals specifies the number of values\n  phn &lt;- seq(0, 1, length = nvals)\n  phh &lt;- seq(0, 1, length = nvals)\n  phv &lt;- seq(0, 1, length = nvals)\n  \n  loglik &lt;- expand.grid(phn, phh, phv) \n  colnames(loglik) &lt;- c(\"phn\", \"phh\", \"phv\")\n  \n  loglik &lt;- loglik %&gt;%\n    mutate(loglik  = log(phn^25 * (1 - phn)^23 * phh^8 * (1 - phh)^12 * \n                           phv^13 * (1 - phv)^9))\n  \n  loglik %&gt;%\n    arrange(desc(loglik)) %&gt;%\n    slice(1)\n}\n\n\nmaxloglik(100)\n\n        phn       phh       phv    loglik\n1 0.5252525 0.4040404 0.5858586 -61.57691"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#finding-the-mles-using-r-23",
+    "href": "slides/02_likelihoods_ch2_o.html#finding-the-mles-using-r-23",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Finding the MLEs using R (2/3)",
+    "text": "Finding the MLEs using R (2/3)\n\nDepending on the number of parameters, it may be hard to conduct a granular enough search to find the exact values of the MLEs.\nTherefore, one could use the function above to conduct a crude search to find starting values for R’s optim function.\nThe function optim differs from optimize in that it can optimize over multiple parameter values (The optimize function can only optimize over a single parameter value).\n\n. . .\n\n# Function to calculate log-likelihood that will be used in the optim function\nloglik &lt;- function(params){\n  phn &lt;- params[1]\n  phh &lt;- params[2]\n  phv &lt;- params[3]\n\n  log(phn^25 * (1 - phn)^23 * phh^8 * (1 - phh)^12 * \n                           phv^13 * (1 - phv)^9)\n}"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#finding-the-mles-using-r-33",
+    "href": "slides/02_likelihoods_ch2_o.html#finding-the-mles-using-r-33",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Finding the MLEs using R (3/3)",
+    "text": "Finding the MLEs using R (3/3)\n\n# use manual search to get starting values \nstart_vals &lt;- maxloglik(50) %&gt;% select(-loglik)\n\n\n# Use optim function in R to find the values to maximize the log-likelihood\n#set fnscale = -1 to maximize (the default is minimize)\noptim(par = start_vals, fn = loglik, control=list(fnscale=-1))\n\n$par\n      phn       phh       phv \n0.5208272 0.4000361 0.5909793 \n\n$value\n[1] -61.57319\n\n$counts\nfunction gradient \n      66       NA \n\n$convergence\n[1] 0\n\n$message\nNULL"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#model-comparisons-1",
+    "href": "slides/02_likelihoods_ch2_o.html#model-comparisons-1",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Model comparisons",
+    "text": "Model comparisons\n\nNested models\nNon-nested models"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#nested-models-12",
+    "href": "slides/02_likelihoods_ch2_o.html#nested-models-12",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Nested Models (1/2)",
+    "text": "Nested Models (1/2)\nNested models: Models such that the parameters of the reduced model are a subset of the parameters for a larger model\nExample:\n\\[\\begin{aligned}&\\text{Model A: }y = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\epsilon\\\\\n&\\text{Model B: }y = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\beta_3 x_3 + \\beta_4 x_4 + \\epsilon\\end{aligned}\\]\n. . .\nModel A is nested in Model B. We could use likelihoods to test whether it is useful to add \\(x_3\\) and \\(x_4\\) to the model.\n. . .\n\\[\\begin{aligned}&H_0: \\beta_3 = \\beta_4 = 0 \\\\\n&H_a: \\text{ at least one }\\beta_j \\text{ is not equal to 0}\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#nested-models-22",
+    "href": "slides/02_likelihoods_ch2_o.html#nested-models-22",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Nested models (2/2)",
+    "text": "Nested models (2/2)\nAnother way to think about nested models: Parameters in larger model can be equated to get the simpler model or if some parameters can be set to constants\nExample:\n\\[\\begin{aligned}&\\text{Model 1: }p_H \\\\\n&\\text{Model 2: }p_{H| N}, p_{H| H Bias}, p_{H| V Bias}\\end{aligned}\\]\n. . .\nModel 1 is nested in Model 2. The parameters \\(p_{H| N}\\), \\(p_{H|H Bias}\\), and \\(p_{H |V Bias}\\) can be set equal to \\(p_H\\) to get Model 1.\n. . .\n\\[\\begin{aligned}&H_0: p_{H| N} = p_{H| H Bias} = p_{H| V Bias} = p_H \\\\\n&H_a: \\text{At least one of }p_{H| N}, p_{H| H Bias}, p_{H| V Bias} \\text{ differs from the others}\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#steps-to-compare-models",
+    "href": "slides/02_likelihoods_ch2_o.html#steps-to-compare-models",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Steps to compare models",
+    "text": "Steps to compare models\n1️⃣ Find the MLEs for each model.\n2️⃣ Plug the MLEs into the log-likelihood function for each model to get the maximum value of the log-likelihood for each model.\n3️⃣ Find the difference in the maximum log-likelihoods\n4️⃣ Use the Likelihood Ratio Test to determine if the difference is statistically significant"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#steps-1---2",
+    "href": "slides/02_likelihoods_ch2_o.html#steps-1---2",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Steps 1 - 2",
+    "text": "Steps 1 - 2\nFind the MLEs for each model and plug them into the log-likelihood functions.\n\n\nModel 1:\n\n\\(\\hat{p}_H = 46/90 = 0.511\\)\n\n. . .\n\nloglik1 &lt;- function(ph){\n log(ph^46 * (1 - ph)^44)\n}\nloglik1(46/90)\n\n[1] -62.36102\n\n\n\nModel 2\n\n\\(\\hat{p}_{H|N} = 25 / 48 = 0.521\\)\n\\(\\hat{p}_{H|H Bias} = 8 /20 = 0.4\\)\n\\(\\hat{p}_{H|V Bias} = 13/ 22 = 0.591\\)\n\n. . .\n\nloglik2 &lt;- function(phn, phh, phv) {\n  log(phn^25 * (1 - phn)^23 * phh^8 * \n        (1 - phh)^12 * phv^13 * (1 - phv)^9)\n}\nloglik2(25/48, 8/20, 13/22)\n\n[1] -61.57319"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#step-3",
+    "href": "slides/02_likelihoods_ch2_o.html#step-3",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Step 3",
+    "text": "Step 3\nFind the difference in the log-likelihoods\n\n(diff &lt;- loglik2(25/48, 8/20, 13/22) - loglik1(46/90))\n\n[1] 0.7878318\n\n\n\n. . .\nIs the difference in the maximum log-likelihoods statistically significant?"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#likelihood-ratio-test",
+    "href": "slides/02_likelihoods_ch2_o.html#likelihood-ratio-test",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Likelihood Ratio Test",
+    "text": "Likelihood Ratio Test\nTest statistic\n\\[\\begin{aligned} LRT &= 2[\\max\\{\\log(Lik(\\text{larger model}))\\} - \\max\\{\\log(Lik(\\text{reduced model}))\\}]\\\\[10pt]\n&= 2\\log\\Bigg(\\frac{\\max\\{(Lik(\\text{larger model})\\}}{\\max\\{(Lik(\\text{reduced model})\\}}\\Bigg)\\end{aligned}\\]\n\n. . .\nLRT follows a \\(\\chi^2\\) distribution where the degrees of freedom equal the difference in the number of parameters between the two models"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#step-4",
+    "href": "slides/02_likelihoods_ch2_o.html#step-4",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Step 4",
+    "text": "Step 4\n\n(LRT &lt;- 2 * (loglik2(25/48, 8/20, 13/22) - loglik1(46/90)))\n\n[1] 1.575664\n\n\n. . .\nThe test statistic follows a \\(\\chi^2\\) distribution with 2 degrees of freedom. Therefore, the p-value is \\(P(\\chi^2 &gt; LRT)\\).\n\npchisq(LRT, 2, lower.tail = FALSE)\n\n[1] 0.4548299\n\n\n. . .\nThe p-value is very large, so we fail to reject \\(H_0\\). We do not have convincing evidence that the conditional model is an improvement over the unconditional model. Therefore, we can stick with the unconditional model."
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#comparing-non-nested-models",
+    "href": "slides/02_likelihoods_ch2_o.html#comparing-non-nested-models",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Comparing non-nested models",
+    "text": "Comparing non-nested models\n\n\nAIC = -2(max log-likelihood) + 2p\n\n(Model1_AIC &lt;- 2 * loglik1(46/90) + 2 * 1)\n\n[1] -122.722\n\n(Model2_AIC &lt;-2 * loglik2(25/48, 8/20, 13/22) + 2 * 3)\n\n[1] -117.1464\n\n\n\nBIC = -2(max log-likelihood) + plog(n)\n\n(Model1_BIC &lt;- 2 * loglik1(46/90) + 1 * log(30))\n\n[1] -121.3208\n\n(Model2_BIC &lt;-2 * loglik2(25/48, 8/20, 13/22) + 3 * log(30))\n\n[1] -112.9428\n\n\nChoose Model 1, the unconditional model, based on AIC and BIC"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2_o.html#looking-ahead",
+    "href": "slides/02_likelihoods_ch2_o.html#looking-ahead",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Looking ahead",
+    "text": "Looking ahead\n\nLikelihoods help us answer the question of how likely we are to observe the data given different parameters\nIn this example, we did not consider covariates, so in practice the parameters we want to estimate will look more similar to this\n\n. . .\n\\[p_H = \\frac{e^{\\beta_0 + \\beta_1x_1 + \\dots + \\beta_px_p}}{1 + e^{\\beta_0 + \\beta_1x_1 + \\dots + \\beta_px_p}}\\]\n. . .\n\nFinding the MLE becomes much more complex and numerical methods may be required.\n\nWe will primarily rely on software to find the MLE, but the conceptual ideas will be the same"
+  },
+  {
     "objectID": "slides/02_likelihoods_ch2_o.html#acknowledgements",
     "href": "slides/02_likelihoods_ch2_o.html#acknowledgements",
     "title": "Beyond Least Squares: Using Likelihoods",
@@ -1231,7 +1371,7 @@
     "href": "slides/02_likelihoods_ch2.html#setup",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Setup",
-    "text": "Setup\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(GGally)\nlibrary(knitr)\nlibrary(patchwork)\nlibrary(viridis)\nlibrary(ggfortify)"
+    "text": "Setup\n\nlibrary(tidyverse)\nlibrary(GGally)\nlibrary(knitr)\nlibrary(patchwork)\nlibrary(viridis)\nlibrary(ggfortify)"
   },
   {
     "objectID": "slides/02_likelihoods_ch2.html#learning-goals",
@@ -1245,14 +1385,14 @@
     "href": "slides/02_likelihoods_ch2.html#what-is-the-likelihood",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "What is the likelihood?",
-    "text": "What is the likelihood?\nA likelihood is a function that tells us how likely we are to observe our data for a given parameter value (or values).\n\nUnlike Ordinary Least Squares (OLS), they do not require the responses be independent, identically distributed, and normal (iidN)\nThey are not the same as probability functions\n\n\n\nProbability function: Fixed parameter value(s) + input possible outcomes \\(\\Rightarrow\\) probability of seeing the different outcomes given the parameter value(s)\nLikelihood: Fixed data + input possible parameter values \\(\\Rightarrow\\) probability of seeing the fixed data for each parameter value"
+    "text": "What is the likelihood?\nA likelihood is a function that tells us how likely we are to observe our data for a given parameter value (or values).\n\nUnlike Ordinary Least Squares (OLS), they do not require the responses be independent, identically distributed, and normal (iidN)\nThey are not the same as probability functions\n\nProbability function: Fixed parameter value(s) + input possible outcomes \\(\\Rightarrow\\) probability of seeing the different outcomes given the parameter value(s)\nLikelihood: Fixed data + input possible parameter values \\(\\Rightarrow\\) probability of seeing the fixed data for each parameter value"
   },
   {
     "objectID": "slides/02_likelihoods_ch2.html#fouls-in-college-basketball-games",
     "href": "slides/02_likelihoods_ch2.html#fouls-in-college-basketball-games",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Fouls in college basketball games",
-    "text": "Fouls in college basketball games\nThe data set 04-refs.csv includes 30 randomly selected NCAA men’s basketball games played in the 2009 - 2010 season.\nWe will focus on the variables foul1, foul2, and foul3, which indicate which team had a foul called them for the 1st, 2nd, and 3rd fouls, respectively. - H: Foul was called on the home team - V: Foul was called on the visiting team\nWe are focusing on the first three fouls for this analysis, but this could easily be extended to include all fouls in a game.\n\n[The dataset was derived from basektball0910.csv used in BMLR Section 11.2"
+    "text": "Fouls in college basketball games\nThe data set 04-refs.csv includes 30 randomly selected NCAA men’s basketball games played in the 2009 - 2010 season.\nWe will focus on the variables foul1, foul2, and foul3, which indicate which team had a foul called them for the 1st, 2nd, and 3rd fouls, respectively.\n\nH: Foul was called on the home team\nV: Foul was called on the visiting team\n\nWe are focusing on the first three fouls for this analysis, but this could easily be extended to include all fouls in a game.\n\n[The dataset was derived from basektball0910.csv used in BMLR Section 11.2"
   },
   {
     "objectID": "slides/02_likelihoods_ch2.html#fouls-in-college-basketball-games-1",
@@ -1266,7 +1406,7 @@
     "href": "slides/02_likelihoods_ch2.html#different-likelihood-models",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Different likelihood models",
-    "text": "Different likelihood models\nModel 1 (Unconditional Model): What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?\nModel 2 (Conditional Model): - Is there a tendency for the referees to call more fouls on the visiting team or home team? - Is there a tendency for referees to call a foul on the team that already has more fouls?\nUltimately we want to decide which model is better."
+    "text": "Different likelihood models\nModel 1 (Unconditional Model): What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?\n\nModel 2 (Conditional Model): - Is there a tendency for the referees to call more fouls on the visiting team or home team? - Is there a tendency for referees to call a foul on the team that already has more fouls?\nUltimately we want to decide which model is better."
   },
   {
     "objectID": "slides/02_likelihoods_ch2.html#exploratory-data-analysis",
@@ -1283,8 +1423,8 @@
     "text": "Model 1: Unconditional model\nWhat is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?"
   },
   {
-    "objectID": "slides/02_likelihoods_ch2.html#likelihood",
-    "href": "slides/02_likelihoods_ch2.html#likelihood",
+    "objectID": "slides/02_likelihoods_ch2.html#likelihood-1",
+    "href": "slides/02_likelihoods_ch2.html#likelihood-1",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Likelihood",
     "text": "Likelihood\nLet \\(p_H\\) be the probability the referees call a foul on the home team.\nThe likelihood for a single observation\n\\[Lik(p_H) = p_H^{y_i}(1 - p_H)^{n_i - y_i}\\]\nWhere \\(y_i\\) is the number of fouls called on the home team.\n(In this example, we know \\(n_i = 3\\) for all observations.)\n\nExample\nFor a single game where the first three fouls are \\(H, H, V\\), then\n\\[Lik(p_H) = p_H^{2}(1 - p_H)^{3 - 2} = p_H^{2}(1 - p_H)\\]"
@@ -1322,7 +1462,7 @@
     "href": "slides/02_likelihoods_ch2.html#finding-the-maximum-likelihood-estimate",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Finding the maximum likelihood estimate",
-    "text": "Finding the maximum likelihood estimate\nThere are three primary ways to find the MLE\n\n✅ Approximate using a graph\n✅ Numerical approximation\n✅ Using calculus"
+    "text": "Finding the maximum likelihood estimate\nThere are three primary ways to find the MLE\n\n✅ Approximate using a graph\n\n\n✅ Numerical approximation\n\n\n✅ Using calculus"
   },
   {
     "objectID": "slides/02_likelihoods_ch2.html#approximate-mle-from-a-graph",
@@ -1386,6 +1526,132 @@
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Q: If there is a tendency for referees to call a foul on the team that already has more fouls, how would you expect \\(\\hat{p}_H\\) and \\(\\hat{p}_{H\\vert H Bias}\\) to compare?",
     "text": "Q: If there is a tendency for referees to call a foul on the team that already has more fouls, how would you expect \\(\\hat{p}_H\\) and \\(\\hat{p}_{H\\vert H Bias}\\) to compare?\n\n\\(\\hat{p}_H\\) is greater than \\(\\hat{p}_{H\\vert H Bias}\\)\n\\(\\hat{p}_{H\\vert H Bias}\\) is greater than \\(\\hat{p}_H\\)\nThey are approximately equal."
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#likelihoods",
+    "href": "slides/02_likelihoods_ch2.html#likelihoods",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Likelihoods",
+    "text": "Likelihoods\nModel 1 (Unconditional Model)\n\n\\(p_H\\): probability of a foul being called on the home team\n\n\nModel 2 (Conditional Model)\n\n\\(p_{H|N}\\): Probability referees call foul on home team given there are equal numbers of fouls on the home and visiting teams\n\\(p_{H|H Bias}\\): Probability referees call foul on home team given there are more prior fouls on the home team\n\\(p_{H|V Bias}\\): Probability referees call foul on home team given there are more prior fouls on the visiting team"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#likelihoods-1",
+    "href": "slides/02_likelihoods_ch2.html#likelihoods-1",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Likelihoods",
+    "text": "Likelihoods\nModel 1 (Unconditional Model)\n\\[Lik(p_H) = p_H^{46}(1 - p_H)^{44}\\]\n\nModel 2 (Conditional Model)\n\\[\\begin{aligned}Lik(p_{H| N}, p_{H|H Bias}, p_{H |V Bias}) &= [(p_{H| N})^{25}(1 - p_{H|N})^{23}(p_{H| H Bias})^8 \\\\ &(1 - p_{H| H Bias})^{12}(p_{H| V Bias})^{13}(1-p_{H|V Bias})^9]\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#maximum-likelihood-estimates",
+    "href": "slides/02_likelihoods_ch2.html#maximum-likelihood-estimates",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Maximum likelihood estimates",
+    "text": "Maximum likelihood estimates\nThe maximum likelihood estimate (MLE) is the value between 0 and 1 where we are most likely to see the observed data.\n\n\n\nModel 1 (Unconditional Model)\n\n\\(\\hat{p}_H = 46/90 = 0.511\\)\n\nModel 2 (Conditional Model)\n\n\\(\\hat{p}_{H|N} = 25 / 48 = 0.521\\)\n\\(\\hat{p}_{H|H Bias} = 8 /20 = 0.4\\)\n\\(\\hat{p}_{H|V Bias} = 13/ 22 = 0.591\\)\n\n\n\nWhat is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?\nIs there a tendency for the referees to call more fouls on the visiting team or home team?\nIs there a tendency for referees to call a foul on the team that already has more fouls?"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#finding-the-mles-for-model-2",
+    "href": "slides/02_likelihoods_ch2.html#finding-the-mles-for-model-2",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Finding the MLEs for model 2",
+    "text": "Finding the MLEs for model 2\nThe likelihood is\n\\[\\begin{aligned}Lik(p_{H| N}, p_{H|H Bias}, p_{H |V Bias}) &= [(p_{H| N})^{25}(1 - p_{H|N})^{23}(p_{H| H Bias})^8 \\\\ &(1 - p_{H| H Bias})^{12}(p_{H| V Bias})^{13}(1-p_{H|V Bias})^9]\\end{aligned}\\]\n\nThe log-likelihood is\n\\[\\begin{aligned}\\log (Lik(p_{H| N}, p_{H|H Bias}, p_{H |V Bias})) &= 25 \\log(p_{H| N}) + 23 \\log(1 - p_{H|N}) \\\\ & + 8 \\log(p_{H| H Bias}) + 12 \\log(1 - p_{H| H Bias})\\\\ &+ 13 \\log(p_{H| V Bias}) + 9 \\log(1-p_{H|V Bias})\\end{aligned}\\]\n\n\nWe would like to find the MLEs for \\(p_{H| N}, p_{H|H Bias}, \\text{ and }p_{H |V Bias}\\)."
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#finding-mles-using-graphs",
+    "href": "slides/02_likelihoods_ch2.html#finding-mles-using-graphs",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Finding MLEs using graphs",
+    "text": "Finding MLEs using graphs\n\nWe need to find the MLEs for three parameters, therefore we would need to visualize a 4-dimensional object to find the MLEs from a graph. Given the difficulty of this task and the lack of precision in the estimates from this approach, we should rely on other approaches to find the MLEs in this instance.\n\n\n\nWe also can’t use calculus… that leaves only 1 approach…. optimization via grid search or optim in R"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#finding-the-mles-using-r-13",
+    "href": "slides/02_likelihoods_ch2.html#finding-the-mles-using-r-13",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Finding the MLEs using R (1/3)",
+    "text": "Finding the MLEs using R (1/3)\nWe can write a function and do a grid search to find the values that maximize the log-likelihood.\n\n\nmaxloglik&lt;- function(nvals){\n  #nvals specifies the number of values\n  phn &lt;- seq(0, 1, length = nvals)\n  phh &lt;- seq(0, 1, length = nvals)\n  phv &lt;- seq(0, 1, length = nvals)\n  \n  loglik &lt;- expand.grid(phn, phh, phv) \n  colnames(loglik) &lt;- c(\"phn\", \"phh\", \"phv\")\n  \n  loglik &lt;- loglik %&gt;%\n    mutate(loglik  = log(phn^25 * (1 - phn)^23 * phh^8 * (1 - phh)^12 * \n                           phv^13 * (1 - phv)^9))\n  \n  loglik %&gt;%\n    arrange(desc(loglik)) %&gt;%\n    slice(1)\n}\n\n\nmaxloglik(100)\n\n        phn       phh       phv    loglik\n1 0.5252525 0.4040404 0.5858586 -61.57691"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#finding-the-mles-using-r-23",
+    "href": "slides/02_likelihoods_ch2.html#finding-the-mles-using-r-23",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Finding the MLEs using R (2/3)",
+    "text": "Finding the MLEs using R (2/3)\n\nDepending on the number of parameters, it may be hard to conduct a granular enough search to find the exact values of the MLEs.\nTherefore, one could use the function above to conduct a crude search to find starting values for R’s optim function.\nThe function optim differs from optimize in that it can optimize over multiple parameter values (The optimize function can only optimize over a single parameter value).\n\n\n\n# Function to calculate log-likelihood that will be used in the optim function\nloglik &lt;- function(params){\n  phn &lt;- params[1]\n  phh &lt;- params[2]\n  phv &lt;- params[3]\n\n  log(phn^25 * (1 - phn)^23 * phh^8 * (1 - phh)^12 * \n                           phv^13 * (1 - phv)^9)\n}"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#finding-the-mles-using-r-33",
+    "href": "slides/02_likelihoods_ch2.html#finding-the-mles-using-r-33",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Finding the MLEs using R (3/3)",
+    "text": "Finding the MLEs using R (3/3)\n\n# use manual search to get starting values \nstart_vals &lt;- maxloglik(50) %&gt;% select(-loglik)\n\n\n# Use optim function in R to find the values to maximize the log-likelihood\n#set fnscale = -1 to maximize (the default is minimize)\noptim(par = start_vals, fn = loglik, control=list(fnscale=-1))\n\n$par\n      phn       phh       phv \n0.5208272 0.4000361 0.5909793 \n\n$value\n[1] -61.57319\n\n$counts\nfunction gradient \n      66       NA \n\n$convergence\n[1] 0\n\n$message\nNULL"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#model-comparisons-1",
+    "href": "slides/02_likelihoods_ch2.html#model-comparisons-1",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Model comparisons",
+    "text": "Model comparisons\n\nNested models\nNon-nested models"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#nested-models-12",
+    "href": "slides/02_likelihoods_ch2.html#nested-models-12",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Nested Models (1/2)",
+    "text": "Nested Models (1/2)\nNested models: Models such that the parameters of the reduced model are a subset of the parameters for a larger model\nExample:\n\\[\\begin{aligned}&\\text{Model A: }y = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\epsilon\\\\\n&\\text{Model B: }y = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\beta_3 x_3 + \\beta_4 x_4 + \\epsilon\\end{aligned}\\]\n\nModel A is nested in Model B. We could use likelihoods to test whether it is useful to add \\(x_3\\) and \\(x_4\\) to the model.\n\n\n\\[\\begin{aligned}&H_0: \\beta_3 = \\beta_4 = 0 \\\\\n&H_a: \\text{ at least one }\\beta_j \\text{ is not equal to 0}\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#nested-models-22",
+    "href": "slides/02_likelihoods_ch2.html#nested-models-22",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Nested models (2/2)",
+    "text": "Nested models (2/2)\nAnother way to think about nested models: Parameters in larger model can be equated to get the simpler model or if some parameters can be set to constants\nExample:\n\\[\\begin{aligned}&\\text{Model 1: }p_H \\\\\n&\\text{Model 2: }p_{H| N}, p_{H| H Bias}, p_{H| V Bias}\\end{aligned}\\]\n\nModel 1 is nested in Model 2. The parameters \\(p_{H| N}\\), \\(p_{H|H Bias}\\), and \\(p_{H |V Bias}\\) can be set equal to \\(p_H\\) to get Model 1.\n\n\n\\[\\begin{aligned}&H_0: p_{H| N} = p_{H| H Bias} = p_{H| V Bias} = p_H \\\\\n&H_a: \\text{At least one of }p_{H| N}, p_{H| H Bias}, p_{H| V Bias} \\text{ differs from the others}\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#steps-to-compare-models",
+    "href": "slides/02_likelihoods_ch2.html#steps-to-compare-models",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Steps to compare models",
+    "text": "Steps to compare models\n1️⃣ Find the MLEs for each model.\n2️⃣ Plug the MLEs into the log-likelihood function for each model to get the maximum value of the log-likelihood for each model.\n3️⃣ Find the difference in the maximum log-likelihoods\n4️⃣ Use the Likelihood Ratio Test to determine if the difference is statistically significant"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#steps-1---2",
+    "href": "slides/02_likelihoods_ch2.html#steps-1---2",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Steps 1 - 2",
+    "text": "Steps 1 - 2\nFind the MLEs for each model and plug them into the log-likelihood functions.\n\n\nModel 1:\n\n\\(\\hat{p}_H = 46/90 = 0.511\\)\n\n. . .\n\nloglik1 &lt;- function(ph){\n log(ph^46 * (1 - ph)^44)\n}\nloglik1(46/90)\n\n[1] -62.36102\n\n\n\nModel 2\n\n\\(\\hat{p}_{H|N} = 25 / 48 = 0.521\\)\n\\(\\hat{p}_{H|H Bias} = 8 /20 = 0.4\\)\n\\(\\hat{p}_{H|V Bias} = 13/ 22 = 0.591\\)\n\n. . .\n\nloglik2 &lt;- function(phn, phh, phv) {\n  log(phn^25 * (1 - phn)^23 * phh^8 * \n        (1 - phh)^12 * phv^13 * (1 - phv)^9)\n}\nloglik2(25/48, 8/20, 13/22)\n\n[1] -61.57319"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#step-3",
+    "href": "slides/02_likelihoods_ch2.html#step-3",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Step 3",
+    "text": "Step 3\nFind the difference in the log-likelihoods\n\n(diff &lt;- loglik2(25/48, 8/20, 13/22) - loglik1(46/90))\n\n[1] 0.7878318\n\n\n\n\nIs the difference in the maximum log-likelihoods statistically significant?"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#likelihood-ratio-test",
+    "href": "slides/02_likelihoods_ch2.html#likelihood-ratio-test",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Likelihood Ratio Test",
+    "text": "Likelihood Ratio Test\nTest statistic\n\\[\\begin{aligned} LRT &= 2[\\max\\{\\log(Lik(\\text{larger model}))\\} - \\max\\{\\log(Lik(\\text{reduced model}))\\}]\\\\[10pt]\n&= 2\\log\\Bigg(\\frac{\\max\\{(Lik(\\text{larger model})\\}}{\\max\\{(Lik(\\text{reduced model})\\}}\\Bigg)\\end{aligned}\\]\n\n\nLRT follows a \\(\\chi^2\\) distribution where the degrees of freedom equal the difference in the number of parameters between the two models"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#step-4",
+    "href": "slides/02_likelihoods_ch2.html#step-4",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Step 4",
+    "text": "Step 4\n\n(LRT &lt;- 2 * (loglik2(25/48, 8/20, 13/22) - loglik1(46/90)))\n\n[1] 1.575664\n\n\n\nThe test statistic follows a \\(\\chi^2\\) distribution with 2 degrees of freedom. Therefore, the p-value is \\(P(\\chi^2 &gt; LRT)\\).\n\npchisq(LRT, 2, lower.tail = FALSE)\n\n[1] 0.4548299\n\n\n\n\nThe p-value is very large, so we fail to reject \\(H_0\\). We do not have convincing evidence that the conditional model is an improvement over the unconditional model. Therefore, we can stick with the unconditional model."
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#comparing-non-nested-models",
+    "href": "slides/02_likelihoods_ch2.html#comparing-non-nested-models",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Comparing non-nested models",
+    "text": "Comparing non-nested models\n\n\nAIC = -2(max log-likelihood) + 2p\n\n(Model1_AIC &lt;- 2 * loglik1(46/90) + 2 * 1)\n\n[1] -122.722\n\n(Model2_AIC &lt;-2 * loglik2(25/48, 8/20, 13/22) + 2 * 3)\n\n[1] -117.1464\n\n\n\nBIC = -2(max log-likelihood) + plog(n)\n\n(Model1_BIC &lt;- 2 * loglik1(46/90) + 1 * log(30))\n\n[1] -121.3208\n\n(Model2_BIC &lt;-2 * loglik2(25/48, 8/20, 13/22) + 3 * log(30))\n\n[1] -112.9428\n\n\nChoose Model 1, the unconditional model, based on AIC and BIC"
+  },
+  {
+    "objectID": "slides/02_likelihoods_ch2.html#looking-ahead",
+    "href": "slides/02_likelihoods_ch2.html#looking-ahead",
+    "title": "Beyond Least Squares: Using Likelihoods",
+    "section": "Looking ahead",
+    "text": "Looking ahead\n\nLikelihoods help us answer the question of how likely we are to observe the data given different parameters\nIn this example, we did not consider covariates, so in practice the parameters we want to estimate will look more similar to this\n\n\n\\[p_H = \\frac{e^{\\beta_0 + \\beta_1x_1 + \\dots + \\beta_px_p}}{1 + e^{\\beta_0 + \\beta_1x_1 + \\dots + \\beta_px_p}}\\]\n\n\n\nFinding the MLE becomes much more complex and numerical methods may be required.\n\nWe will primarily rely on software to find the MLE, but the conceptual ideas will be the same"
   },
   {
     "objectID": "slides/02_likelihoods_ch2.html#acknowledgements",

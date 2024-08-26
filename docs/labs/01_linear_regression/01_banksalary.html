@@ -288,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>Log into the course RStudio Server. <a href="http://turing.cornellcollege.edu:8787/" class="uri">http://turing.cornellcollege.edu:8787/</a> Make sure to close out of any projects on the top right corner.</li>
 <li>Click the “File” tab in the bottom right corner. Then click “Home” across the top of the panel.</li>
-<li>If ones does not exists already, use the “+📁” button to create a new folder and call it “STA363”</li>
+<li>If ones does not exists already, use the “+📂” button to create a new folder and call it “STA363”</li>
 <li>Copy project folder called “01_linear_regression” located at <em>Home -&gt; STA363_inst_files-&gt; labs</em>. If you check the box next to the folder name, then click the small gear icon you can “copy to” and put a copy of the folder in your newly created folder.</li>
 <li>Now, click <em>File-&gt; Open Project</em> and navigate to the project file in the folder you just copied.</li>
 <li>You can place your responses in the file <em>01_banksalary_fillable.qmd</em>.</li>
@@ -297,6 +297,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p><strong>Example: Sex discrimination in bank salaries.</strong> In the 1970’s, Harris Trust was sued for sex discrimination in the salaries it paid its employees. One approach to addressing this issue was to examine the starting salaries of all skilled, entry-level clerical workers between 1965 and 1975. The data is saved under banksalary.csv, and relevant R code can be found in the STA363_inst_files folder on the home directory of the RStudio Server. <em>banksalary.qmd</em>.</p>
+<p>Data from skilled entry-level clerical workers at bank being sued for sex discrimination in 1970s (from Statistical Sleuth, Ch 12):</p>
+<ul>
+<li><code>bsal</code> = beginning salary (annual salary at time of hire)</li>
+<li><code>sal77</code> = annual salary in 1977</li>
+<li><code>sex</code> = MALE or FEMALE</li>
+<li><code>senior</code> = months since hired</li>
+<li><code>age</code> = age in months</li>
+<li><code>educ</code> = years of education</li>
+<li><code>exper</code> = months of prior work experience</li>
+</ul>
 <p><em>First, we will speculate on what we expect to find and then we will perform an analysis using the data.</em></p>
 <ul>
 <li>Read the data in and use a<code>view()</code> to see the data, but do not do anything else with the data on the computer until question 6.</li>
