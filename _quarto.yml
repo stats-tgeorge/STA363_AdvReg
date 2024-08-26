@@ -64,11 +64,6 @@ website:
           - href: computing-access.qmd
             text: R/RStudio Access
      
-      
-      
-      
-      
-
   page-footer:
     left: "Content {{< fa brands creative-commons >}} {{< var course.copyright_year >}} by [{{< var instructor.name_no_title >}}]({{< var instructor.url >}})"
     right: |
@@ -76,13 +71,6 @@ website:
       [View the source at {{< fa brands github >}} GitHub]({{< var course.github >}})
 
   favicon: "/img/favicon.png"
-  twitter-card:
-    image: "/img/twitter.png"
-    card-style: summary_large_image
-    creator: "@stats_tgeorge"
-  open-graph:
-    image: "/img/twitter.png"
-    locale: en_US
     
 format:
   html:
