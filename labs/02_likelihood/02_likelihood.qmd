@@ -29,7 +29,29 @@ b)	Conducting a numerical search in R for the largest log-likelihood between 0 a
 Illustrate the process graphically, and report the maximum value of the likelihood and log-likelihood functions.  Does it make sense that both methods would agree (and agree with the mathematical approach)?
 
 
-2. Apply Model 1 to the NLSY data (families in Table 2 with 3 or fewer children).  Find the MLE for   by adapting the R code for (1).
+2. Apply Model 1 to the NLSY data (families in Table 2.4 below who have 3 or fewer children).  Find the MLE for   by adapting the R code for (1). There are 5,626 families in the table. 
+
+
+```{r, include=FALSE}
+Famcomp <- c("B","G","BB","BG","GB","GG","BBB","BBG",
+             "BGG","BGB","GBB","GGB","GBG","GGG")
+Numfams <- c(930,951,582,666,666,530,186,177,173,
+             148,151,125,182,159)
+Numchild <- c(930,951,1164,1332,1332,1060,558,531,
+              519,444,453,375,546,477)
+```
+    
+```{r, table4chp2, echo=T, message = F, warning =F}
+#Family comp data table
+library(tidyverse)
+library(kableExtra)
+table5chp2 <- data.frame(Famcomp, Numfams, Numchild)
+kable(table5chp2, booktabs = T, 
+      col.names = c("Family Composition",
+    "Number of families", "Number of children"),
+      caption = "Table 2.4 Number of families and children in families with given composition in NLSY data.") |>
+  kable_styling(latex_options = "scale_down")
+```
 
 
 #### Model 2 – Sex Conditional Model.  The probability of having a boy depends on whether you’ve had boys previously, so Model 2 will have three parameters:
