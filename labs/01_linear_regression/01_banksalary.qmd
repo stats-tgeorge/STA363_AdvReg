@@ -119,8 +119,8 @@ favstats(~ bsal, data = bank)
 # Three options for getting summary statistics
 favstats(~ bsal | sex, data = bank)
 
-bank %>%
-  group_by(sex) %>%
+bank |>
+  group_by(sex) |>
   summarize(mean = mean(bsal),
             median = median(bsal),
             sd = sd(bsal),
@@ -128,8 +128,8 @@ bank %>%
             n = n())
 
 # Doesn't seem to render as a pdf
-#bank %>%
-#  group_by(sex) %>%
+#bank |>
+#  group_by(sex) |>
 #  skim()
 
 # Several options for plotting 1 categorical and 1 numeric variable
@@ -158,7 +158,7 @@ t.test(bsal ~ sex, data = bank)
 model1 = lm(bsal ~ sex, data = bank)
 summary(model1)
 
-bank <- bank %>%
+bank <- bank |>
   mutate(male = ifelse(sex=="MALE",1,0))   # create our own indicator for sex
 t.test(bsal ~ male, var.equal = TRUE, data = bank)
 
@@ -177,7 +177,7 @@ ggplot(bank, aes(y = bsal, senior)) +
   geom_smooth(method = lm)
 
 # How are explanatory variables related to each other?
-bank0 <- bank %>% select(bsal, age, exper, educ, senior, male)
+bank0 <- bank |> select(bsal, age, exper, educ, senior, male)
 pairs(bank0)     # matrix of scatterplots 
 cor(bank0)       # matrix of correlations
 
@@ -235,7 +235,7 @@ par(mfrow=c(1,1))
 ```
 
 ```{r}
-bank <- bank %>%
+bank <- bank |>
   mutate(exper2 = exper^2)
 model5 = lm(bsal ~ exper + exper2, data = bank)
 summary(model5)
@@ -284,7 +284,7 @@ summary(model7)
 
 
 # Should beginning salary be log transformed?
-bank <- bank %>% 
+bank <- bank |> 
   mutate(logbsal = log(bsal))
 hist1 <- ggplot(bank, aes(bsal)) + geom_histogram(bins = 10)
 hist2 <- ggplot(bank, aes(logbsal)) + geom_histogram(bins = 10)
@@ -310,7 +310,7 @@ mosaicplot(ytable, color = c("blue", "light blue"))
 prop.table(ytable, 1)
 
 # Other ways to visualize two categorical variables
-bank <- bank %>%
+bank <- bank |>
   mutate(education = ifelse(educ < 12, "No high school", "High school"),
          education = ifelse(educ > 12, "Some college", education))
 ggplot(data = bank) + 
@@ -322,8 +322,8 @@ ggplot(data = bank) +
    geom_mosaic(aes(x = product(education, sex), fill=education), na.rm = TRUE)
 
 # Other ways to summarize relationship between two categorical variables
-bank %>%
-  group_by(sex, education) %>%
-  summarise (n = n()) %>%
+bank |>
+  group_by(sex, education) |>
+  summarise (n = n()) |>
   mutate(freq = n / sum(n))
 ```

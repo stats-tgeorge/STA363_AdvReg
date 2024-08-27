@@ -116,8 +116,8 @@ ggplot(data = model1grid, aes(x = pb, y = lik1)) +
 ggplot(data = model1grid, aes(x = pb, y = loglik1)) +
   geom_line() +
   labs(x = "possible values of pb", y = "log Likelihood")
-model1grid %>%
-  filter(loglik1 > (-7500)) %>%
+model1grid |>
+  filter(loglik1 > (-7500)) |>
   ggplot(aes(x = pb, y = loglik1)) +
     geom_line() +
     labs(x = "possible values of pb with loglik above -7500", 

@@ -55,7 +55,7 @@ Use the numbering on the left. The codes are for instructor use (Ex: C1).
 ### Exercise 3
 
 3. (G2) __Case 3__ In Case 1 we used hypothetical data with 30 boys and 20 girls. Case 2 was a much larger study with 600 boys and 400 girls. Consider Case 3, a hypothetical data set with 6000 boys and 4000 girls.  
-    - Use the methods for Case 1 and Case 2 and determine the MLE for $p_B$ for the independence model. Compare your result to the MLEs for Cases 1 and 2.
+    - Use the methods for Case 1 and Case 2 and determine the MLE for $p_B$ for the case 3 independence model. Compare your result to the MLEs for Cases 1 and 2.
     - Describe how the graph of the log-likelihood for Case 3 would compare to the log-likelihood graphs for Cases 1 and 2.
     - Compute the log-likelihood for Case 3. Why is it incorrect to perform an LRT comparing Cases 1, 2, and 3?
 
