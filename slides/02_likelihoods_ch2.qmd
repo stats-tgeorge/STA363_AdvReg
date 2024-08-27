@@ -70,7 +70,7 @@ We will focus on the variables `foul1`, `foul2`, and `foul3`, which indicate whi
   - `H`: Foul was called on the home team 
   - `V`: Foul was called on the visiting team
   
-
+. . .
 
 We are focusing on the first three fouls for this analysis, but this could easily be extended to include all fouls in a game. 
 
@@ -97,10 +97,12 @@ We will treat the games as independent in this analysis.
 <br> 
 
 **Model 2 (Conditional Model)**: 
+
   - Is there a tendency for the referees to call more fouls on the visiting team or home team? 
+  
   - Is there a tendency for referees to call a foul on the team that already has more fouls? 
  
-
+. . .
 
 Ultimately we want to decide which model is better.
 
@@ -119,8 +121,11 @@ count(foul1, foul2, foul3) %>% kable()
 :::
 
 :::{.column}
+
 There are 
+
 - 46 total fouls on the home team
+
 - 44 total fouls on the visiting team 
 
 :::
@@ -345,16 +350,18 @@ Define new parameters:
 
 ## Model 2: Likelihood contributions {.smaller}
 
-| Foul1 | Foul2 | Foul3 | n | Likelihood Contribution |
-|-------|-------|-------|---|:-----------------------:|
-| H     | H     | H     | 3 |       $p_H^3$           |
-| H     | H     | V     | 2 |        $p_H^2(1 - p_H)$ |
-| H     | V     | H     | 3 |        $p_H^2(1 - p_H)$ |
-| H     | V     | V     | 7 |       A                 |
-| V     | H     | H     | 7 |        B                |
-| V     | H     | V     | 1 |        $p_H(1 - p_H)^2$ |
-| V     | V     | H     | 5 |         $p_H(1 - p_H)^2$|
-| V     | V     | V     | 2 |         $(1 - p_H)^3$   |
+| Foul1 | Foul2 | Foul3 | n | Likelihood Contribution                                                                                                                         |
+|-------|-------|-------|---|:-----------------------------------------------------------------------------------------------------------------------------------------------:|
+| H     | H     | H     | 3 |$(p_{H\vert N})(p_{H\vert H Bias})(p_{H\vert H Bias}) = (p_{H\vert N})(p_{H\vert H Bias})^2$                                               |
+| H     | H     | V     | 2 |$(p_{H\vert N})(p_{H\vert H Bias})(1 - p_{H\vert H Bias})$                                                                                 |
+| H     | V     | H     | 3 |$(p_{H\vert N})(1 - p_{H\vert H Bias})(p_{H\vert N}) = (p_{H\vert N})^2(1 - p_{H\vert H Bias})$                                            |
+| H     | V     | V     | 7 |A                                                                                                                                          |
+| V     | H     | H     | 7 |B                                                                                                                                          |
+| V     | H     | V     | 1 |$(1 - p_{H\vert N})(p_{H\vert V Bias})(1 - p_{H\vert N}) = (1 - p_{H\vert N})^2(p_{H\vert V Bias})$                                        |
+| V     | V     | H     | 5 |$(1 - p_{H\vert N})(1-p_{H\vert V Bias})(p_{H\vert V Bias})$                                                                               |
+| V     | V     | V     | 2 |$\begin{aligned}&(1 - p_{H\vert N})(1-p_{H\vert V Bias})(1-p_{H\vert V Bias})\\ &=(1 - p_{H\vert N})(1-p_{H\vert V Bias})^2\end{aligned}$|
+
+
 
 Fill in **A** and **B**
 

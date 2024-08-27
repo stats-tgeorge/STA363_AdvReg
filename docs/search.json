@@ -173,7 +173,7 @@
     "href": "slides/01-welcome_ch1.html#assumptions-for-linear-regression-1",
     "title": "Welcome and Chapter 1",
     "section": "Assumptions for linear regression",
-    "text": "Assumptions for linear regression\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\n\n\n\n\n\n\n\n\n\n\n\n\nLinearity: Linear relationship between mean of the response \\(Y\\) and the predictor \\(X\\)\nIndependence: No connection between how any two points lie above or below the regression line\nNormality: Response, \\(Y\\), follows a normal distribution at each level of the predictor, \\(X\\) (indicated by red curves)\nEqual variance: Variance (or standard deviation) of the response, \\(Y\\), is equal for all levels of the predictor, \\(X\\)\n\n\n\n\nModified from Figure 1.1. in BMLR]"
+    "text": "Assumptions for linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinearity: Linear relationship between mean of the response \\(Y\\) and the predictor \\(X\\)\nIndependence: No connection between how any two points lie above or below the regression line\nNormality: Response, \\(Y\\), follows a normal distribution at each level of the predictor, \\(X\\) (indicated by red curves)\nEqual variance: Variance (or standard deviation) of the response, \\(Y\\), is equal for all levels of the predictor, \\(X\\)\n\n\n\n\nModified from Figure 1.1. in BMLR]"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#questions",
@@ -208,7 +208,7 @@
     "href": "slides/01-welcome_ch1.html#data",
     "title": "Welcome and Chapter 1",
     "section": "Data",
-    "text": "Data\n\nderby &lt;- read_csv(\"data/derbyplus.csv\")\n\nRows: 122 Columns: 5\n── Column specification ──────────────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): winner, condition\ndbl (3): year, speed, starters\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nderby |&gt;\n  head(5) |&gt; kable()\n\n\n\n\nyear\nwinner\ncondition\nspeed\nstarters\n\n\n\n\n1896\nBen Brush\ngood\n51.66\n8\n\n\n1897\nTyphoon II\nslow\n49.81\n6\n\n\n1898\nPlaudit\ngood\n51.16\n4\n\n\n1899\nManuel\nfast\n50.00\n5\n\n\n1900\nLieut. Gibson\nfast\n52.28\n7"
+    "text": "Data\n\nderby &lt;- read_csv(\"data/derbyplus.csv\")\n\n\nderby |&gt;\n  head(5) |&gt; kable()\n\n\n\n\nyear\nwinner\ncondition\nspeed\nstarters\n\n\n\n\n1896\nBen Brush\ngood\n51.66\n8\n\n\n1897\nTyphoon II\nslow\n49.81\n6\n\n\n1898\nPlaudit\ngood\n51.16\n4\n\n\n1899\nManuel\nfast\n50.00\n5\n\n\n1900\nLieut. Gibson\nfast\n52.28\n7"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#data-analysis-life-cycle",
@@ -229,7 +229,7 @@
     "href": "slides/01-welcome_ch1.html#plots-for-univariate-eda",
     "title": "Welcome and Chapter 1",
     "section": "Plots for univariate EDA",
-    "text": "Plots for univariate EDA\n\nPlotCode\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\np1 &lt;- ggplot(data = derby, aes(x = speed)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Winning speed (ft/s)\", y = \"Count\")\n\np2 &lt;- ggplot(data = derby, aes(x = starters)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Starters\", y = \"Count\")\n\np3 &lt;- ggplot(data = derby, aes(x = condition)) +\n   geom_bar(fill = \"forestgreen\", color = \"black\", aes(x = ))\n\np1 + (p2 / p3) + \n  plot_annotation(title = \"Univariate data analysis\")"
+    "text": "Plots for univariate EDA\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\np1 &lt;- ggplot(data = derby, aes(x = speed)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Winning speed (ft/s)\", y = \"Count\")\n\np2 &lt;- ggplot(data = derby, aes(x = starters)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Starters\", y = \"Count\")\n\np3 &lt;- ggplot(data = derby, aes(x = condition)) +\n   geom_bar(fill = \"forestgreen\", color = \"black\", aes(x = ))\n\np1 + (p2 / p3) + \n  plot_annotation(title = \"Univariate data analysis\")"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#plots-for-bivariate-eda",
@@ -243,14 +243,14 @@
     "href": "slides/01-welcome_ch1.html#scatterplot-matrix",
     "title": "Welcome and Chapter 1",
     "section": "Scatterplot matrix",
-    "text": "Scatterplot matrix\nA scatterplot matrix helps quickly visualize relationships between many variable pairs. They are particularly useful to identify potentially correlated predictors.\n\n\nPlotCode\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\n#library(GGally)\nggpairs(data = derby, \n        columns = c(\"condition\", \"year\", \"starters\", \"speed\"))"
+    "text": "Scatterplot matrix\nA scatterplot matrix helps quickly visualize relationships between many variable pairs. They are particularly useful to identify potentially correlated predictors.\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n#library(GGally)\nggpairs(data = derby, \n        columns = c(\"condition\", \"year\", \"starters\", \"speed\"))"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#plots-for-multivariate-eda",
     "href": "slides/01-welcome_ch1.html#plots-for-multivariate-eda",
     "title": "Welcome and Chapter 1",
     "section": "Plots for multivariate EDA",
-    "text": "Plots for multivariate EDA\nPlot the relationship between the response and a predictor based on levels of another predictor to assess potential interactions.\n\nPlotCode\n\n\n\n\nWarning: The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use \"none\" instead as of ggplot2\n3.3.4.\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\n#library(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
+    "text": "Plots for multivariate EDA\nPlot the relationship between the response and a predictor based on levels of another predictor to assess potential interactions.\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n#library(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#model-1-main-effects-model",
@@ -292,7 +292,7 @@
     "href": "slides/01-welcome_ch1.html#model-2-add-quadratic-effect-for-year",
     "title": "Welcome and Chapter 1",
     "section": "Model 2: Add quadratic effect for year?",
-    "text": "Model 2: Add quadratic effect for year?\n\nPlotCode\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = derby, aes(x = yearnew, y = speed)) + \n  geom_point(alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\") + \n  geom_smooth(se = FALSE, color = \"red\", linetype = 2) + \n  labs(x = \"Years since 1896\", y = \"Speed (ft/s)\", \n       title = \"Speed vs. Years since 1896\")"
+    "text": "Model 2: Add quadratic effect for year?\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = derby, aes(x = yearnew, y = speed)) + \n  geom_point(alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\") + \n  geom_smooth(se = FALSE, color = \"red\", linetype = 2) + \n  labs(x = \"Years since 1896\", y = \"Speed (ft/s)\", \n       title = \"Speed vs. Years since 1896\")"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#model-2-add-yearnew2",
@@ -327,7 +327,7 @@
     "href": "slides/01-welcome_ch1.html#model-3-include-interaction-term",
     "title": "Welcome and Chapter 1",
     "section": "Model 3: Include interaction term?",
-    "text": "Model 3: Include interaction term?\nRecall from the EDA…\n\nPlotCode\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
+    "text": "Model 3: Include interaction term?\nRecall from the EDA…\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#model-3-add-interaction-term",
@@ -390,7 +390,7 @@
     "href": "slides/01-welcome_ch1.html#inference-for-regression",
     "title": "Welcome and Chapter 1",
     "section": "Inference for regression",
-    "text": "Inference for regression\n\nWhen L.I.N.E. conditions are metWe can\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\n\n\n\n\n\n\n\n\n\n\n\n\nUse least squares regression to get the estimates \\(\\hat{\\beta}_0\\), \\(\\hat{\\beta}_1\\), and \\(\\hat{\\sigma}^2\\)\n\\(\\hat{\\sigma}\\) is the regression standard error\n\n. . .\n\\[\\hat{\\sigma} = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n - p - 1}} = \\sqrt{\\frac{\\sum_{i=1}^n e_i^2}{n-p-1}}\\]"
+    "text": "Inference for regression\n\nWhen L.I.N.E. conditions are metWe can\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUse least squares regression to get the estimates \\(\\hat{\\beta}_0\\), \\(\\hat{\\beta}_1\\), and \\(\\hat{\\sigma}^2\\)\n\\(\\hat{\\sigma}\\) is the regression standard error\n\n. . .\n\\[\\hat{\\sigma} = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n - p - 1}} = \\sqrt{\\frac{\\sum_{i=1}^n e_i^2}{n-p-1}}\\]"
   },
   {
     "objectID": "slides/01-welcome_ch1.html#acknowledgements",
@@ -558,7 +558,7 @@
     "href": "slides/01-welcome_ch1_o.html#assumptions-for-linear-regression-1",
     "title": "Welcome and Chapter 1",
     "section": "Assumptions for linear regression",
-    "text": "Assumptions for linear regression\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\n\n\n\n\n\n\n\n\n\n\n\nModified from Figure 1.1. in BMLR]\n\n\nLinearity: Linear relationship between mean of the response \\(Y\\) and the predictor \\(X\\)\nIndependence: No connection between how any two points lie above or below the regression line\nNormality: Response, \\(Y\\), follows a normal distribution at each level of the predictor, \\(X\\) (indicated by red curves)\nEqual variance: Variance (or standard deviation) of the response, \\(Y\\), is equal for all levels of the predictor, \\(X\\)"
+    "text": "Assumptions for linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\nModified from Figure 1.1. in BMLR]\n\n\nLinearity: Linear relationship between mean of the response \\(Y\\) and the predictor \\(X\\)\nIndependence: No connection between how any two points lie above or below the regression line\nNormality: Response, \\(Y\\), follows a normal distribution at each level of the predictor, \\(X\\) (indicated by red curves)\nEqual variance: Variance (or standard deviation) of the response, \\(Y\\), is equal for all levels of the predictor, \\(X\\)"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#questions",
@@ -593,7 +593,7 @@
     "href": "slides/01-welcome_ch1_o.html#data",
     "title": "Welcome and Chapter 1",
     "section": "Data",
-    "text": "Data\n\nderby &lt;- read_csv(\"data/derbyplus.csv\")\n\nRows: 122 Columns: 5\n── Column specification ──────────────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): winner, condition\ndbl (3): year, speed, starters\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nderby |&gt;\n  head(5) |&gt; kable()\n\n\n\n\nyear\nwinner\ncondition\nspeed\nstarters\n\n\n\n\n1896\nBen Brush\ngood\n51.66\n8\n\n\n1897\nTyphoon II\nslow\n49.81\n6\n\n\n1898\nPlaudit\ngood\n51.16\n4\n\n\n1899\nManuel\nfast\n50.00\n5\n\n\n1900\nLieut. Gibson\nfast\n52.28\n7"
+    "text": "Data\n\nderby &lt;- read_csv(\"data/derbyplus.csv\")\n\n\nderby |&gt;\n  head(5) |&gt; kable()\n\n\n\n\nyear\nwinner\ncondition\nspeed\nstarters\n\n\n\n\n1896\nBen Brush\ngood\n51.66\n8\n\n\n1897\nTyphoon II\nslow\n49.81\n6\n\n\n1898\nPlaudit\ngood\n51.16\n4\n\n\n1899\nManuel\nfast\n50.00\n5\n\n\n1900\nLieut. Gibson\nfast\n52.28\n7"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#data-analysis-life-cycle",
@@ -614,7 +614,7 @@
     "href": "slides/01-welcome_ch1_o.html#plots-for-univariate-eda",
     "title": "Welcome and Chapter 1",
     "section": "Plots for univariate EDA",
-    "text": "Plots for univariate EDA\n\nPlotCode\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\np1 &lt;- ggplot(data = derby, aes(x = speed)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Winning speed (ft/s)\", y = \"Count\")\n\np2 &lt;- ggplot(data = derby, aes(x = starters)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Starters\", y = \"Count\")\n\np3 &lt;- ggplot(data = derby, aes(x = condition)) +\n   geom_bar(fill = \"forestgreen\", color = \"black\", aes(x = ))\n\np1 + (p2 / p3) + \n  plot_annotation(title = \"Univariate data analysis\")"
+    "text": "Plots for univariate EDA\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\np1 &lt;- ggplot(data = derby, aes(x = speed)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Winning speed (ft/s)\", y = \"Count\")\n\np2 &lt;- ggplot(data = derby, aes(x = starters)) + \n  geom_histogram(fill = \"forestgreen\", color = \"black\") + \n  labs(x = \"Starters\", y = \"Count\")\n\np3 &lt;- ggplot(data = derby, aes(x = condition)) +\n   geom_bar(fill = \"forestgreen\", color = \"black\", aes(x = ))\n\np1 + (p2 / p3) + \n  plot_annotation(title = \"Univariate data analysis\")"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#plots-for-bivariate-eda",
@@ -628,14 +628,14 @@
     "href": "slides/01-welcome_ch1_o.html#scatterplot-matrix",
     "title": "Welcome and Chapter 1",
     "section": "Scatterplot matrix",
-    "text": "Scatterplot matrix\nA scatterplot matrix helps quickly visualize relationships between many variable pairs. They are particularly useful to identify potentially correlated predictors.\n. . .\n\nPlotCode\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\n#library(GGally)\nggpairs(data = derby, \n        columns = c(\"condition\", \"year\", \"starters\", \"speed\"))"
+    "text": "Scatterplot matrix\nA scatterplot matrix helps quickly visualize relationships between many variable pairs. They are particularly useful to identify potentially correlated predictors.\n. . .\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n#library(GGally)\nggpairs(data = derby, \n        columns = c(\"condition\", \"year\", \"starters\", \"speed\"))"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#plots-for-multivariate-eda",
     "href": "slides/01-welcome_ch1_o.html#plots-for-multivariate-eda",
     "title": "Welcome and Chapter 1",
     "section": "Plots for multivariate EDA",
-    "text": "Plots for multivariate EDA\nPlot the relationship between the response and a predictor based on levels of another predictor to assess potential interactions.\n\nPlotCode\n\n\n\n\nWarning: The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use \"none\" instead as of ggplot2\n3.3.4.\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\n#library(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
+    "text": "Plots for multivariate EDA\nPlot the relationship between the response and a predictor based on levels of another predictor to assess potential interactions.\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n#library(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#model-1-main-effects-model",
@@ -677,7 +677,7 @@
     "href": "slides/01-welcome_ch1_o.html#model-2-add-quadratic-effect-for-year",
     "title": "Welcome and Chapter 1",
     "section": "Model 2: Add quadratic effect for year?",
-    "text": "Model 2: Add quadratic effect for year?\n\nPlotCode\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = derby, aes(x = yearnew, y = speed)) + \n  geom_point(alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\") + \n  geom_smooth(se = FALSE, color = \"red\", linetype = 2) + \n  labs(x = \"Years since 1896\", y = \"Speed (ft/s)\", \n       title = \"Speed vs. Years since 1896\")"
+    "text": "Model 2: Add quadratic effect for year?\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = derby, aes(x = yearnew, y = speed)) + \n  geom_point(alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"blue\") + \n  geom_smooth(se = FALSE, color = \"red\", linetype = 2) + \n  labs(x = \"Years since 1896\", y = \"Speed (ft/s)\", \n       title = \"Speed vs. Years since 1896\")"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#model-2-add-yearnew2",
@@ -712,7 +712,7 @@
     "href": "slides/01-welcome_ch1_o.html#model-3-include-interaction-term",
     "title": "Welcome and Chapter 1",
     "section": "Model 3: Include interaction term?",
-    "text": "Model 3: Include interaction term?\nRecall from the EDA…\n\nPlotCode\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
+    "text": "Model 3: Include interaction term?\nRecall from the EDA…\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(viridis)\nggplot(data = derby, aes(x = year, y = speed, color = condition, \n                         shape = condition, linetype = condition)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, aes(linetype = condition)) + \n  labs(x = \"Year\", y = \"Speed (ft/s)\", color = \"Condition\",\n       title = \"Speed vs. year\", \n       subtitle = \"by track condition\") +\n  guides(lty = FALSE, shape = FALSE) +\n  scale_color_viridis_d(end = 0.9)"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#model-3-add-interaction-term",
@@ -775,7 +775,7 @@
     "href": "slides/01-welcome_ch1_o.html#inference-for-regression",
     "title": "Welcome and Chapter 1",
     "section": "Inference for regression",
-    "text": "Inference for regression\n\nWhen L.I.N.E. conditions are metWe can\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\nWarning in is.na(x): is.na() applied to non-(list or vector) of type 'expression'\n\n\n\n\n\n\n\n\n\n\n\n\nUse least squares regression to get the estimates \\(\\hat{\\beta}_0\\), \\(\\hat{\\beta}_1\\), and \\(\\hat{\\sigma}^2\\)\n\\(\\hat{\\sigma}\\) is the regression standard error\n\n. . .\n\\[\\hat{\\sigma} = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n - p - 1}} = \\sqrt{\\frac{\\sum_{i=1}^n e_i^2}{n-p-1}}\\]"
+    "text": "Inference for regression\n\nWhen L.I.N.E. conditions are metWe can\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUse least squares regression to get the estimates \\(\\hat{\\beta}_0\\), \\(\\hat{\\beta}_1\\), and \\(\\hat{\\sigma}^2\\)\n\\(\\hat{\\sigma}\\) is the regression standard error\n\n. . .\n\\[\\hat{\\sigma} = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n - p - 1}} = \\sqrt{\\frac{\\sum_{i=1}^n e_i^2}{n-p-1}}\\]"
   },
   {
     "objectID": "slides/01-welcome_ch1_o.html#acknowledgements",
@@ -814,6 +814,122 @@
     "crumbs": [
       "Course Contents",
       "Schedule & Assignments"
+    ]
+  },
+  {
+    "objectID": "hw/01_hw_ch1.html",
+    "href": "hw/01_hw_ch1.html",
+    "title": "Homework 1",
+    "section": "",
+    "text": "Go to our RStudio Server at http://turing.cornellcollege.edu:8787/\nGo to your class folder you made named “STA363”\nCreate a new folder called FirstInitial_Last_Initial_HW with your initials.\n\n\n\n\nEach of your assignments will begin with the following steps.\n\nFinding the instructions on our website: https://stats-tgeorge.github.io/STA363_AdvReg/\nGoing to our RStudio Server at http://turing.cornellcollege.edu:8787/\nCreating a new project. and giving it a sensible name such as homework_1 and having that project in the course folder you created.\nCreate a new quarto document and give it a sensible name such as hw1.\nIn the YAML add the following (add what you don’t have). The embed-resources component will make your final rendered html self-contained.\n\n---\ntitle: \"Document title\"\nauthor: \"my name\"\nformat:\n  html:\nembed-resources: true\n---"
+  },
+  {
+    "objectID": "hw/01_hw_ch1.html#this-one-time",
+    "href": "hw/01_hw_ch1.html#this-one-time",
+    "title": "Homework 1",
+    "section": "",
+    "text": "Go to our RStudio Server at http://turing.cornellcollege.edu:8787/\nGo to your class folder you made named “STA363”\nCreate a new folder called FirstInitial_Last_Initial_HW with your initials."
+  },
+  {
+    "objectID": "hw/01_hw_ch1.html#every-homework",
+    "href": "hw/01_hw_ch1.html#every-homework",
+    "title": "Homework 1",
+    "section": "",
+    "text": "Each of your assignments will begin with the following steps.\n\nFinding the instructions on our website: https://stats-tgeorge.github.io/STA363_AdvReg/\nGoing to our RStudio Server at http://turing.cornellcollege.edu:8787/\nCreating a new project. and giving it a sensible name such as homework_1 and having that project in the course folder you created.\nCreate a new quarto document and give it a sensible name such as hw1.\nIn the YAML add the following (add what you don’t have). The embed-resources component will make your final rendered html self-contained.\n\n---\ntitle: \"Document title\"\nauthor: \"my name\"\nformat:\n  html:\nembed-resources: true\n---"
+  },
+  {
+    "objectID": "course-overview.html",
+    "href": "course-overview.html",
+    "title": "Advanced Regression",
+    "section": "",
+    "text": "Course Description\nFollowing a second regression course, this class will begin with a review of multiple linear regression, but now using R. New topics will include probability distributions, likelihoods, differentiating binary vs binomial logistic regression, and poisson regression including its variants. The class of generalized linear models will then be presented which unifies all past modeling approaches. All methods are presented using realistic case studies. Conducting and communicating the modeling process including exploratory data analysis, model exploration and selection, and inferences are all emphasized.",
+    "crumbs": [
+      "Course information",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "course-instructor.html",
+    "href": "course-instructor.html",
+    "title": "Instructor",
+    "section": "",
+    "text": "Dr. Tyler George (he/him) is a Assistant Professor of Statistics at Cornell College. He received his PhD in Statistics and Analytics from Central Michigan University. During his PhD he also studied mathematics and statistics education. His dissertation work involved creating a new lack of fit test for linear regression models. His interests are broadly in statistics, data science and best pedagogy to teach them.\n\n\n\nOffice hours\nLocation\n\n\n\n\nMonday - Thursday 3:05pm - 4:05pm\nWest 311\n\n\nOther Times by Appointment\nWest 311\n\n\n\nOffice hours are for STUDENTS. Please take advantage of them to get help with class, advising, and/or getting to know your professor! If you miss class, check out course calendar to verify there have been no changes.",
+    "crumbs": [
+      "Course information",
+      "Instructor"
+    ]
+  },
+  {
+    "objectID": "course-instructor.html#instructor",
+    "href": "course-instructor.html#instructor",
+    "title": "Instructor",
+    "section": "",
+    "text": "Dr. Tyler George (he/him) is a Assistant Professor of Statistics at Cornell College. He received his PhD in Statistics and Analytics from Central Michigan University. During his PhD he also studied mathematics and statistics education. His dissertation work involved creating a new lack of fit test for linear regression models. His interests are broadly in statistics, data science and best pedagogy to teach them.\n\n\n\nOffice hours\nLocation\n\n\n\n\nMonday - Thursday 3:05pm - 4:05pm\nWest 311\n\n\nOther Times by Appointment\nWest 311\n\n\n\nOffice hours are for STUDENTS. Please take advantage of them to get help with class, advising, and/or getting to know your professor! If you miss class, check out course calendar to verify there have been no changes.",
+    "crumbs": [
+      "Course information",
+      "Instructor"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "computing-access.html",
+    "href": "computing-access.html",
+    "title": "Computing access",
+    "section": "",
+    "text": "To access computing resources the course, Introduction to Data Science, offered by the Cornell College Department of Mathematics and Statistics, go to the RStudio Server while on campus and connected to campus internet.\nYour account will be pre-created before the class begins and will use your Cornell College username. The default password will be shared in class and you will need to change it.",
+    "crumbs": [
+      "Course information",
+      "R/RStudio Access"
+    ]
+  },
+  {
+    "objectID": "course-links.html",
+    "href": "course-links.html",
+    "title": "Useful links",
+    "section": "",
+    "text": "RStudio Server\n🔗 on Cornell College Cluster\n\n\nCourse GitHub organization\n🔗 on GitHub\n\n\nGradebook\n🔗 on Moodle",
+    "crumbs": [
+      "Course Contents",
+      "Useful links"
+    ]
+  },
+  {
+    "objectID": "course-links.html#course-links",
+    "href": "course-links.html#course-links",
+    "title": "Useful links",
+    "section": "",
+    "text": "RStudio Server\n🔗 on Cornell College Cluster\n\n\nCourse GitHub organization\n🔗 on GitHub\n\n\nGradebook\n🔗 on Moodle",
+    "crumbs": [
+      "Course Contents",
+      "Useful links"
+    ]
+  },
+  {
+    "objectID": "course-links.html#other-useful-links",
+    "href": "course-links.html#other-useful-links",
+    "title": "Useful links",
+    "section": "Other Useful Links",
+    "text": "Other Useful Links\n\nData Wrangling and Viz Interactive Tutorials\nRStudio Cheatsheets\nIntroduction to dplyr\nR Date Examples\nNY Times Cornell College Sign-up\nR for Data Science 2nd Ed\nQuarto Documentation\nData visualization\n\nggplot2 Reference\nggplot2: Elegant Graphics for Data Analysis\nData Visualization: A Practice Introduction\nPatchwork R Package",
+    "crumbs": [
+      "Course Contents",
+      "Useful links"
+    ]
+  },
+  {
+    "objectID": "course-links.html#data-links",
+    "href": "course-links.html#data-links",
+    "title": "Useful links",
+    "section": "Data Links",
+    "text": "Data Links\n\nTidyTuesday\nR Data Sources for Regression Analysis\nFiveThirtyEight data\nAmazon Registry of Open Data\nOpen data StackExchange\nMicrosoft R Application Window\nData.gov\nUS Census\nNew York City data\nGeorge Mason University Data Link List\nToward Data Science list of Data Sources\nNHS Scotland Open Data\nEdinburgh Open Data\nOpen access to Scotland’s official statistics\nBikeshare data portal\nUK Gov Data\nKaggle datasets\nOpenIntro datasets\nAwesome public datasets\nYouth Risk Behavior Surveillance System (YRBSS)\nPRISM Data Archive Project\nHarvard Dataverse\nAndrew G. Reiter Poly Scie Datasets\nEuropean Statistics\nStatistics Canada\nPew Research\nUNICEF\nCDC\nWorld Bank\nElection Studies\nU.S. Data\nWorld Health Organization\nThe National Bureau of Economic Research\nInternational Monetary Fund\nGeneral Social Survey\nUnited Nations Data\nUnited Nations Statistics Division\nState of Iowa Open Geospatial Data\nIf you know of others, let me know!",
+    "crumbs": [
+      "Course Contents",
+      "Useful links"
     ]
   },
   {
@@ -894,134 +1010,46 @@
     ]
   },
   {
-    "objectID": "course-links.html",
-    "href": "course-links.html",
-    "title": "Useful links",
+    "objectID": "hw/02_hw_ch2.html",
+    "href": "hw/02_hw_ch2.html",
+    "title": "Homework 2",
     "section": "",
-    "text": "RStudio Server\n🔗 on Cornell College Cluster\n\n\nCourse GitHub organization\n🔗 on GitHub\n\n\nGradebook\n🔗 on Moodle",
-    "crumbs": [
-      "Course Contents",
-      "Useful links"
-    ]
+    "text": "Each of your assignments will begin with the following steps.\n\nGoing to our RStudio Server at http://turing.cornellcollege.edu:8787/\nCreating a new R project, inside your homework folder on the server, and giving it a sensible name such as homework_2 and having that project in the course folder you created.\nCreate a new quarto document and give it a sensible name such as hw2.\nIn the YAML add the following (add what you don’t have). The embed-resources component will make your final rendered html self-contained.\n\n---\ntitle: \"Document title\"\nauthor: \"my name\"\nformat:\n  html:\nembed-resources: true\n---"
   },
   {
-    "objectID": "course-links.html#course-links",
-    "href": "course-links.html#course-links",
-    "title": "Useful links",
+    "objectID": "hw/02_hw_ch2.html#setup",
+    "href": "hw/02_hw_ch2.html#setup",
+    "title": "Homework 2",
     "section": "",
-    "text": "RStudio Server\n🔗 on Cornell College Cluster\n\n\nCourse GitHub organization\n🔗 on GitHub\n\n\nGradebook\n🔗 on Moodle",
-    "crumbs": [
-      "Course Contents",
-      "Useful links"
-    ]
+    "text": "Each of your assignments will begin with the following steps.\n\nGoing to our RStudio Server at http://turing.cornellcollege.edu:8787/\nCreating a new R project, inside your homework folder on the server, and giving it a sensible name such as homework_2 and having that project in the course folder you created.\nCreate a new quarto document and give it a sensible name such as hw2.\nIn the YAML add the following (add what you don’t have). The embed-resources component will make your final rendered html self-contained.\n\n---\ntitle: \"Document title\"\nauthor: \"my name\"\nformat:\n  html:\nembed-resources: true\n---"
   },
   {
-    "objectID": "course-links.html#other-useful-links",
-    "href": "course-links.html#other-useful-links",
-    "title": "Useful links",
-    "section": "Other Useful Links",
-    "text": "Other Useful Links\n\nData Wrangling and Viz Interactive Tutorials\nRStudio Cheatsheets\nIntroduction to dplyr\nR Date Examples\nNY Times Cornell College Sign-up\nR for Data Science 2nd Ed\nQuarto Documentation\nData visualization\n\nggplot2 Reference\nggplot2: Elegant Graphics for Data Analysis\nData Visualization: A Practice Introduction\nPatchwork R Package",
-    "crumbs": [
-      "Course Contents",
-      "Useful links"
-    ]
+    "objectID": "hw/02_hw_ch2.html#instructions",
+    "href": "hw/02_hw_ch2.html#instructions",
+    "title": "Homework 2",
+    "section": "Instructions",
+    "text": "Instructions\nBe sure to include the relevant R code as well as full sentences answering each of the questions (i.e. if I ask for the average, you can output the answer in R but also write a full sentence with the answer). Be sure to frequently save your files!\nData for the homework will be in the STA363_inst_files -&gt; data folder."
   },
   {
-    "objectID": "course-links.html#data-links",
-    "href": "course-links.html#data-links",
-    "title": "Useful links",
-    "section": "Data Links",
-    "text": "Data Links\n\nTidyTuesday\nR Data Sources for Regression Analysis\nFiveThirtyEight data\nAmazon Registry of Open Data\nOpen data StackExchange\nMicrosoft R Application Window\nData.gov\nUS Census\nNew York City data\nGeorge Mason University Data Link List\nToward Data Science list of Data Sources\nNHS Scotland Open Data\nEdinburgh Open Data\nOpen access to Scotland’s official statistics\nBikeshare data portal\nUK Gov Data\nKaggle datasets\nOpenIntro datasets\nAwesome public datasets\nYouth Risk Behavior Surveillance System (YRBSS)\nPRISM Data Archive Project\nHarvard Dataverse\nAndrew G. Reiter Poly Scie Datasets\nEuropean Statistics\nStatistics Canada\nPew Research\nUNICEF\nCDC\nWorld Bank\nElection Studies\nU.S. Data\nWorld Health Organization\nThe National Bureau of Economic Research\nInternational Monetary Fund\nGeneral Social Survey\nUnited Nations Data\nUnited Nations Statistics Division\nState of Iowa Open Geospatial Data\nIf you know of others, let me know!",
-    "crumbs": [
-      "Course Contents",
-      "Useful links"
-    ]
-  },
-  {
-    "objectID": "computing-access.html",
-    "href": "computing-access.html",
-    "title": "Computing access",
-    "section": "",
-    "text": "To access computing resources the course, Introduction to Data Science, offered by the Cornell College Department of Mathematics and Statistics, go to the RStudio Server while on campus and connected to campus internet.\nYour account will be pre-created before the class begins and will use your Cornell College username. The default password will be shared in class and you will need to change it.",
-    "crumbs": [
-      "Course information",
-      "R/RStudio Access"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "course-instructor.html",
-    "href": "course-instructor.html",
-    "title": "Instructor",
-    "section": "",
-    "text": "Dr. Tyler George (he/him) is a Assistant Professor of Statistics at Cornell College. He received his PhD in Statistics and Analytics from Central Michigan University. During his PhD he also studied mathematics and statistics education. His dissertation work involved creating a new lack of fit test for linear regression models. His interests are broadly in statistics, data science and best pedagogy to teach them.\n\n\n\nOffice hours\nLocation\n\n\n\n\nMonday - Thursday 3:05pm - 4:05pm\nWest 311\n\n\nOther Times by Appointment\nWest 311\n\n\n\nOffice hours are for STUDENTS. Please take advantage of them to get help with class, advising, and/or getting to know your professor! If you miss class, check out course calendar to verify there have been no changes.",
-    "crumbs": [
-      "Course information",
-      "Instructor"
-    ]
-  },
-  {
-    "objectID": "course-instructor.html#instructor",
-    "href": "course-instructor.html#instructor",
-    "title": "Instructor",
-    "section": "",
-    "text": "Dr. Tyler George (he/him) is a Assistant Professor of Statistics at Cornell College. He received his PhD in Statistics and Analytics from Central Michigan University. During his PhD he also studied mathematics and statistics education. His dissertation work involved creating a new lack of fit test for linear regression models. His interests are broadly in statistics, data science and best pedagogy to teach them.\n\n\n\nOffice hours\nLocation\n\n\n\n\nMonday - Thursday 3:05pm - 4:05pm\nWest 311\n\n\nOther Times by Appointment\nWest 311\n\n\n\nOffice hours are for STUDENTS. Please take advantage of them to get help with class, advising, and/or getting to know your professor! If you miss class, check out course calendar to verify there have been no changes.",
-    "crumbs": [
-      "Course information",
-      "Instructor"
-    ]
-  },
-  {
-    "objectID": "course-overview.html",
-    "href": "course-overview.html",
-    "title": "Advanced Regression",
-    "section": "",
-    "text": "Course Description\nFollowing a second regression course, this class will begin with a review of multiple linear regression, but now using R. New topics will include probability distributions, likelihoods, differentiating binary vs binomial logistic regression, and poisson regression including its variants. The class of generalized linear models will then be presented which unifies all past modeling approaches. All methods are presented using realistic case studies. Conducting and communicating the modeling process including exploratory data analysis, model exploration and selection, and inferences are all emphasized.",
-    "crumbs": [
-      "Course information",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "hw/01_hw_ch1.html",
-    "href": "hw/01_hw_ch1.html",
-    "title": "Homework 1",
-    "section": "",
-    "text": "Go to our RStudio Server at http://turing.cornellcollege.edu:8787/\nGo to your class folder you made named “STA363”\nCreate a new folder called FirstInitial_Last_Initial_HW with your initials.\n\n\n\n\nEach of your assignments will begin with the following steps.\n\nFinding the instructions on our website: https://stats-tgeorge.github.io/STA363_AdvReg/\nGoing to our RStudio Server at http://turing.cornellcollege.edu:8787/\nCreating a new project. and giving it a sensible name such as homework_1 and having that project in the course folder you created.\nCreate a new quarto document and give it a sensible name such as hw1.\nIn the YAML add the following (add what you don’t have). The embed-resources component will make your final rendered html self-contained.\n\n---\ntitle: \"Document title\"\nauthor: \"my name\"\nformat:\n  html:\nembed-resources: true\n---"
-  },
-  {
-    "objectID": "hw/01_hw_ch1.html#this-one-time",
-    "href": "hw/01_hw_ch1.html#this-one-time",
-    "title": "Homework 1",
-    "section": "",
-    "text": "Go to our RStudio Server at http://turing.cornellcollege.edu:8787/\nGo to your class folder you made named “STA363”\nCreate a new folder called FirstInitial_Last_Initial_HW with your initials."
-  },
-  {
-    "objectID": "hw/01_hw_ch1.html#every-homework",
-    "href": "hw/01_hw_ch1.html#every-homework",
-    "title": "Homework 1",
-    "section": "",
-    "text": "Each of your assignments will begin with the following steps.\n\nFinding the instructions on our website: https://stats-tgeorge.github.io/STA363_AdvReg/\nGoing to our RStudio Server at http://turing.cornellcollege.edu:8787/\nCreating a new project. and giving it a sensible name such as homework_1 and having that project in the course folder you created.\nCreate a new quarto document and give it a sensible name such as hw1.\nIn the YAML add the following (add what you don’t have). The embed-resources component will make your final rendered html self-contained.\n\n---\ntitle: \"Document title\"\nauthor: \"my name\"\nformat:\n  html:\nembed-resources: true\n---"
+    "objectID": "hw/02_hw_ch2.html#exercises",
+    "href": "hw/02_hw_ch2.html#exercises",
+    "title": "Homework 2",
+    "section": "Exercises",
+    "text": "Exercises\nAll problems are from The main textbook is: Beyond Multiple Linear Regression by Paul Roback and Julie Legler – it is freely available online. Chapters 1-9.. Abbreviated BMLR.\nUse the numbering on the left. The codes are for instructor use (Ex: C1).\n\nExercise 1\n\n(C1) Suppose we plan to use data to estimate one parameter, \\(p_B\\).\n\nWhen using a likelihood to obtain an estimate for the parameter, which is preferred: a large or a small likelihood value? Why?\nThe height of a likelihood curve is the probability of the data for the given parameter. The horizontal axis represents different possible parameter values. Does the area under the likelihood curve for an interval from .25 to .75 equal the probability that the true probability of a boy is between 0.25 and 0.75?\n\n\n\n\nExercise 2\n\n(C2) Suppose the families with an “only child” were excluded for the Sex Conditional Model. How might the estimates for the three parameters be affected? Would it still be possible to perform a Likelihood Ratio Test to compare the Sex Unconditional and Sex Conditional Models? Why or why not?\n\n\n\nExercise 3\n\n(G2) Case 3 In Case 1 we used hypothetical data with 30 boys and 20 girls. Case 2 was a much larger study with 600 boys and 400 girls. Consider Case 3, a hypothetical data set with 6000 boys and 4000 girls.\n\nUse the methods for Case 1 and Case 2 and determine the MLE for \\(p_B\\) for the independence model. Compare your result to the MLEs for Cases 1 and 2.\nDescribe how the graph of the log-likelihood for Case 3 would compare to the log-likelihood graphs for Cases 1 and 2.\nCompute the log-likelihood for Case 3. Why is it incorrect to perform an LRT comparing Cases 1, 2, and 3?\n\n\n\n\nExercise 4\n\n(G3) Write out an expression for the likelihood of seeing our NLSY data (5,416 boys and 5,256 girls) if the true probability of a boy is:\n\n\\(p_B=0.5\\)\n\n\\(p_B=0.45\\)\n\n\\(p_B= 0.55\\)\n\n\\(p_B= 0.5075\\)\n\n\n\nCompute the value of the log-likelihood for each of the values of \\(p_B\\) above.\nWhich of these four possibilities, \\(p_B=0.45, p_B=0.5,  p_B=0.55,\\) or \\(p_B=0.5075\\) would be the best estimate of \\(p_B\\) given what we observed (our data)?\n\n\n\n\nExercise 5\n\n(O2) The hot hand in basketball. @Gilovich1985 wrote a controversial but compelling article claiming that there is no such thing as “the hot hand” in basketball. That is, there is no empirical evidence that shooters have stretches where they are more likely to make consecutive shots, and basketball shots are essentially independent events. One of the many ways they tested for evidence of a “hot hand” was to record sequences of shots for players under game conditions and determine if players are more likely to make shots after made baskets than after misses. For instance, assume we recorded data from one player’s first 5 three-point attempts over a 5-game period. We can assume games are independent, but we’ll consider two models for shots within a game:\n\nNo Hot Hand (1 parameter): \\(p_B\\) = probability of making a basket (thus \\(1-p_B\\) = probability of not making a basket).\nHot Hand (2 parameters): \\(p_B\\) = probability of making a basket after a miss (or the first shot of a game); \\(p_{B|B}\\) = probability of making a basket after making the previous shot.\n\n\nFill out Table @ref(tab:hothandchp2)—write out the contribution of each game to the likelihood for both models along with the total likelihood for each model.\nGiven that, for the No Hot Hand model, \\(\\textrm{Lik}(p_B)=p_B^{10}(1-p_B)^{15}\\) for the 5 games where we collected data, how do we know that 0.40 (the maximum likelihood estimator (MLE) of \\(p_B\\)) is a better estimate than, say, 0.30?\nFind the MLEs for the parameters in each model, and then use those MLEs to determine if there’s significant evidence that the hot hand exists.\n\n\n\n\n\n\nData for Open-ended Exercise 2. (B = made basket. M = missed basket.)\n\n\nGame\nFirst 5 shots\nLikelihood (No Hot Hand)\nLikelihood (Hot Hand)\n\n\n\n\n1\nBMMBB\n\n\n\n\n2\nMBMBM\n\n\n\n\n3\nMMBBB\n\n\n\n\n4\nBMMMB\n\n\n\n\n5\nMMMMM\n\n\n\n\nTotal"
   },
   {
     "objectID": "labs/01_linear_regression/01_banksalary.html",
     "href": "labs/01_linear_regression/01_banksalary.html",
     "title": "Stat 363: Multiple Linear Regression Review",
     "section": "",
-    "text": "Since this our first lab, I suggest you get setup for files in the following way:\n\nLog into the course RStudio Server. http://turing.cornellcollege.edu:8787/ Make sure to close out of any projects on the top right corner.\nClick the “File” tab in the bottom right corner. Then click “Home” across the top of the panel.\nIf ones does not exists already, use the “+📂” button to create a new folder and call it “STA363”\nCopy project folder called “01_linear_regression” located at Home -&gt; STA363_inst_files-&gt; labs. If you check the box next to the folder name, then click the small gear icon you can “copy to” and put a copy of the folder in your newly created folder.\nNow, click File-&gt; Open Project and navigate to the project file in the folder you just copied.\nYou can place your responses in the file 01_banksalary_fillable.qmd."
+    "text": "Since this our first lab, I suggest you get setup for files in the following way:\n\nLog into the course RStudio Server. http://turing.cornellcollege.edu:8787/ Make sure to close out of any projects on the top right corner.\nClick the “File” tab in the bottom right corner. Then click “Home” across the top of the panel.\nIf ones does not exists already, use the “+📁” button to create a new folder and call it “STA363”\nCopy project folder called “01_linear_regression” located at Home -&gt; STA363_inst_files-&gt; labs. If you check the box next to the folder name, then click the small gear icon you can “copy to” and put a copy of the folder in your newly created folder.\nNow, click File-&gt; Open Project and navigate to the project file in the folder you just copied.\nYou can place your responses in the file 01_banksalary_fillable.qmd."
   },
   {
     "objectID": "labs/01_linear_regression/01_banksalary.html#first-lab-setup",
     "href": "labs/01_linear_regression/01_banksalary.html#first-lab-setup",
     "title": "Stat 363: Multiple Linear Regression Review",
     "section": "",
-    "text": "Since this our first lab, I suggest you get setup for files in the following way:\n\nLog into the course RStudio Server. http://turing.cornellcollege.edu:8787/ Make sure to close out of any projects on the top right corner.\nClick the “File” tab in the bottom right corner. Then click “Home” across the top of the panel.\nIf ones does not exists already, use the “+📂” button to create a new folder and call it “STA363”\nCopy project folder called “01_linear_regression” located at Home -&gt; STA363_inst_files-&gt; labs. If you check the box next to the folder name, then click the small gear icon you can “copy to” and put a copy of the folder in your newly created folder.\nNow, click File-&gt; Open Project and navigate to the project file in the folder you just copied.\nYou can place your responses in the file 01_banksalary_fillable.qmd."
+    "text": "Since this our first lab, I suggest you get setup for files in the following way:\n\nLog into the course RStudio Server. http://turing.cornellcollege.edu:8787/ Make sure to close out of any projects on the top right corner.\nClick the “File” tab in the bottom right corner. Then click “Home” across the top of the panel.\nIf ones does not exists already, use the “+📁” button to create a new folder and call it “STA363”\nCopy project folder called “01_linear_regression” located at Home -&gt; STA363_inst_files-&gt; labs. If you check the box next to the folder name, then click the small gear icon you can “copy to” and put a copy of the folder in your newly created folder.\nNow, click File-&gt; Open Project and navigate to the project file in the folder you just copied.\nYou can place your responses in the file 01_banksalary_fillable.qmd."
   },
   {
     "objectID": "labs/01_linear_regression/01_banksalary.html#introduction",
@@ -1147,7 +1175,7 @@
     "href": "slides/02_likelihoods_ch2_o.html#fouls-in-college-basketball-games",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Fouls in college basketball games",
-    "text": "Fouls in college basketball games\nThe data set 04-refs.csv includes 30 randomly selected NCAA men’s basketball games played in the 2009 - 2010 season.\nWe will focus on the variables foul1, foul2, and foul3, which indicate which team had a foul called them for the 1st, 2nd, and 3rd fouls, respectively.\n\nH: Foul was called on the home team\nV: Foul was called on the visiting team\n\nWe are focusing on the first three fouls for this analysis, but this could easily be extended to include all fouls in a game.\n\n[The dataset was derived from basektball0910.csv used in BMLR Section 11.2"
+    "text": "Fouls in college basketball games\nThe data set 04-refs.csv includes 30 randomly selected NCAA men’s basketball games played in the 2009 - 2010 season.\nWe will focus on the variables foul1, foul2, and foul3, which indicate which team had a foul called them for the 1st, 2nd, and 3rd fouls, respectively.\n\nH: Foul was called on the home team\nV: Foul was called on the visiting team\n\n. . .\nWe are focusing on the first three fouls for this analysis, but this could easily be extended to include all fouls in a game.\n\n[The dataset was derived from basektball0910.csv used in BMLR Section 11.2"
   },
   {
     "objectID": "slides/02_likelihoods_ch2_o.html#fouls-in-college-basketball-games-1",
@@ -1161,14 +1189,14 @@
     "href": "slides/02_likelihoods_ch2_o.html#different-likelihood-models",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Different likelihood models",
-    "text": "Different likelihood models\nModel 1 (Unconditional Model): What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?\n\nModel 2 (Conditional Model): - Is there a tendency for the referees to call more fouls on the visiting team or home team? - Is there a tendency for referees to call a foul on the team that already has more fouls?\nUltimately we want to decide which model is better."
+    "text": "Different likelihood models\nModel 1 (Unconditional Model): What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?\n\nModel 2 (Conditional Model):\n\nIs there a tendency for the referees to call more fouls on the visiting team or home team?\nIs there a tendency for referees to call a foul on the team that already has more fouls?\n\n. . .\nUltimately we want to decide which model is better."
   },
   {
     "objectID": "slides/02_likelihoods_ch2_o.html#exploratory-data-analysis",
     "href": "slides/02_likelihoods_ch2_o.html#exploratory-data-analysis",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Exploratory data analysis",
-    "text": "Exploratory data analysis\n\n\n\nrefs %&gt;%\ncount(foul1, foul2, foul3) %&gt;% kable()\n\n\n\n\nfoul1\nfoul2\nfoul3\nn\n\n\n\n\nH\nH\nH\n3\n\n\nH\nH\nV\n2\n\n\nH\nV\nH\n3\n\n\nH\nV\nV\n7\n\n\nV\nH\nH\n7\n\n\nV\nH\nV\n1\n\n\nV\nV\nH\n5\n\n\nV\nV\nV\n2\n\n\n\n\n\n\nThere are - 46 total fouls on the home team - 44 total fouls on the visiting team"
+    "text": "Exploratory data analysis\n\n\n\nrefs %&gt;%\ncount(foul1, foul2, foul3) %&gt;% kable()\n\n\n\n\nfoul1\nfoul2\nfoul3\nn\n\n\n\n\nH\nH\nH\n3\n\n\nH\nH\nV\n2\n\n\nH\nV\nH\n3\n\n\nH\nV\nV\n7\n\n\nV\nH\nH\n7\n\n\nV\nH\nV\n1\n\n\nV\nV\nH\n5\n\n\nV\nV\nV\n2\n\n\n\n\n\n\nThere are\n\n46 total fouls on the home team\n44 total fouls on the visiting team"
   },
   {
     "objectID": "slides/02_likelihoods_ch2_o.html#model-1-unconditional-model",
@@ -1259,7 +1287,7 @@
     "href": "slides/02_likelihoods_ch2_o.html#model-2-likelihood-contributions-1",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Model 2: Likelihood contributions",
-    "text": "Model 2: Likelihood contributions\n\n\n\nFoul1\nFoul2\nFoul3\nn\nLikelihood Contribution\n\n\n\n\nH\nH\nH\n3\n\\(p_H^3\\)\n\n\nH\nH\nV\n2\n\\(p_H^2(1 - p_H)\\)\n\n\nH\nV\nH\n3\n\\(p_H^2(1 - p_H)\\)\n\n\nH\nV\nV\n7\nA\n\n\nV\nH\nH\n7\nB\n\n\nV\nH\nV\n1\n\\(p_H(1 - p_H)^2\\)\n\n\nV\nV\nH\n5\n\\(p_H(1 - p_H)^2\\)\n\n\nV\nV\nV\n2\n\\((1 - p_H)^3\\)\n\n\n\nFill in A and B"
+    "text": "Model 2: Likelihood contributions\n\n\n\n\n\n\n\n\n\n\nFoul1\nFoul2\nFoul3\nn\nLikelihood Contribution\n\n\n\n\nH\nH\nH\n3\n\\((p_{H\\vert N})(p_{H\\vert H Bias})(p_{H\\vert H Bias}) = (p_{H\\vert N})(p_{H\\vert H Bias})^2\\)\n\n\nH\nH\nV\n2\n\\((p_{H\\vert N})(p_{H\\vert H Bias})(1 - p_{H\\vert H Bias})\\)\n\n\nH\nV\nH\n3\n\\((p_{H\\vert N})(1 - p_{H\\vert H Bias})(p_{H\\vert N}) = (p_{H\\vert N})^2(1 - p_{H\\vert H Bias})\\)\n\n\nH\nV\nV\n7\nA\n\n\nV\nH\nH\n7\nB\n\n\nV\nH\nV\n1\n\\((1 - p_{H\\vert N})(p_{H\\vert V Bias})(1 - p_{H\\vert N}) = (1 - p_{H\\vert N})^2(p_{H\\vert V Bias})\\)\n\n\nV\nV\nH\n5\n\\((1 - p_{H\\vert N})(1-p_{H\\vert V Bias})(p_{H\\vert V Bias})\\)\n\n\nV\nV\nV\n2\n\\(\\begin{aligned}&(1 - p_{H\\vert N})(1-p_{H\\vert V Bias})(1-p_{H\\vert V Bias})\\\\ &=(1 - p_{H\\vert N})(1-p_{H\\vert V Bias})^2\\end{aligned}\\)\n\n\n\nFill in A and B"
   },
   {
     "objectID": "slides/02_likelihoods_ch2_o.html#likelihood-function",
@@ -1441,7 +1469,7 @@
     "href": "slides/02_likelihoods_ch2.html#fouls-in-college-basketball-games",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Fouls in college basketball games",
-    "text": "Fouls in college basketball games\nThe data set 04-refs.csv includes 30 randomly selected NCAA men’s basketball games played in the 2009 - 2010 season.\nWe will focus on the variables foul1, foul2, and foul3, which indicate which team had a foul called them for the 1st, 2nd, and 3rd fouls, respectively.\n\nH: Foul was called on the home team\nV: Foul was called on the visiting team\n\nWe are focusing on the first three fouls for this analysis, but this could easily be extended to include all fouls in a game.\n\n[The dataset was derived from basektball0910.csv used in BMLR Section 11.2"
+    "text": "Fouls in college basketball games\nThe data set 04-refs.csv includes 30 randomly selected NCAA men’s basketball games played in the 2009 - 2010 season.\nWe will focus on the variables foul1, foul2, and foul3, which indicate which team had a foul called them for the 1st, 2nd, and 3rd fouls, respectively.\n\nH: Foul was called on the home team\nV: Foul was called on the visiting team\n\n\nWe are focusing on the first three fouls for this analysis, but this could easily be extended to include all fouls in a game.\n\n[The dataset was derived from basektball0910.csv used in BMLR Section 11.2"
   },
   {
     "objectID": "slides/02_likelihoods_ch2.html#fouls-in-college-basketball-games-1",
@@ -1455,14 +1483,14 @@
     "href": "slides/02_likelihoods_ch2.html#different-likelihood-models",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Different likelihood models",
-    "text": "Different likelihood models\nModel 1 (Unconditional Model): What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?\n\nModel 2 (Conditional Model): - Is there a tendency for the referees to call more fouls on the visiting team or home team? - Is there a tendency for referees to call a foul on the team that already has more fouls?\nUltimately we want to decide which model is better."
+    "text": "Different likelihood models\nModel 1 (Unconditional Model): What is the probability the referees call a foul on the home team, assuming foul calls within a game are independent?\n\nModel 2 (Conditional Model):\n\nIs there a tendency for the referees to call more fouls on the visiting team or home team?\nIs there a tendency for referees to call a foul on the team that already has more fouls?\n\n\nUltimately we want to decide which model is better."
   },
   {
     "objectID": "slides/02_likelihoods_ch2.html#exploratory-data-analysis",
     "href": "slides/02_likelihoods_ch2.html#exploratory-data-analysis",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Exploratory data analysis",
-    "text": "Exploratory data analysis\n\n\n\nrefs %&gt;%\ncount(foul1, foul2, foul3) %&gt;% kable()\n\n\n\n\nfoul1\nfoul2\nfoul3\nn\n\n\n\n\nH\nH\nH\n3\n\n\nH\nH\nV\n2\n\n\nH\nV\nH\n3\n\n\nH\nV\nV\n7\n\n\nV\nH\nH\n7\n\n\nV\nH\nV\n1\n\n\nV\nV\nH\n5\n\n\nV\nV\nV\n2\n\n\n\n\n\n\nThere are - 46 total fouls on the home team - 44 total fouls on the visiting team"
+    "text": "Exploratory data analysis\n\n\n\nrefs %&gt;%\ncount(foul1, foul2, foul3) %&gt;% kable()\n\n\n\n\nfoul1\nfoul2\nfoul3\nn\n\n\n\n\nH\nH\nH\n3\n\n\nH\nH\nV\n2\n\n\nH\nV\nH\n3\n\n\nH\nV\nV\n7\n\n\nV\nH\nH\n7\n\n\nV\nH\nV\n1\n\n\nV\nV\nH\n5\n\n\nV\nV\nV\n2\n\n\n\n\n\n\nThere are\n\n46 total fouls on the home team\n44 total fouls on the visiting team"
   },
   {
     "objectID": "slides/02_likelihoods_ch2.html#model-1-unconditional-model",
@@ -1553,7 +1581,7 @@
     "href": "slides/02_likelihoods_ch2.html#model-2-likelihood-contributions-1",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Model 2: Likelihood contributions",
-    "text": "Model 2: Likelihood contributions\n\n\n\nFoul1\nFoul2\nFoul3\nn\nLikelihood Contribution\n\n\n\n\nH\nH\nH\n3\n\\(p_H^3\\)\n\n\nH\nH\nV\n2\n\\(p_H^2(1 - p_H)\\)\n\n\nH\nV\nH\n3\n\\(p_H^2(1 - p_H)\\)\n\n\nH\nV\nV\n7\nA\n\n\nV\nH\nH\n7\nB\n\n\nV\nH\nV\n1\n\\(p_H(1 - p_H)^2\\)\n\n\nV\nV\nH\n5\n\\(p_H(1 - p_H)^2\\)\n\n\nV\nV\nV\n2\n\\((1 - p_H)^3\\)\n\n\n\nFill in A and B"
+    "text": "Model 2: Likelihood contributions\n\n\n\n\n\n\n\n\n\n\nFoul1\nFoul2\nFoul3\nn\nLikelihood Contribution\n\n\n\n\nH\nH\nH\n3\n\\((p_{H\\vert N})(p_{H\\vert H Bias})(p_{H\\vert H Bias}) = (p_{H\\vert N})(p_{H\\vert H Bias})^2\\)\n\n\nH\nH\nV\n2\n\\((p_{H\\vert N})(p_{H\\vert H Bias})(1 - p_{H\\vert H Bias})\\)\n\n\nH\nV\nH\n3\n\\((p_{H\\vert N})(1 - p_{H\\vert H Bias})(p_{H\\vert N}) = (p_{H\\vert N})^2(1 - p_{H\\vert H Bias})\\)\n\n\nH\nV\nV\n7\nA\n\n\nV\nH\nH\n7\nB\n\n\nV\nH\nV\n1\n\\((1 - p_{H\\vert N})(p_{H\\vert V Bias})(1 - p_{H\\vert N}) = (1 - p_{H\\vert N})^2(p_{H\\vert V Bias})\\)\n\n\nV\nV\nH\n5\n\\((1 - p_{H\\vert N})(1-p_{H\\vert V Bias})(p_{H\\vert V Bias})\\)\n\n\nV\nV\nV\n2\n\\(\\begin{aligned}&(1 - p_{H\\vert N})(1-p_{H\\vert V Bias})(1-p_{H\\vert V Bias})\\\\ &=(1 - p_{H\\vert N})(1-p_{H\\vert V Bias})^2\\end{aligned}\\)\n\n\n\nFill in A and B"
   },
   {
     "objectID": "slides/02_likelihoods_ch2.html#likelihood-function",
@@ -1708,40 +1736,5 @@
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Acknowledgements",
     "text": "Acknowledgements\nThese slides are based on content in BMLR: Chapter 1 - Review of Multiple Linear Regression\nInitial versions of the slides are by Dr. Maria Tackett, Duke University\n\n\n\n\n🔗 https://stats-tgeorge.github.io/STA363_AdvReg/"
-  },
-  {
-    "objectID": "hw/02_hw_ch2.html",
-    "href": "hw/02_hw_ch2.html",
-    "title": "Homework 2",
-    "section": "",
-    "text": "Each of your assignments will begin with the following steps.\n\nGoing to our RStudio Server at http://turing.cornellcollege.edu:8787/\nCreating a new R project, inside your homework folder on the server, and giving it a sensible name such as homework_2 and having that project in the course folder you created.\nCreate a new quarto document and give it a sensible name such as hw2.\nIn the YAML add the following (add what you don’t have). The embed-resources component will make your final rendered html self-contained.\n\n---\ntitle: \"Document title\"\nauthor: \"my name\"\nformat:\n  html:\nembed-resources: true\n---"
-  },
-  {
-    "objectID": "hw/02_hw_ch2.html#getting-started",
-    "href": "hw/02_hw_ch2.html#getting-started",
-    "title": "Homework 2",
-    "section": "",
-    "text": "Each of your assignments will begin with the following steps.\n\nFinding the instructions on our website: https://stats-tgeorge.github.io/STA363_AdvReg/\nGoing to our RStudio Server at http://turing.cornellcollege.edu:8787/\nCreating a new project. and giving it a sensible name such as homework_2 and having that project in the course folder you created.\nCreate a new quarto document and give it a sensible name such as hw2.\nIn the YAML add the following (add what you don’t have). The embed-resources component will make your final rendered html self-contained.\n\n---\ntitle: \"Document title\"\nauthor: \"my name\"\nformat:\n  html:\nembed-resources: true\n---"
-  },
-  {
-    "objectID": "hw/02_hw_ch2.html#instructions",
-    "href": "hw/02_hw_ch2.html#instructions",
-    "title": "Homework 2",
-    "section": "Instructions",
-    "text": "Instructions\nBe sure to include the relevant R code as well as full sentences answering each of the questions (i.e. if I ask for the average, you can output the answer in R but also write a full sentence with the answer). Be sure to frequently save your files!\nData for the homework will be in the STA363_inst_files -&gt; data folder."
-  },
-  {
-    "objectID": "hw/02_hw_ch2.html#exercises",
-    "href": "hw/02_hw_ch2.html#exercises",
-    "title": "Homework 2",
-    "section": "Exercises",
-    "text": "Exercises\nAll problems are from The main textbook is: Beyond Multiple Linear Regression by Paul Roback and Julie Legler – it is freely available online. Chapters 1-9.. Abbreviated BMLR.\nUse the numbering on the left. The codes are for instructor use (Ex: C1).\n\nExercise 1\n\n(C1) Suppose we plan to use data to estimate one parameter, \\(p_B\\).\n\nWhen using a likelihood to obtain an estimate for the parameter, which is preferred: a large or a small likelihood value? Why?\nThe height of a likelihood curve is the probability of the data for the given parameter. The horizontal axis represents different possible parameter values. Does the area under the likelihood curve for an interval from .25 to .75 equal the probability that the true probability of a boy is between 0.25 and 0.75?\n\n\n\n\nExercise 2\n\n(C2) Suppose the families with an “only child” were excluded for the Sex Conditional Model. How might the estimates for the three parameters be affected? Would it still be possible to perform a Likelihood Ratio Test to compare the Sex Unconditional and Sex Conditional Models? Why or why not?\n\n\n\nExercise 3\n\n(G2) Case 3 In Case 1 we used hypothetical data with 30 boys and 20 girls. Case 2 was a much larger study with 600 boys and 400 girls. Consider Case 3, a hypothetical data set with 6000 boys and 4000 girls.\n\nUse the methods for Case 1 and Case 2 and determine the MLE for \\(p_B\\) for the independence model. Compare your result to the MLEs for Cases 1 and 2.\nDescribe how the graph of the log-likelihood for Case 3 would compare to the log-likelihood graphs for Cases 1 and 2.\nCompute the log-likelihood for Case 3. Why is it incorrect to perform an LRT comparing Cases 1, 2, and 3?\n\n\n\n\nExercise 4\n\n(G3) Write out an expression for the likelihood of seeing our NLSY data (5,416 boys and 5,256 girls) if the true probability of a boy is:\n\n\\(p_B=0.5\\)\n\n\\(p_B=0.45\\)\n\n\\(p_B= 0.55\\)\n\n\\(p_B= 0.5075\\)\n\n\n\nCompute the value of the log-likelihood for each of the values of \\(p_B\\) above.\nWhich of these four possibilities, \\(p_B=0.45, p_B=0.5,  p_B=0.55,\\) or \\(p_B=0.5075\\) would be the best estimate of \\(p_B\\) given what we observed (our data)?\n\n\n\n\nExercise 5\n\n(O2) The hot hand in basketball. @Gilovich1985 wrote a controversial but compelling article claiming that there is no such thing as “the hot hand” in basketball. That is, there is no empirical evidence that shooters have stretches where they are more likely to make consecutive shots, and basketball shots are essentially independent events. One of the many ways they tested for evidence of a “hot hand” was to record sequences of shots for players under game conditions and determine if players are more likely to make shots after made baskets than after misses. For instance, assume we recorded data from one player’s first 5 three-point attempts over a 5-game period. We can assume games are independent, but we’ll consider two models for shots within a game:\n\nNo Hot Hand (1 parameter): \\(p_B\\) = probability of making a basket (thus \\(1-p_B\\) = probability of not making a basket).\nHot Hand (2 parameters): \\(p_B\\) = probability of making a basket after a miss (or the first shot of a game); \\(p_{B|B}\\) = probability of making a basket after making the previous shot.\n\n\nFill out Table @ref(tab:hothandchp2)—write out the contribution of each game to the likelihood for both models along with the total likelihood for each model.\nGiven that, for the No Hot Hand model, \\(\\textrm{Lik}(p_B)=p_B^{10}(1-p_B)^{15}\\) for the 5 games where we collected data, how do we know that 0.40 (the maximum likelihood estimator (MLE) of \\(p_B\\)) is a better estimate than, say, 0.30?\nFind the MLEs for the parameters in each model, and then use those MLEs to determine if there’s significant evidence that the hot hand exists.\n\n\n\n\n\n\nData for Open-ended Exercise 2. (B = made basket. M = missed basket.)\n\n\nGame\nFirst 5 shots\nLikelihood (No Hot Hand)\nLikelihood (Hot Hand)\n\n\n\n\n1\nBMMBB\n\n\n\n\n2\nMBMBM\n\n\n\n\n3\nMMBBB\n\n\n\n\n4\nBMMMB\n\n\n\n\n5\nMMMMM\n\n\n\n\nTotal"
-  },
-  {
-    "objectID": "hw/02_hw_ch2.html#setup",
-    "href": "hw/02_hw_ch2.html#setup",
-    "title": "Homework 2",
-    "section": "",
-    "text": "Each of your assignments will begin with the following steps.\n\nGoing to our RStudio Server at http://turing.cornellcollege.edu:8787/\nCreating a new R project, inside your homework folder on the server, and giving it a sensible name such as homework_2 and having that project in the course folder you created.\nCreate a new quarto document and give it a sensible name such as hw2.\nIn the YAML add the following (add what you don’t have). The embed-resources component will make your final rendered html self-contained.\n\n---\ntitle: \"Document title\"\nauthor: \"my name\"\nformat:\n  html:\nembed-resources: true\n---"
   }
 ]
