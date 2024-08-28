@@ -631,8 +631,6 @@ Find the MLEs for each model and plug them into the log-likelihood functions.
 
 - $\hat{p}_H = 46/90 = 0.511$
 
-. . .
-
 ```{r}
 loglik1 <- function(ph){
  log(ph^46 * (1 - ph)^44)
@@ -641,6 +639,8 @@ loglik1(46/90)
 ```
 
 :::
+
+. . .
 
 :::{.column}
 **Model 2**
@@ -729,6 +729,8 @@ The p-value is very large, so we fail to reject $H_0$. We do not have convincing
 ```
 
 :::
+
+. . .
 
 :::{.column}
 **BIC** = -2(max log-likelihood) + plog(n)

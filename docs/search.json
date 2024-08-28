@@ -810,7 +810,7 @@
     "href": "index.html",
     "title": "Advanced Regression Schedule",
     "section": "",
-    "text": "Note: The timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nDay\nDate\nTopic\nNotes\nOutline\nProject\nLab\nHomework\nExam\n\n\n\n\n1\n26 Aug\nSyllabus, Chapter 1 - Review MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n27 Aug\nChapter 2 - Likelihoods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n28 Aug\nChapter 3 - Distributions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n29 Aug\nChapter 4 - Poisson Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n30 Aug\nPoisson Regression Practice\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n2 Sep\nChapter 5 - GLMs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\n3 Sep\nChapter 6 - Logistics Regression+\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n4 Sep\nChapter 7 Correlated Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n5 Sep\nGLMs Practice\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n6 Sep\nExam\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n9 Sep\nChapter 8 - Multilevel Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\n10 Sep\nChapter 8 - Multilevel Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\n11 Sep\nChapter 9 - Two-Level Longitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\n12 Sep\nChapter 9 - Two-Level Longitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\n13 Sep\nMultilevel Model Practice\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\n16 Sep\nPolynomial Regression, Splines, and GAMs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n17\n17 Sep\nPolynomial Regression, Splines, and GAMs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n18\n18 Sep\nExam",
+    "text": "Note: The timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nDay\nDate\nTopic\nNotes\nOutline\nProject\nLab\nHomework\nExam\n\n\n\n\n1\n26 Aug\nSyllabus, Chapter 1 - Review MLR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n27 Aug\nChapter 2 - Likelihoods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n28 Aug\nChapter 3 - Distributions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n29 Aug\nChapter 4 - Poisson Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n30 Aug\nPoisson Regression Practice\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n2 Sep\nChapter 5 - GLMs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\n3 Sep\nChapter 6 - Logistics Regression+\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\n4 Sep\nChapter 7 Correlated Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n5 Sep\nGLMs Practice\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\n6 Sep\nExam\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\n9 Sep\nChapter 8 - Multilevel Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\n10 Sep\nChapter 8 - Multilevel Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\n11 Sep\nChapter 9 - Two-Level Longitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\n12 Sep\nChapter 9 - Two-Level Longitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\n13 Sep\nMultilevel Model Practice\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\n16 Sep\nPolynomial Regression, Splines, and GAMs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n17\n17 Sep\nPolynomial Regression, Splines, and GAMs\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n18\n18 Sep\nExam",
     "crumbs": [
       "Course Contents",
       "Schedule & Assignments"
@@ -1182,7 +1182,7 @@
     "href": "slides/02_likelihoods_ch2_o.html#fouls-in-college-basketball-games-1",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Fouls in college basketball games",
-    "text": "Fouls in college basketball games\n\nrefs &lt;- read_csv(\"data/04-refs.csv\")\nrefs %&gt;% slice(1:5) %&gt;% kable()\n\n\n\n\ngame\ndate\nvisitor\nhometeam\nfoul1\nfoul2\nfoul3\n\n\n\n\n166\n20100126\nCLEM\nBC\nV\nV\nV\n\n\n224\n20100224\nDEPAUL\nCIN\nH\nH\nV\n\n\n317\n20100109\nMARQET\nNOVA\nH\nH\nH\n\n\n214\n20100228\nMARQET\nSETON\nV\nV\nH\n\n\n278\n20100128\nSETON\nSFL\nH\nV\nV\n\n\n\n\n\nWe will treat the games as independent in this analysis."
+    "text": "Fouls in college basketball games\n\nrefs &lt;- read_csv(\"data/04-refs.csv\")\n\nRows: 30 Columns: 7\n── Column specification ──────────────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (5): visitor, hometeam, foul1, foul2, foul3\ndbl (2): game, date\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nrefs %&gt;% slice(1:5) %&gt;% kable()\n\n\n\n\ngame\ndate\nvisitor\nhometeam\nfoul1\nfoul2\nfoul3\n\n\n\n\n166\n20100126\nCLEM\nBC\nV\nV\nV\n\n\n224\n20100224\nDEPAUL\nCIN\nH\nH\nV\n\n\n317\n20100109\nMARQET\nNOVA\nH\nH\nH\n\n\n214\n20100228\nMARQET\nSETON\nV\nV\nH\n\n\n278\n20100128\nSETON\nSFL\nH\nV\nV\n\n\n\n\n\nWe will treat the games as independent in this analysis."
   },
   {
     "objectID": "slides/02_likelihoods_ch2_o.html#different-likelihood-models",
@@ -1399,7 +1399,7 @@
     "href": "slides/02_likelihoods_ch2_o.html#steps-1---2",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Steps 1 - 2",
-    "text": "Steps 1 - 2\nFind the MLEs for each model and plug them into the log-likelihood functions.\n\n\nModel 1:\n\n\\(\\hat{p}_H = 46/90 = 0.511\\)\n\n. . .\n\nloglik1 &lt;- function(ph){\n log(ph^46 * (1 - ph)^44)\n}\nloglik1(46/90)\n\n[1] -62.36102\n\n\n\nModel 2\n\n\\(\\hat{p}_{H|N} = 25 / 48 = 0.521\\)\n\\(\\hat{p}_{H|H Bias} = 8 /20 = 0.4\\)\n\\(\\hat{p}_{H|V Bias} = 13/ 22 = 0.591\\)\n\n. . .\n\nloglik2 &lt;- function(phn, phh, phv) {\n  log(phn^25 * (1 - phn)^23 * phh^8 * \n        (1 - phh)^12 * phv^13 * (1 - phv)^9)\n}\nloglik2(25/48, 8/20, 13/22)\n\n[1] -61.57319"
+    "text": "Steps 1 - 2\nFind the MLEs for each model and plug them into the log-likelihood functions.\n\n\nModel 1:\n\n\\(\\hat{p}_H = 46/90 = 0.511\\)\n\n\nloglik1 &lt;- function(ph){\n log(ph^46 * (1 - ph)^44)\n}\nloglik1(46/90)\n\n[1] -62.36102\n\n\n. . .\nModel 2\n\n\\(\\hat{p}_{H|N} = 25 / 48 = 0.521\\)\n\\(\\hat{p}_{H|H Bias} = 8 /20 = 0.4\\)\n\\(\\hat{p}_{H|V Bias} = 13/ 22 = 0.591\\)\n\n. . .\n\nloglik2 &lt;- function(phn, phh, phv) {\n  log(phn^25 * (1 - phn)^23 * phh^8 * \n        (1 - phh)^12 * phv^13 * (1 - phv)^9)\n}\nloglik2(25/48, 8/20, 13/22)\n\n[1] -61.57319"
   },
   {
     "objectID": "slides/02_likelihoods_ch2_o.html#step-3",
@@ -1427,7 +1427,7 @@
     "href": "slides/02_likelihoods_ch2_o.html#comparing-non-nested-models",
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Comparing non-nested models",
-    "text": "Comparing non-nested models\n\n\nAIC = -2(max log-likelihood) + 2p\n\n(Model1_AIC &lt;- 2 * loglik1(46/90) + 2 * 1)\n\n[1] -122.722\n\n(Model2_AIC &lt;-2 * loglik2(25/48, 8/20, 13/22) + 2 * 3)\n\n[1] -117.1464\n\n\n\nBIC = -2(max log-likelihood) + plog(n)\n\n(Model1_BIC &lt;- 2 * loglik1(46/90) + 1 * log(30))\n\n[1] -121.3208\n\n(Model2_BIC &lt;-2 * loglik2(25/48, 8/20, 13/22) + 3 * log(30))\n\n[1] -112.9428\n\n\nChoose Model 1, the unconditional model, based on AIC and BIC"
+    "text": "Comparing non-nested models\n\n\nAIC = -2(max log-likelihood) + 2p\n\n(Model1_AIC &lt;- 2 * loglik1(46/90) + 2 * 1)\n\n[1] -122.722\n\n(Model2_AIC &lt;-2 * loglik2(25/48, 8/20, 13/22) + 2 * 3)\n\n[1] -117.1464\n\n\n. . .\nBIC = -2(max log-likelihood) + plog(n)\n\n(Model1_BIC &lt;- 2 * loglik1(46/90) + 1 * log(30))\n\n[1] -121.3208\n\n(Model2_BIC &lt;-2 * loglik2(25/48, 8/20, 13/22) + 3 * log(30))\n\n[1] -112.9428\n\n\nChoose Model 1, the unconditional model, based on AIC and BIC"
   },
   {
     "objectID": "slides/02_likelihoods_ch2_o.html#looking-ahead",
@@ -1736,5 +1736,754 @@
     "title": "Beyond Least Squares: Using Likelihoods",
     "section": "Acknowledgements",
     "text": "Acknowledgements\nThese slides are based on content in BMLR: Chapter 1 - Review of Multiple Linear Regression\nInitial versions of the slides are by Dr. Maria Tackett, Duke University\n\n\n\n\n🔗 https://stats-tgeorge.github.io/STA363_AdvReg/"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#distribution-theory---learning-objectives",
+    "href": "slides/03_distribution_ch3.html#distribution-theory---learning-objectives",
+    "title": "Distribution Theory",
+    "section": "Distribution Theory - Learning Objectives",
+    "text": "Distribution Theory - Learning Objectives\nAfter finishing this chapter, you should be able to:\n\nWrite definitions of non-normal random variables in the context of an application.\nIdentify possible values for each random variable.\nIdentify how changing values for a parameter affects the characteristics of the distribution.\nRecognize a form of the probability density function for each distribution.\nIdentify the mean and variance for each distribution.\nMatch the response for a study to a plausible random variable and provide reasons for ruling out other random variables.\nMatch a histogram of sample data to plausible distributions.\nCreate a mixture of distributions and evaluate the shape, mean, and variance."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#libraries-needed-none-new",
+    "href": "slides/03_distribution_ch3.html#libraries-needed-none-new",
+    "title": "Distribution Theory",
+    "section": "Libraries Needed (none new?)",
+    "text": "Libraries Needed (none new?)\n\n# Packages required for Chapter 3\nlibrary(gridExtra)  \nlibrary(knitr) \nlibrary(kableExtra)\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#introduction",
+    "href": "slides/03_distribution_ch3.html#introduction",
+    "title": "Distribution Theory",
+    "section": "Introduction",
+    "text": "Introduction\n\nWhat if it is not plausible that a response is normally distributed?\nYou may want to construct a model to predict whether a prospective student will enroll at a school or model the lifetimes of patients following a particular surgery.\n\nIn the first case you have a binary response (enrolls (1) or does not enroll (0)), and in the second case you are likely to have very skewed data with many similar values and a few hardy souls with extremely long survival.\nThese responses are not expected to be normally distributed; other distributions will be needed to describe and model binary or lifetime data.\nNon-normal responses are encountered in a large number of situations. Luckily, there are quite a few possibilities for models."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#discrete-random-variables-1",
+    "href": "slides/03_distribution_ch3.html#discrete-random-variables-1",
+    "title": "Distribution Theory",
+    "section": "Discrete Random Variables",
+    "text": "Discrete Random Variables\n\nA discrete random variable has a countable number of possible values\n\nEx: we may want to measure the number of people in a household\nEx: model the number of crimes committed on a college campus.\n\nWith discrete random variables, the associated probabilities can be calculated for each possible value using a probability mass function (pmf). \nA pmf is a function that calculates \\(P(Y=y)\\), given each variable’s parameters."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#binary-random-variable",
+    "href": "slides/03_distribution_ch3.html#binary-random-variable",
+    "title": "Distribution Theory",
+    "section": "Binary Random Variable",
+    "text": "Binary Random Variable\n\nConsider the event of flipping a (possibly unfair) coin.\nIf the coin lands heads, let’s consider this a success and record \\(Y = 1\\).\nA series of these events is a Bernoulli process, independent trials that take on one of two values (e.g., 0 or 1).\nThese values are often referred to as a failure and a success\n\nthe probability of success is identical for each trial."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#binary-random-variable-1",
+    "href": "slides/03_distribution_ch3.html#binary-random-variable-1",
+    "title": "Distribution Theory",
+    "section": "Binary Random Variable",
+    "text": "Binary Random Variable\n\nSuppose we only flip the coin once, so we only have one parameter, the probability of flipping heads, \\(p\\).\nIf we know this value, we can express \\(P(Y=1) = p\\) and \\(P(Y=0) = 1-p\\).\nIn general, if we have a Bernoulli process with only one trial, we have a binary distribution (also called a Bernoulli distribution) where\n\n\n\\[\\begin{equation*}\nP(Y = y) = p^y(1-p)^{1-y} \\quad \\textrm{for} \\quad y = 0, 1.\n\\end{equation*}\\]\n\nIf \\(Y \\sim \\textrm{Binary}(p)\\), then \\(Y\\) has mean \\(\\operatorname{E}(Y) = p\\) and standard deviation \\(\\operatorname{SD}(Y) = \\sqrt{p(1-p)}\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#example-1",
+    "href": "slides/03_distribution_ch3.html#example-1",
+    "title": "Distribution Theory",
+    "section": "Example 1",
+    "text": "Example 1\n\nYour playlist of 200 songs has 5 which you cannot stand. What is the probability that when you hit shuffle, a song you tolerate comes on?\nWe want to understand the example and be able to translate that into notation/model it with a distribution\nAssuming all songs have equal odds of playing, we can calculate \\(p = \\frac{200-5}{200} = 0.975\\)\n\nso there is a 97.5% chance of a song you tolerate playing, since \\(P(Y=1)=.975^1*(1-.975)^0\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#binomial-random-variable-12",
+    "href": "slides/03_distribution_ch3.html#binomial-random-variable-12",
+    "title": "Distribution Theory",
+    "section": "Binomial Random Variable (1/2)",
+    "text": "Binomial Random Variable (1/2)\n\nDoes anybody know how this relates to a Bernoulli random variable?\nWe can extend our knowledge of binary random variables.\nSuppose we flipped an unfair coin \\(n\\) times and recorded \\(Y\\), the number of heads after \\(n\\) flips.\nIf we consider a case where \\(p = 0.25\\) and \\(n = 4\\), then here \\(P(Y=0)\\) represents the probability of no successes in 4 trials\n\n4 consecutive failures.\nThe probability of 4 consecutive failures is \\(P(Y = 0) = P(TTTT) = (1-p)^4 = 0.75^4\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#binomial-distribution-vs-bernoulli",
+    "href": "slides/03_distribution_ch3.html#binomial-distribution-vs-bernoulli",
+    "title": "Distribution Theory",
+    "section": "Binomial Distribution vs Bernoulli",
+    "text": "Binomial Distribution vs Bernoulli\n\nNote that if \\(n=1\\),\n\n\n\\[\\begin{align*}\nP(Y=y) &= \\binom{1}{y} p^y(1-p)^{1-y} \\\\\n        &= p^y(1-p)^{1-y}\\quad \\textrm{for}\\quad y = 0, 1,\n\\end{align*}\\] a Bernoulli distribution! - In fact, Bernoulli random variables are a special case of binomial random variables where \\(n=1\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#graphingcalling-in-r",
+    "href": "slides/03_distribution_ch3.html#graphingcalling-in-r",
+    "title": "Distribution Theory",
+    "section": "Graphing/calling in R",
+    "text": "Graphing/calling in R\n\nIn R we can use the function dbinom(y, n, p), which outputs the probability of \\(y\\) successes given \\(n\\) trials with probability \\(p\\), i.e., \\(P(Y=y)\\) for \\(Y \\sim \\textrm{Binomial}(n,p)\\).\nLets try it"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#example-2-12",
+    "href": "slides/03_distribution_ch3.html#example-2-12",
+    "title": "Distribution Theory",
+    "section": "Example 2 (1/2)",
+    "text": "Example 2 (1/2)\n\nWhile taking a multiple choice test, a student encountered 10 problems where she ended up completely guessing, randomly selecting one of the four options.\nWhat is the chance that she got exactly 2 of the 10 correct?\nWhat assumption do we need to make about the questions?\nHow would we do this without using a distribution?"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#geometric-random-variable",
+    "href": "slides/03_distribution_ch3.html#geometric-random-variable",
+    "title": "Distribution Theory",
+    "section": "Geometric Random Variable",
+    "text": "Geometric Random Variable\n\nSuppose we are to perform independent, identical Bernoulli trials until the first success.\nIf we wish to model \\(Y\\), the number of failures before the first success, we can consider the following pmf:\n\n\\[\\begin{equation}\nP(Y=y) = (1-p)^yp \\quad \\textrm{for}\\quad y = 0, 1, \\ldots, \\infty.\n\\end{equation}\\]"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#geometric-distributions-with-p-0.3-0.5-and-0.7.",
+    "href": "slides/03_distribution_ch3.html#geometric-distributions-with-p-0.3-0.5-and-0.7.",
+    "title": "Distribution Theory",
+    "section": "Geometric distributions with \\(p = 0.3,\\ 0.5\\) and \\(0.7\\).",
+    "text": "Geometric distributions with \\(p = 0.3,\\ 0.5\\) and \\(0.7\\).\n\nPlotCode\n\n\n\n\n\n\n\nGeometric Plots\n\n\n\n\n\nNotice that as \\(p\\) increases, the range of plausible values decreases and means shift towards 0.\nThe function dgeom(y, p) will output the probability of \\(y\\) failures before the first success where \\(Y \\sim \\textrm{Geometric}(p)\\).\n\n\n\n\n#geometricPlots\nplotGeo &lt;- function(p){\nyg = 0:10000 # possible values\ngd &lt;- data.frame(x=rgeom(yg, p))  # generate random deviates\n#breaks &lt;- pretty(range(gd$x), n = nclass.FD(gd$x), min.n = 1)  # pretty binning\n#bwidth &lt;- .5              #breaks[2] - breaks[1]\nggplot(gd, aes(x = x)) + geom_histogram(aes(y=..count../sum(..count..)), binwidth = .25) +\n  xlab(\"number of failures\") + ylab(\"probability\") + labs(title=paste(\"Geometric p = \", p)) + xlim(-1,16)\n}\n\nGeo1 &lt;- plotGeo(0.3)\nGeo2 &lt;- plotGeo(0.5)\nGeo3 &lt;- plotGeo(0.7)\ngrid.arrange(Geo1,Geo2, Geo3, ncol=1)"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#negative-binomial-random-variable",
+    "href": "slides/03_distribution_ch3.html#negative-binomial-random-variable",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial Random Variable",
+    "text": "Negative Binomial Random Variable\n\nWhat if we were to carry out multiple independent and identical Bernoulli trails until the \\(r\\)th success occurs?\nIf we model \\(Y\\), the number of failures before the \\(r\\)th success, then \\(Y\\) follows a negative binomial distribution where\n\n\n\\[\\begin{equation}\nP(Y=y) = \\binom{y + r - 1}{r-1} (1-p)^{y}(p)^r \\quad \\textrm{for}\\quad y = 0, 1, \\ldots, \\infty.\n\\end{equation}\\]"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#negative-binomial-random-variable-1",
+    "href": "slides/03_distribution_ch3.html#negative-binomial-random-variable-1",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial Random Variable",
+    "text": "Negative Binomial Random Variable\n\nIf \\(Y \\sim \\textrm{Negative Binomial}(r, p)\\) then \\(\\operatorname{E}(Y) = \\frac{r(1-p)}{p}\\) and \\(\\operatorname{SD}(Y) = \\sqrt{\\frac{r(1-p)}{p^2}}\\).\n\n\nPlotCode\n\n\n\n\n\n\n\nNegative Binomial\n\n\n\n\n\nNotice how centers shift right as \\(r\\) increases, and left as \\(p\\) increases.\n\n\n\n\n#negativeBinomialPlots\nplotNBinom &lt;- function(p, r){\n  ynb &lt;- 0:10000\n  nbd &lt;- tibble(x = rnbinom(ynb, r, p))\n  #breaks &lt;- pretty(range(nbd$x), n = nclass.FD(nbd$x), min.n = 1)  # pretty binning\n  #bwidth &lt;- breaks[2] - breaks[1]\n  ggplot(nbd, aes(x = x)) +\n    geom_histogram(aes(y=..count../sum(..count..)), binwidth = .25) +\n    labs(title = paste(\"p = \", p, \", r = \", r),\n         x = \"number of failures\",\n         y = \"probability\") +\n    xlim(-1,30)\n}\n\nNBin1 &lt;- plotNBinom(0.35, 3)\nNBin2 &lt;- plotNBinom(0.35, 5)\nNBin3 &lt;- plotNBinom(0.70, 5)\ngrid.arrange(NBin1, NBin2, NBin3, ncol = 1)"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#negative-binomial-random-variable-2",
+    "href": "slides/03_distribution_ch3.html#negative-binomial-random-variable-2",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial Random Variable",
+    "text": "Negative Binomial Random Variable\n\nNote that if we set \\(r=1\\), then\n\n\\[\\begin{align*}\nP(Y=y) &= \\binom{y}{0} (1-p)^yp \\\\\n        &= (1-p)^yp \\quad \\textrm{for} \\quad y = 0, 1, \\ldots, \\infty,\n\\end{align*}\\] which is the probability mass function of a geometric random variable!\n\nThus, a geometric random variable is, in fact, a special case of a negative binomial random variable.\nWhile negative binomial random variables typically are expressed as above using binomial coefficients (expressions such as \\(\\binom{x}{y}\\)), we can generalize our definition to allow non-integer values of \\(r\\).\nR function dnbinom(y, r, p) for the probability of \\(y\\) failures before the \\(r\\)th success given probability \\(p\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#poisson-random-variable",
+    "href": "slides/03_distribution_ch3.html#poisson-random-variable",
+    "title": "Distribution Theory",
+    "section": "Poisson Random Variable",
+    "text": "Poisson Random Variable\n\nSometimes, random variables are based on a Poisson process. \nIn a Poisson process, we are counting the number of events per unit of time or space and the number of events depends only on the length or size of the interval.\nWe can then model \\(Y\\), the number of events in one of these sections with the Poisson distribution, where\n\n\n\\[\\begin{equation}\nP(Y=y) = \\frac{e^{-\\lambda}\\lambda^y}{y!} \\quad \\textrm{for} \\quad y = 0, 1, \\ldots, \\infty,\n\\end{equation}\\] where \\(\\lambda\\) is the mean or expected count in the unit of time or space of interest. - This probability mass function has \\(\\operatorname{E}(Y) = \\lambda\\) and \\(\\operatorname{SD}(Y) = \\sqrt{\\lambda}\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#poisson-distribution-graphs",
+    "href": "slides/03_distribution_ch3.html#poisson-distribution-graphs",
+    "title": "Distribution Theory",
+    "section": "Poisson Distribution Graphs",
+    "text": "Poisson Distribution Graphs\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\nNotice how distributions become more symmetric as \\(\\lambda\\) increases.\nIf we wish to use R, dpois(y, lambda) outputs the probability of \\(y\\) events given \\(\\lambda\\).\n\n\n\n\n#poissonPlots\nplotPois &lt;- function(lam){\nyp = 0:10000 # possible values\npd &lt;- data.frame(x=rpois(yp, lam))  # generate random deviates\nbreaks &lt;- pretty(range(pd$x), n = nclass.FD(pd$x), min.n = 1)  # pretty binning\n#bwidth &lt;- breaks[2] - breaks[1]\nggplot(pd, aes(x = x)) + geom_histogram(aes(y=..count../sum(..count..)), binwidth = .25) +\n  xlab(\"number of events\") + ylab(\"probability\") + \n  labs(title=paste(\"Poisson lambda = \", lam)) + xlim(-1,13)\n}\n\nPois1 &lt;- plotPois(0.5)\nPois2 &lt;- plotPois(1)\nPois3 &lt;- plotPois(5) + scale_y_continuous(breaks = c(0, 0.1))\ngrid.arrange(Pois1,Pois2,Pois3,ncol=1)"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#continuous-random-variables-1",
+    "href": "slides/03_distribution_ch3.html#continuous-random-variables-1",
+    "title": "Distribution Theory",
+    "section": "Continuous Random Variables",
+    "text": "Continuous Random Variables\n\nA continuous random variable can take on an uncountably infinite number of values.\nWith continuous random variables, we define probabilities using probability density functions (pdfs). \nProbabilities are calculated by computing the area under the density curve over the interval of interest. So, given a pdf, \\(f(y)\\), we can compute\n\n\n\\[\\begin{align*}\nP(a \\le Y \\le b) = \\int_a^b f(y)dy.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#continuous-random-variables-2",
+    "href": "slides/03_distribution_ch3.html#continuous-random-variables-2",
+    "title": "Distribution Theory",
+    "section": "Continuous Random Variables",
+    "text": "Continuous Random Variables\nA few properties of continuous random variables:\n\nThe area under their density curve is 1. (\\(\\int_{-\\infty}^{\\infty} f(y)dy = 1\\)).\n\nFor any value \\(y\\), \\(P(Y = y) =  \\int_y^y f(y)dy = 0\\). Why?\nBecause of the above property, \\(P(y &lt; Y) = P(y \\le Y)\\). We will typically use the first notation rather than the second, but both are equally valid."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#exponential-random-variable",
+    "href": "slides/03_distribution_ch3.html#exponential-random-variable",
+    "title": "Distribution Theory",
+    "section": "Exponential Random Variable",
+    "text": "Exponential Random Variable\n\nSuppose we have a Poisson process with rate \\(\\lambda\\), and we wish to model the wait time \\(Y\\) until the first event.\nWe could model \\(Y\\) using an exponential distribution, where\n\n\n\\[\\begin{equation}\nf(y) = \\lambda e^{-\\lambda y} \\quad \\textrm{for} \\quad y &gt; 0,\n\\end{equation}\\] - \\(\\operatorname{E}(Y) = 1/\\lambda\\) and \\(\\operatorname{SD}(Y) = 1/\\lambda\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#exponential-distribution",
+    "href": "slides/03_distribution_ch3.html#exponential-distribution",
+    "title": "Distribution Theory",
+    "section": "Exponential Distribution",
+    "text": "Exponential Distribution\nExponential distributions with \\(\\lambda = 0.5, 1,\\) and \\(5\\).\n\nPlotCode\n\n\n\n\n\n\n\n\n\nExponential Distribution\n\n\n\n\n\n\nAs \\(\\lambda\\) increases, \\(\\operatorname{E}(Y)\\) tends towards 0, and distributions “die off” quicker.\n\n\n\n\n\n\n#exponentialPlots\nx=seq(0,4,by=0.01)  # possible values\nprobex1 &lt;- dexp(x,.5)  # P(Y=y)\nprobex2 &lt;- dexp(x,1)\nprobex3 &lt;- dexp(x,5)\nExpdf &lt;- tibble(x,probex1, probex2, probex3) %&gt;%\n  rename(x = x,\n         `0.5` = probex1,\n         `1` = probex2,\n         `5` = probex3) %&gt;%\n  gather(2:4, key = \"Lambda\", value = \"value\") %&gt;%\n  mutate(Lambda = factor(Lambda, levels = c(\"0.5\", \"1\", \"5\")))\nggplot(data = Expdf, aes(x = x, y = value, color = Lambda)) +\n  geom_line(aes(linetype = Lambda)) +\n  xlab(\"values\") + ylab(\"density\") + \n  labs(title = \"Exponential Distributions\") + \n  xlim(0,4) + ylim(0,3)\n\n\n\n\n\n\n\n\n\nTo use R, pexp(y, lambda) outputs the probability \\(P(Y &lt; y)\\) given \\(\\lambda\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#gamma-random-variable",
+    "href": "slides/03_distribution_ch3.html#gamma-random-variable",
+    "title": "Distribution Theory",
+    "section": "Gamma Random Variable",
+    "text": "Gamma Random Variable\n\nOnce again consider a Poisson process.\nWhen discussing exponential random variables, we modeled the wait time before one event occurred.\nIf \\(Y\\) represents the wait time before \\(r\\) events occur in a Poisson process with rate \\(\\lambda\\), \\(Y\\) follows a gamma distribution where\n\n\n\\[\\begin{equation}\nf(y) = \\frac{\\lambda^r}{\\Gamma(r)} y^{r-1} e^{-\\lambda y}\\quad \\textrm{for} \\quad y &gt;0.\n\\end{equation}\\]\n\nIf \\(Y \\sim \\textrm{Gamma}(r, \\lambda)\\) then \\(\\operatorname{E}(Y) = r/\\lambda\\) and \\(\\operatorname{SD}(Y) = \\sqrt{r/\\lambda^2}\\).\nNote: \\(\\Gamma(r)=(r-1)!\\) (There is more to it)"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#gamma-distribution",
+    "href": "slides/03_distribution_ch3.html#gamma-distribution",
+    "title": "Distribution Theory",
+    "section": "Gamma Distribution",
+    "text": "Gamma Distribution\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\nMeans increase as \\(r\\) increases, but decrease as \\(\\lambda\\) increases.\n\n\n\n\nx &lt;- seq(0, 7, by = 0.01)\n`r = 1, lambda = 1` &lt;- dgamma(x, 1, rate = 1)\n`r = 2, lambda = 1` &lt;- dgamma(x, 2, rate = 1) \n`r = 5, lambda = 5` &lt;- dgamma(x, 5, rate = 5)\n`r = 5, lambda = 7` &lt;- dgamma(x, 5, rate = 7)\n\ngammaDf &lt;- tibble(x, `r = 1, lambda = 1`, `r = 2, lambda = 1`, `r = 5, lambda = 5`, `r = 5, lambda = 7`) %&gt;%\n  gather(2:5, key = \"Distribution\", value = \"value\") %&gt;%\n  mutate(Distribution = factor(Distribution, \n                               levels = c(\"r = 2, lambda = 1\", \n                                          \"r = 1, lambda = 1\", \n                                          \"r = 5, lambda = 5\", \n                                          \"r = 5, lambda = 7\")))\n\nggplot(data = gammaDf, aes(x = x, y = value, \n                           color = Distribution)) +\n  geom_line(aes(linetype = Distribution)) +\n  xlab(\"values\") + ylab(\"density\") + \n  labs(title = \"Gamma Distributions\") +\n  theme(legend.title = element_blank())"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#gamma-vs-others",
+    "href": "slides/03_distribution_ch3.html#gamma-vs-others",
+    "title": "Distribution Theory",
+    "section": "Gamma vs Others",
+    "text": "Gamma vs Others\n\nNote that if we let \\(r = 1\\), we have the following pdf,\n\n\n\\[\\begin{align*}\nf(y) &= \\frac{\\lambda}{\\Gamma(1)} y^{1-1} e^{-\\lambda y} \\\\\n      &= \\lambda e^{-\\lambda y} \\quad \\textrm{for} \\quad y &gt; 0,\n\\end{align*}\\] an exponential distribution. - Just as how the geometric distribution was a special case of the negative binomial, exponential distributions are in fact a special case of gamma distributions!\n\nJust like negative binomial, the pdf of a gamma distribution is defined for all real, non-negative \\(r\\).\nIn R, pgamma(y, r, lambda) outputs the probability \\(P(Y &lt; y)\\) given \\(r\\) and \\(\\lambda\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#distributions-used-in-testing",
+    "href": "slides/03_distribution_ch3.html#distributions-used-in-testing",
+    "title": "Distribution Theory",
+    "section": "Distributions Used in Testing",
+    "text": "Distributions Used in Testing\n\nWe have spent most of this chapter discussing probability distributions that may come in handy when modeling.\nThe following distributions, while rarely used in modeling, prove useful in hypothesis testing as certain commonly used test statistics follow these distributions.\n\\(\\chi^2\\) distribution (requires a degree of freedom)\nStudent \\(t\\) distribution\n\\(F\\) distribution (need 2 different degrees of freedom)\nSince we have used these In the past, we will leave their definitions to be referenced if needed"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#acknowledgements",
+    "href": "slides/03_distribution_ch3.html#acknowledgements",
+    "title": "Distribution Theory",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\nThese slides are based on content in BMLR: Chapter 1 - Review of Multiple Linear Regression\n\n\n\n\n🔗 https://stats-tgeorge.github.io/STA363_AdvReg/"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#learning-objectives",
+    "href": "slides/03_distribution_ch3.html#learning-objectives",
+    "title": "Distribution Theory",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nWrite definitions of non-normal random variables in the context of an application.\nIdentify possible values for each random variable.\nIdentify how changing values for a parameter affects the characteristics of the distribution.\nRecognize a form of the probability density function for each distribution.\nIdentify the mean and variance for each distribution.\nMatch the response for a study to a plausible random variable and provide reasons for ruling out other random variables.\nMatch a histogram of sample data to plausible distributions.\nCreate a mixture of distributions and evaluate the shape, mean, and variance."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#binomial-random-variable-22",
+    "href": "slides/03_distribution_ch3.html#binomial-random-variable-22",
+    "title": "Distribution Theory",
+    "section": "Binomial Random Variable (2/2)",
+    "text": "Binomial Random Variable (2/2)\n\nNext we consider \\(P(Y = 1)\\), and are interested in the probability of exactly 1 success anywhere among the 4 trials.\nHow many different ways can we get exactly 1 success in the four trials?\nTo find the probability of this what else do we need to count?\nWhat is the probability?\nThere are \\(\\binom{4}{1} = 4\\) ways to have exactly 1 success in 4 trials, \\(P(Y = 1) = \\binom{4}{1}p^1(1-p)^{4-1} = (4)(0.25)(0.75)^3\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#binomial-distribution",
+    "href": "slides/03_distribution_ch3.html#binomial-distribution",
+    "title": "Distribution Theory",
+    "section": "Binomial Distribution",
+    "text": "Binomial Distribution\n\nIn general, if we carry out a sequence of \\(n\\) Bernoulli trials (with probability of success \\(p\\)) and record \\(Y\\), the total number of successes, then \\(Y\\) follows a binomial distribution, where\n\n\n\\[\\begin{equation}\nP(Y=y) = \\binom{n}{y} p^y (1-p)^{n-y} \\quad \\textrm{for} \\quad y = 0, 1, \\ldots, n.\n\\end{equation}\\]\n\n\n\nIf \\(Y \\sim \\textrm{Binomial}(n,p)\\), then \\(\\operatorname{E}(Y) = np\\) and \\(\\operatorname{SD}(Y) = \\sqrt{np(1-p)}\\).\n\\(E(y)\\) is the expected value of \\(Y\\). If we repeated the experiment many times we would expect on average \\(n*p\\) successes."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#binomial-distribution-graphs",
+    "href": "slides/03_distribution_ch3.html#binomial-distribution-graphs",
+    "title": "Distribution Theory",
+    "section": "Binomial Distribution Graphs",
+    "text": "Binomial Distribution Graphs\n\nTypical shapes of a binomial distribution\nI will show you these in R"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#binomial-distribution-graphs-1",
+    "href": "slides/03_distribution_ch3.html#binomial-distribution-graphs-1",
+    "title": "Distribution Theory",
+    "section": "Binomial Distribution Graphs",
+    "text": "Binomial Distribution Graphs\n\nOn the left side \\(n\\) remains constant.\nWe see that as \\(p\\) increases, the center of the distribution (\\(\\operatorname{E}(Y) = np\\)) shifts right.\nOn the right, \\(p\\) is held constant.\nAs \\(n\\) increases, the distribution becomes less skewed."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#example-2-22",
+    "href": "slides/03_distribution_ch3.html#example-2-22",
+    "title": "Distribution Theory",
+    "section": "Example 2 (2/2)",
+    "text": "Example 2 (2/2)\n\nKnowing that the student randomly selected her answers, we assume she has a 25% chance of a correct response.\nn factorial is denoted \\(n!\\) and \\(n!=n\\cdot(n-1)\\cdot...\\cdot 3\\cdot 2\\cdot 1\\)\nHere we used a combination \\({n \\choose p}=\\frac{n!}{p!(n-p)!}\\) read n choose p\nThus, \\(P(Y=2) = {10 \\choose 2}(.25)^2(.75)^8 = 0.282\\).\n\n\n\nWe can use R to verify this:\n\n\n\n\ndbinom(2, size = 10, prob = .25)\n\n[1] 0.2815676\n\n\nTherefore, there is a 28% chance of exactly 2 correct answers out of 10."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#negative-binomial-rv",
+    "href": "slides/03_distribution_ch3.html#negative-binomial-rv",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial RV",
+    "text": "Negative Binomial RV\n\nIf \\(Y \\sim \\textrm{Negative Binomial}(r, p)\\) then \\(\\operatorname{E}(Y) = \\frac{r(1-p)}{p}\\) and \\(\\operatorname{SD}(Y) = \\sqrt{\\frac{r(1-p)}{p^2}}\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#negative-binomial-rv-1",
+    "href": "slides/03_distribution_ch3.html#negative-binomial-rv-1",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial RV",
+    "text": "Negative Binomial RV\n\nPlotCode\n\n\n\n\n\n\n\nNegative Binomial\n\n\n\n\n\nNotice how centers shift right as \\(r\\) increases, and left as \\(p\\) increases.\n\n\n\n\n#negativeBinomialPlots\nplotNBinom &lt;- function(p, r){\n  ynb &lt;- 0:10000\n  nbd &lt;- tibble(x = rnbinom(ynb, r, p))\n  #breaks &lt;- pretty(range(nbd$x), n = nclass.FD(nbd$x), min.n = 1)  # pretty binning\n  #bwidth &lt;- breaks[2] - breaks[1]\n  ggplot(nbd, aes(x = x)) +\n    geom_histogram(aes(y=..count../sum(..count..)), binwidth = .25) +\n    labs(title = paste(\"p = \", p, \", r = \", r),\n         x = \"number of failures\",\n         y = \"probability\") +\n    xlim(-1,30)\n}\n\nNBin1 &lt;- plotNBinom(0.35, 3)\nNBin2 &lt;- plotNBinom(0.35, 5)\nNBin3 &lt;- plotNBinom(0.70, 5)\ngrid.arrange(NBin1, NBin2, NBin3, ncol = 1)"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#negative-binomial-rv-2",
+    "href": "slides/03_distribution_ch3.html#negative-binomial-rv-2",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial RV",
+    "text": "Negative Binomial RV\n\nNote that if we set \\(r=1\\), then\n\n\n\\[\\begin{align*}\nP(Y=y) &= \\binom{y}{0} (1-p)^yp \\\\\n        &= (1-p)^yp \\quad \\textrm{for} \\quad y = 0, 1, \\ldots, \\infty,\n\\end{align*}\\] which is the probability mass function of a geometric random variable!\n\nThus, a geometric random variable is, in fact, a special case of a negative binomial random variable.\nWhile negative binomial random variables typically are expressed as above using binomial coefficients (expressions such as \\(\\binom{x}{y}\\)), we can generalize our definition to allow non-integer values of \\(r\\).\nR function dnbinom(y, r, p) for the probability of \\(y\\) failures before the \\(r\\)th success given probability \\(p\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3.html#distribution-table",
+    "href": "slides/03_distribution_ch3.html#distribution-table",
+    "title": "Distribution Theory",
+    "section": "Distribution Table!",
+    "text": "Distribution Table!\n\nWould not fit on a slide\nClick HERE"
+  },
+  {
+    "objectID": "hw/03_hw_ch3.html",
+    "href": "hw/03_hw_ch3.html",
+    "title": "Homework 3",
+    "section": "",
+    "text": "Each of your assignments will begin with the following steps.\n\nGoing to our RStudio Server at http://turing.cornellcollege.edu:8787/\nCreating a new R project, inside your homework folder on the server, and giving it a sensible name such as homework_3 and having that project in the course folder you created.\nCreate a new quarto document and give it a sensible name such as hw3.\nIn the YAML add the following (add what you don’t have). The embed-resources component will make your final rendered html self-contained.\n\n---\ntitle: \"Document title\"\nauthor: \"my name\"\nformat:\n  html:\nembed-resources: true\n---"
+  },
+  {
+    "objectID": "hw/03_hw_ch3.html#setup",
+    "href": "hw/03_hw_ch3.html#setup",
+    "title": "Homework 3",
+    "section": "",
+    "text": "Each of your assignments will begin with the following steps.\n\nGoing to our RStudio Server at http://turing.cornellcollege.edu:8787/\nCreating a new R project, inside your homework folder on the server, and giving it a sensible name such as homework_3 and having that project in the course folder you created.\nCreate a new quarto document and give it a sensible name such as hw3.\nIn the YAML add the following (add what you don’t have). The embed-resources component will make your final rendered html self-contained.\n\n---\ntitle: \"Document title\"\nauthor: \"my name\"\nformat:\n  html:\nembed-resources: true\n---"
+  },
+  {
+    "objectID": "hw/03_hw_ch3.html#instructions",
+    "href": "hw/03_hw_ch3.html#instructions",
+    "title": "Homework 3",
+    "section": "Instructions",
+    "text": "Instructions\nBe sure to include the relevant R code as well as full sentences answering each of the questions (i.e. if I ask for the average, you can output the answer in R but also write a full sentence with the answer). Be sure to frequently save your files!\nData for the homework will be in the STA363_inst_files -&gt; data folder."
+  },
+  {
+    "objectID": "hw/03_hw_ch3.html#exercises",
+    "href": "hw/03_hw_ch3.html#exercises",
+    "title": "Homework 3",
+    "section": "Exercises",
+    "text": "Exercises\nAll problems are from The main textbook is: Beyond Multiple Linear Regression by Paul Roback and Julie Legler – it is freely available online. Chapters 1-9.. Abbreviated BMLR.\nUse the numbering on the left. The codes are for instructor use (Ex: C1).\n\nExercise 1\n\n(C1) At what value of \\(p\\) is the standard deviation of a binary random variable smallest? When is standard deviation largest?\n\n\n\nExercise 2\n\n(C3) How are exponential and Poisson random variables related?\n\n\n\nExercise 3\n\n(C7) Chapter 1 also asked you to consider a scenario where “Researchers are attempting to see if socioeconomic status and parental stability are predictive of low birthweight. They classify a low birthweight as below 2500 g, hence our response is binary: 1 for low birthweight, and 0 when the birthweight is not low.” What distribution might be useful to model if a newborn has low birthweight?\n\n\n\nExercise 4\n\n(C9) Describe a scenario which could be modeled using a gamma distribution.\n\n\n\nExercise 5\n\n(G2) Gamma-Poisson mixture I. Use the R function rpois() to generate 10,000 \\(x_i\\) from a plain old vanilla Poisson random variable, \\(X \\sim \\textrm{Poisson}(\\lambda=1.5)\\). Plot a histogram of this distribution and note its mean and standard deviation. Next, let \\(Y \\sim \\textrm{Gamma}(r = 3, \\lambda = 2)\\) and use rgamma() to generate 10,000 random \\(y_i\\) from this distribution. Now, consider 10,000 different Poisson distributions where \\(\\lambda_i = y_i\\). Randomly generate one \\(z_i\\) from each Poisson distribution. Plot a histogram of these \\(z_i\\) and compare it to your original histogram of \\(X\\) (where \\(X \\sim \\textrm{Poisson}(1.5)\\)). How do the means and standard deviations compare?"
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html",
+    "href": "slides/03_distributio_ch3_o.html",
+    "title": "Distribution Theory",
+    "section": "",
+    "text": "Write definitions of non-normal random variables in the context of an application.\nIdentify possible values for each random variable.\nIdentify how changing values for a parameter affects the characteristics of the distribution.\nRecognize a form of the probability density function for each distribution.\nIdentify the mean and variance for each distribution.\nMatch the response for a study to a plausible random variable and provide reasons for ruling out other random variables.\nMatch a histogram of sample data to plausible distributions.\nCreate a mixture of distributions and evaluate the shape, mean, and variance."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#learning-objectives",
+    "href": "slides/03_distributio_ch3_o.html#learning-objectives",
+    "title": "Distribution Theory",
+    "section": "",
+    "text": "Write definitions of non-normal random variables in the context of an application.\nIdentify possible values for each random variable.\nIdentify how changing values for a parameter affects the characteristics of the distribution.\nRecognize a form of the probability density function for each distribution.\nIdentify the mean and variance for each distribution.\nMatch the response for a study to a plausible random variable and provide reasons for ruling out other random variables.\nMatch a histogram of sample data to plausible distributions.\nCreate a mixture of distributions and evaluate the shape, mean, and variance."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#libraries-needed-none-new",
+    "href": "slides/03_distributio_ch3_o.html#libraries-needed-none-new",
+    "title": "Distribution Theory",
+    "section": "Libraries Needed (none new?)",
+    "text": "Libraries Needed (none new?)\n\n# Packages required for Chapter 3\nlibrary(gridExtra)  \nlibrary(knitr) \nlibrary(kableExtra)\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#introduction",
+    "href": "slides/03_distributio_ch3_o.html#introduction",
+    "title": "Distribution Theory",
+    "section": "Introduction",
+    "text": "Introduction\n\nWhat if it is not plausible that a response is normally distributed?\nYou may want to construct a model to predict whether a prospective student will enroll at a school or model the lifetimes of patients following a particular surgery.\n\nIn the first case you have a binary response (enrolls (1) or does not enroll (0)), and in the second case you are likely to have very skewed data with many similar values and a few hardy souls with extremely long survival.\nThese responses are not expected to be normally distributed; other distributions will be needed to describe and model binary or lifetime data.\nNon-normal responses are encountered in a large number of situations. Luckily, there are quite a few possibilities for models."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#discrete-random-variables-1",
+    "href": "slides/03_distributio_ch3_o.html#discrete-random-variables-1",
+    "title": "Distribution Theory",
+    "section": "Discrete Random Variables",
+    "text": "Discrete Random Variables\n\nA discrete random variable has a countable number of possible values\n\nEx: we may want to measure the number of people in a household\nEx: model the number of crimes committed on a college campus.\n\nWith discrete random variables, the associated probabilities can be calculated for each possible value using a probability mass function (pmf). \nA pmf is a function that calculates \\(P(Y=y)\\), given each variable’s parameters."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#binary-random-variable",
+    "href": "slides/03_distributio_ch3_o.html#binary-random-variable",
+    "title": "Distribution Theory",
+    "section": "Binary Random Variable",
+    "text": "Binary Random Variable\n\nConsider the event of flipping a (possibly unfair) coin.\nIf the coin lands heads, let’s consider this a success and record \\(Y = 1\\).\nA series of these events is a Bernoulli process, independent trials that take on one of two values (e.g., 0 or 1).\nThese values are often referred to as a failure and a success\n\nthe probability of success is identical for each trial."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#binary-random-variable-1",
+    "href": "slides/03_distributio_ch3_o.html#binary-random-variable-1",
+    "title": "Distribution Theory",
+    "section": "Binary Random Variable",
+    "text": "Binary Random Variable\n\nSuppose we only flip the coin once, so we only have one parameter, the probability of flipping heads, \\(p\\).\nIf we know this value, we can express \\(P(Y=1) = p\\) and \\(P(Y=0) = 1-p\\).\nIn general, if we have a Bernoulli process with only one trial, we have a binary distribution (also called a Bernoulli distribution) where\n\n. . .\n\\[\\begin{equation*}\nP(Y = y) = p^y(1-p)^{1-y} \\quad \\textrm{for} \\quad y = 0, 1.\n\\end{equation*}\\]\n\nIf \\(Y \\sim \\textrm{Binary}(p)\\), then \\(Y\\) has mean \\(\\operatorname{E}(Y) = p\\) and standard deviation \\(\\operatorname{SD}(Y) = \\sqrt{p(1-p)}\\)."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#example-1",
+    "href": "slides/03_distributio_ch3_o.html#example-1",
+    "title": "Distribution Theory",
+    "section": "Example 1",
+    "text": "Example 1\n\nYour playlist of 200 songs has 5 which you cannot stand. What is the probability that when you hit shuffle, a song you tolerate comes on?\nWe want to understand the example and be able to translate that into notation/model it with a distribution\nAssuming all songs have equal odds of playing, we can calculate \\(p = \\frac{200-5}{200} = 0.975\\)\n\nso there is a 97.5% chance of a song you tolerate playing, since \\(P(Y=1)=.975^1*(1-.975)^0\\)."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#binomial-random-variable-12",
+    "href": "slides/03_distributio_ch3_o.html#binomial-random-variable-12",
+    "title": "Distribution Theory",
+    "section": "Binomial Random Variable (1/2)",
+    "text": "Binomial Random Variable (1/2)\n\nDoes anybody know how this relates to a Bernoulli random variable?\nWe can extend our knowledge of binary random variables.\nSuppose we flipped an unfair coin \\(n\\) times and recorded \\(Y\\), the number of heads after \\(n\\) flips.\nIf we consider a case where \\(p = 0.25\\) and \\(n = 4\\), then here \\(P(Y=0)\\) represents the probability of no successes in 4 trials\n\n4 consecutive failures.\nThe probability of 4 consecutive failures is \\(P(Y = 0) = P(TTTT) = (1-p)^4 = 0.75^4\\)."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#binomial-random-variable-22",
+    "href": "slides/03_distributio_ch3_o.html#binomial-random-variable-22",
+    "title": "Distribution Theory",
+    "section": "Binomial Random Variable (2/2)",
+    "text": "Binomial Random Variable (2/2)\n\nNext we consider \\(P(Y = 1)\\), and are interested in the probability of exactly 1 success anywhere among the 4 trials.\nHow many different ways can we get exactly 1 success in the four trials?\nTo find the probability of this what else do we need to count?\nWhat is the probability?\nThere are \\(\\binom{4}{1} = 4\\) ways to have exactly 1 success in 4 trials, \\(P(Y = 1) = \\binom{4}{1}p^1(1-p)^{4-1} = (4)(0.25)(0.75)^3\\)."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#binomial-distribution",
+    "href": "slides/03_distributio_ch3_o.html#binomial-distribution",
+    "title": "Distribution Theory",
+    "section": "Binomial Distribution",
+    "text": "Binomial Distribution\n\nIn general, if we carry out a sequence of \\(n\\) Bernoulli trials (with probability of success \\(p\\)) and record \\(Y\\), the total number of successes, then \\(Y\\) follows a binomial distribution, where\n\n. . .\n\\[\\begin{equation}\nP(Y=y) = \\binom{n}{y} p^y (1-p)^{n-y} \\quad \\textrm{for} \\quad y = 0, 1, \\ldots, n.\n\\end{equation}\\]\n. . .\n\nIf \\(Y \\sim \\textrm{Binomial}(n,p)\\), then \\(\\operatorname{E}(Y) = np\\) and \\(\\operatorname{SD}(Y) = \\sqrt{np(1-p)}\\).\n\\(E(y)\\) is the expected value of \\(Y\\). If we repeated the experiment many times we would expect on average \\(n*p\\) successes."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#binomial-distribution-graphs",
+    "href": "slides/03_distributio_ch3_o.html#binomial-distribution-graphs",
+    "title": "Distribution Theory",
+    "section": "Binomial Distribution Graphs",
+    "text": "Binomial Distribution Graphs\n\nTypical shapes of a binomial distribution\nI will show you these in R"
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#binomial-distribution-graphs-1",
+    "href": "slides/03_distributio_ch3_o.html#binomial-distribution-graphs-1",
+    "title": "Distribution Theory",
+    "section": "Binomial Distribution Graphs",
+    "text": "Binomial Distribution Graphs\n\nOn the left side \\(n\\) remains constant.\nWe see that as \\(p\\) increases, the center of the distribution (\\(\\operatorname{E}(Y) = np\\)) shifts right.\nOn the right, \\(p\\) is held constant.\nAs \\(n\\) increases, the distribution becomes less skewed."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#binomial-distribution-vs-bernoulli",
+    "href": "slides/03_distributio_ch3_o.html#binomial-distribution-vs-bernoulli",
+    "title": "Distribution Theory",
+    "section": "Binomial Distribution vs Bernoulli",
+    "text": "Binomial Distribution vs Bernoulli\n\nNote that if \\(n=1\\),\n\n. . .\n\\[\\begin{align*}\nP(Y=y) &= \\binom{1}{y} p^y(1-p)^{1-y} \\\\\n        &= p^y(1-p)^{1-y}\\quad \\textrm{for}\\quad y = 0, 1,\n\\end{align*}\\] a Bernoulli distribution! - In fact, Bernoulli random variables are a special case of binomial random variables where \\(n=1\\)."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#graphingcalling-in-r",
+    "href": "slides/03_distributio_ch3_o.html#graphingcalling-in-r",
+    "title": "Distribution Theory",
+    "section": "Graphing/calling in R",
+    "text": "Graphing/calling in R\n\nIn R we can use the function dbinom(y, n, p), which outputs the probability of \\(y\\) successes given \\(n\\) trials with probability \\(p\\), i.e., \\(P(Y=y)\\) for \\(Y \\sim \\textrm{Binomial}(n,p)\\).\nLets try it"
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#example-2-12",
+    "href": "slides/03_distributio_ch3_o.html#example-2-12",
+    "title": "Distribution Theory",
+    "section": "Example 2 (1/2)",
+    "text": "Example 2 (1/2)\n\nWhile taking a multiple choice test, a student encountered 10 problems where she ended up completely guessing, randomly selecting one of the four options.\nWhat is the chance that she got exactly 2 of the 10 correct?\nWhat assumption do we need to make about the questions?\nHow would we do this without using a distribution?"
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#example-2-22",
+    "href": "slides/03_distributio_ch3_o.html#example-2-22",
+    "title": "Distribution Theory",
+    "section": "Example 2 (2/2)",
+    "text": "Example 2 (2/2)\n\nKnowing that the student randomly selected her answers, we assume she has a 25% chance of a correct response.\nn factorial is denoted \\(n!\\) and \\(n!=n\\cdot(n-1)\\cdot...\\cdot 3\\cdot 2\\cdot 1\\)\nHere we used a combination \\({n \\choose p}=\\frac{n!}{p!(n-p)!}\\) read n choose p\nThus, \\(P(Y=2) = {10 \\choose 2}(.25)^2(.75)^8 = 0.282\\).\n\n. . .\n\nWe can use R to verify this:\n\n. . .\n\ndbinom(2, size = 10, prob = .25)\n\n[1] 0.2815676\n\n\nTherefore, there is a 28% chance of exactly 2 correct answers out of 10."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#negative-binomial-random-variable",
+    "href": "slides/03_distributio_ch3_o.html#negative-binomial-random-variable",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial Random Variable",
+    "text": "Negative Binomial Random Variable\n\nWhat if we were to carry out multiple independent and identical Bernoulli trails until the \\(r\\)th success occurs?\nIf we model \\(Y\\), the number of failures before the \\(r\\)th success, then \\(Y\\) follows a negative binomial distribution where\n\n. . .\n\\[\\begin{equation}\nP(Y=y) = \\binom{y + r - 1}{r-1} (1-p)^{y}(p)^r \\quad \\textrm{for}\\quad y = 0, 1, \\ldots, \\infty.\n\\end{equation}\\]"
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#negative-binomial-rv",
+    "href": "slides/03_distributio_ch3_o.html#negative-binomial-rv",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial RV",
+    "text": "Negative Binomial RV\n\nIf \\(Y \\sim \\textrm{Negative Binomial}(r, p)\\) then \\(\\operatorname{E}(Y) = \\frac{r(1-p)}{p}\\) and \\(\\operatorname{SD}(Y) = \\sqrt{\\frac{r(1-p)}{p^2}}\\)."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#negative-binomial-rv-1",
+    "href": "slides/03_distributio_ch3_o.html#negative-binomial-rv-1",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial RV",
+    "text": "Negative Binomial RV\n\nPlotCode\n\n\n\n\n\n\n\nNegative Binomial\n\n\n\n\n\nNotice how centers shift right as \\(r\\) increases, and left as \\(p\\) increases.\n\n\n\n\n#negativeBinomialPlots\nplotNBinom &lt;- function(p, r){\n  ynb &lt;- 0:10000\n  nbd &lt;- tibble(x = rnbinom(ynb, r, p))\n  #breaks &lt;- pretty(range(nbd$x), n = nclass.FD(nbd$x), min.n = 1)  # pretty binning\n  #bwidth &lt;- breaks[2] - breaks[1]\n  ggplot(nbd, aes(x = x)) +\n    geom_histogram(aes(y=..count../sum(..count..)), binwidth = .25) +\n    labs(title = paste(\"p = \", p, \", r = \", r),\n         x = \"number of failures\",\n         y = \"probability\") +\n    xlim(-1,30)\n}\n\nNBin1 &lt;- plotNBinom(0.35, 3)\nNBin2 &lt;- plotNBinom(0.35, 5)\nNBin3 &lt;- plotNBinom(0.70, 5)\ngrid.arrange(NBin1, NBin2, NBin3, ncol = 1)"
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#negative-binomial-rv-2",
+    "href": "slides/03_distributio_ch3_o.html#negative-binomial-rv-2",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial RV",
+    "text": "Negative Binomial RV\n\nNote that if we set \\(r=1\\), then\n\n. . .\n\\[\\begin{align*}\nP(Y=y) &= \\binom{y}{0} (1-p)^yp \\\\\n        &= (1-p)^yp \\quad \\textrm{for} \\quad y = 0, 1, \\ldots, \\infty,\n\\end{align*}\\] which is the probability mass function of a geometric random variable!\n\nThus, a geometric random variable is, in fact, a special case of a negative binomial random variable.\nWhile negative binomial random variables typically are expressed as above using binomial coefficients (expressions such as \\(\\binom{x}{y}\\)), we can generalize our definition to allow non-integer values of \\(r\\).\nR function dnbinom(y, r, p) for the probability of \\(y\\) failures before the \\(r\\)th success given probability \\(p\\)."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#poisson-random-variable",
+    "href": "slides/03_distributio_ch3_o.html#poisson-random-variable",
+    "title": "Distribution Theory",
+    "section": "Poisson Random Variable",
+    "text": "Poisson Random Variable\n\nSometimes, random variables are based on a Poisson process. \nIn a Poisson process, we are counting the number of events per unit of time or space and the number of events depends only on the length or size of the interval.\nWe can then model \\(Y\\), the number of events in one of these sections with the Poisson distribution, where\n\n. . .\n\\[\\begin{equation}\nP(Y=y) = \\frac{e^{-\\lambda}\\lambda^y}{y!} \\quad \\textrm{for} \\quad y = 0, 1, \\ldots, \\infty,\n\\end{equation}\\] where \\(\\lambda\\) is the mean or expected count in the unit of time or space of interest. - This probability mass function has \\(\\operatorname{E}(Y) = \\lambda\\) and \\(\\operatorname{SD}(Y) = \\sqrt{\\lambda}\\)."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#poisson-distribution-graphs",
+    "href": "slides/03_distributio_ch3_o.html#poisson-distribution-graphs",
+    "title": "Distribution Theory",
+    "section": "Poisson Distribution Graphs",
+    "text": "Poisson Distribution Graphs\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\nNotice how distributions become more symmetric as \\(\\lambda\\) increases.\nIf we wish to use R, dpois(y, lambda) outputs the probability of \\(y\\) events given \\(\\lambda\\).\n\n\n\n\n#poissonPlots\nplotPois &lt;- function(lam){\nyp = 0:10000 # possible values\npd &lt;- data.frame(x=rpois(yp, lam))  # generate random deviates\nbreaks &lt;- pretty(range(pd$x), n = nclass.FD(pd$x), min.n = 1)  # pretty binning\n#bwidth &lt;- breaks[2] - breaks[1]\nggplot(pd, aes(x = x)) + geom_histogram(aes(y=..count../sum(..count..)), binwidth = .25) +\n  xlab(\"number of events\") + ylab(\"probability\") + \n  labs(title=paste(\"Poisson lambda = \", lam)) + xlim(-1,13)\n}\n\nPois1 &lt;- plotPois(0.5)\nPois2 &lt;- plotPois(1)\nPois3 &lt;- plotPois(5) + scale_y_continuous(breaks = c(0, 0.1))\ngrid.arrange(Pois1,Pois2,Pois3,ncol=1)"
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#continuous-random-variables-1",
+    "href": "slides/03_distributio_ch3_o.html#continuous-random-variables-1",
+    "title": "Distribution Theory",
+    "section": "Continuous Random Variables",
+    "text": "Continuous Random Variables\n\nA continuous random variable can take on an uncountably infinite number of values.\nWith continuous random variables, we define probabilities using probability density functions (pdfs). \nProbabilities are calculated by computing the area under the density curve over the interval of interest. So, given a pdf, \\(f(y)\\), we can compute\n\n. . .\n\\[\\begin{align*}\nP(a \\le Y \\le b) = \\int_a^b f(y)dy.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#continuous-random-variables-2",
+    "href": "slides/03_distributio_ch3_o.html#continuous-random-variables-2",
+    "title": "Distribution Theory",
+    "section": "Continuous Random Variables",
+    "text": "Continuous Random Variables\nA few properties of continuous random variables:\n\nThe area under their density curve is 1. (\\(\\int_{-\\infty}^{\\infty} f(y)dy = 1\\)).\n\nFor any value \\(y\\), \\(P(Y = y) =  \\int_y^y f(y)dy = 0\\). Why?\nBecause of the above property, \\(P(y &lt; Y) = P(y \\le Y)\\). We will typically use the first notation rather than the second, but both are equally valid."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#exponential-random-variable",
+    "href": "slides/03_distributio_ch3_o.html#exponential-random-variable",
+    "title": "Distribution Theory",
+    "section": "Exponential Random Variable",
+    "text": "Exponential Random Variable\n\nSuppose we have a Poisson process with rate \\(\\lambda\\), and we wish to model the wait time \\(Y\\) until the first event.\nWe could model \\(Y\\) using an exponential distribution, where\n\n. . .\n\\[\\begin{equation}\nf(y) = \\lambda e^{-\\lambda y} \\quad \\textrm{for} \\quad y &gt; 0,\n\\end{equation}\\] - \\(\\operatorname{E}(Y) = 1/\\lambda\\) and \\(\\operatorname{SD}(Y) = 1/\\lambda\\)."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#exponential-distribution",
+    "href": "slides/03_distributio_ch3_o.html#exponential-distribution",
+    "title": "Distribution Theory",
+    "section": "Exponential Distribution",
+    "text": "Exponential Distribution\nExponential distributions with \\(\\lambda = 0.5, 1,\\) and \\(5\\).\n\nPlotCode\n\n\n\n\n\n\n\n\n\nExponential Distribution\n\n\n\n\n\n\nAs \\(\\lambda\\) increases, \\(\\operatorname{E}(Y)\\) tends towards 0, and distributions “die off” quicker.\n\n\n\n\n\n\n#exponentialPlots\nx=seq(0,4,by=0.01)  # possible values\nprobex1 &lt;- dexp(x,.5)  # P(Y=y)\nprobex2 &lt;- dexp(x,1)\nprobex3 &lt;- dexp(x,5)\nExpdf &lt;- tibble(x,probex1, probex2, probex3) %&gt;%\n  rename(x = x,\n         `0.5` = probex1,\n         `1` = probex2,\n         `5` = probex3) %&gt;%\n  gather(2:4, key = \"Lambda\", value = \"value\") %&gt;%\n  mutate(Lambda = factor(Lambda, levels = c(\"0.5\", \"1\", \"5\")))\nggplot(data = Expdf, aes(x = x, y = value, color = Lambda)) +\n  geom_line(aes(linetype = Lambda)) +\n  xlab(\"values\") + ylab(\"density\") + \n  labs(title = \"Exponential Distributions\") + \n  xlim(0,4) + ylim(0,3)\n\n\n\n\n\n\n\n\n\nTo use R, pexp(y, lambda) outputs the probability \\(P(Y &lt; y)\\) given \\(\\lambda\\)."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#gamma-random-variable",
+    "href": "slides/03_distributio_ch3_o.html#gamma-random-variable",
+    "title": "Distribution Theory",
+    "section": "Gamma Random Variable",
+    "text": "Gamma Random Variable\n\nOnce again consider a Poisson process.\nWhen discussing exponential random variables, we modeled the wait time before one event occurred.\nIf \\(Y\\) represents the wait time before \\(r\\) events occur in a Poisson process with rate \\(\\lambda\\), \\(Y\\) follows a gamma distribution where\n\n. . .\n\\[\\begin{equation}\nf(y) = \\frac{\\lambda^r}{\\Gamma(r)} y^{r-1} e^{-\\lambda y}\\quad \\textrm{for} \\quad y &gt;0.\n\\end{equation}\\]\n\nIf \\(Y \\sim \\textrm{Gamma}(r, \\lambda)\\) then \\(\\operatorname{E}(Y) = r/\\lambda\\) and \\(\\operatorname{SD}(Y) = \\sqrt{r/\\lambda^2}\\).\nNote: \\(\\Gamma(r)=(r-1)!\\) (There is more to it)"
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#gamma-distribution",
+    "href": "slides/03_distributio_ch3_o.html#gamma-distribution",
+    "title": "Distribution Theory",
+    "section": "Gamma Distribution",
+    "text": "Gamma Distribution\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\nMeans increase as \\(r\\) increases, but decrease as \\(\\lambda\\) increases.\n\n\n\n\nx &lt;- seq(0, 7, by = 0.01)\n`r = 1, lambda = 1` &lt;- dgamma(x, 1, rate = 1)\n`r = 2, lambda = 1` &lt;- dgamma(x, 2, rate = 1) \n`r = 5, lambda = 5` &lt;- dgamma(x, 5, rate = 5)\n`r = 5, lambda = 7` &lt;- dgamma(x, 5, rate = 7)\n\ngammaDf &lt;- tibble(x, `r = 1, lambda = 1`, `r = 2, lambda = 1`, `r = 5, lambda = 5`, `r = 5, lambda = 7`) %&gt;%\n  gather(2:5, key = \"Distribution\", value = \"value\") %&gt;%\n  mutate(Distribution = factor(Distribution, \n                               levels = c(\"r = 2, lambda = 1\", \n                                          \"r = 1, lambda = 1\", \n                                          \"r = 5, lambda = 5\", \n                                          \"r = 5, lambda = 7\")))\n\nggplot(data = gammaDf, aes(x = x, y = value, \n                           color = Distribution)) +\n  geom_line(aes(linetype = Distribution)) +\n  xlab(\"values\") + ylab(\"density\") + \n  labs(title = \"Gamma Distributions\") +\n  theme(legend.title = element_blank())"
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#gamma-vs-others",
+    "href": "slides/03_distributio_ch3_o.html#gamma-vs-others",
+    "title": "Distribution Theory",
+    "section": "Gamma vs Others",
+    "text": "Gamma vs Others\n\nNote that if we let \\(r = 1\\), we have the following pdf,\n\n. . .\n\\[\\begin{align*}\nf(y) &= \\frac{\\lambda}{\\Gamma(1)} y^{1-1} e^{-\\lambda y} \\\\\n      &= \\lambda e^{-\\lambda y} \\quad \\textrm{for} \\quad y &gt; 0,\n\\end{align*}\\] an exponential distribution. - Just as how the geometric distribution was a special case of the negative binomial, exponential distributions are in fact a special case of gamma distributions!\n\nJust like negative binomial, the pdf of a gamma distribution is defined for all real, non-negative \\(r\\).\nIn R, pgamma(y, r, lambda) outputs the probability \\(P(Y &lt; y)\\) given \\(r\\) and \\(\\lambda\\)."
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#distributions-used-in-testing",
+    "href": "slides/03_distributio_ch3_o.html#distributions-used-in-testing",
+    "title": "Distribution Theory",
+    "section": "Distributions Used in Testing",
+    "text": "Distributions Used in Testing\n\nWe have spent most of this chapter discussing probability distributions that may come in handy when modeling.\nThe following distributions, while rarely used in modeling, prove useful in hypothesis testing as certain commonly used test statistics follow these distributions.\n\\(\\chi^2\\) distribution (requires a degree of freedom)\nStudent \\(t\\) distribution\n\\(F\\) distribution (need 2 different degrees of freedom)\nSince we have used these In the past, we will leave their definitions to be referenced if needed"
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#distribution-table",
+    "href": "slides/03_distributio_ch3_o.html#distribution-table",
+    "title": "Distribution Theory",
+    "section": "Distribution Table!",
+    "text": "Distribution Table!\n\nWould not fit on a slide\nClick HERE"
+  },
+  {
+    "objectID": "slides/03_distributio_ch3_o.html#acknowledgements",
+    "href": "slides/03_distributio_ch3_o.html#acknowledgements",
+    "title": "Distribution Theory",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\nThese slides are based on content in BMLR: Chapter 1 - Review of Multiple Linear Regression"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html",
+    "href": "slides/03_distribution_ch3_o.html",
+    "title": "Distribution Theory",
+    "section": "",
+    "text": "Write definitions of non-normal random variables in the context of an application.\nIdentify possible values for each random variable.\nIdentify how changing values for a parameter affects the characteristics of the distribution.\nRecognize a form of the probability density function for each distribution.\nIdentify the mean and variance for each distribution.\nMatch the response for a study to a plausible random variable and provide reasons for ruling out other random variables.\nMatch a histogram of sample data to plausible distributions.\nCreate a mixture of distributions and evaluate the shape, mean, and variance."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#learning-objectives",
+    "href": "slides/03_distribution_ch3_o.html#learning-objectives",
+    "title": "Distribution Theory",
+    "section": "",
+    "text": "Write definitions of non-normal random variables in the context of an application.\nIdentify possible values for each random variable.\nIdentify how changing values for a parameter affects the characteristics of the distribution.\nRecognize a form of the probability density function for each distribution.\nIdentify the mean and variance for each distribution.\nMatch the response for a study to a plausible random variable and provide reasons for ruling out other random variables.\nMatch a histogram of sample data to plausible distributions.\nCreate a mixture of distributions and evaluate the shape, mean, and variance."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#libraries-needed-none-new",
+    "href": "slides/03_distribution_ch3_o.html#libraries-needed-none-new",
+    "title": "Distribution Theory",
+    "section": "Libraries Needed (none new?)",
+    "text": "Libraries Needed (none new?)\n\n# Packages required for Chapter 3\nlibrary(gridExtra)  \nlibrary(knitr) \nlibrary(kableExtra)\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#introduction",
+    "href": "slides/03_distribution_ch3_o.html#introduction",
+    "title": "Distribution Theory",
+    "section": "Introduction",
+    "text": "Introduction\n\nWhat if it is not plausible that a response is normally distributed?\nYou may want to construct a model to predict whether a prospective student will enroll at a school or model the lifetimes of patients following a particular surgery.\n\nIn the first case you have a binary response (enrolls (1) or does not enroll (0)), and in the second case you are likely to have very skewed data with many similar values and a few hardy souls with extremely long survival.\nThese responses are not expected to be normally distributed; other distributions will be needed to describe and model binary or lifetime data.\nNon-normal responses are encountered in a large number of situations. Luckily, there are quite a few possibilities for models."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#discrete-random-variables-1",
+    "href": "slides/03_distribution_ch3_o.html#discrete-random-variables-1",
+    "title": "Distribution Theory",
+    "section": "Discrete Random Variables",
+    "text": "Discrete Random Variables\n\nA discrete random variable has a countable number of possible values\n\nEx: we may want to measure the number of people in a household\nEx: model the number of crimes committed on a college campus.\n\nWith discrete random variables, the associated probabilities can be calculated for each possible value using a probability mass function (pmf). \nA pmf is a function that calculates \\(P(Y=y)\\), given each variable’s parameters."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#binary-random-variable",
+    "href": "slides/03_distribution_ch3_o.html#binary-random-variable",
+    "title": "Distribution Theory",
+    "section": "Binary Random Variable",
+    "text": "Binary Random Variable\n\nConsider the event of flipping a (possibly unfair) coin.\nIf the coin lands heads, let’s consider this a success and record \\(Y = 1\\).\nA series of these events is a Bernoulli process, independent trials that take on one of two values (e.g., 0 or 1).\nThese values are often referred to as a failure and a success\n\nthe probability of success is identical for each trial."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#binary-random-variable-1",
+    "href": "slides/03_distribution_ch3_o.html#binary-random-variable-1",
+    "title": "Distribution Theory",
+    "section": "Binary Random Variable",
+    "text": "Binary Random Variable\n\nSuppose we only flip the coin once, so we only have one parameter, the probability of flipping heads, \\(p\\).\nIf we know this value, we can express \\(P(Y=1) = p\\) and \\(P(Y=0) = 1-p\\).\nIn general, if we have a Bernoulli process with only one trial, we have a binary distribution (also called a Bernoulli distribution) where\n\n. . .\n\\[\\begin{equation*}\nP(Y = y) = p^y(1-p)^{1-y} \\quad \\textrm{for} \\quad y = 0, 1.\n\\end{equation*}\\]\n\nIf \\(Y \\sim \\textrm{Binary}(p)\\), then \\(Y\\) has mean \\(\\operatorname{E}(Y) = p\\) and standard deviation \\(\\operatorname{SD}(Y) = \\sqrt{p(1-p)}\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#example-1",
+    "href": "slides/03_distribution_ch3_o.html#example-1",
+    "title": "Distribution Theory",
+    "section": "Example 1",
+    "text": "Example 1\n\nYour playlist of 200 songs has 5 which you cannot stand. What is the probability that when you hit shuffle, a song you tolerate comes on?\nWe want to understand the example and be able to translate that into notation/model it with a distribution\nAssuming all songs have equal odds of playing, we can calculate \\(p = \\frac{200-5}{200} = 0.975\\)\n\nso there is a 97.5% chance of a song you tolerate playing, since \\(P(Y=1)=.975^1*(1-.975)^0\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#binomial-random-variable-12",
+    "href": "slides/03_distribution_ch3_o.html#binomial-random-variable-12",
+    "title": "Distribution Theory",
+    "section": "Binomial Random Variable (1/2)",
+    "text": "Binomial Random Variable (1/2)\n\nDoes anybody know how this relates to a Bernoulli random variable?\nWe can extend our knowledge of binary random variables.\nSuppose we flipped an unfair coin \\(n\\) times and recorded \\(Y\\), the number of heads after \\(n\\) flips.\nIf we consider a case where \\(p = 0.25\\) and \\(n = 4\\), then here \\(P(Y=0)\\) represents the probability of no successes in 4 trials\n\n4 consecutive failures.\nThe probability of 4 consecutive failures is \\(P(Y = 0) = P(TTTT) = (1-p)^4 = 0.75^4\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#binomial-random-variable-22",
+    "href": "slides/03_distribution_ch3_o.html#binomial-random-variable-22",
+    "title": "Distribution Theory",
+    "section": "Binomial Random Variable (2/2)",
+    "text": "Binomial Random Variable (2/2)\n\nNext we consider \\(P(Y = 1)\\), and are interested in the probability of exactly 1 success anywhere among the 4 trials.\nHow many different ways can we get exactly 1 success in the four trials?\nTo find the probability of this what else do we need to count?\nWhat is the probability?\nThere are \\(\\binom{4}{1} = 4\\) ways to have exactly 1 success in 4 trials, \\(P(Y = 1) = \\binom{4}{1}p^1(1-p)^{4-1} = (4)(0.25)(0.75)^3\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#binomial-distribution",
+    "href": "slides/03_distribution_ch3_o.html#binomial-distribution",
+    "title": "Distribution Theory",
+    "section": "Binomial Distribution",
+    "text": "Binomial Distribution\n\nIn general, if we carry out a sequence of \\(n\\) Bernoulli trials (with probability of success \\(p\\)) and record \\(Y\\), the total number of successes, then \\(Y\\) follows a binomial distribution, where\n\n. . .\n\\[\\begin{equation}\nP(Y=y) = \\binom{n}{y} p^y (1-p)^{n-y} \\quad \\textrm{for} \\quad y = 0, 1, \\ldots, n.\n\\end{equation}\\]\n. . .\n\nIf \\(Y \\sim \\textrm{Binomial}(n,p)\\), then \\(\\operatorname{E}(Y) = np\\) and \\(\\operatorname{SD}(Y) = \\sqrt{np(1-p)}\\).\n\\(E(y)\\) is the expected value of \\(Y\\). If we repeated the experiment many times we would expect on average \\(n*p\\) successes."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#binomial-distribution-graphs",
+    "href": "slides/03_distribution_ch3_o.html#binomial-distribution-graphs",
+    "title": "Distribution Theory",
+    "section": "Binomial Distribution Graphs",
+    "text": "Binomial Distribution Graphs\n\nTypical shapes of a binomial distribution\nI will show you these in R"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#binomial-distribution-graphs-1",
+    "href": "slides/03_distribution_ch3_o.html#binomial-distribution-graphs-1",
+    "title": "Distribution Theory",
+    "section": "Binomial Distribution Graphs",
+    "text": "Binomial Distribution Graphs\n\nOn the left side \\(n\\) remains constant.\nWe see that as \\(p\\) increases, the center of the distribution (\\(\\operatorname{E}(Y) = np\\)) shifts right.\nOn the right, \\(p\\) is held constant.\nAs \\(n\\) increases, the distribution becomes less skewed."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#binomial-distribution-vs-bernoulli",
+    "href": "slides/03_distribution_ch3_o.html#binomial-distribution-vs-bernoulli",
+    "title": "Distribution Theory",
+    "section": "Binomial Distribution vs Bernoulli",
+    "text": "Binomial Distribution vs Bernoulli\n\nNote that if \\(n=1\\),\n\n. . .\n\\[\\begin{align*}\nP(Y=y) &= \\binom{1}{y} p^y(1-p)^{1-y} \\\\\n        &= p^y(1-p)^{1-y}\\quad \\textrm{for}\\quad y = 0, 1,\n\\end{align*}\\] a Bernoulli distribution! - In fact, Bernoulli random variables are a special case of binomial random variables where \\(n=1\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#graphingcalling-in-r",
+    "href": "slides/03_distribution_ch3_o.html#graphingcalling-in-r",
+    "title": "Distribution Theory",
+    "section": "Graphing/calling in R",
+    "text": "Graphing/calling in R\n\nIn R we can use the function dbinom(y, n, p), which outputs the probability of \\(y\\) successes given \\(n\\) trials with probability \\(p\\), i.e., \\(P(Y=y)\\) for \\(Y \\sim \\textrm{Binomial}(n,p)\\).\nLets try it"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#example-2-12",
+    "href": "slides/03_distribution_ch3_o.html#example-2-12",
+    "title": "Distribution Theory",
+    "section": "Example 2 (1/2)",
+    "text": "Example 2 (1/2)\n\nWhile taking a multiple choice test, a student encountered 10 problems where she ended up completely guessing, randomly selecting one of the four options.\nWhat is the chance that she got exactly 2 of the 10 correct?\nWhat assumption do we need to make about the questions?\nHow would we do this without using a distribution?"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#example-2-22",
+    "href": "slides/03_distribution_ch3_o.html#example-2-22",
+    "title": "Distribution Theory",
+    "section": "Example 2 (2/2)",
+    "text": "Example 2 (2/2)\n\nKnowing that the student randomly selected her answers, we assume she has a 25% chance of a correct response.\nn factorial is denoted \\(n!\\) and \\(n!=n\\cdot(n-1)\\cdot...\\cdot 3\\cdot 2\\cdot 1\\)\nHere we used a combination \\({n \\choose p}=\\frac{n!}{p!(n-p)!}\\) read n choose p\nThus, \\(P(Y=2) = {10 \\choose 2}(.25)^2(.75)^8 = 0.282\\).\n\n. . .\n\nWe can use R to verify this:\n\n. . .\n\ndbinom(2, size = 10, prob = .25)\n\n[1] 0.2815676\n\n\nTherefore, there is a 28% chance of exactly 2 correct answers out of 10."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#negative-binomial-random-variable",
+    "href": "slides/03_distribution_ch3_o.html#negative-binomial-random-variable",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial Random Variable",
+    "text": "Negative Binomial Random Variable\n\nWhat if we were to carry out multiple independent and identical Bernoulli trails until the \\(r\\)th success occurs?\nIf we model \\(Y\\), the number of failures before the \\(r\\)th success, then \\(Y\\) follows a negative binomial distribution where\n\n. . .\n\\[\\begin{equation}\nP(Y=y) = \\binom{y + r - 1}{r-1} (1-p)^{y}(p)^r \\quad \\textrm{for}\\quad y = 0, 1, \\ldots, \\infty.\n\\end{equation}\\]"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#negative-binomial-rv",
+    "href": "slides/03_distribution_ch3_o.html#negative-binomial-rv",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial RV",
+    "text": "Negative Binomial RV\n\nIf \\(Y \\sim \\textrm{Negative Binomial}(r, p)\\) then \\(\\operatorname{E}(Y) = \\frac{r(1-p)}{p}\\) and \\(\\operatorname{SD}(Y) = \\sqrt{\\frac{r(1-p)}{p^2}}\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#negative-binomial-rv-1",
+    "href": "slides/03_distribution_ch3_o.html#negative-binomial-rv-1",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial RV",
+    "text": "Negative Binomial RV\n\nPlotCode\n\n\n\n\n\n\n\nNegative Binomial\n\n\n\n\n\nNotice how centers shift right as \\(r\\) increases, and left as \\(p\\) increases.\n\n\n\n\n#negativeBinomialPlots\nplotNBinom &lt;- function(p, r){\n  ynb &lt;- 0:10000\n  nbd &lt;- tibble(x = rnbinom(ynb, r, p))\n  #breaks &lt;- pretty(range(nbd$x), n = nclass.FD(nbd$x), min.n = 1)  # pretty binning\n  #bwidth &lt;- breaks[2] - breaks[1]\n  ggplot(nbd, aes(x = x)) +\n    geom_histogram(aes(y=..count../sum(..count..)), binwidth = .25) +\n    labs(title = paste(\"p = \", p, \", r = \", r),\n         x = \"number of failures\",\n         y = \"probability\") +\n    xlim(-1,30)\n}\n\nNBin1 &lt;- plotNBinom(0.35, 3)\nNBin2 &lt;- plotNBinom(0.35, 5)\nNBin3 &lt;- plotNBinom(0.70, 5)\ngrid.arrange(NBin1, NBin2, NBin3, ncol = 1)"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#negative-binomial-rv-2",
+    "href": "slides/03_distribution_ch3_o.html#negative-binomial-rv-2",
+    "title": "Distribution Theory",
+    "section": "Negative Binomial RV",
+    "text": "Negative Binomial RV\n\nNote that if we set \\(r=1\\), then\n\n. . .\n\\[\\begin{align*}\nP(Y=y) &= \\binom{y}{0} (1-p)^yp \\\\\n        &= (1-p)^yp \\quad \\textrm{for} \\quad y = 0, 1, \\ldots, \\infty,\n\\end{align*}\\] which is the probability mass function of a geometric random variable!\n\nThus, a geometric random variable is, in fact, a special case of a negative binomial random variable.\nWhile negative binomial random variables typically are expressed as above using binomial coefficients (expressions such as \\(\\binom{x}{y}\\)), we can generalize our definition to allow non-integer values of \\(r\\).\nR function dnbinom(y, r, p) for the probability of \\(y\\) failures before the \\(r\\)th success given probability \\(p\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#poisson-random-variable",
+    "href": "slides/03_distribution_ch3_o.html#poisson-random-variable",
+    "title": "Distribution Theory",
+    "section": "Poisson Random Variable",
+    "text": "Poisson Random Variable\n\nSometimes, random variables are based on a Poisson process. \nIn a Poisson process, we are counting the number of events per unit of time or space and the number of events depends only on the length or size of the interval.\nWe can then model \\(Y\\), the number of events in one of these sections with the Poisson distribution, where\n\n. . .\n\\[\\begin{equation}\nP(Y=y) = \\frac{e^{-\\lambda}\\lambda^y}{y!} \\quad \\textrm{for} \\quad y = 0, 1, \\ldots, \\infty,\n\\end{equation}\\] where \\(\\lambda\\) is the mean or expected count in the unit of time or space of interest. - This probability mass function has \\(\\operatorname{E}(Y) = \\lambda\\) and \\(\\operatorname{SD}(Y) = \\sqrt{\\lambda}\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#poisson-distribution-graphs",
+    "href": "slides/03_distribution_ch3_o.html#poisson-distribution-graphs",
+    "title": "Distribution Theory",
+    "section": "Poisson Distribution Graphs",
+    "text": "Poisson Distribution Graphs\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\nNotice how distributions become more symmetric as \\(\\lambda\\) increases.\nIf we wish to use R, dpois(y, lambda) outputs the probability of \\(y\\) events given \\(\\lambda\\).\n\n\n\n\n#poissonPlots\nplotPois &lt;- function(lam){\nyp = 0:10000 # possible values\npd &lt;- data.frame(x=rpois(yp, lam))  # generate random deviates\nbreaks &lt;- pretty(range(pd$x), n = nclass.FD(pd$x), min.n = 1)  # pretty binning\n#bwidth &lt;- breaks[2] - breaks[1]\nggplot(pd, aes(x = x)) + geom_histogram(aes(y=..count../sum(..count..)), binwidth = .25) +\n  xlab(\"number of events\") + ylab(\"probability\") + \n  labs(title=paste(\"Poisson lambda = \", lam)) + xlim(-1,13)\n}\n\nPois1 &lt;- plotPois(0.5)\nPois2 &lt;- plotPois(1)\nPois3 &lt;- plotPois(5) + scale_y_continuous(breaks = c(0, 0.1))\ngrid.arrange(Pois1,Pois2,Pois3,ncol=1)"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#continuous-random-variables-1",
+    "href": "slides/03_distribution_ch3_o.html#continuous-random-variables-1",
+    "title": "Distribution Theory",
+    "section": "Continuous Random Variables",
+    "text": "Continuous Random Variables\n\nA continuous random variable can take on an uncountably infinite number of values.\nWith continuous random variables, we define probabilities using probability density functions (pdfs). \nProbabilities are calculated by computing the area under the density curve over the interval of interest. So, given a pdf, \\(f(y)\\), we can compute\n\n. . .\n\\[\\begin{align*}\nP(a \\le Y \\le b) = \\int_a^b f(y)dy.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#continuous-random-variables-2",
+    "href": "slides/03_distribution_ch3_o.html#continuous-random-variables-2",
+    "title": "Distribution Theory",
+    "section": "Continuous Random Variables",
+    "text": "Continuous Random Variables\nA few properties of continuous random variables:\n\nThe area under their density curve is 1. (\\(\\int_{-\\infty}^{\\infty} f(y)dy = 1\\)).\n\nFor any value \\(y\\), \\(P(Y = y) =  \\int_y^y f(y)dy = 0\\). Why?\nBecause of the above property, \\(P(y &lt; Y) = P(y \\le Y)\\). We will typically use the first notation rather than the second, but both are equally valid."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#exponential-random-variable",
+    "href": "slides/03_distribution_ch3_o.html#exponential-random-variable",
+    "title": "Distribution Theory",
+    "section": "Exponential Random Variable",
+    "text": "Exponential Random Variable\n\nSuppose we have a Poisson process with rate \\(\\lambda\\), and we wish to model the wait time \\(Y\\) until the first event.\nWe could model \\(Y\\) using an exponential distribution, where\n\n. . .\n\\[\\begin{equation}\nf(y) = \\lambda e^{-\\lambda y} \\quad \\textrm{for} \\quad y &gt; 0,\n\\end{equation}\\] - \\(\\operatorname{E}(Y) = 1/\\lambda\\) and \\(\\operatorname{SD}(Y) = 1/\\lambda\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#exponential-distribution",
+    "href": "slides/03_distribution_ch3_o.html#exponential-distribution",
+    "title": "Distribution Theory",
+    "section": "Exponential Distribution",
+    "text": "Exponential Distribution\nExponential distributions with \\(\\lambda = 0.5, 1,\\) and \\(5\\).\n\nPlotCode\n\n\n\n\n\n\n\n\n\nExponential Distribution\n\n\n\n\n\n\nAs \\(\\lambda\\) increases, \\(\\operatorname{E}(Y)\\) tends towards 0, and distributions “die off” quicker.\n\n\n\n\n\n\n#exponentialPlots\nx=seq(0,4,by=0.01)  # possible values\nprobex1 &lt;- dexp(x,.5)  # P(Y=y)\nprobex2 &lt;- dexp(x,1)\nprobex3 &lt;- dexp(x,5)\nExpdf &lt;- tibble(x,probex1, probex2, probex3) %&gt;%\n  rename(x = x,\n         `0.5` = probex1,\n         `1` = probex2,\n         `5` = probex3) %&gt;%\n  gather(2:4, key = \"Lambda\", value = \"value\") %&gt;%\n  mutate(Lambda = factor(Lambda, levels = c(\"0.5\", \"1\", \"5\")))\nggplot(data = Expdf, aes(x = x, y = value, color = Lambda)) +\n  geom_line(aes(linetype = Lambda)) +\n  xlab(\"values\") + ylab(\"density\") + \n  labs(title = \"Exponential Distributions\") + \n  xlim(0,4) + ylim(0,3)\n\n\n\n\n\n\n\n\n\nTo use R, pexp(y, lambda) outputs the probability \\(P(Y &lt; y)\\) given \\(\\lambda\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#gamma-random-variable",
+    "href": "slides/03_distribution_ch3_o.html#gamma-random-variable",
+    "title": "Distribution Theory",
+    "section": "Gamma Random Variable",
+    "text": "Gamma Random Variable\n\nOnce again consider a Poisson process.\nWhen discussing exponential random variables, we modeled the wait time before one event occurred.\nIf \\(Y\\) represents the wait time before \\(r\\) events occur in a Poisson process with rate \\(\\lambda\\), \\(Y\\) follows a gamma distribution where\n\n. . .\n\\[\\begin{equation}\nf(y) = \\frac{\\lambda^r}{\\Gamma(r)} y^{r-1} e^{-\\lambda y}\\quad \\textrm{for} \\quad y &gt;0.\n\\end{equation}\\]\n\nIf \\(Y \\sim \\textrm{Gamma}(r, \\lambda)\\) then \\(\\operatorname{E}(Y) = r/\\lambda\\) and \\(\\operatorname{SD}(Y) = \\sqrt{r/\\lambda^2}\\).\nNote: \\(\\Gamma(r)=(r-1)!\\) (There is more to it)"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#gamma-distribution",
+    "href": "slides/03_distribution_ch3_o.html#gamma-distribution",
+    "title": "Distribution Theory",
+    "section": "Gamma Distribution",
+    "text": "Gamma Distribution\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\nMeans increase as \\(r\\) increases, but decrease as \\(\\lambda\\) increases.\n\n\n\n\nx &lt;- seq(0, 7, by = 0.01)\n`r = 1, lambda = 1` &lt;- dgamma(x, 1, rate = 1)\n`r = 2, lambda = 1` &lt;- dgamma(x, 2, rate = 1) \n`r = 5, lambda = 5` &lt;- dgamma(x, 5, rate = 5)\n`r = 5, lambda = 7` &lt;- dgamma(x, 5, rate = 7)\n\ngammaDf &lt;- tibble(x, `r = 1, lambda = 1`, `r = 2, lambda = 1`, `r = 5, lambda = 5`, `r = 5, lambda = 7`) %&gt;%\n  gather(2:5, key = \"Distribution\", value = \"value\") %&gt;%\n  mutate(Distribution = factor(Distribution, \n                               levels = c(\"r = 2, lambda = 1\", \n                                          \"r = 1, lambda = 1\", \n                                          \"r = 5, lambda = 5\", \n                                          \"r = 5, lambda = 7\")))\n\nggplot(data = gammaDf, aes(x = x, y = value, \n                           color = Distribution)) +\n  geom_line(aes(linetype = Distribution)) +\n  xlab(\"values\") + ylab(\"density\") + \n  labs(title = \"Gamma Distributions\") +\n  theme(legend.title = element_blank())"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#gamma-vs-others",
+    "href": "slides/03_distribution_ch3_o.html#gamma-vs-others",
+    "title": "Distribution Theory",
+    "section": "Gamma vs Others",
+    "text": "Gamma vs Others\n\nNote that if we let \\(r = 1\\), we have the following pdf,\n\n. . .\n\\[\\begin{align*}\nf(y) &= \\frac{\\lambda}{\\Gamma(1)} y^{1-1} e^{-\\lambda y} \\\\\n      &= \\lambda e^{-\\lambda y} \\quad \\textrm{for} \\quad y &gt; 0,\n\\end{align*}\\] an exponential distribution. - Just as how the geometric distribution was a special case of the negative binomial, exponential distributions are in fact a special case of gamma distributions!\n\nJust like negative binomial, the pdf of a gamma distribution is defined for all real, non-negative \\(r\\).\nIn R, pgamma(y, r, lambda) outputs the probability \\(P(Y &lt; y)\\) given \\(r\\) and \\(\\lambda\\)."
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#distributions-used-in-testing",
+    "href": "slides/03_distribution_ch3_o.html#distributions-used-in-testing",
+    "title": "Distribution Theory",
+    "section": "Distributions Used in Testing",
+    "text": "Distributions Used in Testing\n\nWe have spent most of this chapter discussing probability distributions that may come in handy when modeling.\nThe following distributions, while rarely used in modeling, prove useful in hypothesis testing as certain commonly used test statistics follow these distributions.\n\\(\\chi^2\\) distribution (requires a degree of freedom)\nStudent \\(t\\) distribution\n\\(F\\) distribution (need 2 different degrees of freedom)\nSince we have used these In the past, we will leave their definitions to be referenced if needed"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#distribution-table",
+    "href": "slides/03_distribution_ch3_o.html#distribution-table",
+    "title": "Distribution Theory",
+    "section": "Distribution Table!",
+    "text": "Distribution Table!\n\nWould not fit on a slide\nClick HERE"
+  },
+  {
+    "objectID": "slides/03_distribution_ch3_o.html#acknowledgements",
+    "href": "slides/03_distribution_ch3_o.html#acknowledgements",
+    "title": "Distribution Theory",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\nThese slides are based on content in BMLR: Chapter 1 - Review of Multiple Linear Regression"
   }
 ]
