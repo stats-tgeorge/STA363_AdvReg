@@ -1,8 +1,6 @@
 ---
 title: 'Chapter 2 - Likelihoods'
 subtitle: 'Does having boys or girls run in the family? '
-execute: 
-  eval: false
 ---
 
 
@@ -41,16 +39,16 @@ Numchild <- c(930,951,1164,1332,1332,1060,558,531,
               519,444,453,375,546,477)
 ```
     
-```{r, table4chp2, echo=T, message = F, warning =F}
+```{r, table4chp2}
 #Family comp data table
 library(tidyverse)
 library(kableExtra)
+
 table5chp2 <- data.frame(Famcomp, Numfams, Numchild)
-kable(table5chp2, booktabs = T, 
-      col.names = c("Family Composition",
+
+table5chp2 |> kbl(col.names = c("Family Composition",
     "Number of families", "Number of children"),
-      caption = "Table 2.4 Number of families and children in families with given composition in NLSY data.") |>
-  kable_styling(latex_options = "scale_down")
+      caption = "Table 2.4 Number of families and children in families with given composition in NLSY data.") 
 ```
 
 
