@@ -5,24 +5,28 @@
     <lastmod>2024-08-24T16:22:23.915Z</lastmod>
   </url>
   <url>
-    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/slides/01-welcome_ch1.html</loc>
-    <lastmod>2024-08-26T16:42:44.106Z</lastmod>
+    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/slides/02_likelihoods_ch2.html</loc>
+    <lastmod>2024-08-27T20:57:40.356Z</lastmod>
   </url>
   <url>
-    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/slides/01-welcome_ch1_o.html</loc>
-    <lastmod>2024-08-26T16:42:44.106Z</lastmod>
+    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/slides/02_likelihoods_ch2_o.html</loc>
+    <lastmod>2024-08-27T20:57:40.356Z</lastmod>
   </url>
   <url>
-    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/labs/02_likelihood/02_likelihood_fillable.html</loc>
-    <lastmod>2024-08-26T21:38:28.609Z</lastmod>
+    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/project.html</loc>
+    <lastmod>2024-08-23T19:34:48.463Z</lastmod>
   </url>
   <url>
-    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/labs/01_linear_regression/01_banksalary_fillable.html</loc>
-    <lastmod>2024-08-25T20:51:28.904Z</lastmod>
+    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/labs/02_likelihood/02_likelihood.html</loc>
+    <lastmod>2024-08-27T20:38:39.420Z</lastmod>
   </url>
   <url>
-    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/index.html</loc>
-    <lastmod>2024-08-23T19:59:59.089Z</lastmod>
+    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/labs/01_linear_regression/01_banksalary.html</loc>
+    <lastmod>2024-08-27T15:08:29.638Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/hw/03_hw_ch3.html</loc>
+    <lastmod>2024-08-28T00:20:59.948Z</lastmod>
   </url>
   <url>
     <loc>https://stats-tgeorge.github.io/STA363_AdvReg/hw/01_hw_ch1.html</loc>
@@ -57,39 +61,31 @@
     <lastmod>2024-08-27T19:45:08.334Z</lastmod>
   </url>
   <url>
-    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/labs/01_linear_regression/01_banksalary.html</loc>
-    <lastmod>2024-08-27T15:08:29.638Z</lastmod>
+    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/index.html</loc>
+    <lastmod>2024-08-23T19:59:59.089Z</lastmod>
   </url>
   <url>
-    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/labs/02_likelihood/02_likelihood.html</loc>
-    <lastmod>2024-08-27T20:38:39.420Z</lastmod>
+    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/labs/01_linear_regression/01_banksalary_fillable.html</loc>
+    <lastmod>2024-08-25T20:51:28.904Z</lastmod>
   </url>
   <url>
-    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/project.html</loc>
-    <lastmod>2024-08-23T19:34:48.463Z</lastmod>
+    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/labs/02_likelihood/02_likelihood_fillable.html</loc>
+    <lastmod>2024-08-26T21:38:28.609Z</lastmod>
   </url>
   <url>
-    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/slides/02_likelihoods_ch2_o.html</loc>
-    <lastmod>2024-08-27T20:57:40.356Z</lastmod>
+    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/slides/01-welcome_ch1_o.html</loc>
+    <lastmod>2024-08-26T16:42:44.106Z</lastmod>
   </url>
   <url>
-    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/slides/02_likelihoods_ch2.html</loc>
-    <lastmod>2024-08-27T14:48:12.187Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/slides/03_distribution_ch3.html</loc>
-    <lastmod>2024-08-28T00:25:26.462Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/hw/03_hw_ch3.html</loc>
-    <lastmod>2024-08-28T00:20:59.948Z</lastmod>
-  </url>
-  <url>
-    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/slides/03_distributio_ch3_o.html</loc>
-    <lastmod>2024-08-28T00:11:48.009Z</lastmod>
+    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/slides/01-welcome_ch1.html</loc>
+    <lastmod>2024-08-26T16:42:44.106Z</lastmod>
   </url>
   <url>
     <loc>https://stats-tgeorge.github.io/STA363_AdvReg/slides/03_distribution_ch3_o.html</loc>
+    <lastmod>2024-08-28T00:25:26.462Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stats-tgeorge.github.io/STA363_AdvReg/slides/03_distribution_ch3.html</loc>
     <lastmod>2024-08-28T00:25:26.462Z</lastmod>
   </url>
 </urlset>
