@@ -552,6 +552,7 @@ an exponential distribution.
 
 - Click [HERE](https://bookdown.org/roback/bookdown-BeyondMLR/ch-distthry.html#tab:distTable)
 
+- The "web" of distributions: <https://www.acsu.buffalo.edu/~adamcunn/probability/poisson.html>
 
 ## Acknowledgements
 

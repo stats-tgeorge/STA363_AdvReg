@@ -74,7 +74,7 @@ library(tidyverse)
 
 Assumes the sex for each birth is independent of other births
 
-```{r}
+```{r eval=FALSE}
 # Evaluate small set of possible values of pb
 pb <- c(.3, .35, .375, .4, .45)  # possible values for prob a boy is born
 lik <- pb^3 * (1 - pb)^5         # likelihood of getting observed data
@@ -109,7 +109,7 @@ ggplot(data = model1grid, aes(x = pb, y = loglik1)) +
 
 ```
 
-```{r}
+```{r eval=FALSE}
 # Apply Model 1 to NLSY data (for families with 3 or fewer children)
 pb <- seq(0, 1, length = 10001)   # possible values for prob a boy is born
 lik <- pb^5416 * (1 - pb)^5256    # likelihood (too small)
@@ -149,7 +149,7 @@ model1grid |>
 
 Assumes probability of having a boy depends on whether you've had boys previously
 
-```{r}
+```{r eval=FALSE}
 # Find MLEs with 3-dimensional grid search
 pbb <- seq(0, 1, length = 101)
 pbg <- seq(0, 1, length = 101)
@@ -181,7 +181,7 @@ max_logL_m2_small <- max(loglik)
 
 ### Model comparisons - Model 1 vs. Model 2
 
-```{r}
+```{r eval=FALSE}
 lrt <- 2 * (max_logL_m2_small - max_logL_m1_small)   
 lrt                       # likelihood ratio test statistic
 1 - pchisq(lrt, df = 2)   # p-value for testing Ho: no diff between Models 1&2

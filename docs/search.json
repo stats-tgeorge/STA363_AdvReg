@@ -684,7 +684,7 @@
     "href": "labs/02_likelihood/02_likelihood.html#code",
     "title": "Chapter 2 - Likelihoods",
     "section": "Code",
-    "text": "Code\n\nModel 1: Sex Unconditional Model\nAssumes the sex for each birth is independent of other births\n\n# Evaluate small set of possible values of pb\npb &lt;- c(.3, .35, .375, .4, .45)  # possible values for prob a boy is born\nlik &lt;- pb^3 * (1 - pb)^5         # likelihood of getting observed data\ncbind(pb, lik)                   # print table of results\n\n        pb         lik\n[1,] 0.300 0.004537890\n[2,] 0.350 0.004974746\n[3,] 0.375 0.005029142\n[4,] 0.400 0.004976640\n[5,] 0.450 0.004586179\n\nplot(pb, lik, xlab = \"possible values of pb\", ylab = \"Likelihood\")\n\n\n\n\n\n\n\nmax(lik)                         # maximum likelihood over 5 values of pb\n\n[1] 0.005029142\n\npb[lik == max(lik)]              # value of pb where likelihood maximized\n\n[1] 0.375\n\n# Evaluate finer grid of possible values of pb\npb &lt;- seq(0, 1, length = 1001)   # possible values for prob a boy is born\nlik &lt;- pb^3 * (1 - pb)^5         # likelihood of getting observed data\nplot(pb, lik, xlab = \"possible values of pb\", ylab = \"Likelihood\", type = \"l\")\n\n\n\n\n\n\n\nmax(lik)                         # maximum likelihood over 1001 values of pb\n\n[1] 0.005029142\n\npb[lik == max(lik)]              # value of pb where likelihood maximized\n\n[1] 0.375\n\nloglik &lt;- 3 * log(pb) + 5 * log(1 - pb)      # find log likelihoods\nplot(pb, loglik, xlab = \"possible values of pb\", ylab = \"Loglikelihood\", \n     type = \"l\")\n\n\n\n\n\n\n\nmax(loglik)                    # maximum loglikelihood over 1001 values of pb\n\n[1] -5.292506\n\npb[loglik == max(loglik)]      # likelihood and loglikelihood max at same spot\n\n[1] 0.375\n\nmle_pb_m1_small &lt;- pb[loglik == max(loglik)]\nmax_logL_m1_small &lt;- max(loglik)\n\n# Create ggplot of likelihood and log-likelihood functions\nmodel1grid &lt;- data.frame(pb = pb, lik1 = lik, loglik1 = loglik)\nggplot(data = model1grid, aes(x = pb, y = lik1)) +\n  geom_line() +\n  labs(x = \"possible values of pb\", y = \"Likelihood\")\n\n\n\n\n\n\n\nggplot(data = model1grid, aes(x = pb, y = loglik1)) +\n  geom_line() +\n  labs(x = \"possible values of pb\", y = \"log Likelihood\")\n\n\n\n\n\n\n\n\n\n# Apply Model 1 to NLSY data (for families with 3 or fewer children)\npb &lt;- seq(0, 1, length = 10001)   # possible values for prob a boy is born\nlik &lt;- pb^5416 * (1 - pb)^5256    # likelihood (too small)\nmax(lik)\n\n[1] 0\n\nsummary(lik)  \n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n      0       0       0       0       0       0 \n\n# loglikelihood of getting observed data\nloglik &lt;- 5416 * log(pb) + 5256 * log(1 - pb)   \nplot(pb, loglik, xlab = \"possible values of pb\", ylab = \"Loglikelihood\", \n     type = \"l\")\n\n\n\n\n\n\n\nplot(pb[loglik &gt; (-7500)], loglik[loglik &gt; (-7500)],\n  xlab = \"possible values of pb\", \n  ylab = \"Loglikelihood\", type = \"l\")  # zoom plot\n\n\n\n\n\n\n\nmax(loglik)                 # maximum loglikelihood over all values of pb\n\n[1] -7396.067\n\npb[loglik == max(loglik)]   # MLE of pb\n\n[1] 0.5075\n\nmle_pb_m1_nlsy &lt;- pb[loglik == max(loglik)]\nmax_logL_m1_nlsy &lt;- max(loglik)\n\n# Create ggplot of likelihood and log-likelihood functions\nmodel1grid &lt;- data.frame(pb = pb, lik1 = lik, loglik1 = loglik)\nggplot(data = model1grid, aes(x = pb, y = lik1)) +\n  geom_line() +\n  labs(x = \"possible values of pb\", y = \"Likelihood\")\n\n\n\n\n\n\n\nggplot(data = model1grid, aes(x = pb, y = loglik1)) +\n  geom_line() +\n  labs(x = \"possible values of pb\", y = \"log Likelihood\")\n\n\n\n\n\n\n\nmodel1grid |&gt;\n  filter(loglik1 &gt; (-7500)) |&gt;\n  ggplot(aes(x = pb, y = loglik1)) +\n    geom_line() +\n    labs(x = \"possible values of pb with loglik above -7500\", \n         y = \"log Likelihood\")\n\n\n\n\n\n\n\n\n\n\nModel 2: Sex Conditional Model (small 3 famly data set)\nAssumes probability of having a boy depends on whether you’ve had boys previously\n\n# Find MLEs with 3-dimensional grid search\npbb &lt;- seq(0, 1, length = 101)\npbg &lt;- seq(0, 1, length = 101)\npbn &lt;- seq(0, 1, length = 101)\nmodel2_grid &lt;- expand.grid(pbb = pbb, pbg = pbg, pbn = pbn)\n\nlik &lt;- model2_grid$pbn^1 * (1 - model2_grid$pbn)^3 * model2_grid$pbb^1 * \n  (1 - model2_grid$pbb)^1 * model2_grid$pbg^1 * (1 - model2_grid$pbg)^1\nloglik &lt;- 1 * log(model2_grid$pbn) + 3 * log(1 - model2_grid$pbn) + \n  1 * log(model2_grid$pbb) + 1 * log(1 - model2_grid$pbb) + \n  1 * log(model2_grid$pbg) + 1 * log(1 - model2_grid$pbg)\n\n# Print results\nmax(lik)        # maximum likelihood over all combos of pbb, pbg, pbn\n\n[1] 0.006591797\n\nmax(loglik)     # maximum loglikelihood over all combos of pbb, pbg, pbn\n\n[1] -5.021929\n\nmodel2_grid$pbb[loglik == max(loglik)]   # MLE of pbb\n\n[1] 0.5\n\nmodel2_grid$pbg[loglik == max(loglik)]   # MLE of pbg\n\n[1] 0.5\n\nmodel2_grid$pbn[loglik == max(loglik)]   # MLE of pbn\n\n[1] 0.25\n\n# Store results\nmle_pbb_m2_small &lt;- model2_grid$pbb[loglik == max(loglik)]   # MLE of pbb\nmle_pbg_m2_small &lt;- model2_grid$pbg[loglik == max(loglik)]   # MLE of pbg\nmle_pbn_m2_small &lt;- model2_grid$pbn[loglik == max(loglik)]   # MLE of pbn\n\nmax_L_m2_small &lt;- max(lik)\nmax_logL_m2_small &lt;- max(loglik)\n\n\n\nModel comparisons - Model 1 vs. Model 2\n\nlrt &lt;- 2 * (max_logL_m2_small - max_logL_m1_small)   \nlrt                       # likelihood ratio test statistic\n\n[1] 0.5411532\n\n1 - pchisq(lrt, df = 2)   # p-value for testing Ho: no diff between Models 1&2\n\n[1] 0.7629395\n\n# AIC and BIC values for Models 1 and 2\naic1 &lt;- -2 * max_logL_m1_small + 2 * 1\naic1\n\n[1] 12.58501\n\nbic1 &lt;- -2 * max_logL_m1_small + log(8) * 1\nbic1\n\n[1] 12.66445\n\naic2 &lt;- -2 * max_logL_m2_small + 2 * 3\naic2\n\n[1] 16.04386\n\nbic2 &lt;- -2 * max_logL_m2_small + log(8) * 3\nbic2\n\n[1] 16.28218"
+    "text": "Code\n\nModel 1: Sex Unconditional Model\nAssumes the sex for each birth is independent of other births\n\n# Evaluate small set of possible values of pb\npb &lt;- c(.3, .35, .375, .4, .45)  # possible values for prob a boy is born\nlik &lt;- pb^3 * (1 - pb)^5         # likelihood of getting observed data\ncbind(pb, lik)                   # print table of results\nplot(pb, lik, xlab = \"possible values of pb\", ylab = \"Likelihood\")\nmax(lik)                         # maximum likelihood over 5 values of pb\npb[lik == max(lik)]              # value of pb where likelihood maximized\n\n# Evaluate finer grid of possible values of pb\npb &lt;- seq(0, 1, length = 1001)   # possible values for prob a boy is born\nlik &lt;- pb^3 * (1 - pb)^5         # likelihood of getting observed data\nplot(pb, lik, xlab = \"possible values of pb\", ylab = \"Likelihood\", type = \"l\")\nmax(lik)                         # maximum likelihood over 1001 values of pb\npb[lik == max(lik)]              # value of pb where likelihood maximized\n\nloglik &lt;- 3 * log(pb) + 5 * log(1 - pb)      # find log likelihoods\nplot(pb, loglik, xlab = \"possible values of pb\", ylab = \"Loglikelihood\", \n     type = \"l\")\nmax(loglik)                    # maximum loglikelihood over 1001 values of pb\npb[loglik == max(loglik)]      # likelihood and loglikelihood max at same spot\nmle_pb_m1_small &lt;- pb[loglik == max(loglik)]\nmax_logL_m1_small &lt;- max(loglik)\n\n# Create ggplot of likelihood and log-likelihood functions\nmodel1grid &lt;- data.frame(pb = pb, lik1 = lik, loglik1 = loglik)\nggplot(data = model1grid, aes(x = pb, y = lik1)) +\n  geom_line() +\n  labs(x = \"possible values of pb\", y = \"Likelihood\")\nggplot(data = model1grid, aes(x = pb, y = loglik1)) +\n  geom_line() +\n  labs(x = \"possible values of pb\", y = \"log Likelihood\")\n\n\n# Apply Model 1 to NLSY data (for families with 3 or fewer children)\npb &lt;- seq(0, 1, length = 10001)   # possible values for prob a boy is born\nlik &lt;- pb^5416 * (1 - pb)^5256    # likelihood (too small)\nmax(lik)\nsummary(lik)  \n\n# loglikelihood of getting observed data\nloglik &lt;- 5416 * log(pb) + 5256 * log(1 - pb)   \nplot(pb, loglik, xlab = \"possible values of pb\", ylab = \"Loglikelihood\", \n     type = \"l\")\nplot(pb[loglik &gt; (-7500)], loglik[loglik &gt; (-7500)],\n  xlab = \"possible values of pb\", \n  ylab = \"Loglikelihood\", type = \"l\")  # zoom plot\nmax(loglik)                 # maximum loglikelihood over all values of pb\npb[loglik == max(loglik)]   # MLE of pb\nmle_pb_m1_nlsy &lt;- pb[loglik == max(loglik)]\nmax_logL_m1_nlsy &lt;- max(loglik)\n\n# Create ggplot of likelihood and log-likelihood functions\nmodel1grid &lt;- data.frame(pb = pb, lik1 = lik, loglik1 = loglik)\nggplot(data = model1grid, aes(x = pb, y = lik1)) +\n  geom_line() +\n  labs(x = \"possible values of pb\", y = \"Likelihood\")\nggplot(data = model1grid, aes(x = pb, y = loglik1)) +\n  geom_line() +\n  labs(x = \"possible values of pb\", y = \"log Likelihood\")\nmodel1grid |&gt;\n  filter(loglik1 &gt; (-7500)) |&gt;\n  ggplot(aes(x = pb, y = loglik1)) +\n    geom_line() +\n    labs(x = \"possible values of pb with loglik above -7500\", \n         y = \"log Likelihood\")\n\n\n\nModel 2: Sex Conditional Model (small 3 famly data set)\nAssumes probability of having a boy depends on whether you’ve had boys previously\n\n# Find MLEs with 3-dimensional grid search\npbb &lt;- seq(0, 1, length = 101)\npbg &lt;- seq(0, 1, length = 101)\npbn &lt;- seq(0, 1, length = 101)\nmodel2_grid &lt;- expand.grid(pbb = pbb, pbg = pbg, pbn = pbn)\n\nlik &lt;- model2_grid$pbn^1 * (1 - model2_grid$pbn)^3 * model2_grid$pbb^1 * \n  (1 - model2_grid$pbb)^1 * model2_grid$pbg^1 * (1 - model2_grid$pbg)^1\nloglik &lt;- 1 * log(model2_grid$pbn) + 3 * log(1 - model2_grid$pbn) + \n  1 * log(model2_grid$pbb) + 1 * log(1 - model2_grid$pbb) + \n  1 * log(model2_grid$pbg) + 1 * log(1 - model2_grid$pbg)\n\n# Print results\nmax(lik)        # maximum likelihood over all combos of pbb, pbg, pbn\nmax(loglik)     # maximum loglikelihood over all combos of pbb, pbg, pbn\n\nmodel2_grid$pbb[loglik == max(loglik)]   # MLE of pbb\nmodel2_grid$pbg[loglik == max(loglik)]   # MLE of pbg\nmodel2_grid$pbn[loglik == max(loglik)]   # MLE of pbn\n\n# Store results\nmle_pbb_m2_small &lt;- model2_grid$pbb[loglik == max(loglik)]   # MLE of pbb\nmle_pbg_m2_small &lt;- model2_grid$pbg[loglik == max(loglik)]   # MLE of pbg\nmle_pbn_m2_small &lt;- model2_grid$pbn[loglik == max(loglik)]   # MLE of pbn\n\nmax_L_m2_small &lt;- max(lik)\nmax_logL_m2_small &lt;- max(loglik)\n\n\n\nModel comparisons - Model 1 vs. Model 2\n\nlrt &lt;- 2 * (max_logL_m2_small - max_logL_m1_small)   \nlrt                       # likelihood ratio test statistic\n1 - pchisq(lrt, df = 2)   # p-value for testing Ho: no diff between Models 1&2\n\n# AIC and BIC values for Models 1 and 2\naic1 &lt;- -2 * max_logL_m1_small + 2 * 1\naic1\nbic1 &lt;- -2 * max_logL_m1_small + log(8) * 1\nbic1\naic2 &lt;- -2 * max_logL_m2_small + 2 * 3\naic2\nbic2 &lt;- -2 * max_logL_m2_small + log(8) * 3\nbic2"
   },
   {
     "objectID": "labs/01_linear_regression/01_banksalary.html",
@@ -2211,7 +2211,7 @@
     "href": "slides/03_distribution_ch3.html#distribution-table",
     "title": "Distribution Theory",
     "section": "Distribution Table!",
-    "text": "Distribution Table!\n\nWould not fit on a slide\nClick HERE"
+    "text": "Distribution Table!\n\nWould not fit on a slide\nClick HERE\nThe “web” of distributions: https://www.acsu.buffalo.edu/~adamcunn/probability/poisson.html"
   },
   {
     "objectID": "slides/03_distribution_ch3.html#acknowledgements",
@@ -2219,5 +2219,614 @@
     "title": "Distribution Theory",
     "section": "Acknowledgements",
     "text": "Acknowledgements\nThese slides are based on content in BMLR: Chapter 1 - Review of Multiple Linear Regression\n\n\n\n\n🔗 https://stats-tgeorge.github.io/STA363_AdvReg/"
+  },
+  {
+    "objectID": "labs/03_bites/FullMoon.html",
+    "href": "labs/03_bites/FullMoon.html",
+    "title": "Chapter 4 - Poisson Regression",
+    "section": "",
+    "text": "Copy the project lab folder located at Home -&gt; STA363_inst_files-&gt; labs. If you check the box next to the folder name, then click the small gear icon you can “copy to” and put a copy of the folder in your newly created folder.\nNow, click File-&gt; Open Project and navigate to the project file in the folder you just copied.\nYou can place your responses in the file qmd file included."
+  },
+  {
+    "objectID": "labs/03_bites/FullMoon.html#lab-setup",
+    "href": "labs/03_bites/FullMoon.html#lab-setup",
+    "title": "Chapter 4 - Poisson Regression",
+    "section": "",
+    "text": "Copy the project lab folder located at Home -&gt; STA363_inst_files-&gt; labs. If you check the box next to the folder name, then click the small gear icon you can “copy to” and put a copy of the folder in your newly created folder.\nNow, click File-&gt; Open Project and navigate to the project file in the folder you just copied.\nYou can place your responses in the file qmd file included."
+  },
+  {
+    "objectID": "labs/03_bites/FullMoon.html#introduction",
+    "href": "labs/03_bites/FullMoon.html#introduction",
+    "title": "Chapter 4 - Poisson Regression",
+    "section": "Introduction",
+    "text": "Introduction\nAn article in the British Medical Journal by Bhattacharjee et al. (2000) investigated whether animals bite more often during full moons. To address this question, the researchers conducted a retrospective observational analysis of 1621 consecutive patients who presented at an English hospital ER between 1997 and 1999 with an animal bite. The data is found in bites.csv, and relevant R code can be found below.\nVariables include:\n\nlunar.cycle = period of lunar cycle (1-10), where 10 = full moon\nn.days = number of days in that period\nn.bites = number of patients presenting with an animal bite during that period"
+  },
+  {
+    "objectID": "labs/03_bites/FullMoon.html#questions",
+    "href": "labs/03_bites/FullMoon.html#questions",
+    "title": "Chapter 4 - Poisson Regression",
+    "section": "Questions",
+    "text": "Questions\n\nIs there initial evidence of more bites during full moon phases?\nWhy can’t we just perform a t-test comparing full moon periods to non-full moon periods using period-level data (n=10)?\nWhat options can you think of for handling the fact that Period 5 is based on only 2 lunar days? What are the modeling implications of including number of days in a period as an offset term?\nInterpret model parameters from fit1.\nIs there any evidence of lack of fit in fit1? What factors may lead to lack of fit?\nDoes full moon have an effect above and beyond the linear cycle trend? Interpret the coefficient and a 95% confidence interval for the fullmoon term in fit3.\nWhat is fit4 doing? Does it offer an improvement over fit3?\nWhat evidence is there that fit5 (which uses bitesbyday.csv) is the analysis performed by the authors of this paper?\nBased on this analysis, does it make you more wary of animal bites during full moons?\n\n\nAddressing issues of overdispersion in fit5.\n\nIs there evidence of lack of fit in fit5? Cite evidence both from a goodness of fit test and from comparing means and variances by period.\nIf overdispersion goes uncorrected, what are implications for p-values and CIs for model coefficients?\n\nOverdispersion parameter adjustment. One solution is to simply add a second parameter to inflate variances, so that Var(Y_i )=φλ_i. This is called a “quasi-Poisson” or, in general, a “quasi-likelihood” approach, because our data no longer follows a true Poisson distribution.\nNegative binomial modeling. Another solution is to model response using a negative binomial distribution, so that Y~NegBinom(θ,p). This distribution comes about if Y|λ~Poisson(λ), but the λ’s themselves are randomly chosen according to a gamma distribution: λ~gamma(θ,(1-p)/p). In this case, E(Y)=θ p/((1-p))=μ and Var(Y)=θ p/〖(1-p)〗^2 =μ+μ^2/θ, so that μ^2/θ is the amount of overdispersion.\n\nCompare the following estimates, tests, and intervals under usual Poisson regression, quasi-Poisson regression, and negative binomial regression:\n\n\n\n\n\n\n\n\n\n\n\nPoisson\nQuasi-poisson\nNegative Binomial\n\n\n\n\n\\(\\phi\\)\n\n\n\n\n\n\\(SE(\\hat{\\beta}_4\\))\n\n\n\n\n\nWald-type test stat\n\n\n\n\n\nWald-type p-value\n\n\n\n\n\nLRT-type test stat\n\n\n\n\n\nLRT-type test stat\n\n\n\n\n\nLRT-type p-value\n\n\n\n\n\nCI - profile for \\(e^{\\beta_4}\\)\n\n\n\n\n\nCI-Wald-type for \\(e^{\\beta_4}\\)"
+  },
+  {
+    "objectID": "labs/03_bites/FullMoon.html#code",
+    "href": "labs/03_bites/FullMoon.html#code",
+    "title": "Chapter 4 - Poisson Regression",
+    "section": "Code",
+    "text": "Code\n\nSetup\n\nlibrary(MASS)\nlibrary(dplyr)\nlibrary(maxLik)   # will have to install first\nlibrary(ggplot2)\nlibrary(gridExtra) \n\nbites.data &lt;- read.csv(\"data/bites.csv\")\nbites.day &lt;- read.csv(\"data/bitesbyday.csv\")\n\n\n\nbites.csv: analysis and offsets\n\n# Exploratory Data Analysis\nbites.data\n\n# Average n.bites by day for each cycle to make them comparable\nbites.data &lt;- mutate(bites.data, avg.bites=n.bites/n.days, \n                     fullmoon = ifelse(lunar.cycle==10,1,0))\nwith(bites.data, summary(avg.bites))\nwith(bites.data, summary(n.bites))\nwith(bites.data, by(avg.bites,fullmoon,summary))\n# t.test(avg.bites~fullmoon, data=bites.data)    # produces an error -why?\n\nggplot(data = bites.data, aes(x = avg.bites)) + \n  geom_histogram(bins = 4)\nggplot(data = bites.data, aes(x = n.bites)) + \n  geom_histogram(bins = 4)\nggplot(data = bites.data, aes(x = lunar.cycle, y = avg.bites)) + \n  geom_point() + geom_smooth(method=\"lm\") \n\n# Now try modeling as Poisson counts for each cycle.\n# However, Cycle 5 contains only 2 days whereas all others have 3.  \n\n# The simplest model (Model 1) uses only an indicator for the full moon cycle\n#   plus an offset for the number of days so the counts are comparable.\nfit1 &lt;-  glm(n.bites ~ fullmoon, family=poisson, offset=log(n.days),\n             data=bites.data)\nsummary(fit1)\nexp(fit1$coef)\nexp(confint(fit1))\n\n# Alternative (Wald) confidence intervals\nfit1coef &lt;- summary(fit1)$coefficients[,1]\nfit1se &lt;- summary(fit1)$coefficients[,2]\nlb &lt;- fit1coef - qnorm(.975)*fit1se\nub &lt;- fit1coef + qnorm(.975)*fit1se\ncbind(exp(lb),exp(ub))\n\n#Signs of lack-of-fit with Simple Model\ngof &lt;- 1-pchisq(fit1$deviance, fit1$df.residual)\ngof \n\n# Model 2:  Linear cycle trend\nfit2 &lt;-  glm(n.bites ~ lunar.cycle, family=poisson, offset=log(n.days),\n             data=bites.data)\nsummary(fit2)\ngof &lt;- 1-pchisq(fit2$deviance, fit2$df.residual)\ngof \n\n# Model 3: Does full moon have effect above and beyond linear cycle trend?\nfit3 &lt;- glm(n.bites ~ lunar.cycle + fullmoon, family=poisson, \n            offset=log(n.days), data=bites.data)\nsummary(fit3)\nexp(fit3$coef)\nexp(confint(fit3))\nanova(fit2, fit3, test = \"Chisq\")\ngof &lt;- 1-pchisq(fit3$deviance, fit3$df.residual)\ngof \n\n# Model 4: What does this model do?\nbites.data4 &lt;- mutate(bites.data, dist = c(3,6,9,12,14.5,12,9,6,3,0))\nfit2a &lt;- glm(n.bites ~ dist, family=poisson, offset=log(n.days), data=bites.data4)\nsummary(fit2a)\n\nfit4 &lt;- glm(n.bites ~ dist + fullmoon, family=poisson, offset=log(n.days),\n            data=bites.data4)\nsummary(fit4)\n\n\n\nbitesbyday.csv: analysis and overdispersion\n\n# Model 5: Try to replicate model from paper, using daily data I transcribed \n#          from Figure 1 and matched to period totals\nbites.day &lt;- bites.day %&gt;%\n  mutate(period = factor(period, levels = c(5,1:4,6:10)),\n         period_no4 = factor(period_no4, levels = c(5, 1:3, 6:10))\n)\n\nfit5 &lt;- glm(bites ~ period, family=poisson, data=bites.day)\nsummary(fit5)\nexp(fit5$coef)\nexp(confint(fit5))\ngof &lt;- 1-pchisq(fit5$deviance, fit5$df.residual)\ngof \n\nfit5reduced &lt;- glm(bites ~ period_no4, family = poisson, data = bites.day)\nsummary(fit5reduced)\nanova(fit5reduced, fit5, test = \"Chisq\")\n\n# Alternative (Wald) confidence intervals\nfit5coef &lt;- summary(fit5)$coefficients[,1]\nfit5se &lt;- summary(fit5)$coefficients[,2]\nlb &lt;- fit5coef - qnorm(.975)*fit5se\nub &lt;- fit5coef + qnorm(.975)*fit5se\ncbind(exp(lb),exp(ub))\n\n\n# Might overdispersion be a factor in lack of fit?\nbites.day %&gt;%\n  group_by(period) %&gt;%\n  summarise(count = n(),\n            mean_bites = mean(bites),\n            var_bites = var(bites))\n\n\n# Adjust fit1 for overdispersion\nfit5a &lt;- glm(bites ~ period, family=quasipoisson, data=bites.day)\nsummary(fit5a)\nexp(confint(fit5a))\n\nfit5areduced &lt;- glm(bites ~ period_no4, family = quasipoisson, data = bites.day)\nsummary(fit5areduced)\nanova(fit5areduced, fit5a, test = \"F\")\n\nphi &lt;- sum(resid(fit5, type='pearson')^2) / fit5$df.residual\nphi\ndrop.in.dev &lt;- fit5reduced$deviance - fit5$deviance\ndiff.in.df &lt;- fit5reduced$df.residual - fit5$df.residual\nFstat &lt;- drop.in.dev / summary(fit5a)$dispersion\nFstat\n1-pf(Fstat, diff.in.df, fit5$df.residual)\n\n# Alternative (Wald) confidence intervals with QL\nfit5acoef &lt;- summary(fit5a)$coefficients[,1]\nfit5ase &lt;- summary(fit5a)$coefficients[,2]\nlb &lt;- fit5acoef - qt(.975, fit5a$df.residual)*fit5ase\nub &lt;- fit5acoef + qt(.975, fit5a$df.residual)*fit5ase\ncbind(exp(lb),exp(ub))\n\n\n# Model fit1 using negative binomial\nfit5b &lt;- glm.nb(bites ~ period, data=bites.day)\nsummary(fit5b)\nexp(confint(fit5b))\n\nfit5breduced &lt;- glm.nb(bites ~ period_no4, data = bites.day)\nsummary(fit5breduced)\nanova(fit5breduced, fit5b, test = \"Chisq\")\n\n# Alternative (Wald) confidence intervals with NB\nfit5bcoef &lt;- summary(fit5b)$coefficients[,1]\nfit5bse &lt;- summary(fit5b)$coefficients[,2]\nlb &lt;- fit5bcoef - qnorm(.975)*fit5bse\nub &lt;- fit5bcoef + qnorm(.975)*fit5bse\ncbind(exp(lb),exp(ub))"
+  },
+  {
+    "objectID": "labs/03_bites/FullMoon_fillable.html",
+    "href": "labs/03_bites/FullMoon_fillable.html",
+    "title": "Chapter 4 - Poisson Regression",
+    "section": "",
+    "text": "Is there initial evidence of more bites during full moon phases?\nWhy can’t we just perform a t-test comparing full moon periods to non-full moon periods using period-level data (n=10)?\nWhat options can you think of for handling the fact that Period 5 is based on only 2 lunar days? What are the modeling implications of including number of days in a period as an offset term?\nInterpret model parameters from fit1.\nIs there any evidence of lack of fit in fit1? What factors may lead to lack of fit?\nDoes full moon have an effect above and beyond the linear cycle trend? Interpret the coefficient and a 95% confidence interval for the fullmoon term in fit3.\nWhat is fit4 doing? Does it offer an improvement over fit3?\nWhat evidence is there that fit5 (which uses bitesbyday.csv) is the analysis performed by the authors of this paper?\nBased on this analysis, does it make you more wary of animal bites during full moons?\n\n\n\n\nIs there evidence of lack of fit in fit5? Cite evidence both from a goodness of fit test and from comparing means and variances by period.\nIf overdispersion goes uncorrected, what are implications for p-values and CIs for model coefficients?\n\nOverdispersion parameter adjustment. One solution is to simply add a second parameter to inflate variances, so that Var(Y_i )=φλ_i. This is called a “quasi-Poisson” or, in general, a “quasi-likelihood” approach, because our data no longer follows a true Poisson distribution.\nNegative binomial modeling. Another solution is to model response using a negative binomial distribution, so that Y~NegBinom(θ,p). This distribution comes about if Y|λ~Poisson(λ), but the λ’s themselves are randomly chosen according to a gamma distribution: λ~gamma(θ,(1-p)/p). In this case, E(Y)=θ p/((1-p))=μ and Var(Y)=θ p/〖(1-p)〗^2 =μ+μ^2/θ, so that μ^2/θ is the amount of overdispersion.\n\nCompare the following estimates, tests, and intervals under usual Poisson regression, quasi-Poisson regression, and negative binomial regression:\n\n\n\n\n\n\n\n\n\n\n\nPoisson\nQuasi-poisson\nNegative Binomial\n\n\n\n\n\\(\\phi\\)\n\n\n\n\n\n\\(SE(\\hat{\\beta}_4\\))\n\n\n\n\n\nWald-type test stat\n\n\n\n\n\nWald-type p-value\n\n\n\n\n\nLRT-type test stat\n\n\n\n\n\nLRT-type test stat\n\n\n\n\n\nLRT-type p-value\n\n\n\n\n\nCI - profile for \\(e^{\\beta_4}\\)\n\n\n\n\n\nCI-Wald-type for \\(e^{\\beta_4}\\)"
+  },
+  {
+    "objectID": "labs/03_bites/FullMoon_fillable.html#questions",
+    "href": "labs/03_bites/FullMoon_fillable.html#questions",
+    "title": "Chapter 4 - Poisson Regression",
+    "section": "",
+    "text": "Is there initial evidence of more bites during full moon phases?\nWhy can’t we just perform a t-test comparing full moon periods to non-full moon periods using period-level data (n=10)?\nWhat options can you think of for handling the fact that Period 5 is based on only 2 lunar days? What are the modeling implications of including number of days in a period as an offset term?\nInterpret model parameters from fit1.\nIs there any evidence of lack of fit in fit1? What factors may lead to lack of fit?\nDoes full moon have an effect above and beyond the linear cycle trend? Interpret the coefficient and a 95% confidence interval for the fullmoon term in fit3.\nWhat is fit4 doing? Does it offer an improvement over fit3?\nWhat evidence is there that fit5 (which uses bitesbyday.csv) is the analysis performed by the authors of this paper?\nBased on this analysis, does it make you more wary of animal bites during full moons?\n\n\n\n\nIs there evidence of lack of fit in fit5? Cite evidence both from a goodness of fit test and from comparing means and variances by period.\nIf overdispersion goes uncorrected, what are implications for p-values and CIs for model coefficients?\n\nOverdispersion parameter adjustment. One solution is to simply add a second parameter to inflate variances, so that Var(Y_i )=φλ_i. This is called a “quasi-Poisson” or, in general, a “quasi-likelihood” approach, because our data no longer follows a true Poisson distribution.\nNegative binomial modeling. Another solution is to model response using a negative binomial distribution, so that Y~NegBinom(θ,p). This distribution comes about if Y|λ~Poisson(λ), but the λ’s themselves are randomly chosen according to a gamma distribution: λ~gamma(θ,(1-p)/p). In this case, E(Y)=θ p/((1-p))=μ and Var(Y)=θ p/〖(1-p)〗^2 =μ+μ^2/θ, so that μ^2/θ is the amount of overdispersion.\n\nCompare the following estimates, tests, and intervals under usual Poisson regression, quasi-Poisson regression, and negative binomial regression:\n\n\n\n\n\n\n\n\n\n\n\nPoisson\nQuasi-poisson\nNegative Binomial\n\n\n\n\n\\(\\phi\\)\n\n\n\n\n\n\\(SE(\\hat{\\beta}_4\\))\n\n\n\n\n\nWald-type test stat\n\n\n\n\n\nWald-type p-value\n\n\n\n\n\nLRT-type test stat\n\n\n\n\n\nLRT-type test stat\n\n\n\n\n\nLRT-type p-value\n\n\n\n\n\nCI - profile for \\(e^{\\beta_4}\\)\n\n\n\n\n\nCI-Wald-type for \\(e^{\\beta_4}\\)"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#setup",
+    "href": "slides/04_poisson_ch4.html#setup",
+    "title": "Poisson Regression",
+    "section": "Setup",
+    "text": "Setup"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#learning-goals",
+    "href": "slides/04_poisson_ch4.html#learning-goals",
+    "title": "Poisson Regression",
+    "section": "Learning goals",
+    "text": "Learning goals\n\nDescribe properties of the Poisson random variable\nWrite the Poisson regression model\nDescribe how the Poisson regression differs from least-squares regression\nInterpret the coefficients for the Poisson regression model\nCompare two Poisson regression models"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#scenarios-to-use-poisson-regression",
+    "href": "slides/04_poisson_ch4.html#scenarios-to-use-poisson-regression",
+    "title": "Poisson Regression",
+    "section": "Scenarios to use Poisson regression",
+    "text": "Scenarios to use Poisson regression\n\nDoes the number of employers conducting on-campus interviews during a year differ for public and private colleges?\nDoes the daily number of asthma-related visits to an Emergency Room differ depending on air pollution indices?\nDoes the number of paint defects per square foot of wall differ based on the years of experience of the painter?\n\n\nEach response variable is a count per a unit of time or space."
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#poisson-distribution",
+    "href": "slides/04_poisson_ch4.html#poisson-distribution",
+    "title": "Poisson Regression",
+    "section": "Poisson distribution",
+    "text": "Poisson distribution\nLet \\(Y\\) be the number of events in a given unit of time or space. Then \\(Y\\) can be modeled using a Poisson distribution\n\n\\[P(Y=y) = \\frac{e^{-\\lambda}\\lambda^y}{y!} \\hspace{10mm} y=0,1,2,\\ldots, \\infty\\]"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#poisson-features",
+    "href": "slides/04_poisson_ch4.html#poisson-features",
+    "title": "Poisson Regression",
+    "section": "Poisson Features",
+    "text": "Poisson Features\n\n\\(E(Y) = Var(Y) = \\lambda\\)\nThe distribution is typically skewed right, particularly if \\(\\lambda\\) is small\nThe distribution becomes more symmetric as \\(\\lambda\\) increases\n\nIf \\(\\lambda\\) is sufficiently large, it can be approximated using a normal distribution (Click here for an example.)"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#poisson-graphs",
+    "href": "slides/04_poisson_ch4.html#poisson-graphs",
+    "title": "Poisson Regression",
+    "section": "Poisson Graphs",
+    "text": "Poisson Graphs\n\nGraphsTable\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMean\nVariance\n\n\n\n\nlambda = 1\n0.99351\n0.9902178\n\n\nlambda = 5\n4.99367\n4.9865798\n\n\nlambda = 50\n49.99288\n49.8962683"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#example",
+    "href": "slides/04_poisson_ch4.html#example",
+    "title": "Poisson Regression",
+    "section": "Example",
+    "text": "Example\nThe annual number of earthquakes registering at least 2.5 on the Richter Scale and having an epicenter within 40 miles of downtown Memphis follows a Poisson distribution with mean 6.5. What is the probability there will be at 3 or fewer such earthquakes next year?\n\n\\[P(Y \\leq 3) = P(Y = 0) + P(Y = 1) + P(Y = 2) + P(Y = 3)\\]\n\\[ = \\frac{e^{-6.5}6.5^0}{0!} + \\frac{e^{-6.5}6.5^1}{1!} + \\frac{e^{-6.5}6.5^2}{2!} + \\frac{e^{-6.5}6.5^3}{3!}\\]\n\\[ = 0.112\\]\n\n\n\nppois(3, 6.5)\n\n[1] 0.1118496\n\n\n\n\n\nExample adapted from Introduction to Probability Theory Example 28-2"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#poisson-regression-1",
+    "href": "slides/04_poisson_ch4.html#poisson-regression-1",
+    "title": "Poisson Regression",
+    "section": "Poisson regression",
+    "text": "Poisson regression\nThe data: Household size in the Philippines\n\nThe data fHH1.csv come from the 2015 Family Income and Expenditure Survey conducted by the Philippine Statistics Authority.\nGoal: Understand the association between household size and various characteristics of the household\nResponse: - total: Number of people in the household other than the head\n\n\nPredictors: - location: Where the house is located - age: Age of the head of household - roof: Type of roof on the residence (proxy for wealth)\n\nOther variables: - numLT5: Number in the household under 5 years old"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#the-data",
+    "href": "slides/04_poisson_ch4.html#the-data",
+    "title": "Poisson Regression",
+    "section": "The data",
+    "text": "The data\n\nhh_data &lt;- read_csv(\"data/fHH1.csv\")\nhh_data |&gt; slice(1:5) |&gt; kable()\n\n\n\n\nlocation\nage\ntotal\nnumLT5\nroof\n\n\n\n\nCentralLuzon\n65\n0\n0\nPredominantly Strong Material\n\n\nMetroManila\n75\n3\n0\nPredominantly Strong Material\n\n\nDavaoRegion\n54\n4\n0\nPredominantly Strong Material\n\n\nVisayas\n49\n3\n0\nPredominantly Strong Material\n\n\nMetroManila\n74\n3\n0\nPredominantly Strong Material"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#response-variable",
+    "href": "slides/04_poisson_ch4.html#response-variable",
+    "title": "Poisson Regression",
+    "section": "Response variable",
+    "text": "Response variable\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmean\nvar\n\n\n\n\n3.685\n5.534"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#why-the-least-squares-model-doesnt-work",
+    "href": "slides/04_poisson_ch4.html#why-the-least-squares-model-doesnt-work",
+    "title": "Poisson Regression",
+    "section": "Why the least-squares model doesn’t work",
+    "text": "Why the least-squares model doesn’t work\nThe goal is to model \\(\\lambda\\), the expected number of people in the household (other than the head), as a function of the predictors (covariates)\n\nWe might be tempted to try a linear model \\[\\lambda_i = \\beta_0 + \\beta_1x_{i1} + \\beta_2x_{i2} + \\dots + \\beta_px_{ip}\\]\n\n\nThis model won’t work because…\n\nIt could produce negative values of \\(\\lambda\\) for certain values of the predictors\nThe equal variance assumption required to conduct inference for linear regression is violated."
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#poisson-regression-model",
+    "href": "slides/04_poisson_ch4.html#poisson-regression-model",
+    "title": "Poisson Regression",
+    "section": "Poisson regression model",
+    "text": "Poisson regression model\nIf \\(Y_i \\sim Poisson\\) with \\(\\lambda = \\lambda_i\\) for the given values \\(x_{i1}, \\ldots, x_{ip}\\), then\n\\[\\log(\\lambda_i) = \\beta_0 + \\beta_1 x_{i1} + \\beta_2 x_{i2} + \\dots + \\beta_p x_{ip}\\]\n\nEach observation can have a different value of \\(\\lambda\\) based on its value of the predictors \\(x_1, \\ldots, x_p\\)\n\\(\\lambda\\) determines the mean and variance, so we don’t need to estimate a separate error term"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#poisson-vs.-multiple-linear-regression",
+    "href": "slides/04_poisson_ch4.html#poisson-vs.-multiple-linear-regression",
+    "title": "Poisson Regression",
+    "section": "Poisson vs. multiple linear regression",
+    "text": "Poisson vs. multiple linear regression\n\n\n\n\n\nRegression models: Linear regression (left) and Poisson regression (right).\n\n\n\n\n\n\nFrom BMLR Figure 4.1"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#assumptions-for-poisson-regression",
+    "href": "slides/04_poisson_ch4.html#assumptions-for-poisson-regression",
+    "title": "Poisson Regression",
+    "section": "Assumptions for Poisson regression",
+    "text": "Assumptions for Poisson regression\n\n\nPoisson response: The response variable is a count per unit of time or space, described by a Poisson distribution, at each level of the predictor(s)\nIndependence: The observations must be independent of one another\nMean = Variance: The mean must equal the variance\nLinearity: The log of the mean rate, \\(\\log(\\lambda)\\), must be a linear function of the predictor(s)"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#model-1-number-in-household-vs.-age",
+    "href": "slides/04_poisson_ch4.html#model-1-number-in-household-vs.-age",
+    "title": "Poisson Regression",
+    "section": "Model 1: Number in household vs. age",
+    "text": "Model 1: Number in household vs. age\n\nmodel1 &lt;- glm(total ~ age, data = hh_data, family = poisson)\n\ntidy(model1) |&gt; \n  kable(digits = 4)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n1.5499\n0.0503\n30.8290\n0\n\n\nage\n-0.0047\n0.0009\n-5.0258\n0\n\n\n\n\n\n\\[\\log(\\hat{\\lambda}) = 1.5499  - 0.0047 ~ age\\]\n\nQuestion: The coefficient for age is -0.0047. Interpret this coefficient in context."
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#understanding-the-interpretation",
+    "href": "slides/04_poisson_ch4.html#understanding-the-interpretation",
+    "title": "Poisson Regression",
+    "section": "Understanding the interpretation",
+    "text": "Understanding the interpretation\nLet’s derive the change in predicted mean when we go from \\(x\\) to \\(x+1\\)\n(see boardwork)"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#is-the-coefficient-of-age-statistically-significant",
+    "href": "slides/04_poisson_ch4.html#is-the-coefficient-of-age-statistically-significant",
+    "title": "Poisson Regression",
+    "section": "Is the coefficient of age statistically significant?",
+    "text": "Is the coefficient of age statistically significant?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n1.5499\n0.0503\n30.8290\n0\n1.4512\n1.6482\n\n\nage\n-0.0047\n0.0009\n-5.0258\n0\n-0.0065\n-0.0029\n\n\n\n\n\n\\[H_0: \\beta_1 = 0 \\hspace{2mm} \\text{ vs. } \\hspace{2mm} H_a: \\beta_1 \\neq 0\\]\n\nTest statistic\n\\[Z = \\frac{\\hat{\\beta}_1 - 0}{SE(\\hat{\\beta}_1)} = \\frac{-0.0047 - 0}{0.0009} = -5.026 \\text{ (using exact values)}\\]\n\n\nP-value\n\\[P(|Z| &gt; |-5.026|) = 5.01 \\times 10^{-7} \\approx 0\\]"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#what-are-plausible-values-for-the-coefficient-of-age",
+    "href": "slides/04_poisson_ch4.html#what-are-plausible-values-for-the-coefficient-of-age",
+    "title": "Poisson Regression",
+    "section": "What are plausible values for the coefficient of age?",
+    "text": "What are plausible values for the coefficient of age?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n1.5499\n0.0503\n30.8290\n0\n1.4512\n1.6482\n\n\nage\n-0.0047\n0.0009\n-5.0258\n0\n-0.0065\n-0.0029\n\n\n\n\n\n95% confidence interval for the coefficient of age\n\\[\\hat{\\beta}_1 \\pm Z^{*}\\times SE(\\hat{\\beta}_1)\\] \\[-0.0047 \\pm 1.96 \\times 0.0009 = \\mathbf{(-.0065, -0.0029)}\\]\n\nQuestion: Interpret the interval in terms of the change in mean household size."
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#model-2-add-a-quadratic-effect-for-age",
+    "href": "slides/04_poisson_ch4.html#model-2-add-a-quadratic-effect-for-age",
+    "title": "Poisson Regression",
+    "section": "Model 2: Add a quadratic effect for age",
+    "text": "Model 2: Add a quadratic effect for age\n\nhh_data &lt;- hh_data |&gt; \n  mutate(age2 = age*age)\n\nmodel2 &lt;- glm(total ~ age + age2, data = hh_data, family = poisson)\ntidy(model2, conf.int = T) |&gt; \n  kable(digits = 4)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-0.3325\n0.1788\n-1.8594\n0.063\n-0.6863\n0.0148\n\n\nage\n0.0709\n0.0069\n10.2877\n0.000\n0.0575\n0.0845\n\n\nage2\n-0.0007\n0.0001\n-11.0578\n0.000\n-0.0008\n-0.0006"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#model-2-add-a-quadratic-effect-for-age-1",
+    "href": "slides/04_poisson_ch4.html#model-2-add-a-quadratic-effect-for-age-1",
+    "title": "Poisson Regression",
+    "section": "Model 2: Add a quadratic effect for age",
+    "text": "Model 2: Add a quadratic effect for age\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-0.3325\n0.1788\n-1.8594\n0.063\n-0.6863\n0.0148\n\n\nage\n0.0709\n0.0069\n10.2877\n0.000\n0.0575\n0.0845\n\n\nage2\n-0.0007\n0.0001\n-11.0578\n0.000\n-0.0008\n-0.0006\n\n\n\n\n\nWe can determine whether to keep \\(age^2\\) in the model in two ways:\n1️⃣ Use the p-value (or confidence interval) for the coefficient (since we are adding a single term to the model)\n2️⃣ Conduct a drop-in-deviance test"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#deviance",
+    "href": "slides/04_poisson_ch4.html#deviance",
+    "title": "Poisson Regression",
+    "section": "Deviance",
+    "text": "Deviance\nA deviance is a way to measure how the observed data deviates from the model predictions.\n\nIt’s a measure unexplained variability in the response variable (similar to SSE in linear regression )\nLower deviance means the model is a better fit to the data\n\n\nWe can calculate the “deviance residual” for each observation in the data (more on the formula later). Let \\((\\text{deviance residual}_i\\) be the deviance residual for the \\(i^{th}\\) observation, then\n\\[\\text{deviance} = \\sum(\\text{deviance residual})_i^2\\]\n\n\nNote: Deviance is also known as the “residual deviance”"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#drop-in-deviance-test",
+    "href": "slides/04_poisson_ch4.html#drop-in-deviance-test",
+    "title": "Poisson Regression",
+    "section": "Drop-in-Deviance Test",
+    "text": "Drop-in-Deviance Test\nWe can use a drop-in-deviance test to compare two models. To conduct the test\n1️⃣ Compute the deviance for each model\n2️⃣ Calculate the drop in deviance\n\\[\\text{drop-in-deviance =  Deviance(reduced model) - Deviance(larger model)}\\]\n\n3️⃣ Given the reduced model is the true model \\((H_0 \\text{ true})\\), then \\[\\text{drop-in-deviance} \\sim \\chi_d^2\\]\nwhere \\(d\\) is the difference in degrees of freedom between the two models (i.e., the difference in number of terms)"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#drop-in-deviance-to-compare-model1-and-model2",
+    "href": "slides/04_poisson_ch4.html#drop-in-deviance-to-compare-model1-and-model2",
+    "title": "Poisson Regression",
+    "section": "Drop-in-deviance to compare Model1 and Model2",
+    "text": "Drop-in-deviance to compare Model1 and Model2\n\nanova(model1, model2, test = \"Chisq\") %&gt;%\n  kable(digits = 3)\n\n\n\n\nResid. Df\nResid. Dev\nDf\nDeviance\nPr(&gt;Chi)\n\n\n\n\n1498\n2337.089\nNA\nNA\nNA\n\n\n1497\n2200.944\n1\n136.145\n0\n\n\n\n\n\n\nQuestions: - Write the null and alternative hypotheses. - What does the value 2337.089 tell you? - What does the value 1 tell you? - What is your conclusion?"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#add-location-to-the-model",
+    "href": "slides/04_poisson_ch4.html#add-location-to-the-model",
+    "title": "Poisson Regression",
+    "section": "Add location to the model?",
+    "text": "Add location to the model?\nSuppose we want to add location to the model, so we compare the following models:\nModel A: \\(\\lambda_i = \\beta_0 + \\beta_1 ~ age_i + \\beta_2 ~ age_i^2\\)\nModel B: \\(\\lambda_i =  \\beta_0 + \\beta_1 ~ age_i + \\beta_2 ~ age_i^2 + \\beta_3 ~ Loc1_i + \\beta_4 ~ Loc2_i + \\beta_5 ~ Loc3_i + \\beta_6 ~ Loc4_i\\)"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#question",
+    "href": "slides/04_poisson_ch4.html#question",
+    "title": "Poisson Regression",
+    "section": "Question",
+    "text": "Question\nWhich of the following are reliable ways to determine if location should be added to the model?\n\n\nDrop-in-deviance test\nUse the p-value for each coefficient\nLikelihood ratio test\nNested F Test\nBIC"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#which-plot-can-best-help-us-determine-whether-model-1-is-a-good-fit",
+    "href": "slides/04_poisson_ch4.html#which-plot-can-best-help-us-determine-whether-model-1-is-a-good-fit",
+    "title": "Poisson Regression",
+    "section": "Which plot can best help us determine whether Model 1 is a good fit?",
+    "text": "Which plot can best help us determine whether Model 1 is a good fit?"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#drop-in-deviance---model1-and-model2",
+    "href": "slides/04_poisson_ch4.html#drop-in-deviance---model1-and-model2",
+    "title": "Poisson Regression",
+    "section": "Drop-in-deviance - Model1 and Model2",
+    "text": "Drop-in-deviance - Model1 and Model2\n\nanova(model1, model2, test = \"Chisq\") |&gt;\n  kable(digits = 3)\n\n\n\n\nResid. Df\nResid. Dev\nDf\nDeviance\nPr(&gt;Chi)\n\n\n\n\n1498\n2337.089\nNA\nNA\nNA\n\n\n1497\n2200.944\n1\n136.145\n0\n\n\n\n\n\n\nQuestions:\n\nWrite the null and alternative hypotheses.\nWhat does the value 2337.089 tell you?\nWhat does the value 1 tell you?\nWhat is your conclusion?"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#learning-goals-12",
+    "href": "slides/04_poisson_ch4.html#learning-goals-12",
+    "title": "Poisson Regression",
+    "section": "Learning goals (1/2)",
+    "text": "Learning goals (1/2)\n\nDescribe properties of the Poisson random variable\nWrite the Poisson regression model\nDescribe how the Poisson regression differs from least-squares regression\nInterpret the coefficients for the Poisson regression model\nCompare two Poisson regression models\nDefine and calculate residuals for the Poisson regression model\nUse Goodness-of-fit to assess model fit"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#learning-goals-22",
+    "href": "slides/04_poisson_ch4.html#learning-goals-22",
+    "title": "Poisson Regression",
+    "section": "Learning goals (2/2)",
+    "text": "Learning goals (2/2)\n\nIdentify overdispersion\nApply modeling approaches to deal with overdispersion\nExplore properties of negative binomial versus Poisson response\nFit and interpret models with offset to adjust for differences in sampling effort\nFit and interpret Zero-inflated Poisson models\nWrite likelihood for Poisson and Zero-inflated Poisson model"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#add-location-to-the-model-1",
+    "href": "slides/04_poisson_ch4.html#add-location-to-the-model-1",
+    "title": "Poisson Regression",
+    "section": "Add location to the model?",
+    "text": "Add location to the model?\n\nmodel3 &lt;- glm(total ~ age + age2 + location, data = hh_data, family = poisson)\n\n\nUse a drop-in-deviance test to determine if Model 2 or Model 3 (with location) is a better fit for the data.\n\n\n\nanova(model2, model3, test = \"Chisq\") |&gt;\n  kable(digits = 3)\n\n\n\n\nResid. Df\nResid. Dev\nDf\nDeviance\nPr(&gt;Chi)\n\n\n\n\n1497\n2200.944\nNA\nNA\nNA\n\n\n1493\n2187.800\n4\n13.144\n0.011\n\n\n\n\n\nThe p-value is small (0.01 &lt; 0.05), so we conclude that Model 3 is a better fit for the data."
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#model-3",
+    "href": "slides/04_poisson_ch4.html#model-3",
+    "title": "Poisson Regression",
+    "section": "Model 3",
+    "text": "Model 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-0.3843\n0.1821\n-2.1107\n0.0348\n-0.7444\n-0.0306\n\n\nage\n0.0704\n0.0069\n10.1900\n0.0000\n0.0569\n0.0840\n\n\nage2\n-0.0007\n0.0001\n-10.9437\n0.0000\n-0.0008\n-0.0006\n\n\nlocationDavaoRegion\n-0.0194\n0.0538\n-0.3605\n0.7185\n-0.1250\n0.0859\n\n\nlocationIlocosRegion\n0.0610\n0.0527\n1.1580\n0.2468\n-0.0423\n0.1641\n\n\nlocationMetroManila\n0.0545\n0.0472\n1.1542\n0.2484\n-0.0378\n0.1473\n\n\nlocationVisayas\n0.1121\n0.0417\n2.6853\n0.0072\n0.0308\n0.1945\n\n\n\n\n\n\nDoes this model sufficiently explain the variability in the mean household size?"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#pearson-residuals",
+    "href": "slides/04_poisson_ch4.html#pearson-residuals",
+    "title": "Poisson Regression",
+    "section": "Pearson residuals",
+    "text": "Pearson residuals\nWe can calculate two types of residuals for Poisson regression: Pearson residuals and deviance residuals\n\n\\[\\text{Pearson residual}_i = \\frac{\\text{observed} - \\text{predicted}}{\\text{std. error}} = \\frac{y_i - \\hat{\\lambda}_i}{\\sqrt{\\hat{\\lambda}_i}}\\]\n\n\n\nSimilar interpretation as standardized residuals from linear regression\nExpect most to fall between -2 and 2\nUsed to calculate overdispersion parameter"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#deviance-residuals",
+    "href": "slides/04_poisson_ch4.html#deviance-residuals",
+    "title": "Poisson Regression",
+    "section": "Deviance residuals",
+    "text": "Deviance residuals\nThe deviance residual indicates how much the observed data deviates from the fitted model\n\\[\\text{deviance residual}_i = \\text{sign}(y_i - \\hat{\\lambda}_i)\\sqrt{2\\Bigg[y_i\\log\\bigg(\\frac{y_i}{\\hat{\\lambda}_i}\\bigg) - (y_i - \\hat{\\lambda}_i)\\Bigg]}\\]\nwhere\n\\[\\text{sign}(y_i - \\hat{\\lambda}_i)  =  \\begin{cases}\n1 & \\text{ if }(y_i - \\hat{\\lambda}_i) &gt; 0 \\\\\n-1 & \\text{ if }(y_i - \\hat{\\lambda}_i) &lt; 0 \\\\\n0 & \\text{ if }(y_i - \\hat{\\lambda}_i) = 0\n\\end{cases}\\]"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#model-3-residual-plots",
+    "href": "slides/04_poisson_ch4.html#model-3-residual-plots",
+    "title": "Poisson Regression",
+    "section": "Model 3: Residual plots",
+    "text": "Model 3: Residual plots\n\nmodel3_aug_pearson &lt;- augment(model3, type.residuals = \"pearson\") \nmodel3_aug_deviance &lt;- augment(model3, type.residuals = \"deviance\")\n\n\nPlotsCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\np1 &lt;- ggplot(data = model3_aug_pearson, aes(x = .fitted, y = .resid)) + \n  geom_point()  + \n  geom_smooth() + \n  labs(x = \"Fitted values\", \n       y = \"Pearson residuals\", \n       title = \"Pearson residuals vs. fitted\")\n\np2 &lt;-  ggplot(data = model3_aug_deviance, aes(x = .fitted, y = .resid)) + \n  geom_point()  + \n  geom_smooth() + \n  labs(x = \"Fitted values\", \n       y = \"Deviance residuals\", \n       title = \"Deviance residuals vs. fitted\")\n\np1 + p2"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#goodness-of-fit-1",
+    "href": "slides/04_poisson_ch4.html#goodness-of-fit-1",
+    "title": "Poisson Regression",
+    "section": "Goodness-of-fit",
+    "text": "Goodness-of-fit\n\nGoal: Use the (residual) deviance to assess how much the predicted values differ from the observed values. Recall \\((\\text{deviance}) = \\sum_{i=1}^{n}(\\text{deviance residual})_i^2\\)\nIf the model sufficiently fits the data, then\n\n\\[\\text{deviance} \\sim \\chi^2_{df}\\]\nwhere \\(df\\) is the model’s residual degrees of freedom\n\n\nQuestion: What is the probability of observing a deviance larger than the one we’ve observed, given this model sufficiently fits the data?\n\n\n\n\\[P(\\chi^2_{df} &gt; \\text{ deviance})\\]"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#model-3-goodness-of-fit-calculations",
+    "href": "slides/04_poisson_ch4.html#model-3-goodness-of-fit-calculations",
+    "title": "Poisson Regression",
+    "section": "Model 3: Goodness-of-fit calculations",
+    "text": "Model 3: Goodness-of-fit calculations\n\nmodel3$deviance\n\n[1] 2187.8\n\nmodel3$df.residual\n\n[1] 1493\n\n\n\npchisq(model3$deviance, model3$df.residual, lower.tail = FALSE)\n\n[1] 3.153732e-29\n\n\nThe probability of observing a deviance greater than 2187.8 is \\(\\approx 0\\), so there is significant evidence of lack-of-fit."
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#lack-of-fit",
+    "href": "slides/04_poisson_ch4.html#lack-of-fit",
+    "title": "Poisson Regression",
+    "section": "Lack-of-fit",
+    "text": "Lack-of-fit\nThere are a few potential reasons for lack-of-fit:\n\nMissing important interactions or higher-order terms\nMissing important variables (perhaps this means a more comprehensive data set is required)\nThere could be extreme observations causing the deviance to be larger than expected (assess based on the residual plots)\nThere could be a problem with the Poisson model\n\nMay need more flexibility in the model to handle overdispersion"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#overdispersion",
+    "href": "slides/04_poisson_ch4.html#overdispersion",
+    "title": "Poisson Regression",
+    "section": "Overdispersion",
+    "text": "Overdispersion\nOverdispersion: There is more variability in the response than what is implied by the Poisson model\n\n\nOverall\n\n\n\n\n\nmean\nvar\n\n\n\n\n3.685\n5.534\n\n\n\n\n\n\nby Location\n\n\n\n\n\nlocation\nmean\nvar\n\n\n\n\nCentralLuzon\n3.402\n4.152\n\n\nDavaoRegion\n3.390\n4.723\n\n\nIlocosRegion\n3.586\n5.402\n\n\nMetroManila\n3.707\n4.863\n\n\nVisayas\n3.902\n6.602"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#why-overdispersion-matters",
+    "href": "slides/04_poisson_ch4.html#why-overdispersion-matters",
+    "title": "Poisson Regression",
+    "section": "Why overdispersion matters",
+    "text": "Why overdispersion matters\nIf there is overdispersion, then there is more variation in the response than what’s implied by a Poisson model. This means\n❌ The standard errors of the model coefficients are artificially small\n❌ The p-values are artificially small\n❌ This could lead to models that are more complex than what is needed\n\nWe can take overdispersion into account by\n\ninflating standard errors by multiplying them by a dispersion factor\nusing a negative-binomial regression model"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#dispersion-parameter",
+    "href": "slides/04_poisson_ch4.html#dispersion-parameter",
+    "title": "Poisson Regression",
+    "section": "Dispersion parameter",
+    "text": "Dispersion parameter\nThe dispersion parameter is represented by \\(\\phi\\)\n\\[\\hat{\\phi} =\\frac{\\text{deviance}}{\\text{residual df}} = \\frac{\\sum_{i=1}^{n}(\\text{Pearson residuals})^2}{n - p}\\]\nwhere \\(p\\) is the number of terms in the model (including the intercept)\n\nIf there is no overdispersion \\(\\hat{\\phi} = 1\\)\nIf there is overdispersion \\(\\hat{\\phi} &gt;  1\\)"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#accounting-for-dispersion-in-the-model",
+    "href": "slides/04_poisson_ch4.html#accounting-for-dispersion-in-the-model",
+    "title": "Poisson Regression",
+    "section": "Accounting for dispersion in the model",
+    "text": "Accounting for dispersion in the model\nWe inflate the standard errors of the coefficient by multiplying the variance by \\(\\hat{\\phi}\\)\n\n\\[SE_{Q}(\\hat{\\beta}) = \\sqrt{\\hat{\\phi}}  * SE(\\hat{\\beta})\\] - “Q” stands for quasi-Poisson, since this is an ad-hoc solution - The process for model building and model comparison is called quasilikelihood (similar to likelihood without exact underlying distributions)"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#model-3-quasi-poisson-model",
+    "href": "slides/04_poisson_ch4.html#model-3-quasi-poisson-model",
+    "title": "Poisson Regression",
+    "section": "Model 3: Quasi-Poisson model",
+    "text": "Model 3: Quasi-Poisson model\n\nmodel3_q &lt;- glm(total ~ age + age2 + location, data = hh_data, \n                family = quasipoisson) #&lt;&lt;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-0.3843\n0.2166\n-1.7744\n0.0762\n-0.8134\n0.0358\n\n\nage\n0.0704\n0.0082\n8.5665\n0.0000\n0.0544\n0.0866\n\n\nage2\n-0.0007\n0.0001\n-9.2000\n0.0000\n-0.0009\n-0.0006\n\n\nlocationDavaoRegion\n-0.0194\n0.0640\n-0.3030\n0.7619\n-0.1451\n0.1058\n\n\nlocationIlocosRegion\n0.0610\n0.0626\n0.9735\n0.3304\n-0.0620\n0.1837\n\n\nlocationMetroManila\n0.0545\n0.0561\n0.9703\n0.3320\n-0.0552\n0.1649\n\n\nlocationVisayas\n0.1121\n0.0497\n2.2574\n0.0241\n0.0156\n0.2103"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#poisson-vs.-quasi-poisson-models",
+    "href": "slides/04_poisson_ch4.html#poisson-vs.-quasi-poisson-models",
+    "title": "Poisson Regression",
+    "section": "Poisson vs. Quasi-Poisson models",
+    "text": "Poisson vs. Quasi-Poisson models\n\n\nPoisson\n\n\n\n\n\nterm\nestimate\nstd.error\n\n\n\n\n(Intercept)\n-0.3843\n0.1821\n\n\nage\n0.0704\n0.0069\n\n\nage2\n-0.0007\n0.0001\n\n\nlocationDavaoRegion\n-0.0194\n0.0538\n\n\nlocationIlocosRegion\n0.0610\n0.0527\n\n\nlocationMetroManila\n0.0545\n0.0472\n\n\nlocationVisayas\n0.1121\n0.0417\n\n\n\n\n\n\nQuasi-Poisson\n\n\n\n\n\nestimate\nstd.error\n\n\n\n\n-0.3843\n0.2166\n\n\n0.0704\n0.0082\n\n\n-0.0007\n0.0001\n\n\n-0.0194\n0.0640\n\n\n0.0610\n0.0626\n\n\n0.0545\n0.0561\n\n\n0.1121\n0.0497"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#quasi-poisson-inference-for-coefficients",
+    "href": "slides/04_poisson_ch4.html#quasi-poisson-inference-for-coefficients",
+    "title": "Poisson Regression",
+    "section": "Quasi-Poisson: Inference for coefficients",
+    "text": "Quasi-Poisson: Inference for coefficients\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\n\n\n\n\n(Intercept)\n-0.3843\n0.2166\n\n\nage\n0.0704\n0.0082\n\n\nage2\n-0.0007\n0.0001\n\n\nlocationDavaoRegion\n-0.0194\n0.0640\n\n\nlocationIlocosRegion\n0.0610\n0.0626\n\n\nlocationMetroManila\n0.0545\n0.0561\n\n\nlocationVisayas\n0.1121\n0.0497\n\n\n\n\n\n\nTest statistic \\[t = \\frac{\\hat{\\beta} - 0}{SE_{Q}(\\hat{\\beta})} \\sim t_{n-p}\\]"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#negative-binomial-regression-model-1",
+    "href": "slides/04_poisson_ch4.html#negative-binomial-regression-model-1",
+    "title": "Poisson Regression",
+    "section": "Negative binomial regression model",
+    "text": "Negative binomial regression model\nAnother approach to handle overdispersion is to use a negative binomial regression model\n\nThis has more flexibility than the quasi-Poisson model, because there is a new parameter in addition to \\(\\lambda\\)\n\n\n\nLet \\(Y\\) be a negative binomial random variable, \\(Y\\sim NegBinom(r, p)\\), then\n\\[P(Y = y_i) = {y_i + r - 1 \\choose r - 1}(1-p)^{y_i}p^r \\hspace{5mm} y_i = 0, 1, 2, \\ldots, \\infty\\]"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#negative-binomial-regression-model-2",
+    "href": "slides/04_poisson_ch4.html#negative-binomial-regression-model-2",
+    "title": "Poisson Regression",
+    "section": "Negative binomial regression model",
+    "text": "Negative binomial regression model\n\nMain idea: Generate a \\(\\lambda\\) for each observation (household) and generate a count using the Poisson random variable with parameter \\(\\lambda\\)\n\nMakes the counts more dispersed than with a single parameter\n\nThink of it as a Poisson model such that \\(\\lambda\\) is also random\n\n\n\\(\\begin{aligned} &\\text{If }Y|\\lambda \\sim Poisson(\\lambda)\\\\\n&\\text{ and } \\lambda \\sim Gamma\\bigg(r, \\frac{1-p}{p}\\bigg)\\\\\n&\\text{ then } Y \\sim NegBinom(r, p)\\end{aligned}\\)"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#negative-binomial-regression-in-r",
+    "href": "slides/04_poisson_ch4.html#negative-binomial-regression-in-r",
+    "title": "Poisson Regression",
+    "section": "Negative binomial regression in R",
+    "text": "Negative binomial regression in R\n\nlibrary(MASS)\nmodel3_nb &lt;- glm.nb(total ~ age + age2 + location, data = hh_data)\ntidy(model3_nb) |&gt; \n  kable(digits = 4)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.3753\n0.2076\n-1.8081\n0.0706\n\n\nage\n0.0699\n0.0079\n8.8981\n0.0000\n\n\nage2\n-0.0007\n0.0001\n-9.5756\n0.0000\n\n\nlocationDavaoRegion\n-0.0219\n0.0625\n-0.3501\n0.7262\n\n\nlocationIlocosRegion\n0.0577\n0.0615\n0.9391\n0.3477\n\n\nlocationMetroManila\n0.0562\n0.0551\n1.0213\n0.3071\n\n\nlocationVisayas\n0.1104\n0.0487\n2.2654\n0.0235"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#data-airbnbs-in-nyc",
+    "href": "slides/04_poisson_ch4.html#data-airbnbs-in-nyc",
+    "title": "Poisson Regression",
+    "section": "Data: Airbnbs in NYC",
+    "text": "Data: Airbnbs in NYC\nThe data set NYCairbnb-sample.csv contains information about a random sample of 1000 Airbnbs in New York City. It is a subset of the data on 40628 Airbnbs scraped by Awad et al. (2017).\nVariables\n\nnumber_of_reviews: Number of reviews for the unit on Airbnb (proxy for number of rentals)\nprice: price per night in US dollars\nroom_type: Entire home/apartment, private room, or shared room\ndays: Number of days the unit has been listed (date when info scraped - date when unit first listed on Airbnb)\n\n\n\nData set pulled from BMLR Section 4.11.3."
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#data-airbnbs-in-nyc-1",
+    "href": "slides/04_poisson_ch4.html#data-airbnbs-in-nyc-1",
+    "title": "Poisson Regression",
+    "section": "Data: Airbnbs in NYC",
+    "text": "Data: Airbnbs in NYC\n\nairbnb &lt;- read_csv(\"data/NYCairbnb-sample.csv\") |&gt;\n  dplyr::select(id, number_of_reviews, days, room_type, price)\n\n\n\n\n\n\nid\nnumber_of_reviews\ndays\nroom_type\nprice\n\n\n\n\n15756544\n16\n1144\nPrivate room\n120\n\n\n14218251\n15\n471\nPrivate room\n89\n\n\n21644\n0\n2600\nPrivate room\n89\n\n\n13667835\n1\n283\nEntire home/apt\n150\n\n\n265912\n0\n1970\nEntire home/apt\n89\n\n\n\n\n\nGoal: Use the price and room type of Airbnbs to describe variation in the number of reviews (a proxy for number of rentals)."
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#eda",
+    "href": "slides/04_poisson_ch4.html#eda",
+    "title": "Poisson Regression",
+    "section": "EDA",
+    "text": "EDA\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\np1 &lt;- ggplot(data = airbnb, aes(x = number_of_reviews)) + \n  geom_histogram() + \n   labs(x = \"Number of reviews\",\n    title = \"Distribution of number of reviews\")\n\np2 &lt;- airbnb |&gt;\n  filter(price &lt;= 2000) |&gt;\n  group_by(price) |&gt;\n  summarise(log_mean = log(mean(number_of_reviews))) |&gt;\n  ggplot(aes(x = price, y = log_mean)) + \n  geom_point(alpha= 0.7) + \n  geom_smooth() + \n  labs(x = \"Price in  US dollars\",\n    y = \"Log(mean # reviews)\", \n    title = \"Log mean #  of reviews vs. price\", \n    subtitle = \"Airbnbs $2000 or less\")\n\np3 &lt;- airbnb |&gt;\n  filter(price &lt;= 500) |&gt;\n  group_by(price) |&gt;\n  summarise(log_mean = log(mean(number_of_reviews))) |&gt;\n  ggplot(aes(x = price, y = log_mean)) + \n  geom_point(alpha= 0.7) + \n  geom_smooth() + \n  labs(x = \"Price in  US dollars\",\n    y = \"Log(mean # reviews)\", \n    title = \"Log mean # of reviews vs. price\", \n    subtitle = \"Airbnbs $500 or less\")\n\np1  / (p2 + p3)"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#eda-1",
+    "href": "slides/04_poisson_ch4.html#eda-1",
+    "title": "Poisson Regression",
+    "section": "EDA",
+    "text": "EDA\n\n\nOverall\n\n\n\n\n\nmean\nvar\n\n\n\n\n15.916\n765.969\n\n\n\n\n\n\nby Room type\n\n\n\n\n\nroom_type\nmean\nvar\n\n\n\n\nEntire home/apt\n16.283\n760.348\n\n\nPrivate room\n15.608\n786.399\n\n\nShared room\n15.028\n605.971"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#considerations-for-modeling",
+    "href": "slides/04_poisson_ch4.html#considerations-for-modeling",
+    "title": "Poisson Regression",
+    "section": "Considerations for modeling",
+    "text": "Considerations for modeling\nWe would like to fit the Poisson regression model\n\\[\\log(\\lambda) = \\beta_0 + \\beta_1 ~ price + \\beta_2 ~ room\\_type1 + \\beta_3 ~ room\\_type2\\]\n\nQuestion: - Based on the EDA, what are some potential issues we may want to address in the model building?\n\nSuppose any model fit issues are addressed. What are some potential limitations to the conclusions and interpretations from the model?"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#offset",
+    "href": "slides/04_poisson_ch4.html#offset",
+    "title": "Poisson Regression",
+    "section": "Offset",
+    "text": "Offset\n\nSometimes counts are not directly comparable because the observations differ based on some characteristic directly related to the counts, i.e. the sampling effort.\nAn offset can be used to adjust for differences in sampling effort.\n\n\n\nLet \\(x_{offset}\\) be the variable that accounts for differences in sampling effort, then \\(\\log(x_{offset})\\) will be added to the model.\n\n\n\n\\(\\log(\\lambda_i) = \\beta_0 + \\beta_1 ~ x_{i1} + \\beta_2 ~ x_{i2} + ... + \\beta_p ~ x_{ip} + \\log(x_{offset_i})\\)\n\nThe offset is a term in the model with coefficient always equal to 1."
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#adding-an-offset-to-the-airbnb-model",
+    "href": "slides/04_poisson_ch4.html#adding-an-offset-to-the-airbnb-model",
+    "title": "Poisson Regression",
+    "section": "Adding an offset to the Airbnb model",
+    "text": "Adding an offset to the Airbnb model\nWe will add the offset \\(\\log(days)\\) to the model. This accounts for the fact that we would expect Airbnbs that have been listed longer to have more reviews.\n\\[\\log(\\lambda_i) = \\beta_0 + \\beta_1 ~ price_i + \\beta_2 ~ room\\_type1_i + \\beta_3 ~ room\\_type2_i + \\log(days_i)\\] \nNote: The response variable for the model is still \\(\\log(\\lambda_i)\\), the log mean number of reviews"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#detail-on-the-offset",
+    "href": "slides/04_poisson_ch4.html#detail-on-the-offset",
+    "title": "Poisson Regression",
+    "section": "Detail on the offset",
+    "text": "Detail on the offset\nWe want to adjust for the number of days, so we are interested in \\(\\frac{reviews}{days}\\).\n\nGiven \\(\\lambda\\) is the mean number of reviews\n\\[\\log\\Big(\\frac{\\lambda}{days}\\Big) = \\beta_0 + \\beta_1 ~ price + \\beta_2 ~ room\\_type1 + \\beta_3 ~ room\\_type2\\]\n\n\n\\[\\Rightarrow \\log({\\lambda}) - \\log(days) = \\beta_0 + \\beta_1 ~ price + \\beta_2 ~ room\\_type1 + \\beta_3 ~ room\\_type2\\]\n\n\n\\[\\Rightarrow \\log({\\lambda}) = \\beta_0 + \\beta_1 ~ price + \\beta_2 ~ room\\_type1 + \\beta_3 ~ room\\_type2 + \\log(days)\\]"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#airbnb-model-in-r",
+    "href": "slides/04_poisson_ch4.html#airbnb-model-in-r",
+    "title": "Poisson Regression",
+    "section": "Airbnb model in R",
+    "text": "Airbnb model in R\n\nairbnb_model &lt;- glm(number_of_reviews ~ price + room_type, \n                    data = airbnb, family = poisson, \n                    offset = log(days)) #&lt;&lt;\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-4.1351\n0.0170\n-243.1397\n0\n\n\nprice\n-0.0005\n0.0001\n-7.0952\n0\n\n\nroom_typePrivate room\n-0.0994\n0.0174\n-5.6986\n0\n\n\nroom_typeShared room\n0.2436\n0.0452\n5.3841\n0\n\n\n\n\n\n\nThe coefficient for \\(\\log(days)\\) is fixed at 1, so it is not in the model output."
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#interpretations",
+    "href": "slides/04_poisson_ch4.html#interpretations",
+    "title": "Poisson Regression",
+    "section": "Interpretations",
+    "text": "Interpretations\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-4.1351\n0.0170\n-243.1397\n0\n\n\nprice\n-0.0005\n0.0001\n-7.0952\n0\n\n\nroom_typePrivate room\n-0.0994\n0.0174\n-5.6986\n0\n\n\nroom_typeShared room\n0.2436\n0.0452\n5.3841\n0\n\n\n\n\n\n\nQuestion:\n\nInterpret the coefficient of price.\nInterpret the coefficient of room_typePrivate room"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#goodness-of-fit-2",
+    "href": "slides/04_poisson_ch4.html#goodness-of-fit-2",
+    "title": "Poisson Regression",
+    "section": "Goodness-of-fit",
+    "text": "Goodness-of-fit\n\\[\\begin{aligned}&H_0: \\text{ The model is a good fit for the data}\\\\\n&H_a: \\text{ There is significant lack of fit}\\end{aligned}\\]\n\npchisq(airbnb_model$deviance, airbnb_model$df.residual, lower.tail = F)\n\n[1] 0\n\n\n\nThere is evidence of significant lack of fit in the model. Therefore, more models would need to be explored that address the issues mentioned earlier.\n\n\nIn practice we would assess goodness-of-fit and finalize the model before any interpretations and conclusions."
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#data-weekend-drinking",
+    "href": "slides/04_poisson_ch4.html#data-weekend-drinking",
+    "title": "Poisson Regression",
+    "section": "Data: Weekend drinking",
+    "text": "Data: Weekend drinking\nThe data weekend-drinks.csv contains information from a survey of 77 students in a introductory statistics course on a dry campus.\nVariables\n\ndrinks: Number of drinks they had in the past weekend\noff_campus: 1 - lives off campus, 0 otherwise\nfirst_year: 1 - student is a first-year, 0 otherwise\nsex: f - student identifies as female, m - student identifies as male\n\n\nGoal: The goal is explore factors related to drinking behavior on a dry campus.\n\n\n\nCase study in BMLR - Section 4.10"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#eda-response-variable",
+    "href": "slides/04_poisson_ch4.html#eda-response-variable",
+    "title": "Poisson Regression",
+    "section": "EDA: Response variable",
+    "text": "EDA: Response variable"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#observed-vs.-expected-response",
+    "href": "slides/04_poisson_ch4.html#observed-vs.-expected-response",
+    "title": "Poisson Regression",
+    "section": "Observed vs. expected response",
+    "text": "Observed vs. expected response\n\n\nWhat does it mean to be a “zero” in this data?"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#two-types-of-zeros",
+    "href": "slides/04_poisson_ch4.html#two-types-of-zeros",
+    "title": "Poisson Regression",
+    "section": "Two types of zeros",
+    "text": "Two types of zeros\nThere are two types of zeros\n\nThose who happen to have a zero in the data set (people who drink but happened to not drink last weekend)\nThose who will always report a value of zero (non-drinkers)\n\nThese are called true zeros\n\n\n\nWe introduce a new parameter \\(\\alpha\\) for the proportion of true zeros, then fit a model that has two components:\n\n\n1️⃣ The association between mean number of drinks and various characteristics among those who drink\n2️⃣ The estimated proportion of non-drinkers"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#poisson-vs.-q-poisson",
+    "href": "slides/04_poisson_ch4.html#poisson-vs.-q-poisson",
+    "title": "Poisson Regression",
+    "section": "Poisson vs. Q-Poisson",
+    "text": "Poisson vs. Q-Poisson\n\n\nPoisson\n\n\n\n\n\nterm\nestimate\nstd.error\n\n\n\n\n(Intercept)\n-0.3843\n0.1821\n\n\nage\n0.0704\n0.0069\n\n\nage2\n-0.0007\n0.0001\n\n\nlocationDavaoRegion\n-0.0194\n0.0538\n\n\nlocationIlocosRegion\n0.0610\n0.0527\n\n\nlocationMetroManila\n0.0545\n0.0472\n\n\nlocationVisayas\n0.1121\n0.0417\n\n\n\n\n\n\nQuasi-Poisson\n\n\n\n\n\nestimate\nstd.error\n\n\n\n\n-0.3843\n0.2166\n\n\n0.0704\n0.0082\n\n\n-0.0007\n0.0001\n\n\n-0.0194\n0.0640\n\n\n0.0610\n0.0626\n\n\n0.0545\n0.0561\n\n\n0.1121\n0.0497"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#zero-inflated-poisson-model-1",
+    "href": "slides/04_poisson_ch4.html#zero-inflated-poisson-model-1",
+    "title": "Poisson Regression",
+    "section": "Zero-inflated Poisson model",
+    "text": "Zero-inflated Poisson model\nZero-inflated Poisson (ZIP) model has two parts\n\n1️⃣ Association, among those who drink, between the mean number of drinks and predictors sex and off campus residence\n\n\n\\[\\log(\\lambda) = \\beta_0 + \\beta_1 ~ off\\_campus + \\beta_2 ~ sex\\] where \\(\\lambda\\) is the mean number of drinks among those who drink\n\n\n2️⃣ Probability that a student does not drink\n\\[\\text{logit}(\\alpha) = \\log\\Big(\\frac{\\alpha}{1- \\alpha}\\Big) = \\beta_0 + \\beta_1 ~ first\\_year\\]\nwhere \\(\\alpha\\) is the proportion of non-drinkers\n\n\nNote: The same variables can be used in each component"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#details-of-the-zip-model",
+    "href": "slides/04_poisson_ch4.html#details-of-the-zip-model",
+    "title": "Poisson Regression",
+    "section": "Details of the ZIP model",
+    "text": "Details of the ZIP model\n\nThe ZIP model is a special case of a latent variable model\n\nA type of mixture model where observations for one or more groups occur together but the group membership unknown\n\nZero-inflated models are a common type of mixture model; they apply beyond Poisson regression"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#zip-model-in-r",
+    "href": "slides/04_poisson_ch4.html#zip-model-in-r",
+    "title": "Poisson Regression",
+    "section": "ZIP model in R",
+    "text": "ZIP model in R\nFit ZIP models using the zeroinfl function from the pscl R package.\n\nlibrary(pscl)\n\ndrinks_zip &lt;- zeroinfl(drinks ~ off_campus + sex | first_year,\n                data = drinks)\ndrinks_zip\n\n\nCall:\nzeroinfl(formula = drinks ~ off_campus + sex | first_year, data = drinks)\n\nCount model coefficients (poisson with log link):\n(Intercept)   off_campus         sexm  \n     0.7543       0.4159       1.0209  \n\nZero-inflation model coefficients (binomial with logit link):\n(Intercept)   first_year  \n    -0.6036       1.1364"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#tidy-output",
+    "href": "slides/04_poisson_ch4.html#tidy-output",
+    "title": "Poisson Regression",
+    "section": "Tidy output",
+    "text": "Tidy output\nUse the tidy function from the poissonreg package for tidy model output.\n\nlibrary(poissonreg)\n\n\nMean number of drinks among those who drink\n\ntidy(drinks_zip, type = \"count\") %&gt;% kable(digits = 3)\n\n\n\n\nterm\ntype\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\ncount\n0.754\n0.144\n5.238\n0.000\n\n\noff_campus\ncount\n0.416\n0.206\n2.021\n0.043\n\n\nsexm\ncount\n1.021\n0.175\n5.827\n0.000"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#tidy-output-1",
+    "href": "slides/04_poisson_ch4.html#tidy-output-1",
+    "title": "Poisson Regression",
+    "section": "Tidy output",
+    "text": "Tidy output\nProportion of non-drinkers\n\ntidy(drinks_zip, type = \"zero\") %&gt;% kable(digits = 3)\n\n\n\n\nterm\ntype\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\nzero\n-0.604\n0.311\n-1.938\n0.053\n\n\nfirst_year\nzero\n1.136\n0.610\n1.864\n0.062"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#interpreting-the-model-coefficients",
+    "href": "slides/04_poisson_ch4.html#interpreting-the-model-coefficients",
+    "title": "Poisson Regression",
+    "section": "Interpreting the model coefficients",
+    "text": "Interpreting the model coefficients\n\n\n\n\n\nterm\ntype\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\ncount\n0.754\n0.144\n5.238\n0.000\n\n\noff_campus\ncount\n0.416\n0.206\n2.021\n0.043\n\n\nsexm\ncount\n1.021\n0.175\n5.827\n0.000\n\n\n\n\n\n\nQuestions\n\nInterpret the intercept.\nInterpret the coefficients of off_campus and sexm."
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#estimated-proportion-zeros",
+    "href": "slides/04_poisson_ch4.html#estimated-proportion-zeros",
+    "title": "Poisson Regression",
+    "section": "Estimated proportion zeros",
+    "text": "Estimated proportion zeros\n\n\n\n\n\nterm\ntype\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\nzero\n-0.604\n0.311\n-1.938\n0.053\n\n\nfirst_year\nzero\n1.136\n0.610\n1.864\n0.062\n\n\n\n\n\nQuestions:\nBased on the model…\n\nWhat is the probability a first-year student is a non-drinker?\nWhat is the probability a upperclass student (sophomore, junior, senior) is a non-drinker?"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#these-are-just-a-few-of-the-many-models",
+    "href": "slides/04_poisson_ch4.html#these-are-just-a-few-of-the-many-models",
+    "title": "Poisson Regression",
+    "section": "These are just a few of the many models…",
+    "text": "These are just a few of the many models…\n\nUse the Vuong Test to compare the fit of the ZIP model to a regular Poisson model\n\nWhy can’t we use a drop-in-deviance test?\n\nWe’ve just discussed the ZIP model here, but there are other model applications beyond the standard Poisson regression model (e.g., hurdle models, Zero-inflated Negative Binomial models, etc. )"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#estimating-coefficients-in-poisson-model",
+    "href": "slides/04_poisson_ch4.html#estimating-coefficients-in-poisson-model",
+    "title": "Poisson Regression",
+    "section": "Estimating coefficients in Poisson model",
+    "text": "Estimating coefficients in Poisson model\n\nLeast squares estimation would not work because the normality and equal variance assumptions don’t hold for Poisson regression\nMaximum likelihood estimation is used to estimate the coefficients of Poisson regression.\nThe likelihood is the product of the probabilities for the \\(n\\) independent observations in the data"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#likelihood-for-regular-poisson-model",
+    "href": "slides/04_poisson_ch4.html#likelihood-for-regular-poisson-model",
+    "title": "Poisson Regression",
+    "section": "Likelihood for regular Poisson model",
+    "text": "Likelihood for regular Poisson model\nLet’s go back to example about household size in the Philippines. We will focus on the model using the main effect of age to understand variability in mean household size.\n\nSuppose the first five observations have household sizes of 4, 2, 8, 6, and 1. Then the likelihood is\n\n\n\\(L = \\frac{e^{-\\lambda_1}\\lambda_1^4}{4!} * \\frac{e^{-\\lambda_2}\\lambda_2^2}{2!} * \\frac{e^{-\\lambda_3}\\lambda_3^8}{8!} *\n\\frac{e^{-\\lambda_4}\\lambda_4^6}{6!} * \\frac{e^{-\\lambda_5}\\lambda_5^1}{1!}\\)"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#likelihood-for-regular-poisson-model-1",
+    "href": "slides/04_poisson_ch4.html#likelihood-for-regular-poisson-model-1",
+    "title": "Poisson Regression",
+    "section": "Likelihood for regular Poisson model",
+    "text": "Likelihood for regular Poisson model\nWe will use the log likelihood to make finding the MLE easier\n\n\\(\\begin{aligned}\\log(L) &= -\\lambda_1 + 4\\log(\\lambda_1) - \\lambda_2 + 2\\log(\\lambda_2) - \\lambda_3 + 8\\log(\\lambda_3)\\\\ & -\\lambda_4 + 6 \\log(\\lambda_4) - \\lambda_5 + \\log(\\lambda_5) + C \\end{aligned}\\)\nwhere - \\(\\lambda\\) is the mean number in household depending on \\(x_i\\) - \\(C = -[\\log(4!) + \\log(2!) + \\log(8!) + \\log(6!)+ \\log(1!)]\\)"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#likelihood-for-regular-poisson-model-2",
+    "href": "slides/04_poisson_ch4.html#likelihood-for-regular-poisson-model-2",
+    "title": "Poisson Regression",
+    "section": "Likelihood for regular Poisson model",
+    "text": "Likelihood for regular Poisson model\nGiven the age of the head of the household, we fit the model\n\\[\\log(\\lambda_i) = \\beta_0 + \\beta_1~age_i\\]\nThen we replace each \\(\\lambda_i\\) in \\(\\log(L)\\) with \\(e^{\\beta_0 + \\beta_1~age_i}\\).\n\nSuppose the first five observations have ages \\(X = (32, 21, 55, 44, 28)\\). Then\n\n\n\\[\\begin{aligned} \\log(L) &= [-e^{\\beta_0 + \\beta_132}+ 4(\\beta_0 + \\beta_1 32)] + [ - e^{\\beta_0 + \\beta_121} + 2(\\beta_0 + \\beta_121)] \\\\ &+  [- e^{\\beta_0 + \\beta_155} + 8(\\beta_0 + \\beta_155)] +  [-e^{\\beta_0 + \\beta_144} + 6(\\beta_0 + \\beta_144)] \\\\ &+ [-e^{\\beta_0 + \\beta_128}(\\beta_0 + \\beta_128)] + C \\end{aligned}\\]\n\n\nUse search algorithm to find the values of \\(\\beta_0\\) and \\(\\beta_1\\) that maximize the above equation."
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#probabilities-under-zip-model",
+    "href": "slides/04_poisson_ch4.html#probabilities-under-zip-model",
+    "title": "Poisson Regression",
+    "section": "Probabilities under ZIP model",
+    "text": "Probabilities under ZIP model\nThere are three different types of observations in the data:\n\nObserved zero and will always be 0 (true zeros)\nObserved 0 but will not always be 0\nObserved non-zero count and will not always be 0"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#probabilities-under-zip-model-1",
+    "href": "slides/04_poisson_ch4.html#probabilities-under-zip-model-1",
+    "title": "Poisson Regression",
+    "section": "Probabilities under ZIP model",
+    "text": "Probabilities under ZIP model\nTrue zeros\n\\[P(0 | \\text{true zero})= \\alpha\\]\n\nObserved 0 but will not always be 0\n\\[P(0 | \\text{not always zero}) = (1 - \\alpha)\\frac{e^{-\\lambda}\\lambda^0}{0!}\\]\n\n\nDid not observe 0 and will not always be 0\n\\[P(z_i | \\text{not always zero}) = (1 - \\alpha)\\frac{e^{-\\lambda}\\lambda^{z_i}}{z_i!}\\]"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#probabilities-under-zip-model-2",
+    "href": "slides/04_poisson_ch4.html#probabilities-under-zip-model-2",
+    "title": "Poisson Regression",
+    "section": "Probabilities under ZIP model",
+    "text": "Probabilities under ZIP model\nPutting this all together. Let \\(y_i\\) be an observed response then\n\\[P(Y_i = y_i | x_i) = \\begin{cases}\n\\alpha + (1 - \\alpha)e^{-\\lambda_i} && \\text{ if } y_i = 0 \\\\\n(1 - \\alpha)\\frac{e^{-\\lambda_i}\\lambda_i^{y_i}}{y_i!} && \\text{ if } y_i &gt; 0\n\\end{cases}\\]\n\nRecall from our example,\n\\[\\lambda_i = e^{\\beta_0 + \\beta_1~off\\_campus_i + \\beta_2 ~ sex_i}\\]\n\\[\\alpha_i = \\frac{e^{\\beta_{0\\alpha} + \\beta_{1\\alpha} ~ first\\_year_i}}{1 + e^{\\beta_{0\\alpha} + \\beta_{1\\alpha} ~ first\\_year_i}}\\]\n\nPlug in \\(\\lambda_i\\) and \\(\\alpha_i\\) into the above equation obtain the likelihood function"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#acknowledgements",
+    "href": "slides/04_poisson_ch4.html#acknowledgements",
+    "title": "Poisson Regression",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\nThese slides are based on content in BMLR: Chapter 4\nInitial versions of the slides are by Dr. Maria Tackett, Duke University\n\n\n\n\n🔗 https://stats-tgeorge.github.io/STA363_AdvReg/"
+  },
+  {
+    "objectID": "slides/04_poisson_ch4.html#q-poisson-inference-for-coefficients",
+    "href": "slides/04_poisson_ch4.html#q-poisson-inference-for-coefficients",
+    "title": "Poisson Regression",
+    "section": "Q-Poisson: Inference for coefficients",
+    "text": "Q-Poisson: Inference for coefficients\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\n\n\n\n\n(Intercept)\n-0.3843\n0.2166\n\n\nage\n0.0704\n0.0082\n\n\nage2\n-0.0007\n0.0001\n\n\nlocationDavaoRegion\n-0.0194\n0.0640\n\n\nlocationIlocosRegion\n0.0610\n0.0626\n\n\nlocationMetroManila\n0.0545\n0.0561\n\n\nlocationVisayas\n0.1121\n0.0497\n\n\n\n\n\n\nTest statistic \\[t = \\frac{\\hat{\\beta} - 0}{SE_{Q}(\\hat{\\beta})} \\sim t_{n-p}\\]"
   }
 ]
