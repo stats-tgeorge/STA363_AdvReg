@@ -384,6 +384,15 @@ $$\log(\hat{\lambda}) = 1.5499  - 0.0047 ~ age$$
 
 Question: The coefficient for `age` is -0.0047. Interpret this coefficient in context.
 
+## Answers
+
+- Each additional year older the head of household is, the estimated average log of the number of people in the household is .0047 lower. 
+
+- Each additional year older the head of household is, the estimated average number of people in the household reduces by 0.5%.
+- Each additional year older the head of household is the estimated average number of people in the household changes by a factor of .995.
+
+- For every 10 years older the head of household is, the estimated average number of people in the household reduces by 5%.
+
 
 ## Understanding the interpretation 
 
@@ -432,9 +441,11 @@ $$-0.0047 \pm 1.96 \times 0.0009 = \mathbf{(-.0065, -0.0029)}$$
 
 Question: Interpret the interval in terms of the change in mean household size. 
 
+## **Which can best help us determine whether Model 1 is a good fit?**
 
+:::{.panel-tabset}
 
-## **Which plot can best help us determine whether Model 1 is a good fit?**
+### Plots
 
 ```{r echo = F}
 p1 <- ggplot(data = hh_data, aes(x = age, y = total)) + 
@@ -461,7 +472,32 @@ p3 <- hh_data |>
 p1 + p2 + p3 + plot_annotation(tag_levels = 'A')
 ```
 
+### Code
 
+```{r eval=F}
+p1 <- ggplot(data = hh_data, aes(x = age, y = total)) + 
+  geom_point() + 
+  labs(y = "Total household size", 
+       title = "Plot A")
+
+p2 <- hh_data |>
+  group_by(age) |> 
+  summarise(mean = mean(total)) |>
+  ggplot(aes(x = age, y = mean))+ 
+  geom_point() + 
+  labs(y = "Empirical mean household size", 
+       title = "Plot B")
+
+p3 <- hh_data |>
+  group_by(age) |> 
+  summarise(log_mean = log(mean(total))) |>
+  ggplot(aes(x = age, y = log_mean)) + 
+  geom_point() + 
+  labs(y = "Log empirical mean household size", 
+       title = "Plot C")
+
+p1 + p2 + p3 + plot_annotation(tag_levels = 'A')
+```
 ## Model 2: Add a quadratic effect for `age`
 
 ```{r}
