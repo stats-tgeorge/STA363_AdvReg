@@ -28,7 +28,6 @@ title: "Useful links"
 -   [FiveThirtyEight data](https://data.fivethirtyeight.com/)
 -   [Amazon Registry of Open Data](https://registry.opendata.aws/)
 -   [Open data StackExchange](https://opendata.stackexchange.com/)
--   [Microsoft R Application Window](https://mran.microsoft.com/documents/data)
 -   [Data.gov](https://catalog.data.gov/dataset)
 -   [US Census](https://www.census.gov/data.html)
 -   [New York City data](https://opendata.cityofnewyork.us/)

@@ -13,7 +13,7 @@ logo: "../img/favicon.png"
 ## Setup
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=T, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(tidymodels)
 library(GGally)
@@ -384,7 +384,7 @@ $$\log(\hat{\lambda}) = 1.5499  - 0.0047 ~ age$$
 
 Question: The coefficient for `age` is -0.0047. Interpret this coefficient in context.
 
-## Answers
+## Answers {.smaller}
 
 - Each additional year older the head of household is, the estimated average log of the number of people in the household is .0047 lower. 
 
@@ -498,6 +498,7 @@ p3 <- hh_data |>
 
 p1 + p2 + p3 + plot_annotation(tag_levels = 'A')
 ```
+
 ## Model 2: Add a quadratic effect for `age`
 
 ```{r}

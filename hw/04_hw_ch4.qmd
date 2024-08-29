@@ -83,7 +83,6 @@ Exercises 1 & 2 involve predicting a __response__ using one or more __explanator
 a. Define the response. 
 b. What are the possible values for the response?
 c. What does $\lambda$ represent? 
-d. Would a zero-inflated model be considered here? If so, what would be a "true zero"?
 
 ### Exercise 10
 
