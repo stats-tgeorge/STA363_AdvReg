@@ -783,6 +783,10 @@ There are a few potential reasons for lack-of-fit:
 
 **Overdispersion**: There is more variability in the response than what is implied by the Poisson model 
 
+:::{.panel-tabset}
+
+### Tables
+
 :::: {.columns}
 
 ::: {.column}
@@ -811,6 +815,23 @@ hh_data |>
 :::
 
 ::::
+
+### Code
+
+```{r echo=T,eval=F}
+hh_data |>
+  summarise(mean = mean(total), var = var(total)) |>
+  kable(digits = 3)
+```
+
+```{r echo=T,eval=F}
+hh_data |>
+  group_by(location) |>
+  summarise(mean = mean(total), var = var(total)) |>
+  kable(digits = 3)
+```
+
+:::
 
 ## Why overdispersion matters {.smaller}
 

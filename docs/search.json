@@ -2582,7 +2582,7 @@
     "href": "slides/04_poisson_ch4_o.html#overdispersion",
     "title": "Poisson Regression",
     "section": "Overdispersion",
-    "text": "Overdispersion\nOverdispersion: There is more variability in the response than what is implied by the Poisson model\n\n\nOverall\n\n\n\n\n\nmean\nvar\n\n\n\n\n3.685\n5.534\n\n\n\n\n\n\nby Location\n\n\n\n\n\nlocation\nmean\nvar\n\n\n\n\nCentralLuzon\n3.402\n4.152\n\n\nDavaoRegion\n3.390\n4.723\n\n\nIlocosRegion\n3.586\n5.402\n\n\nMetroManila\n3.707\n4.863\n\n\nVisayas\n3.902\n6.602"
+    "text": "Overdispersion\nOverdispersion: There is more variability in the response than what is implied by the Poisson model\n\nTablesCode\n\n\n\n\nOverall\n\n\n\n\n\nmean\nvar\n\n\n\n\n3.685\n5.534\n\n\n\n\n\n\nby Location\n\n\n\n\n\nlocation\nmean\nvar\n\n\n\n\nCentralLuzon\n3.402\n4.152\n\n\nDavaoRegion\n3.390\n4.723\n\n\nIlocosRegion\n3.586\n5.402\n\n\nMetroManila\n3.707\n4.863\n\n\nVisayas\n3.902\n6.602\n\n\n\n\n\n\n\n\n\n\nhh_data |&gt;\n  summarise(mean = mean(total), var = var(total)) |&gt;\n  kable(digits = 3)\n\n\nhh_data |&gt;\n  group_by(location) |&gt;\n  summarise(mean = mean(total), var = var(total)) |&gt;\n  kable(digits = 3)"
   },
   {
     "objectID": "slides/04_poisson_ch4_o.html#why-overdispersion-matters",
@@ -3121,7 +3121,7 @@
     "href": "slides/04_poisson_ch4.html#overdispersion",
     "title": "Poisson Regression",
     "section": "Overdispersion",
-    "text": "Overdispersion\nOverdispersion: There is more variability in the response than what is implied by the Poisson model\n\n\nOverall\n\n\n\n\n\nmean\nvar\n\n\n\n\n3.685\n5.534\n\n\n\n\n\n\nby Location\n\n\n\n\n\nlocation\nmean\nvar\n\n\n\n\nCentralLuzon\n3.402\n4.152\n\n\nDavaoRegion\n3.390\n4.723\n\n\nIlocosRegion\n3.586\n5.402\n\n\nMetroManila\n3.707\n4.863\n\n\nVisayas\n3.902\n6.602"
+    "text": "Overdispersion\nOverdispersion: There is more variability in the response than what is implied by the Poisson model\n\nTablesCode\n\n\n\n\nOverall\n\n\n\n\n\nmean\nvar\n\n\n\n\n3.685\n5.534\n\n\n\n\n\n\nby Location\n\n\n\n\n\nlocation\nmean\nvar\n\n\n\n\nCentralLuzon\n3.402\n4.152\n\n\nDavaoRegion\n3.390\n4.723\n\n\nIlocosRegion\n3.586\n5.402\n\n\nMetroManila\n3.707\n4.863\n\n\nVisayas\n3.902\n6.602\n\n\n\n\n\n\n\n\n\n\nhh_data |&gt;\n  summarise(mean = mean(total), var = var(total)) |&gt;\n  kable(digits = 3)\n\n\nhh_data |&gt;\n  group_by(location) |&gt;\n  summarise(mean = mean(total), var = var(total)) |&gt;\n  kable(digits = 3)"
   },
   {
     "objectID": "slides/04_poisson_ch4.html#why-overdispersion-matters",
