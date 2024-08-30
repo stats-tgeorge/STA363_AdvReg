@@ -109,20 +109,6 @@ c. What does $\lambda$ represent?
         iii. What is the estimated dispersion parameter?
         iv. An estimated dispersion parameter greater than 1 suggests overdispersion. When adjusting for overdispersion, are you more or less likely to obtain a significant result when testing coefficients? Why?  
 
-```{r, ex3chp4, echo=FALSE,warning = F, message=F}
-library(tidyverse)
-library(kableExtra)
-Subject <- c(1,2,3,4,5,6)
-`X (0 = home, 1 = work)` <- c(0,1,1,1,0,0)
-`Y (number of cigarettes)` <- c(3,0,0,1,2,1)
-ex3chp4 <- data.frame(Subject, `X (0 = home, 1 = work)`, 
-                      `Y (number of cigarettes)`)
-kable(ex3chp4, booktabs=T, 
-      caption="A small subset of hypothetical data on Minnesota workplace rules on smoking.",
-  col.names = c("Subject", "X (location)", "Y (cigarettes)")) %>%
-kable_styling(full_width = F) %>%
-add_footnote(c("X is 0 for home and 1 for work.", "Y is number of cigaretttes in a 2-hour period."), notation = "none")
-```
 
 # Submission
 
