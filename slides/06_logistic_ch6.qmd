@@ -712,7 +712,7 @@ These slides are based on content in
 
 These slides are based on content in 
 
-- [BMLR: Chapter 6 - Logistic Regression](https://bookdown.org/roback/bookdown-BeyondMLR/ch-glms.html)
+- [BMLR: Chapter 6 - Logistic Regression](https://bookdown.org/roback/bookdown-BeyondMLR/ch-logreg.html)
 
 - Initial versions of the slides are by Dr. Maria Tackett, Duke University
 
