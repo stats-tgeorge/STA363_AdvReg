@@ -20,12 +20,12 @@ d %>%
     topic = ifelse(is.na(topic),"",topic)) %>%
   select(-admin_notes) |>
   #Exercises = exercises,
-  rename(Day = day, Date = date, Topic = topic,Notes = notes,
+  rename(Day = day, Date = date, Topic = topic,Slides = notes,
           Lab = Lab, Homework = HW,Outline = outline,Exam = exam,
          Project = project) |>
   
   gt() %>%
-  text_transform(cells_body(columns = c(Notes)),
+  text_transform(cells_body(columns = c(Slides)),
                  fn = function(x){
                    ifelse(is.na(x), fontawesome::fa('laptop', fill_opacity = 0.1), 
                           glue::glue("<a href = {x}>{fontawesome::fa('laptop')}</a>"))
