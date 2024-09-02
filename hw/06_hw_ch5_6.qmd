@@ -44,7 +44,30 @@ All problems are from {{< var course.text >}} Abbreviated BMLR.
 
 Use the numbering on the left. The codes are for instructor use (Ex: C1).
 
-## Part 1: Logistic Regression 
+
+## Part 1: GLMs
+
+## Exercise 4
+
+4. (C1) For each distribution below,
+  
+  - Write the pmf or pdf in one-parameter exponential form, if possible.
+  - Describe an example of a setting where this random variable might be used.
+  - Identify the canonical link function, and
+  - (For Fun) Compute $\mu = -\frac{c'(\theta)}{b'(\theta)}$ and $\sigma^2 = \frac{b''(\theta)c'(\theta)-c''(\theta)b'(\theta)}{[b'(\theta)]^3}$ and compare with known $\E(Y)$ and $\var(Y)$.
+
+    
+a) Binomial (for fixed $n$): Y = number of successes in $n$ independent, identical trials
+
+  $$P(Y=y;p)=\left(\begin{array} {c}  n\\y  \end{array}\right) p^y(1-p)^{(n-y)}$$
+  
+
+b) Gamma (for fixed $r$): Y = time spent waiting for the $r^{th}$ event in a Poisson process with an average rate of $\lambda$ events per unit of time
+
+  $$f(y; \lambda) = \frac{\lambda^r}{\Gamma(r)} y^{r-1} e^{-\lambda y}$$
+  
+
+## Part 2: Logistic Regression 
 
 ### Exercise 1
 
@@ -152,26 +175,7 @@ birds <- read_csv("data/birdkeeping.csv") %>%
 ```
 
 
-## Part 2: Correlated Data
 
-### Exercise 4
-
-4. (C1) __Examples with correlated data.__ For each of the following studies: 
-    i. Identify the most basic observational units
-    ii. Identify the grouping units (could be multiple levels of grouping)
-    iii. State the response(s) measured and variable type (normal, binary, Poisson, etc.)
-    iv. Write a sentence describing the within-group correlation.
-    v. Identify fixed and random effects
-
-a. *Epilepsy study.*  Researchers conducted a randomized controlled study where patients were randomly assigned to either an anti-epileptic drug or a placebo.  For each patient, the number of seizures at baseline was measured over a 2-week period.  For four consecutive visits the number of seizures were determined over the past 2-week period. Patient age and sex along with visit number were recorded.
-
-b. *Prairie restoration.*  Researchers at a small Midwestern college decided to experimentally explore the underlying causes of variation in soil reconstruction projects in order to make future projects more effective. Introductory ecology classes were organized to collect weekly data on plants in pots containing soil samples. Data will be examined to compare:
-    - germination and growth of two species of prairie plants—--leadplants (*Amorpha canescens*) and coneflowers (*Ratibida pinnata*).
-    - soil from a cultivated (agricultural) field, a natural prairie, and a restored (reconstructed) prairie.
-    - the effect of sterilization, since half of the sampled soil was sterilized to determine if rhizosphere differences were responsible for the observed variation.
-    
-c. *Radon in Minnesota.*  Radon is a carcinogen – a naturally occurring radioactive gas whose decay products are also radioactive – known to cause lung cancer in high concentrations. The EPA sampled more than 80,000 homes across the U.S.  Each house came from a randomly selected county and measurements were made on each level of each home.  Uranium measurements at the county level were included to improve the radon estimates.
-    
 # Submission
 
 When you are finished with your homework, be sure to Render the final document. Once rendered, you can download your file by:
