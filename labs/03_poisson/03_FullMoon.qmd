@@ -21,6 +21,8 @@ Variables include:
 - *n.days* = number of days in that period 
 - *n.bites* = number of patients presenting with an animal bite during that period
 
+Link to the article [HERE](https://www.bmj.com/content/321/7276/1559.long)
+
 ## Questions
 
 
@@ -38,7 +40,7 @@ Variables include:
 
 7.  What is **fit4** doing? Does it offer an improvement over **fit3**?
 
-8.  What evidence is there that **fit5** (which uses *bitesbyday.csv*) is the analysis performed by the authors of this paper?
+8.  What evidence is there that **fit5** (which uses *bitesbyday.csv*) is the analysis performed by the authors of this paper? See the article [HERE](https://www.bmj.com/content/321/7276/1559.long).
 
 9.  Based on this analysis, does it make you more wary of animal bites during full moons?
 
