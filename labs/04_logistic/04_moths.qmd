@@ -27,12 +27,18 @@ An article in the Journal of Animal Ecology by Bishop (1972) investigated whethe
 
 2. What can we conclude from the empirical logit plots?
 
+#### Models breg2 and breg2a
+
 3. Interpret the 3 coefficient estimates from model “breg2”.  Note that *breg2* and *breg2a* provide two alternative ways to express the same model...
+
 
 4. What are the implications to using MORPH rather than “dark” in *breg2b*?
 
 
 5. How do the predicted logits from *breg2* fit the actual data?  Note that the **predict()** function with `type=”link”` returns predicted logits, while type=”response” returns predicted probabilities…
+
+
+#### Models breg3
 
 6. Interpret the 4 coefficients estimates from model *breg3*.
 
@@ -42,9 +48,14 @@ An article in the Journal of Animal Ecology by Bishop (1972) investigated whethe
 
 9. Is there evidence of extra-binomial variation (overdispersion) in *breg3*?  
 
-10. Regardless of your answer to (9), repeat (7) after adjusting for overdispersion.
+#### Models breg4 and breg4a
+
+10. Regardless of your answer to (9), repeat (7) after adjusting for overdispersion (*breg4*).
 
 11. Compare confidence intervals for the interaction term in *breg3* with and without adjusting for overdispersion, and with and without using profile likelihoods.
+
+
+#### Model breg5 and breg5a
 
 12. What are the implications in *breg5* of including *DISTANCE* as a factor variable?  How does this change model interpretations?  Does it lead to an improved model?
 
