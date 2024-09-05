@@ -14,7 +14,7 @@ subtitle: 'Moth Coloration and Natural Selection'
 
 An article in the Journal of Animal Ecology by Bishop (1972) investigated whether moths provide evidence of “survival of the fittest” with their camouflage traits.  Researchers glued equal numbers of light and dark morph moths in lifelike positions on tree trunks at 7 locations from 0 to 51.2 km from Liverpool.  They then recorded the numbers of moths removed after 24 hours, presumably by predators.  The hypothesis was that, since tree trunks near Liverpool were blackened by pollution, light morph moths would be more likely to be removed near Liverpool.  The data is found in moth.csv, and relevant R code can be found under Moths.Rmd.  Variables include:
 
-- `MOPRH` = light or dark
+- `MORPH` = light or dark
 - `DISTANCE` = kilometers from Liverpool
 - `PLACED` = number of moths of a specific morph glued to trees at that location
 - `REMOVED` = number of moths of a specific morph removed after 24 hours
