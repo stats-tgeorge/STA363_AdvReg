@@ -22,6 +22,9 @@ website:
       - icon: code-square
         href: http://turing.cornellcollege.edu:8787/
         text: "RStudio Server"
+      - icon: book
+        href: https://bookdown.org/roback/bookdown-BeyondMLR/
+        text: "Book"
       - icon: person-fill
         text: "Moodle"
         menu:
