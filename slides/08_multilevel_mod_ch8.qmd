@@ -859,7 +859,14 @@ kable(table3chp8, booktabs=T,
 - How do the coefficient estimates compare? 
 - How do the standard errors compare? 
 
+## Pseudo R-squared Values {.smaller}
 
+$$\textrm{Pseudo }R^2_{L1} = \frac{\hat{\sigma}^{2}(\textrm{Model A})-\hat{\sigma}^{2}(\textrm{Model B})}{\hat{\sigma}^{2}(\textrm{Model A})}$$
+- Pseudo R-squared values are not universally reliable as measures of model performance. 
+- Because of the complexity of estimating fixed effects and variance components at various levels of a multilevel model, it is not unusual to encounter situations in which covariates in a Level Two equation for, say, the intercept remain constant (while other aspects of the model change), yet the associated pseudo R-squared values differ or are negative. For this reason, pseudo R-squared values in multilevel models should be interpreted cautiously.
+
+
+# ML and REML
 
 ## ML and REML {.smaller}
 

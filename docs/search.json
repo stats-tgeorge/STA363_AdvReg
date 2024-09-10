@@ -5014,15 +5014,22 @@
     "text": "Questions\n\nHow do the coefficient estimates compare?\nHow do the standard errors compare?"
   },
   {
-    "objectID": "slides/08_multilevel_mod_ch8_o.html#ml-and-reml",
-    "href": "slides/08_multilevel_mod_ch8_o.html#ml-and-reml",
+    "objectID": "slides/08_multilevel_mod_ch8_o.html#pseudo-r-squared-values",
+    "href": "slides/08_multilevel_mod_ch8_o.html#pseudo-r-squared-values",
+    "title": "Multilevel Models",
+    "section": "Pseudo R-squared Values",
+    "text": "Pseudo R-squared Values\n\\[\\textrm{Pseudo }R^2_{L1} = \\frac{\\hat{\\sigma}^{2}(\\textrm{Model A})-\\hat{\\sigma}^{2}(\\textrm{Model B})}{\\hat{\\sigma}^{2}(\\textrm{Model A})}\\] - Pseudo R-squared values are not universally reliable as measures of model performance. - Because of the complexity of estimating fixed effects and variance components at various levels of a multilevel model, it is not unusual to encounter situations in which covariates in a Level Two equation for, say, the intercept remain constant (while other aspects of the model change), yet the associated pseudo R-squared values differ or are negative. For this reason, pseudo R-squared values in multilevel models should be interpreted cautiously."
+  },
+  {
+    "objectID": "slides/08_multilevel_mod_ch8_o.html#ml-and-reml-1",
+    "href": "slides/08_multilevel_mod_ch8_o.html#ml-and-reml-1",
     "title": "Multilevel Models",
     "section": "ML and REML",
     "text": "ML and REML\nMaximum Likelihood (ML) and Restricted (Residual) Maximum Likelihood (REML) are the two most common methods for estimating the fixed effects and variance components\n. . .\nMaximum Likelihood (ML)\n\nJointly estimate the fixed effects and variance components using all the sample data\nCan be used to draw conclusions about fixed and random effects\nIssue: Fixed effects are treated as known values when estimating variance components\n\nResults in biased estimates of variance components (especially when sample size is small)"
   },
   {
-    "objectID": "slides/08_multilevel_mod_ch8_o.html#ml-and-reml-1",
-    "href": "slides/08_multilevel_mod_ch8_o.html#ml-and-reml-1",
+    "objectID": "slides/08_multilevel_mod_ch8_o.html#ml-and-reml-2",
+    "href": "slides/08_multilevel_mod_ch8_o.html#ml-and-reml-2",
     "title": "Multilevel Models",
     "section": "ML and REML",
     "text": "ML and REML\nRestricted Maximum Likelihood (REML)\n\nEstimate the variance components using the sample residuals not the sample data\nIt is conditional on the fixed effects, so it accounts for uncertainty in fixed effects estimates. This results in unbiased estimates of variance components.\n\n. . .\nExample using OLS\n\n\n[See the post Maximum Likelihood (ML) vs. REML for details and illustration of ML vs. REML."
@@ -5322,15 +5329,22 @@
     "text": "Questions\n\nHow do the coefficient estimates compare?\nHow do the standard errors compare?"
   },
   {
-    "objectID": "slides/08_multilevel_mod_ch8.html#ml-and-reml",
-    "href": "slides/08_multilevel_mod_ch8.html#ml-and-reml",
+    "objectID": "slides/08_multilevel_mod_ch8.html#pseudo-r-squared-values",
+    "href": "slides/08_multilevel_mod_ch8.html#pseudo-r-squared-values",
+    "title": "Multilevel Models",
+    "section": "Pseudo R-squared Values",
+    "text": "Pseudo R-squared Values\n\\[\\textrm{Pseudo }R^2_{L1} = \\frac{\\hat{\\sigma}^{2}(\\textrm{Model A})-\\hat{\\sigma}^{2}(\\textrm{Model B})}{\\hat{\\sigma}^{2}(\\textrm{Model A})}\\] - Pseudo R-squared values are not universally reliable as measures of model performance. - Because of the complexity of estimating fixed effects and variance components at various levels of a multilevel model, it is not unusual to encounter situations in which covariates in a Level Two equation for, say, the intercept remain constant (while other aspects of the model change), yet the associated pseudo R-squared values differ or are negative. For this reason, pseudo R-squared values in multilevel models should be interpreted cautiously."
+  },
+  {
+    "objectID": "slides/08_multilevel_mod_ch8.html#ml-and-reml-1",
+    "href": "slides/08_multilevel_mod_ch8.html#ml-and-reml-1",
     "title": "Multilevel Models",
     "section": "ML and REML",
     "text": "ML and REML\nMaximum Likelihood (ML) and Restricted (Residual) Maximum Likelihood (REML) are the two most common methods for estimating the fixed effects and variance components\n\nMaximum Likelihood (ML)\n\nJointly estimate the fixed effects and variance components using all the sample data\nCan be used to draw conclusions about fixed and random effects\nIssue: Fixed effects are treated as known values when estimating variance components\n\nResults in biased estimates of variance components (especially when sample size is small)"
   },
   {
-    "objectID": "slides/08_multilevel_mod_ch8.html#ml-and-reml-1",
-    "href": "slides/08_multilevel_mod_ch8.html#ml-and-reml-1",
+    "objectID": "slides/08_multilevel_mod_ch8.html#ml-and-reml-2",
+    "href": "slides/08_multilevel_mod_ch8.html#ml-and-reml-2",
     "title": "Multilevel Models",
     "section": "ML and REML",
     "text": "ML and REML\nRestricted Maximum Likelihood (REML)\n\nEstimate the variance components using the sample residuals not the sample data\nIt is conditional on the fixed effects, so it accounts for uncertainty in fixed effects estimates. This results in unbiased estimates of variance components.\n\n\nExample using OLS\n\n\n\n[See the post Maximum Likelihood (ML) vs. REML for details and illustration of ML vs. REML."
