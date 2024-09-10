@@ -23,6 +23,7 @@ The primary variables we'll use are
 - `audience` = who attended (Instructor, Public, Students, or Juried)
 - `memory` = performed from Memory, using Score, or Unspecified
 - `na` = negative affect score from PANAS
+- `pa` = positive affect score from PANAS
 - `gender` = musician gender
 - `instrument` = Voice, Orchestral, or Piano
 - `mpqab` = absorption subscale from MPQ
@@ -46,7 +47,7 @@ To begin, run the following models:
 
 2. Report estimated fixed effects and variance components from Model A, using proper notation from this chapter (no interpretations required). Also report and interpret an intraclass correlation coefficient.
 
-3. Report estimated fixed effects and variance components from Model B, using proper notation from this chapter. Interpret your MLE estimates for $\hat{\alpha}_{0}$ (the intercept), $\hat{\beta}_{1}$ (the instructor indicator), and $\hat{\sigma}_{u}$ (the Level Two standard deviation for the intercept). Also report and interpret an appropriate pseudo R-squared value.
+3. Report estimated fixed effects and variance components from Model B, using proper notation from this chapter. Interpret your MLE estimates for $\hat{\alpha}_{0}$ (the intercept), and $\hat{\sigma}_{u}$ (the Level Two standard deviation for the intercept). Also report and interpret an appropriate pseudo R-squared value for model A vs model B. 
 
 4. Write out Model C, using both separate Level One and Level Two models as well as a composite model. Be sure to express distributions for error terms. How many parameters must be estimated in Model C?
 

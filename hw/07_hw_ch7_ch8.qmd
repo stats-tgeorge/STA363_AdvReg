@@ -75,11 +75,15 @@ a. Based on the title of their paper: (a) give the observational units at Level 
 
 b. In the preceding problem, why can't we assume all houses in the data set are independent?  What would be the potential implications to our analysis of assuming independence among houses?
 
-c. In the preceding problem, for each of the following sets of predictors: (a) write out the two-level model for predicting housing prices, (b) write out the corresponding composite model, and (c) determine how many model parameters (fixed effects and variance components) must be estimated.
-    - Square footage, number of bedrooms
-    - Median neighborhood income, rating of neighborhood schools
-    - Square footage, number of bedrooms, age of house, median neighborhood housing price
-    - Square footage, median neighborhood income, rating of neighborhood schools, median neighborhood housing price
+c. In the preceding problem, for each of the following sets of predictors: 
+  (i) write out the two-level model for predicting housing prices, 
+  (ii) write out the corresponding composite model, and 
+  (iii) determine how many model parameters (fixed effects and variance components) must be estimated.
+
+* Predictor set 1: Square footage, number of bedrooms
+* Predictor set 2: Median neighborhood income, rating of neighborhood schools
+* Predictor set 3: Square footage, number of bedrooms, age of house, median neighborhood housing price
+* Predictor set 4: Square footage, median neighborhood income, rating of neighborhood schools, median neighborhood housing price
   
 ### Exercise 3
 
