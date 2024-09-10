@@ -87,7 +87,7 @@ c. In the preceding problem, for each of the following sets of predictors: (a) w
 
 ### Exercise 4
 
-4. (C8) Why is Model A (Section \@ref(modela8)) sometimes called the "unconditional means model"? Why is it also sometimes called the "random intercepts model"? Are these two labels consistent with each other?
+4. (C8) Why is Model A (Section \@ref(modela8) in 8.6.2) sometimes called the "unconditional means model"? Why is it also sometimes called the "random intercepts model"? Are these two labels consistent with each other?
 
 ### Exercise 5
 
