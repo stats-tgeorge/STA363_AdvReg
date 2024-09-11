@@ -572,6 +572,59 @@ $$\begin{aligned}&a_i = \alpha_0 + \alpha_1 ~ Orchestra_i+ u_i\\
 This approach uses likelihood-based methods (instead of least squares) to address the previously mentioned disadvantages
 
 
+## Creating a Composite Model {.sortofsmall}
+
+Plug in the equations for $a_i$ and $b_i$ to get the **composite model** 
+
+::::{.columns}
+
+:::{.column}
+
+$$Y_{ij} = a_i + b_i ~ LargeEnsemble + \epsilon_{ij}$$
+
+:::
+
+:::{.column}
+
+$$\begin{aligned}&a_i = \alpha_0 + \alpha_1 ~ Orchestra_i+ u_i\\
+&b_i = \beta_0 + \beta_1~Orchestra_i + v_i\end{aligned}$$
+
+:::
+
+::::
+
+\hline
+
+. . .
+
+$$\begin{aligned}Y_{ij} &= a_i \hspace{1.8in}+ \hspace{1.62in} b_i ~ LargeEnsemble  \hspace{2.2in}+ \epsilon_{ij}\\
+&=
+(\alpha_0 + \alpha_1 ~ Orchestra_i+ u_i) + (\beta_0 + \beta_1~Orchestra_i + v_i)LargeEnsemble\hspace{2.17in}+\epsilon_{ij}\\
+&= \space \alpha_0 + \alpha_1 ~ Orchestra_i+ u_i \hspace{.2in} + \beta_0LargeEnsemble+\beta_1Orchestra_iLargeEnsemble+v_iLargeEnsemble+\epsilon_{ij}
+\end{aligned}$$
+
+## lmer Syntax {.smaller}
+
+lmer(response~fixed effect variables | (random effect variables|group variable),data = your_data)
+
+- we determine fixed and random effects based on our composite model
+- terms with Greek letters will be fixed effects
+- terms with random components, usually $u$, $v$, or $w$ will be random effects 
+
+## Fitting our Model with lmer {.sortofsmall}
+
+$$\begin{aligned} Y_{ij}&= \space \alpha_0 + \alpha_1 ~ Orchestra_i+ u_i +\space\space\space \beta_0LargeEnsemble+\beta_1Orchestra_iLargeEnsemble+v_iLargeEnsemble+\epsilon_{ij}\\
+&=\alpha_0 + \alpha_1 ~ Orchestra_i + \beta_0LargeEnsemble+\beta_1Orchestra_iLargeEnsemble+u_i + v_iLargeEnsemble+\epsilon_{ij}
+\end{aligned}$$
+
+- All varibles with greek letters are fixed effects and all variables with $u$, $v$ are random effects. 
+
+. . .
+
+
+lmer(1 + Orchastra + LargeEnsemble + Orchestra * LargeEnsemble + (1+LargeEnsemble|id),data = music)
+
+
 
 ## Composite model {.smaller}
 

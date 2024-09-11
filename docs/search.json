@@ -4916,6 +4916,27 @@
     "text": "Framework\nLet \\(Y_{ij}\\) be the performance anxiety for the \\(i^{th}\\) musician before performance \\(j\\).\nLevel One\n\\[Y_{ij} = a_i + b_i ~ LargeEnsemble + \\epsilon_{ij}\\]\n. . .\nLevel Two\n\\[\\begin{aligned}&a_i = \\alpha_0 + \\alpha_1 ~ Orchestra_i+ u_i\\\\\n&b_i = \\beta_0 + \\beta_1~Orchestra_i + v_i\\end{aligned}\\]\n. . .\nThis approach uses likelihood-based methods (instead of least squares) to address the previously mentioned disadvantages"
   },
   {
+    "objectID": "slides/08_multilevel_mod_ch8_o.html#creating-a-composite-model",
+    "href": "slides/08_multilevel_mod_ch8_o.html#creating-a-composite-model",
+    "title": "Multilevel Models",
+    "section": "Creating a Composite Model",
+    "text": "Creating a Composite Model\nPlug in the equations for \\(a_i\\) and \\(b_i\\) to get the composite model\n\n\n\\[Y_{ij} = a_i + b_i ~ LargeEnsemble + \\epsilon_{ij}\\]\n\n\\[\\begin{aligned}&a_i = \\alpha_0 + \\alpha_1 ~ Orchestra_i+ u_i\\\\\n&b_i = \\beta_0 + \\beta_1~Orchestra_i + v_i\\end{aligned}\\]\n\n\n. . .\n\\[\\begin{aligned}Y_{ij} &= a_i \\hspace{1.8in}+ \\hspace{1.62in} b_i ~ LargeEnsemble  \\hspace{2.2in}+ \\epsilon_{ij}\\\\\n&=\n(\\alpha_0 + \\alpha_1 ~ Orchestra_i+ u_i) + (\\beta_0 + \\beta_1~Orchestra_i + v_i)LargeEnsemble\\hspace{2.17in}+\\epsilon_{ij}\\\\\n&= \\space \\alpha_0 + \\alpha_1 ~ Orchestra_i+ u_i \\hspace{.2in} + \\beta_0LargeEnsemble+\\beta_1Orchestra_iLargeEnsemble+v_iLargeEnsemble+\\epsilon_{ij}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/08_multilevel_mod_ch8_o.html#lmer-syntax",
+    "href": "slides/08_multilevel_mod_ch8_o.html#lmer-syntax",
+    "title": "Multilevel Models",
+    "section": "lmer Syntax",
+    "text": "lmer Syntax\nlmer(response~fixed effect variables | (random effect variables|group variable),data = your_data)\n\nwe determine fixed and random effects based on our composite model\nterms with Greek letters will be fixed effects\nterms with random components, usually \\(u\\), \\(v\\), or \\(w\\) will be random effects"
+  },
+  {
+    "objectID": "slides/08_multilevel_mod_ch8_o.html#fitting-our-model-with-lmer",
+    "href": "slides/08_multilevel_mod_ch8_o.html#fitting-our-model-with-lmer",
+    "title": "Multilevel Models",
+    "section": "Fitting our Model with lmer",
+    "text": "Fitting our Model with lmer\n\\[\\begin{aligned} Y_{ij}&= \\space \\alpha_0 + \\alpha_1 ~ Orchestra_i+ u_i +\\space\\space\\space \\beta_0LargeEnsemble+\\beta_1Orchestra_iLargeEnsemble+v_iLargeEnsemble+\\epsilon_{ij}\\\\\n&=\\alpha_0 + \\alpha_1 ~ Orchestra_i + \\beta_0LargeEnsemble+\\beta_1Orchestra_iLargeEnsemble+u_i + v_iLargeEnsemble+\\epsilon_{ij}\n\\end{aligned}\\]\n\nAll varibles with greek letters are fixed effects and all variables with \\(u\\), \\(v\\) are random effects.\n\n. . .\nlmer(1 + Orchastra + LargeEnsemble + Orchestra * LargeEnsemble + (1+LargeEnsemble|id),data = music)"
+  },
+  {
     "objectID": "slides/08_multilevel_mod_ch8_o.html#composite-model-1",
     "href": "slides/08_multilevel_mod_ch8_o.html#composite-model-1",
     "title": "Multilevel Models",
@@ -5229,6 +5250,27 @@
     "title": "Multilevel Models",
     "section": "Framework",
     "text": "Framework\nLet \\(Y_{ij}\\) be the performance anxiety for the \\(i^{th}\\) musician before performance \\(j\\).\nLevel One\n\\[Y_{ij} = a_i + b_i ~ LargeEnsemble + \\epsilon_{ij}\\]\n\nLevel Two\n\\[\\begin{aligned}&a_i = \\alpha_0 + \\alpha_1 ~ Orchestra_i+ u_i\\\\\n&b_i = \\beta_0 + \\beta_1~Orchestra_i + v_i\\end{aligned}\\]\n\n\nThis approach uses likelihood-based methods (instead of least squares) to address the previously mentioned disadvantages"
+  },
+  {
+    "objectID": "slides/08_multilevel_mod_ch8.html#creating-a-composite-model",
+    "href": "slides/08_multilevel_mod_ch8.html#creating-a-composite-model",
+    "title": "Multilevel Models",
+    "section": "Creating a Composite Model",
+    "text": "Creating a Composite Model\nPlug in the equations for \\(a_i\\) and \\(b_i\\) to get the composite model\n\n\n\\[Y_{ij} = a_i + b_i ~ LargeEnsemble + \\epsilon_{ij}\\]\n\n\\[\\begin{aligned}&a_i = \\alpha_0 + \\alpha_1 ~ Orchestra_i+ u_i\\\\\n&b_i = \\beta_0 + \\beta_1~Orchestra_i + v_i\\end{aligned}\\]\n\n\n\n\\[\\begin{aligned}Y_{ij} &= a_i \\hspace{1.8in}+ \\hspace{1.62in} b_i ~ LargeEnsemble  \\hspace{2.2in}+ \\epsilon_{ij}\\\\\n&=\n(\\alpha_0 + \\alpha_1 ~ Orchestra_i+ u_i) + (\\beta_0 + \\beta_1~Orchestra_i + v_i)LargeEnsemble\\hspace{2.17in}+\\epsilon_{ij}\\\\\n&= \\space \\alpha_0 + \\alpha_1 ~ Orchestra_i+ u_i \\hspace{.2in} + \\beta_0LargeEnsemble+\\beta_1Orchestra_iLargeEnsemble+v_iLargeEnsemble+\\epsilon_{ij}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/08_multilevel_mod_ch8.html#lmer-syntax",
+    "href": "slides/08_multilevel_mod_ch8.html#lmer-syntax",
+    "title": "Multilevel Models",
+    "section": "lmer Syntax",
+    "text": "lmer Syntax\nlmer(response~fixed effect variables | (random effect variables|group variable),data = your_data)\n\nwe determine fixed and random effects based on our composite model\nterms with Greek letters will be fixed effects\nterms with random components, usually \\(u\\), \\(v\\), or \\(w\\) will be random effects"
+  },
+  {
+    "objectID": "slides/08_multilevel_mod_ch8.html#fitting-our-model-with-lmer",
+    "href": "slides/08_multilevel_mod_ch8.html#fitting-our-model-with-lmer",
+    "title": "Multilevel Models",
+    "section": "Fitting our Model with lmer",
+    "text": "Fitting our Model with lmer\n\\[\\begin{aligned} Y_{ij}&= \\space \\alpha_0 + \\alpha_1 ~ Orchestra_i+ u_i +\\space\\space\\space \\beta_0LargeEnsemble+\\beta_1Orchestra_iLargeEnsemble+v_iLargeEnsemble+\\epsilon_{ij}\\\\\n&=\\alpha_0 + \\alpha_1 ~ Orchestra_i + \\beta_0LargeEnsemble+\\beta_1Orchestra_iLargeEnsemble+u_i + v_iLargeEnsemble+\\epsilon_{ij}\n\\end{aligned}\\]\n\nAll varibles with greek letters are fixed effects and all variables with \\(u\\), \\(v\\) are random effects.\n\n\nlmer(1 + Orchastra + LargeEnsemble + Orchestra * LargeEnsemble + (1+LargeEnsemble|id),data = music)"
   },
   {
     "objectID": "slides/08_multilevel_mod_ch8.html#composite-model-1",
