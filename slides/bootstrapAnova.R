@@ -1,3 +1,5 @@
+# Author: Dr. Maria Tackett
+
 bootstrapAnova <- function(mA, m0, B=1000){
   oneBootstrap <- function(m0, mA){
     d <- drop(simulate(m0))

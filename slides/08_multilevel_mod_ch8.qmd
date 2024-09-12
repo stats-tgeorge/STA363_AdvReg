@@ -593,8 +593,6 @@ $$\begin{aligned}&a_i = \alpha_0 + \alpha_1 ~ Orchestra_i+ u_i\\
 
 ::::
 
-\hline
-
 . . .
 
 $$\begin{aligned}Y_{ij} &= a_i \hspace{1.8in}+ \hspace{1.62in} b_i ~ LargeEnsemble  \hspace{2.2in}+ \epsilon_{ij}\\
@@ -605,7 +603,7 @@ $$\begin{aligned}Y_{ij} &= a_i \hspace{1.8in}+ \hspace{1.62in} b_i ~ LargeEnsemb
 
 ## lmer Syntax {.smaller}
 
-lmer(response~fixed effect variables | (random effect variables|group variable),data = your_data)
+lmer(response~fixed effect variables + (random effect variables|group variable),data = your_data)
 
 - we determine fixed and random effects based on our composite model
 - terms with Greek letters will be fixed effects
@@ -622,7 +620,7 @@ $$\begin{aligned} Y_{ij}&= \space \alpha_0 + \alpha_1 ~ Orchestra_i+ u_i +\space
 . . .
 
 
-lmer(1 + Orchastra + LargeEnsemble + Orchestra * LargeEnsemble + (1+LargeEnsemble|id),data = music)
+lmer(na ~ 1 + Orchastra + LargeEnsemble + Orchestra * LargeEnsemble + (1+LargeEnsemble|id),data = music)
 
 
 
@@ -1105,5 +1103,4 @@ The content in the slides is from
   - Initial versions of the slides are by Dr. Maria Tackett, Duke University
 - Singer, J. D. & Willett, J. B. (2003). *Applied longitudinal data analysis: Modeling change and event occurrence*. Oxford university press.    
 - Sadler, Michael E., and Christopher J. Miller. 2010. “Performance Anxiety: A Longitudinal Study of the Roles of Personality and Experience in Musicians.” Social Psychological and Personality Science 1 (3): 280–87. http://dx.doi.org/10.1177/1948550610370492.
-
-  
+- Initial versions of the slides are by Dr. Maria Tackett, Duke University
