@@ -20,7 +20,7 @@ Each of your assignments will begin with the following steps.
 
 -   In the `YAML` add the following (add what you don't have). The embed-resources component will make your final rendered `html` self-contained.
 
-    ```{r}
+```{r}
 #| label: yaml_example
 #| eval: false
 ---
@@ -30,7 +30,7 @@ format:
   html:
     embed-resources: true
 ---
-    ```
+```
 
 ## Instructions
 
@@ -45,9 +45,12 @@ All problems are from {{< var course.text >}} Abbreviated BMLR.
 Use the numbering on the left. The codes are for instructor use (Ex: C1).
 
 
-1. (C1-5) @Walker-Barnes2001 describe, "Ethnic differences in the effect of parenting on gang involvement and gang delinquency: a longitudinal, hierarchical linear modeling perspective".  In this study, 300 ninth graders from one high school in an urban southeastern city were assessed at the beginning of the school year about their gang activity, the gang activity of their peers, behavior of their parents, and their ethnic and cultural heritage.  Then, information about their gang activity was collected at 7 additional occasions during the school year. 
+1. (C1-5) Walker and Barnes (2001) describe, "Ethnic differences in the effect of parenting on gang involvement and gang delinquency: a longitudinal, hierarchical linear modeling perspective".  In this study, 300 ninth graders from one high school in an urban southeastern city were assessed at the beginning of the school year about their gang activity, the gang activity of their peers, behavior of their parents, and their ethnic and cultural heritage.  Then, information about their gang activity was collected at 7 additional occasions during the school year. 
 
-a. or this study: (a) give the observational units at Level One and Level Two, and (b) list potential explanatory variables at both Level One and Level Two.
+a. For this study: 
+
+  (i) Give the observational units at Level One and Level Two
+  (ii) List potential explanatory variables at both Level One and Level Two.
 
 b. Describe the difference between the wide and long formats for longitudinal data in this study.
 
@@ -62,7 +65,7 @@ d. Walker-Barnes and Mason summarize their analytic approach in the following wa
     Although the authors examined four parenting behaviors---behavioral control, lax control, psychological control, and parental warmth---they did so one at a time, using four separate multilevel models.  Based on their description, write out a sample model from each of the three steps in the series.  For each model, (a) write out the two-level model for predicting gang activity, (b) write out the corresponding composite model, and (c) determine how many model parameters (fixed effects and variance components) must be estimated.
 
 
-c. Table \@ref(tab:table4chp9) shows a portion of Table 2: Results of Hierarchical Linear Modeling Analyses Modeling Gang Involvement from @Walker-Barnes2001.  Provide interpretations of significant coefficients in context.
+c. Table 1 shows a portion of Table 2: Results of Hierarchical Linear Modeling Analyses Modeling Gang Involvement from Walker and Barnes (2001).  Provide interpretations of significant coefficients in context.
 
 ```{r, include=FALSE}
 Predictor <- c("Intercept (initial status)", "Base (intercept for predicting int term)", "Peer behavior", "Black ethnicity", "White/Other ethnicity", "Parenting", "Black ethnicity X parenting", "White/Other ethnicity X parenting", "Slope (change)", "Base (intercept for predicting slope term)", "Peer behavior", "Black ethnicity", "White/Other ethnicity", "Parenting", "Black ethnicity X parenting", "White/Other ethnicity X parenting")
@@ -80,7 +83,7 @@ temp <- kable(table4chp9, booktabs=T, escape=F,
   kable_styling(full_width = F)
 
 footnote(temp, 
-         general = c("These columns focus on the parenting behavior of psychological control.", "Table reports values for coefficients in the final model with all", "variables entered.  * p<.05; ** p<.01; + p<.10"),
+         general = c("Table 1: These columns focus on the parenting behavior of psychological control.", "Table reports values for coefficients in the final model with all", "variables entered.  * p<.05; ** p<.01; + p<.10"),
          fixed_small_size = T, general_title = "")
 ```
 

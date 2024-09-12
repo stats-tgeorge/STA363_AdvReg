@@ -284,17 +284,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Going to our RStudio Server at <a href="http://turing.cornellcollege.edu:8787/" class="uri">http://turing.cornellcollege.edu:8787/</a></p></li>
 <li><p>Creating a new <em>R project</em>, inside your homework folder on the server, and giving it a sensible name such as <em>homework_8</em> and having that project in the course folder you created.</p></li>
 <li><p>Create a new quarto document and give it a sensible name such as <em>hw8</em>.</p></li>
-<li><p>In the <code>YAML</code> add the following (add what you don’t have). The embed-resources component will make your final rendered <code>html</code> self-contained.</p>
+<li><p>In the <code>YAML</code> add the following (add what you don’t have). The embed-resources component will make your final rendered <code>html</code> self-contained.</p></li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Document title"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"my name"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  html<span class="sc">:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>embed<span class="sc">-</span>resources<span class="sc">:</span> true</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    embed<span class="sc">-</span>resources<span class="sc">:</span> true</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></li>
-</ul>
+</div>
 </section>
 <section id="instructions" class="level2">
 <h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
@@ -306,17 +306,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>All problems are from The main textbook is: <a href="https://bookdown.org/roback/bookdown-BeyondMLR/">Beyond Multiple Linear Regression</a> by Paul Roback and Julie Legler – it is freely available online. Chapters 1-9. Abbreviated BMLR.</p>
 <p>Use the numbering on the left. The codes are for instructor use (Ex: C1).</p>
 <ol type="1">
-<li>(C1-5) <span class="citation" data-cites="Walker-Barnes2001">@Walker-Barnes2001</span> describe, “Ethnic differences in the effect of parenting on gang involvement and gang delinquency: a longitudinal, hierarchical linear modeling perspective”. In this study, 300 ninth graders from one high school in an urban southeastern city were assessed at the beginning of the school year about their gang activity, the gang activity of their peers, behavior of their parents, and their ethnic and cultural heritage. Then, information about their gang activity was collected at 7 additional occasions during the school year.</li>
+<li>(C1-5) Walker and Barnes (2001) describe, “Ethnic differences in the effect of parenting on gang involvement and gang delinquency: a longitudinal, hierarchical linear modeling perspective”. In this study, 300 ninth graders from one high school in an urban southeastern city were assessed at the beginning of the school year about their gang activity, the gang activity of their peers, behavior of their parents, and their ethnic and cultural heritage. Then, information about their gang activity was collected at 7 additional occasions during the school year.</li>
 </ol>
 <ol type="a">
-<li><p>or this study: (a) give the observational units at Level One and Level Two, and (b) list potential explanatory variables at both Level One and Level Two.</p></li>
+<li>For this study:</li>
+</ol>
+<ol type="i">
+<li>Give the observational units at Level One and Level Two</li>
+<li>List potential explanatory variables at both Level One and Level Two.</li>
+</ol>
+<ol start="2" type="a">
 <li><p>Describe the difference between the wide and long formats for longitudinal data in this study.</p></li>
 <li><p>Describe scenarios or research questions in which a lattice plot would be more informative than a spaghetti plot, and other scenarios or research questions in which a spaghetti plot would be preferable to a lattice plot.</p></li>
 <li><p>Walker-Barnes and Mason summarize their analytic approach in the following way, where HLM = hierarchical linear models, a synonym for multilevel models:</p>
 <p><em>The first series [of analyses] tested whether there was overall change and/or significant individual variability in gang [activity] over time, regardless of parenting behavior, peer behavior, or ethnic and cultural heritage. Second, given the well documented relation between peer and adolescent behavior . . . HLM analyses were conducted examining the effect of peer gang [activity] on [initial gang activity and] changes in gang [activity] over time. Finally, four pairs of analyses were conducted examining the role of each of the four parenting variables on [initial gang activity and] changes in gang [activity].</em></p>
 <p>The last series of analyses controlled for peer gang activity and ethnic and cultural heritage, in addition to examining interactions between parenting and ethnic and cultural heritage.</p>
 <p>Although the authors examined four parenting behaviors—behavioral control, lax control, psychological control, and parental warmth—they did so one at a time, using four separate multilevel models. Based on their description, write out a sample model from each of the three steps in the series. For each model, (a) write out the two-level model for predicting gang activity, (b) write out the corresponding composite model, and (c) determine how many model parameters (fixed effects and variance components) must be estimated.</p></li>
-<li><p>Table @ref(tab:table4chp9) shows a portion of Table 2: Results of Hierarchical Linear Modeling Analyses Modeling Gang Involvement from <span class="citation" data-cites="Walker-Barnes2001">@Walker-Barnes2001</span>. Provide interpretations of significant coefficients in context.</p></li>
+<li><p>Table 1 shows a portion of Table 2: Results of Hierarchical Linear Modeling Analyses Modeling Gang Involvement from Walker and Barnes (2001). Provide interpretations of significant coefficients in context.</p></li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
@@ -413,7 +419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody><tfoot>
 <tr class="odd">
-<td style="text-align: left; padding: 0;"><sup></sup> These columns focus on the parenting behavior of psychological control.</td>
+<td style="text-align: left; padding: 0;"><sup></sup> Table 1: These columns focus on the parenting behavior of psychological control.</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
