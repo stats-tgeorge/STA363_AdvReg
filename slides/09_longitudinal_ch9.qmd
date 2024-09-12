@@ -177,6 +177,7 @@ Given the longitudinal structure of the data, we are able to answer questions at
 We can conduct exploratory data analysis at both levels, e.g., 
 
 - Univariate and bivariate EDA
+- lattice plots
 - Spaghetti plots 
 
 
