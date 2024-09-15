@@ -7,7 +7,7 @@ format:
     slide-number: true
   html:
     output-file: "05_glm_ch5_o.html"
-logo: "../img/favicon.png"
+logo: "/img/favicon.png"
 ---
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
