@@ -36,7 +36,43 @@ format:
 
 Be sure to include the relevant R code as well as full sentences answering each of the questions (i.e. if I ask for the average, you can output the answer in R but **also** write a full sentence with the answer). Be sure to frequently save your files!
 
-Data for the homework will be in the STA363_inst_files -> data folder.
+In this homework we will work with four packages: `tidyverse` which is a collection of packages for doing data analysis in a "tidy" way, `tidymodels` for statistical model coefficients, `splines` for our splines models and `ISLR2` for the `Boston` data. 
+
+
+## Code
+
+#### Polynomial Regression
+
+To fit a degree 4 polynomial regression model you use:
+
+```{r}
+#| eval: false
+model1 <- lm(wage ~ poly(age , 4, raw = TRUE), data = wage)
+```
+
+#### Cubic Spline
+
+To fit a cubic spline (degree 3) polynomial regression model you use:
+
+```{r}
+#| eval: false
+model2<- lm(wage ~ bs(age , knots = c(22, 33, 50), degree = 3), data = Wage)
+```
+
+Use quantiles of the predictor to choose your knots. The choice should be motivated by some EDA. 
+
+
+#### Natual Cubic Spline
+
+To fit a degree natural cubic spline. 
+
+```{r}
+#| eval: false
+model3 <- lm(wage ~ ns(age,df = 4), data = Wage)
+```
+
+Instead of providing the degrees of freedom (df), you can provide knots. 
+
 
 ## Exercises
 
@@ -53,15 +89,11 @@ $$Y = \beta_0 + \beta_1b_1(X) + \beta_2b_2(X) + \epsilon,$$ <br>
 
 and obtain coefficient estimates $\hat{\beta}_0 = 1,\space \hat{\beta}_1 = 1,\space \hat{\beta}_2 = −2$. Sketch the estimated curve between $X = −2$ and $X = 2$. Note the intercepts, slopes, and other relevant information.
 
-
-
-2. (ISLR,7,8) Fit some of the non-linear models investigated in this chapter to the `Auto` data set (in base R, `auto_data <- Auto` to access). Is there evidence for non-linear relationships in this data set? Create some informative plots to justify your answer.
-
-3. (ISLR,7,9) This question uses the variables `dis` (the weighted mean of distances to five Boston employment centers) and `nox` (nitrogen oxides concentration in parts per 10 million) from the Boston data (in package `ISLR2`). We will treat `dis` as the predictor and `nox` as the response.
+2. (ISLR,7,9) This question uses the variables `dis` (the weighted mean of distances to five Boston employment centers) and `nox` (nitrogen oxides concentration in parts per 10 million) from the Boston data (in package `ISLR2`). We will treat `dis` as the predictor and `nox` as the response.
 
   (a) Use the `poly()` function to fit a cubic polynomial regression to predict `nox` using `dis`. Report the regression output, and plot the resulting data and polynomial fits.
   
-  (b) Plot the polynomial fits for a range of different polynomial degrees (say, from 1 to 10), and report the associated residual sum of squares.
+  (b) Plot the polynomial fits for a range of different polynomial degrees (say, from 1 to 5), and report the associated residual sum of squares.
   
   (c) Select the optimal degree for the polynomial, and explain your results.
   
@@ -71,7 +103,7 @@ and obtain coefficient estimates $\hat{\beta}_0 = 1,\space \hat{\beta}_1 = 1,\sp
 
   (e) Now fit a natural regression spline for a range of degrees of freedom, and plot the resulting fits and report the resulting RSS. Describe the results obtained.
   
-  (f) Pick an overall best model using various metrics, complexity, and regression assumptions to make your choice. 
+  (f) Pick an overall best model using various metrics, complexity, and regression assumptions to make your choice. They are the same metrics used in multiple linear regression. 
 
 # Submission
 

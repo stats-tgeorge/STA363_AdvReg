@@ -274,6 +274,7 @@ window.Quarto = {
   <ul>
   <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
   <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   </ul>
@@ -324,13 +325,39 @@ window.Quarto = {
 <section id="instructions" class="level2">
 <h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
 <p>Be sure to include the relevant R code as well as full sentences answering each of the questions (i.e.&nbsp;if I ask for the average, you can output the answer in R but <strong>also</strong> write a full sentence with the answer). Be sure to frequently save your files!</p>
-<p>Data for the homework will be in the STA363_inst_files -&gt; data folder.</p>
+<p>In this homework we will work with four packages: <code>tidyverse</code> which is a collection of packages for doing data analysis in a “tidy” way, <code>tidymodels</code> for statistical model coefficients, <code>splines</code> for our splines models and <code>ISLR2</code> for the <code>Boston</code> data.</p>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
+<section id="polynomial-regression" class="level4">
+<h4 class="anchored" data-anchor-id="polynomial-regression">Polynomial Regression</h4>
+<p>To fit a degree 4 polynomial regression model you use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> <span class="fu">poly</span>(age , <span class="dv">4</span>, <span class="at">raw =</span> <span class="cn">TRUE</span>), <span class="at">data =</span> wage)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cubic-spline" class="level4">
+<h4 class="anchored" data-anchor-id="cubic-spline">Cubic Spline</h4>
+<p>To fit a cubic spline (degree 3) polynomial regression model you use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model2<span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> <span class="fu">bs</span>(age , <span class="at">knots =</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">33</span>, <span class="dv">50</span>), <span class="at">degree =</span> <span class="dv">3</span>), <span class="at">data =</span> Wage)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Use quantiles of the predictor to choose your knots. The choice should be motivated by some EDA.</p>
+</section>
+<section id="natual-cubic-spline" class="level4">
+<h4 class="anchored" data-anchor-id="natual-cubic-spline">Natual Cubic Spline</h4>
+<p>To fit a degree natural cubic spline.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wage <span class="sc">~</span> <span class="fu">ns</span>(age,<span class="at">df =</span> <span class="dv">4</span>), <span class="at">data =</span> Wage)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Instead of providing the degrees of freedom (df), you can provide knots.</p>
+</section>
 </section>
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
 <p>All problems are from The secondary text is: <a href="https://hastie.su.domains/ISLR2/ISLRv2_corrected_June_2023.pdf.download.html">An Introduction to Statistical Learning with Applications in R</a> by Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani – it is freely available online. Chapter 7. Abbreviated ISLR.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'ISLR2' was built under R version 4.4.1</code></pre>
 </div>
@@ -341,17 +368,16 @@ window.Quarto = {
 <p><span class="math display">\[Y = \beta_0 + \beta_1b_1(X) + \beta_2b_2(X) + \epsilon,\]</span> <br></p>
 <p>and obtain coefficient estimates <span class="math inline">\(\hat{\beta}_0 = 1,\space \hat{\beta}_1 = 1,\space \hat{\beta}_2 = −2\)</span>. Sketch the estimated curve between <span class="math inline">\(X = −2\)</span> and <span class="math inline">\(X = 2\)</span>. Note the intercepts, slopes, and other relevant information.</p>
 <ol start="2" type="1">
-<li><p>(ISLR,7,8) Fit some of the non-linear models investigated in this chapter to the <code>Auto</code> data set (in base R, <code>auto_data &lt;- Auto</code> to access). Is there evidence for non-linear relationships in this data set? Create some informative plots to justify your answer.</p></li>
-<li><p>(ISLR,7,9) This question uses the variables <code>dis</code> (the weighted mean of distances to five Boston employment centers) and <code>nox</code> (nitrogen oxides concentration in parts per 10 million) from the Boston data (in package <code>ISLR2</code>). We will treat <code>dis</code> as the predictor and <code>nox</code> as the response.</p></li>
+<li>(ISLR,7,9) This question uses the variables <code>dis</code> (the weighted mean of distances to five Boston employment centers) and <code>nox</code> (nitrogen oxides concentration in parts per 10 million) from the Boston data (in package <code>ISLR2</code>). We will treat <code>dis</code> as the predictor and <code>nox</code> as the response.</li>
 </ol>
 <ol type="a">
 <li><p>Use the <code>poly()</code> function to fit a cubic polynomial regression to predict <code>nox</code> using <code>dis</code>. Report the regression output, and plot the resulting data and polynomial fits.</p></li>
-<li><p>Plot the polynomial fits for a range of different polynomial degrees (say, from 1 to 10), and report the associated residual sum of squares.</p></li>
+<li><p>Plot the polynomial fits for a range of different polynomial degrees (say, from 1 to 5), and report the associated residual sum of squares.</p></li>
 <li><p>Select the optimal degree for the polynomial, and explain your results.</p></li>
 <li><p>Use the <code>bs()</code> function to fit a regression spline to predict <code>nox</code> using <code>dis</code>. Report the output for the fit using four degrees of freedom. How did you choose the knots? Plot the resulting fit.</p></li>
 <li><p>Now fit a regression spline for a range of degrees of freedom, and plot the resulting fits and report the resulting RSS. Describe the results obtained.</p></li>
 <li><p>Now fit a natural regression spline for a range of degrees of freedom, and plot the resulting fits and report the resulting RSS. Describe the results obtained.</p></li>
-<li><p>Pick an overall best model using various metrics, complexity, and regression assumptions to make your choice.</p></li>
+<li><p>Pick an overall best model using various metrics, complexity, and regression assumptions to make your choice. They are the same metrics used in multiple linear regression.</p></li>
 </ol>
 </section>
 <section id="submission" class="level1">
