@@ -3121,7 +3121,7 @@ vertical-align: -.125em;
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>A student research team at St. Olaf College contributed to the efforts of biologist Dr. Kathy Shea to investigate a rich data set concerning forestation in the surrounding land. Tubes were placed on trees in some locations or <em>transects</em> but not in others. Interest centers on whether tree growth is affected by the presence of tubes. The data is currently stored in long format in <code>treetube_exam.csv</code>. Each row represents one tree in a given year. Key variables include:</p>
+<p>A student research team at St. Olaf College contributed to the efforts of biologist Dr. Kathy Shea to investigate a rich data set concerning forestation in the surrounding land. Tubes were placed on trees in some locations or <em>transects</em> but not in others. Interest centers on whether tree growth is affected by the presence of tubes. The data is currently stored in long format in <code>treetube.csv</code>. Each row represents one tree in a given year. Key variables include:</p>
 <pre><code>- `id`: id of individual tree
 - `transect`: The id of the transect housing the tree
 - `tubex`: 1 if the tree had a tube, 0 if not
@@ -3182,7 +3182,7 @@ vertical-align: -.125em;
 <section id="data-1" class="level3">
 <h3 class="anchored" data-anchor-id="data-1">Data</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>treeTubes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/treetube_exam.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>treeTubes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/treetube_exam.csv&quot;</span>) <span class="sc">|&gt;</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 4643 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
