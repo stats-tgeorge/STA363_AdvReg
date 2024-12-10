@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.6.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -35,12 +69,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f23ba2909ee4adecfc556405604ddcf7.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f23ba2909ee4adecfc556405604ddcf7.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f707d543aff12f1830e9c0f1412e05f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-6af67cd508844c32942f25d7386163ba.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -80,13 +114,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syllabus.html">Course information</a></li><li class="breadcrumb-item"><a href="./syllabus.html">Syllabus</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -105,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
     <a href="http://turing.cornellcollege.edu:8787/" title="RStudio Server" class="quarto-navigation-tool px-1" aria-label="RStudio Server"><i class="bi bi-code-square"></i></a>
     <a href="https://bookdown.org/roback/bookdown-BeyondMLR/" title="Book" class="quarto-navigation-tool px-1" aria-label="Book"><i class="bi bi-book"></i></a>
     <div class="dropdown">
-      <a href="" title="Moodle" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Moodle"><i class="bi bi-person-fill"></i></a>
+      <a href="" title="Moodle" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Moodle"><i class="bi bi-person-fill"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://moodle.cornellcollege.edu/mod/forum/view.php?id=296372">
@@ -137,9 +171,9 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Course Contents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -160,9 +194,9 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Course information</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -216,15 +250,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#open-access-books-free" id="toc-open-access-books-free" class="nav-link" data-scroll-target="#open-access-books-free">Open Access Books – Free!</a></li>
   <li><a href="#course-site-and-moodle" id="toc-course-site-and-moodle" class="nav-link" data-scroll-target="#course-site-and-moodle">Course Site and Moodle</a></li>
   <li><a href="#software-no-need-to-install" id="toc-software-no-need-to-install" class="nav-link" data-scroll-target="#software-no-need-to-install">Software – No need to install</a></li>
-  <li><a href="#group-work" id="toc-group-work" class="nav-link" data-scroll-target="#group-work">Group Work</a></li>
   <li><a href="#evaluations-and-grades" id="toc-evaluations-and-grades" class="nav-link" data-scroll-target="#evaluations-and-grades">Evaluations and grades</a></li>
-  <li><a href="#ai-policy" id="toc-ai-policy" class="nav-link" data-scroll-target="#ai-policy">AI Policy</a>
-  <ul class="collapse">
-  <li><a href="#disabilities-and-accomodations-policy" id="toc-disabilities-and-accomodations-policy" class="nav-link" data-scroll-target="#disabilities-and-accomodations-policy">DISABILITIES AND ACCOMODATIONS POLICY</a></li>
-  <li><a href="#academic-honesty-policy" id="toc-academic-honesty-policy" class="nav-link" data-scroll-target="#academic-honesty-policy">ACADEMIC HONESTY POLICY</a></li>
-  <li><a href="#illness-policy" id="toc-illness-policy" class="nav-link" data-scroll-target="#illness-policy">Illness Policy</a></li>
-  <li><a href="#mandatory-reporter-reminder" id="toc-mandatory-reporter-reminder" class="nav-link" data-scroll-target="#mandatory-reporter-reminder">Mandatory Reporter Reminder</a></li>
-  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="syllabus.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -234,7 +260,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syllabus.html">Course information</a></li><li class="breadcrumb-item"><a href="./syllabus.html">Syllabus</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Advanced Regression</h1>
-<p class="subtitle lead">Fall 2024 Block 1</p>
+<p class="subtitle lead">Spring 2025 Block 8</p>
 </div>
 
 
@@ -262,21 +288,19 @@ ul.task-list li input[type="checkbox"] {
 </div><div class="column" style="width:33%;">
 <section id="class-meetings" class="level3">
 <h3 class="anchored" data-anchor-id="class-meetings">Class Meetings</h3>
-<p>August 28th - September 18th</p>
-<p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg> &nbsp; M-F,9am-11am and 1pm-3pm</p>
+<p>August 26th to September 18th</p>
+<p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg> &nbsp; By Appointment</p>
 <p><svg aria-hidden="true" role="img" viewbox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"></path></svg> &nbsp; West 201</p>
-<p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192h80v56H48V192zm0 104h80v64H48V296zm128 0h96v64H176V296zm144 0h80v64H320V296zm80-48H320V192h80v56zm0 160v40c0 8.8-7.2 16-16 16H320V408h80zm-128 0v56H176V408h96zm-144 0v56H64c-8.8 0-16-7.2-16-16V408h80zM272 248H176V192h96v56z"></path></svg> &nbsp; <a href="https://calendar.google.com/calendar/u/0?cid=Y19hMTllMWE2M2IwOGFiNDkzYmQxNmJmNWU3MThhZmM1OWYxODIyN2EwZDhmOGQzZGMyOGRjMzE5YjQ1NmJlYjFiQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20">Course Calendar</a></p>
 </section>
 </div><div class="column" style="width:33%;">
 <section id="office-hours" class="level3">
 <h3 class="anchored" data-anchor-id="office-hours">Office Hours</h3>
 <p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"></path></svg> &nbsp; MWTh 3:05pm-4:05pm and by appt.</p>
 <p><svg aria-hidden="true" role="img" viewbox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"></path></svg> &nbsp; West 311</p>
-<p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M128 0c13.3 0 24 10.7 24 24V64H296V24c0-13.3 10.7-24 24-24s24 10.7 24 24V64h40c35.3 0 64 28.7 64 64v16 48V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V192 144 128C0 92.7 28.7 64 64 64h40V24c0-13.3 10.7-24 24-24zM400 192H48V448c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V192zM329 297L217 409c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47 95-95c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path></svg> &nbsp; <a href="https://calendar.app.google/Li1dftFBXqzRnaX69">Optional Appointment</a></p>
+<p><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M128 0c13.3 0 24 10.7 24 24V64H296V24c0-13.3 10.7-24 24-24s24 10.7 24 24V64h40c35.3 0 64 28.7 64 64v16 48V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V192 144 128C0 92.7 28.7 64 64 64h40V24c0-13.3 10.7-24 24-24zM400 192H48V448c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V192zM329 297L217 409c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47 95-95c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path></svg> &nbsp; <a href="https://calendar.app.google/oHqiU2FZDJLXKq429">Optional Appointment</a></p>
 </section>
 </div>
 </div>
-<p>I am available far beyond these times listed. Please email me and we can set up a time to chat about class material or whatever you prefer! I will generally announce changes to office hours in class but I still suggest checking the <a href="https://calendar.google.com/calendar/u/0?cid=Y19hMTllMWE2M2IwOGFiNDkzYmQxNmJmNWU3MThhZmM1OWYxODIyN2EwZDhmOGQzZGMyOGRjMzE5YjQ1NmJlYjFiQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20">Course Calendar</a> to verify availability.</p>
 <section id="you-are-a-priority" class="level3">
 <h3 class="anchored" data-anchor-id="you-are-a-priority">You Are A Priority</h3>
 <p>My goal for this block is to help you learn the material. I want to first and foremost recognize that you are an individual and thus are unique and may learn uniquely. Additionally, your health and well-being are priority one. Learning cannot happen effectively if you don’t meet your other personal needs. That all being said, I have structured the class in a way that I, from experience teaching and learning myself, think will be most beneficial for the majority of students. I promise you that I will do my best to create an inclusive and engaging learning environment. I ask that you keep an open line of communication between us for when you may need help and/or flexibility. You and your learning are why I am here.</p>
@@ -308,32 +332,33 @@ ul.task-list li input[type="checkbox"] {
 <p>We will use a combination of technologies in this course including R, and RStudio (server). I have set up an RStudio server on a machine we have on campus that we will all access with a web browser. You don’t need to install any software (in fact for a while I prefer you don’t). More on this in class. If you are an off campus student, please let me know right away, as you may need to checkout a laptop (free) from IT to work on homework from home.</p>
 <p>You can access the RStudio Server at: &lt;http://turing.cornellcollege.edu:8787/&gt;.</p>
 <p><strong>If you have any technical problems you should contact IT as soon as possible</strong>. <a href="https://www.cornellcollege.edu/information-technology/index.shtml">Submit a Work Order</a>!</p>
-</section>
-<section id="group-work" class="level3">
-<h3 class="anchored" data-anchor-id="group-work">Group Work</h3>
-<p>In this class, I would like you to work in groups for a variety of reasons. A large part of this class is communicating analysis. At the beginning of the block, groups will be formed. You should expect to work with this group every day. When we work in groups in class we may decide on roles, specifically who is controlling the one screen will rotate). Group members will rotate roles between tasks to help make sure everybody is sharing work. You won’t be working in a group for everything; any quizzes, and exams may be individual.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Group Work</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#In this class, I would like you to work in groups for a variety of reasons. A large part of this class is communicating analysis. At the beginning of the block, groups will be formed. You should expect to work with this group every day. When we work in groups in class we may decide on roles, specifically who is controlling the one screen will rotate). Group members will rotate roles between tasks to help make sure everybody is sharing work. You won’t be working in a group for everything; any quizzes, and exams may be individual. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="evaluations-and-grades" class="level3">
-<h3 class="anchored" data-anchor-id="evaluations-and-grades">Evaluations and grades</h3>
+<h3 class="anchored">Evaluations and grades</h3>
 <section id="grade-category-descriptions" class="level4">
-<h4 class="anchored" data-anchor-id="grade-category-descriptions">Grade Category Descriptions</h4>
+<h4 class="anchored">Grade Category Descriptions</h4>
 <section id="homework" class="level5">
 <h5 class="anchored" data-anchor-id="homework">Homework:</h5>
 <p>Homework will be graded for correctness. I will generally evaluate a random subset of the assigned questions. The goal is the practice the application of the method and then be able to interpret the result.</p>
 </section>
 <section id="participation" class="level5">
 <h5 class="anchored" data-anchor-id="participation">Participation</h5>
-<p>I will measure this by your class attendance, and your work on labs and class examples. With class work, please save your script files in the folder that I can view on the RStudio server. I will look at these files to see if you are following along.</p>
+<p>I will measure this by your class (meeting) attendance, and your work on labs and class examples. With class work, please save your script files in the folder that I can view on the RStudio server. I will look at these files to see if you are following along.</p>
 </section>
 <section id="labs-and-mini-projects" class="level5">
 <h5 class="anchored" data-anchor-id="labs-and-mini-projects">Labs and Mini-Projects</h5>
 <p>This class includes a variety of related techniques generally only 1 of them is the correct technique for the particular research question. For this reason, we will do labs following a single method and mini “projects” at the end of each major new method or collection of methods. With labs, the data will be provided. With mini-projects, you will likely need to find, and clean data, and then apply the new technique.</p>
 </section>
 <section id="exams" class="level5">
-<h5 class="anchored" data-anchor-id="exams">Exams</h5>
-<p>You will have two exams this block, September 6th and 18th. Each will have two components. Component 1 will be on these dates and you will get a choice of oral or written format. Component 2 will be a take-home, open-book, open-note, exam. You will have 12 hours or more to complete this component.</p>
+<h5 class="anchored">Exams</h5>
+<p>You will have two exams this block, tbd. Each will have two components. Component 1 will be on these dates and you will get a choice of oral or written format. Component 2 will be a take-home, open-book, open-note, exam. You will have 12 hours or more to complete this component.</p>
 <div class="centered-table">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 36%">
 <col style="width: 12%">
@@ -350,7 +375,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;">200</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Participation</td>
+<td style="text-align: left;">Participation (Attend Meetings)</td>
 <td style="text-align: center;">100</td>
 </tr>
 <tr class="odd">
@@ -369,10 +394,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 <div class="centered-table">
-
-
-
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 13%">
@@ -426,11 +448,6 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<div>
-
-</div></div></section>
-</section>
-</section>
 <section id="ai-policy" class="level2">
 <h2 class="anchored" data-anchor-id="ai-policy">AI Policy</h2>
 <p>The beta release of Dall-E-Mini in July 2022 and ChatGPT in November 2022 are among many tools using artificial intelligence. There is a good possibility that using tools like these are going to become an important skill for careers in the not distant future (<a href="https://www.theguardian.com/commentisfree/2023/jan/07/chatgpt-bot-excel-ai-chatbot-tech" class="uri">https://www.theguardian.com/commentisfree/2023/jan/07/chatgpt-bot-excel-ai-chatbot-tech</a>).</p>
@@ -455,6 +472,10 @@ ul.task-list li input[type="checkbox"] {
 <p>It is my goal that you feel supported and able to share information related to your life experiences during classroom discussions, in your written work, and in any one-on-one meetings with me. You should also know that all Cornell College faculty and staff are mandatory reporters. This means that I will keep information you share with me private to the greatest extent possible. However, I am required to share information regarding sexual assault, abuse, criminal behavior, or about a student who may be a danger to themselves or to others. If you wish to speak to someone confidentially who is not a mandatory reporter, you can schedule an appointment with one of the counselors in the Ebersole Health and Wellbeing Center or contact the College Chaplain, Rev.&nbsp;Melea White, at <strong>mwhite@cornelllcollege.edu</strong>.</p>
 
 
+</section>
+</section>
+</div>
+</section>
 </section>
 </section>
 
@@ -638,18 +659,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -681,7 +691,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/stats-tgeorge\.github\.io\/STA363_AdvReg\/");
@@ -689,7 +721,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

@@ -33,14 +33,11 @@ Instructor [{{< var instructor.name >}}]({{< var instructor.url >}})
 
 ### Class Meetings
 
-August 28th - September 18th
+{{< var course.dates >}}
 
 `r fontawesome::fa("clock")` &nbsp; {{< var course.time >}}
 
 `r fontawesome::fa("location-dot")` &nbsp; West 201
-
-`r fontawesome::fa("calendar-alt")` &nbsp; [Course Calendar]({{< var course.coursecal >}})
-
 
 :::
 
@@ -57,8 +54,6 @@ August 28th - September 18th
 :::
 
 :::
-
-I am available far beyond these times listed. Please email me and we can set up a time to chat about class material or whatever you prefer! I will generally announce changes to office hours in class but I still suggest checking the [Course Calendar]({{< var course.coursecal >}}) to verify availability. 
 
 ### You Are A Priority
 
@@ -102,9 +97,11 @@ You can access the RStudio Server at: <{{< var college.rstudio >}}>.
 
 **If you have any technical problems you should contact IT as soon as possible**. [Submit a Work Order](https://www.cornellcollege.edu/information-technology/index.shtml)!
 
+```{r}
 ### Group Work
 
-In this class, I would like you to work in groups for a variety of reasons. A large part of this class is communicating analysis. At the beginning of the block, groups will be formed. You should expect to work with this group every day. When we work in groups in class we may decide on roles, specifically who is controlling the one screen will rotate). Group members will rotate roles between tasks to help make sure everybody is sharing work. You won’t be working in a group for everything; any quizzes, and exams may be individual. 
+#In this class, I would like you to work in groups for a variety of reasons. A large part of this class is communicating analysis. At the beginning of the block, groups will be formed. You should expect to work with this group every day. When we work in groups in class we may decide on roles, specifically who is controlling the one screen will rotate). Group members will rotate roles between tasks to help make sure everybody is sharing work. You won’t be working in a group for everything; any quizzes, and exams may be individual. 
+```
 
 ### Evaluations and grades
 
@@ -112,7 +109,7 @@ In this class, I would like you to work in groups for a variety of reasons. A la
 assignments <- tibble::tribble(
   ~Points,  ~Assignment,
   200 , "Homework",
-  100 ,   "Participation",
+  100 ,   "Participation (Attend Meetings)",
   300      ,  "Labs & Mini Projects",
   400      ,  "Exams, two 200pts exams",
 )
@@ -137,7 +134,7 @@ Homework will be graded for correctness. I will generally evaluate a random subs
 
 ##### Participation
 
-I will measure this by your class attendance, and your work on labs and class examples. With class work, please save your script files in the folder that I can view on the RStudio server. I will look at these files to see if you are following along. 
+I will measure this by your class (meeting) attendance, and your work on labs and class examples. With class work, please save your script files in the folder that I can view on the RStudio server. I will look at these files to see if you are following along. 
 
 
 ##### Labs and Mini-Projects
